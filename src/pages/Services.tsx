@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Palette, Smartphone, Code, TrendingUp, MessageSquare } from "lucide-react";
+import { ArrowRight, Palette, Smartphone, Code, TrendingUp, MessageSquare, Bot } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -40,6 +40,13 @@ const Services = () => {
       link: '/services/social-media-marketing',
       icon: <MessageSquare size={32} />,
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400'
+    },
+    {
+      title: 'AI & Business Automation',
+      description: 'Building intelligent systems and AI agents to automate workflows and scale your business.',
+      link: '/services/ai-business-automation',
+      icon: <Bot size={32} />,
+      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400'
     }
   ];
 
@@ -48,7 +55,7 @@ const Services = () => {
       <div className="realm-container">
         <h1 className="realm-headline">What We Do?</h1>
         <p className="realm-subheadline">
-          We offer premium branding, UI/UX, development, SEO, and social media services to help businesses achieve their goals.
+          We offer premium branding, UI/UX, development, SEO, social media services, and AI business automation to help businesses achieve their goals.
         </p>
         
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">

@@ -1,19 +1,48 @@
 
 import React from 'react';
 import ServiceCard from '@/components/ServiceCard';
+import { Palette, LayoutDashboard, Code, Search, MessageSquare, Bot } from 'lucide-react';
 
-interface ServiceItem {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  link: string;
-}
+const ServicesSection = () => {
+  const services = [
+    {
+      title: "Branding",
+      description: "Identity systems that captivate and resonate with your ideal audience.",
+      icon: <Palette size={24} />,
+      link: "/services/branding",
+    },
+    {
+      title: "UI/UX Design",
+      description: "Intuitive interfaces that convert visitors into customers.",
+      icon: <LayoutDashboard size={24} />,
+      link: "/services/ui-ux-design",
+    },
+    {
+      title: "Web & App Development",
+      description: "Fast, responsive platforms built for speed and conversion.",
+      icon: <Code size={24} />,
+      link: "/services/web-app-development",
+    },
+    {
+      title: "SEO",
+      description: "Data-driven strategies that boost visibility and drive traffic.",
+      icon: <Search size={24} />,
+      link: "/services/seo",
+    },
+    {
+      title: "Social Media Marketing",
+      description: "Strategic storytelling that multiplies your brand's impact.",
+      icon: <MessageSquare size={24} />,
+      link: "/services/social-media-marketing",
+    },
+    {
+      title: "AI & Business Automation",
+      description: "Intelligent systems and AI agents to automate workflows and scale your business.",
+      icon: <Bot size={24} />,
+      link: "/services/ai-business-automation",
+    }
+  ];
 
-interface ServicesSectionProps {
-  services: ServiceItem[];
-}
-
-const ServicesSection: React.FC<ServicesSectionProps> = ({ services }) => {
   return (
     <section className="realm-section bg-white">
       <div className="realm-container">

@@ -27,6 +27,7 @@ import UIUXDesignService from "./pages/services/UIUXDesignService";
 import WebAppDevelopmentService from "./pages/services/WebAppDevelopmentService";
 import SEOService from "./pages/services/SEOService";
 import SocialMediaMarketingService from "./pages/services/SocialMediaMarketingService";
+import AIBusinessAutomationService from "./pages/services/AIBusinessAutomationService";
 import WhoWePartnerWith from "./pages/WhoWePartnerWith";
 
 const queryClient = new QueryClient();
@@ -47,6 +48,7 @@ const App = () => (
           <Route path="/services/web-app-development" element={<WebAppDevelopmentService />} />
           <Route path="/services/seo" element={<SEOService />} />
           <Route path="/services/social-media-marketing" element={<SocialMediaMarketingService />} />
+          <Route path="/services/ai-business-automation" element={<AIBusinessAutomationService />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/who-we-partner-with" element={<WhoWePartnerWith />} />
           <Route path="/contact" element={<Contact />} />
