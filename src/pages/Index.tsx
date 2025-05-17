@@ -1,43 +1,48 @@
 
 import React from 'react';
-import HeroSection from '@/components/HeroSection';
-import TrustSection from '@/components/TrustSection';
-import CtaSection from '@/components/CtaSection';
-import ServicesSection from '@/components/home/ServicesSection';
-import TransformationStories from '@/components/home/TransformationStories';
-import CustomerTestimonials from '@/components/home/CustomerTestimonials';
-import RealmMethodSection from '@/components/home/RealmMethodSection';
-import GetStartedCTA from '@/components/home/GetStartedCTA';
-import { useHomeData } from '@/components/home/HomeData';
+import HeroSection from '@/components/home/HeroSection';
+import ImpactMetrics from '@/components/home/ImpactMetrics';
+import ServicesPreview from '@/components/home/ServicesPreview';
+import ClientSpotlight from '@/components/home/ClientSpotlight';
+import BeforeAfterVisuals from '@/components/home/BeforeAfterVisuals';
+import ClientQuotes from '@/components/home/ClientQuotes';
+import RadProcessVisual from '@/components/home/RadProcessVisual';
+import PartnerLogos from '@/components/home/PartnerLogos';
+import InsightsResourcesPreview from '@/components/home/InsightsResourcesPreview';
+import FinalCta from '@/components/home/FinalCta';
 
 const Index = () => {
-  const { services, transformationStories, testimonials, realmMethodSteps } = useHomeData();
-
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section - Solid Black Background with Bold Typography */}
       <HeroSection />
       
-      {/* Trust Section */}
-      <TrustSection />
+      {/* Impact Metrics Section - Animated Counters */}
+      <ImpactMetrics />
       
-      {/* Services Section */}
-      <ServicesSection services={services} />
+      {/* What We Do - Services Preview */}
+      <ServicesPreview />
       
-      {/* Transformation Stories Section */}
-      <TransformationStories stories={transformationStories} />
+      {/* Client Spotlight - Success Stories */}
+      <ClientSpotlight />
       
-      {/* Customer Voices Section */}
-      <CustomerTestimonials testimonials={testimonials} />
+      {/* Before & After Visual Strip */}
+      <BeforeAfterVisuals />
       
-      {/* Realm Method Section */}
-      <RealmMethodSection steps={realmMethodSteps} />
+      {/* Client Testimonials */}
+      <ClientQuotes />
       
-      {/* Get Started CTA Section */}
-      <GetStartedCTA />
+      {/* RAD Process Visual */}
+      <RadProcessVisual />
+      
+      {/* Partner Logos */}
+      <PartnerLogos />
+      
+      {/* Insights and Resources Preview */}
+      <InsightsResourcesPreview />
       
       {/* Final CTA Section */}
-      <CtaSection />
+      <FinalCta />
     </main>
   );
 };
