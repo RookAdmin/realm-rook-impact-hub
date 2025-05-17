@@ -1,0 +1,54 @@
+
+export interface ImpactStudy {
+  id: string;
+  slug: string;
+  title: string;
+  company: string;
+  companyLogo: string;
+  impactSummary: string;
+  category: string;
+  problem: string;
+  process: string;
+  outcome: string;
+  testimonial?: string;
+  testimonialAuthor?: string;
+  testimonialPosition?: string;
+  images: string[];
+  tags: string[];
+  date: string;
+}
+
+export interface Insight {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  author: string;
+  authorPosition: string;
+  authorAvatar: string;
+  readTime: string;
+  tags: string[];
+  date: string;
+  coverImage: string;
+}
+
+export interface PressRelease {
+  id: string;
+  title: string;
+  date: string;
+  url: string;
+  isExternalLink: boolean;
+  pdfUrl?: string;
+  category: string;
+  year: string;
+}
+
+export interface BrandAsset {
+  id: string;
+  name: string;
+  description: string;
+  fileTypes: string[];
+  downloadUrls: Record<string, string>;
+  previewUrl: string;
+}

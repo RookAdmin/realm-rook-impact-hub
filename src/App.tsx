@@ -15,6 +15,12 @@ import NotFound from "./pages/NotFound";
 import TermsConditions from "./pages/TermsConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import RefundsPolicy from "./pages/RefundsPolicy";
+import BrandKit from "./pages/BrandKit";
+import ImpactStudies from "./pages/ImpactStudies";
+import ImpactStudyDetail from "./pages/ImpactStudyDetail";
+import ResourcesInsights from "./pages/ResourcesInsights";
+import InsightDetail from "./pages/InsightDetail";
+import PressReleases from "./pages/PressReleases";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +37,12 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/brand-kit" element={<BrandKit />} />
+          <Route path="/impact-studies" element={<ImpactStudies />} />
+          <Route path="/impact-studies/:slug" element={<ImpactStudyDetail />} />
+          <Route path="/resources/insights" element={<ResourcesInsights />} />
+          <Route path="/resources/insights/:slug" element={<InsightDetail />} />
+          <Route path="/resources/press-releases" element={<PressReleases />} />
           <Route path="/terms-and-conditions" element={<TermsConditions />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/refunds-policy" element={<RefundsPolicy />} />
