@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -21,6 +21,7 @@ import {
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Navigation items
@@ -39,7 +40,23 @@ const Navbar = () => {
     { name: 'Brand Kit', path: '/brand-kit' },
   ];
 
+  // Set up intersection observer for hero section
+  const heroObserverRef = useRef(null);
+  
   useEffect(() => {
+    const heroSection = document.querySelector('.bg-realm-black');
+    if (heroSection) {
+      heroObserverRef.current = new IntersectionObserver(
+        ([entry]) => {
+          // When hero is visible (or partially visible), set isHeroVisible to true
+          setIsHeroVisible(entry.isIntersecting);
+        },
+        { threshold: 0.1 } // Trigger when at least 10% of the hero is visible
+      );
+      
+      heroObserverRef.current.observe(heroSection);
+    }
+    
     const handleScroll = () => {
       if (window.scrollY > 10) {
         setIsScrolled(true);
@@ -51,6 +68,9 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      if (heroObserverRef.current && heroSection) {
+        heroObserverRef.current.unobserve(heroSection);
+      }
     };
   }, []);
 
@@ -58,14 +78,23 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Determine text color based on hero visibility and scroll position
+  const textColorClass = isHeroVisible ? 'text-white' : 'text-realm-black';
+  const logoColorClass = isHeroVisible ? 'text-white' : 'text-realm-black';
+  const buttonClass = isHeroVisible ? 'bg-white text-realm-black hover:bg-realm-lightgray' : 'bg-realm-black text-white hover:bg-realm-darkgray';
+  
+  const navLinkClass = `text-sm font-medium ${textColorClass} hover:opacity-80 realm-link transition-colors duration-300`;
+
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 md:py-6",
-      isScrolled ? "bg-white shadow-md py-3 md:py-4" : "bg-transparent"
+      isScrolled ? "bg-white shadow-md py-3 md:py-4" : isHeroVisible ? "bg-transparent" : "bg-white"
     )}>
       <div className="realm-container flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <h1 className="text-xl font-display font-bold tracking-tight">REALM<span className="font-normal">by</span>ROOK</h1>
+          <h1 className={`text-xl font-display font-bold tracking-tight transition-colors duration-300 ${logoColorClass}`}>
+            REALM<span className="font-normal">by</span>ROOK
+          </h1>
         </Link>
 
         {/* Desktop Navigation */}
@@ -75,7 +104,7 @@ const Navbar = () => {
               <NavigationMenu key={item.name}>
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-sm font-medium text-realm-black hover:text-realm-black realm-link bg-transparent">
+                    <NavigationMenuTrigger className={`text-sm font-medium ${textColorClass} hover:opacity-80 realm-link transition-colors duration-300 bg-transparent`}>
                       {item.name}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -103,20 +132,20 @@ const Navbar = () => {
               <Link 
                 key={item.name} 
                 to={item.path} 
-                className="text-sm font-medium text-realm-black hover:text-realm-black realm-link"
+                className={navLinkClass}
               >
                 {item.name}
               </Link>
             )
           ))}
           <Link to="/contact">
-            <Button className="realm-button">Let's Talk</Button>
+            <Button className={`realm-button transition-colors duration-300 ${buttonClass}`}>Let's Talk</Button>
           </Link>
         </nav>
 
         {/* Mobile menu button */}
         <button 
-          className="md:hidden text-realm-black focus:outline-none" 
+          className={`md:hidden ${textColorClass} focus:outline-none transition-colors duration-300`}
           onClick={toggleMobileMenu}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
