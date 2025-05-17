@@ -22,6 +22,10 @@ import Resources from "./pages/Resources";
 import ResourcesInsights from "./pages/ResourcesInsights";
 import InsightDetail from "./pages/InsightDetail";
 import PressReleases from "./pages/PressReleases";
+import BrandingService from "./pages/services/BrandingService";
+import UIUXDesignService from "./pages/services/UIUXDesignService";
+import WebAppDevelopmentService from "./pages/services/WebAppDevelopmentService";
+import SEOService from "./pages/services/SEOService";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +40,10 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/branding" element={<BrandingService />} />
+          <Route path="/services/ui-ux-design" element={<UIUXDesignService />} />
+          <Route path="/services/web-app-development" element={<WebAppDevelopmentService />} />
+          <Route path="/services/seo" element={<SEOService />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/brand-kit" element={<BrandKit />} />
