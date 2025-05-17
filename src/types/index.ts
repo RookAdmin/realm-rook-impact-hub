@@ -13,6 +13,8 @@ export interface ImpactStudy {
   testimonial?: string;
   testimonialAuthor?: string;
   testimonialPosition?: string;
+  testimonialAuthorImage?: string;
+  featuredImage?: string;
   images: string[];
   tags: string[];
   date: string;

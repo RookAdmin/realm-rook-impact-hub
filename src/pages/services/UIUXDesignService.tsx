@@ -1,18 +1,17 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Check, Smartphone, Layout, Framer, ActivitySquare } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowDown, Check, Smartphone, Layout, Framer, ActivitySquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ServiceBreadcrumb from '@/components/services/ServiceBreadcrumb';
 
-// Create new components for this page
-import UIUXHero from '@/components/services/uiux/UIUXHero';
-import UIUXProcess from '@/components/services/uiux/UIUXProcess';
-import UIUXTools from '@/components/services/uiux/UIUXTools';
-import UIUXSpecialties from '@/components/services/uiux/UIUXSpecialties';
-import UIUXImpact from '@/components/services/uiux/UIUXImpact';
-import UIUXTestimonials from '@/components/services/uiux/UIUXTestimonials';
-import UIUXContactForm from '@/components/services/uiux/UIUXContactForm';
+// Remove the imports for components that don't exist
+// import UIUXHero from '@/components/services/uiux/UIUXHero';
+// import UIUXProcess from '@/components/services/uiux/UIUXProcess';
+// import UIUXTools from '@/components/services/uiux/UIUXTools';
+// import UIUXSpecialties from '@/components/services/uiux/UIUXSpecialties';
+// import UIUXImpact from '@/components/services/uiux/UIUXImpact';
+// import UIUXTestimonials from '@/components/services/uiux/UIUXTestimonials';
+// import UIUXContactForm from '@/components/services/uiux/UIUXContactForm';
 
 const UIUXDesignService = () => {
   const benefits = [
@@ -127,7 +126,10 @@ const UIUXDesignService = () => {
             </div>
             
             <div className="flex justify-center my-4">
-              <ArrowIndicator />
+              {/* Replace ArrowIndicator with a simple arrow div */}
+              <div className="flex items-center justify-center">
+                <ArrowDown size={24} />
+              </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
