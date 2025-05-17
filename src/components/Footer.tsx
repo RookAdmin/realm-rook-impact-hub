@@ -29,6 +29,7 @@ const Footer = () => {
       links: [
         { name: 'Privacy Policy', path: '/privacy-policy' },
         { name: 'Terms & Conditions', path: '/terms-and-conditions' },
+        { name: 'Refunds Policy', path: '/refunds-policy' },
       ],
     },
   ];
