@@ -26,6 +26,7 @@ import BrandingService from "./pages/services/BrandingService";
 import UIUXDesignService from "./pages/services/UIUXDesignService";
 import WebAppDevelopmentService from "./pages/services/WebAppDevelopmentService";
 import SEOService from "./pages/services/SEOService";
+import WhoWePartnerWith from "./pages/WhoWePartnerWith";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/services/web-app-development" element={<WebAppDevelopmentService />} />
           <Route path="/services/seo" element={<SEOService />} />
           <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/who-we-partner-with" element={<WhoWePartnerWith />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/brand-kit" element={<BrandKit />} />
           <Route path="/impact-studies" element={<ImpactStudies />} />
