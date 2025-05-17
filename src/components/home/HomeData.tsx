@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { LayoutDashboard, Palette, Code, Search } from 'lucide-react';
 
@@ -11,10 +10,8 @@ interface Service {
 }
 
 interface TransformationStory {
-  title: string;
-  description: string;
-  imageUrl: string;
-  link: string;
+  before: string;
+  after: string;
 }
 
 interface Testimonial {
@@ -72,25 +69,19 @@ export const useHomeData = (): HomeDataResult => {
       },
     ]);
 
-    // Transformation Stories data
+    // Transformation Stories data - updating to match the expected structure with before/after
     setTransformationStories([
       {
-        title: 'How Zephyr Skincare Became a Global Sensation',
-        description: 'A complete brand transformation that turned a local boutique into an international success story.',
-        imageUrl: '/placeholder.svg',
-        link: '/impact-studies/zephyr-skincare-rebranding',
+        before: "A local boutique with minimal online presence",
+        after: "A global sensation with 18K monthly visitors"
       },
       {
-        title: 'Rebuilding an E-Commerce Giant for Speed',
-        description: 'How we slashed load times from 5s to 1.2s and reduced bounce rate by 68%.',
-        imageUrl: '/placeholder.svg',
-        link: '/impact-studies/elevate-tech-ecommerce',
+        before: "5-second load times and 70% bounce rate",
+        after: "1.2-second load time and 22% bounce rate"
       },
       {
-        title: 'Organic Search Revolution for GreenPath',
-        description: 'A sustainability startup achieves 400% increase in organic traffic with our SEO strategy.',
-        imageUrl: '/placeholder.svg',
-        link: '/impact-studies/greenpath-seo-strategy',
+        before: "Invisible in search results, paying for every visitor",
+        after: "Ranking for 60+ key terms, organic traffic up 400%"
       },
     ]);
 
