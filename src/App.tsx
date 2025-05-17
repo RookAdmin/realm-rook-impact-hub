@@ -16,7 +16,6 @@ import TermsConditions from "./pages/TermsConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import RefundsPolicy from "./pages/RefundsPolicy";
 import BrandKit from "./pages/BrandKit";
-import ImpactStudies from "./pages/ImpactStudies";
 import ImpactStudyDetail from "./pages/ImpactStudyDetail";
 import Resources from "./pages/Resources";
 import ResourcesInsights from "./pages/ResourcesInsights";
@@ -28,6 +27,8 @@ import WebAppDevelopmentService from "./pages/services/WebAppDevelopmentService"
 import SEOService from "./pages/services/SEOService";
 import SocialMediaMarketingService from "./pages/services/SocialMediaMarketingService";
 import AIBusinessAutomationService from "./pages/services/AIBusinessAutomationService";
+import DomainConsultationService from "./pages/services/DomainConsultationService";
+import EnterpriseDomainService from "./pages/services/EnterpriseDomainService";
 import WhoWePartnerWith from "./pages/WhoWePartnerWith";
 
 const queryClient = new QueryClient();
@@ -49,11 +50,12 @@ const App = () => (
           <Route path="/services/seo" element={<SEOService />} />
           <Route path="/services/social-media-marketing" element={<SocialMediaMarketingService />} />
           <Route path="/services/ai-business-automation" element={<AIBusinessAutomationService />} />
+          <Route path="/services/domain-consultation" element={<DomainConsultationService />} />
+          <Route path="/services/enterprise-domain-management" element={<EnterpriseDomainService />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/who-we-partner-with" element={<WhoWePartnerWith />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/brand-kit" element={<BrandKit />} />
-          <Route path="/impact-studies" element={<ImpactStudies />} />
           <Route path="/impact-studies/:slug" element={<ImpactStudyDetail />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/resources/insights" element={<ResourcesInsights />} />

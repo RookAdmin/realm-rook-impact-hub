@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Palette, Smartphone, Code, TrendingUp, MessageSquare, Bot } from "lucide-react";
+import { ArrowRight, Palette, Smartphone, Code, TrendingUp, MessageSquare, Bot, Globe, Database } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -47,6 +47,20 @@ const Services = () => {
       link: '/services/ai-business-automation',
       icon: <Bot size={32} />,
       image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400'
+    },
+    {
+      title: 'Domain Name Consultation',
+      description: 'Expert guidance on strategic domain acquisition to build a solid foundation for your brand.',
+      link: '/services/domain-consultation',
+      icon: <Globe size={32} />,
+      image: 'https://images.unsplash.com/photo-1560472355-a3b4bcfe790d?auto=format&fit=crop&q=80&w=400'
+    },
+    {
+      title: 'Enterprise Domain Management',
+      description: 'Comprehensive solutions for managing large-scale enterprise domain portfolios securely.',
+      link: '/services/enterprise-domain-management',
+      icon: <Database size={32} />,
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=400'
     }
   ];
 

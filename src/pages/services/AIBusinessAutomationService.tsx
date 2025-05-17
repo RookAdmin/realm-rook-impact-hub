@@ -1,12 +1,13 @@
 
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Bot, CheckCircle, Layers } from 'lucide-react';
+import { ArrowRight, Bot, CheckCircle, Layers, Mail, Handshake, Settings, 
+         TrendingUp, Brain, FileText, BarChart, Briefcase, Rocket, 
+         TrendingDown, DollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
-import PageHeader from "@/components/common/PageHeader";
 
 // Variants for animations
 const fadeIn = {
@@ -72,22 +73,22 @@ const AIBusinessAutomationService = () => {
 
   // Core automation capabilities
   const automationCapabilities = [
-    { icon: "📩", title: "Lead Capture + CRM Integration" },
-    { icon: "🤝", title: "Client Onboarding & Nurture Sequences" },
-    { icon: "🛠️", title: "Internal Task Routing + Reminders" },
-    { icon: "📈", title: "Marketing Flows with Real-Time Optimization" },
-    { icon: "🧠", title: "Decision Trees for Sales Agents" },
-    { icon: "🗂️", title: "Document Generation (Proposals, Contracts, etc.)" },
-    { icon: "📊", title: "Dashboards That Think (powered by GPT agents)" }
+    { icon: <Mail size={24} />, title: "Lead Capture + CRM Integration" },
+    { icon: <Handshake size={24} />, title: "Client Onboarding & Nurture Sequences" },
+    { icon: <Settings size={24} />, title: "Internal Task Routing + Reminders" },
+    { icon: <TrendingUp size={24} />, title: "Marketing Flows with Real-Time Optimization" },
+    { icon: <Brain size={24} />, title: "Decision Trees for Sales Agents" },
+    { icon: <FileText size={24} />, title: "Document Generation (Proposals, Contracts, etc.)" },
+    { icon: <BarChart size={24} />, title: "Dashboards That Think (powered by GPT agents)" }
   ];
 
   // Impact stats 
   const impactStats = [
-    { icon: "💼", value: "80+", label: "hours/month saved for a legal startup" },
-    { icon: "🚀", value: "7.2x", label: "faster lead conversion cycle" },
-    { icon: "📉", value: "43%", label: "reduction in manual task handoffs" },
-    { icon: "🤖", value: "90%", label: "accuracy in AI-led qualification bots" },
-    { icon: "💰", value: "$72,000+", label: "saved in operational costs in 3 months" }
+    { icon: <Briefcase size={24} />, value: "80+", label: "hours/month saved for a legal startup" },
+    { icon: <Rocket size={24} />, value: "7.2x", label: "faster lead conversion cycle" },
+    { icon: <TrendingDown size={24} />, value: "43%", label: "reduction in manual task handoffs" },
+    { icon: <Bot size={24} />, value: "90%", label: "accuracy in AI-led qualification bots" },
+    { icon: <DollarSign size={24} />, value: "$72,000+", label: "saved in operational costs in 3 months" }
   ];
 
   // Use cases
@@ -133,7 +134,7 @@ const AIBusinessAutomationService = () => {
           <Link to="/contact" className="w-full">
             <Button className="realm-button w-full bg-white text-realm-black hover:bg-realm-lightgray">
               Talk to an Automation Strategist
-              <ArrowRight size={16} />
+              <ArrowRight size={16} className="ml-2" />
             </Button>
           </Link>
         </div>
@@ -165,13 +166,13 @@ const AIBusinessAutomationService = () => {
                 <Link to="/contact">
                   <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray min-w-[250px]">
                     Talk to an Automation Strategist
-                    <ArrowRight size={16} />
+                    <ArrowRight size={16} className="ml-2" />
                   </Button>
                 </Link>
                 <Link to="/case-studies">
                   <Button variant="outline" className="realm-button border-white text-white hover:bg-white/10 min-w-[200px]">
                     Explore Use Cases
-                    <ArrowRight size={16} />
+                    <ArrowRight size={16} className="ml-2" />
                   </Button>
                 </Link>
               </div>
@@ -257,7 +258,7 @@ const AIBusinessAutomationService = () => {
               <div className="flex flex-col md:flex-row items-center md:space-x-12">
                 <div className="md:w-1/2 mb-8 md:mb-0">
                   <div className="p-6 border border-white/20 rounded-lg relative overflow-hidden">
-                    <div className="absolute inset-0 bg-blue-500/5 pulse"></div>
+                    <div className="absolute inset-0 bg-white/5 pulse"></div>
                     <Bot size={120} className="mx-auto mb-6 text-white/80" />
                     
                     {/* Animated flowchart */}
@@ -306,7 +307,7 @@ const AIBusinessAutomationService = () => {
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.15 }}
                       >
-                        <span className="mt-1 text-blue-400">
+                        <span className="mt-1 text-white">
                           <CheckCircle size={18} />
                         </span>
                         <span>{capability}</span>
@@ -348,8 +349,10 @@ const AIBusinessAutomationService = () => {
                   variants={fadeIn}
                   whileHover={{ y: -5 }}
                 >
-                  <div className="text-3xl mb-4">{capability.icon}</div>
-                  <h3 className="text-xl font-display font-medium mb-2">
+                  <div className="realm-icon-container mb-4 mx-auto">
+                    {capability.icon}
+                  </div>
+                  <h3 className="text-xl font-display font-medium mb-2 text-center">
                     {capability.title}
                   </h3>
                 </motion.div>
@@ -383,7 +386,9 @@ const AIBusinessAutomationService = () => {
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.02 }}
                   >
-                    <div className="text-3xl mb-2">{stat.icon}</div>
+                    <div className="flex justify-center mb-2">
+                      {stat.icon}
+                    </div>
                     <div className="text-3xl font-bold mb-2">{stat.value}</div>
                     <div className="text-sm text-white/70">{stat.label}</div>
                   </motion.div>
@@ -454,17 +459,17 @@ const AIBusinessAutomationService = () => {
                 
                 <div className="md:w-1/2">
                   <div className="border border-white/20 p-6 rounded-lg relative overflow-hidden">
-                    <div className="absolute inset-0 bg-blue-500/5 pulse"></div>
+                    <div className="absolute inset-0 bg-white/5 pulse"></div>
                     
                     {/* Animated Flywheel */}
                     <div className="relative">
-                      <Layers size={60} className="mx-auto mb-4 text-blue-400" />
+                      <Layers size={60} className="mx-auto mb-4 text-white" />
                       <motion.div 
                         className="w-24 h-24 rounded-full border-2 border-white/30 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                         animate={{ rotate: 360 }}
                         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                       >
-                        <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 bg-blue-400 w-2 h-2 rounded-full" />
+                        <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 bg-white w-2 h-2 rounded-full" />
                       </motion.div>
                       
                       <div className="mt-8 text-center">
@@ -531,13 +536,13 @@ const AIBusinessAutomationService = () => {
                 <Link to="/contact">
                   <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray min-w-[250px]">
                     Apply for Automation Project
-                    <ArrowRight size={16} />
+                    <ArrowRight size={16} className="ml-2" />
                   </Button>
                 </Link>
                 <Link to="/contact">
                   <Button variant="outline" className="realm-button border-white text-white hover:bg-white/10 min-w-[200px]">
                     Get a Free AI Audit
-                    <ArrowRight size={16} />
+                    <ArrowRight size={16} className="ml-2" />
                   </Button>
                 </Link>
               </div>

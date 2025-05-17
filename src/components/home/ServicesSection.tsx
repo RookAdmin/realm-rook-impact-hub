@@ -1,7 +1,7 @@
 
 import React from 'react';
 import ServiceCard from '@/components/ServiceCard';
-import { Palette, LayoutDashboard, Code, Search, MessageSquare, Bot } from 'lucide-react';
+import { Palette, LayoutDashboard, Code, Search, MessageSquare, Bot, Globe, Database } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
@@ -40,6 +40,18 @@ const ServicesSection = () => {
       description: "Intelligent systems and AI agents to automate workflows and scale your business.",
       icon: <Bot size={24} />,
       link: "/services/ai-business-automation",
+    },
+    {
+      title: "Domain Name Consultation",
+      description: "Strategic domain acquisition that builds a solid foundation for your brand.",
+      icon: <Globe size={24} />,
+      link: "/services/domain-consultation",
+    },
+    {
+      title: "Enterprise Domain Management",
+      description: "Secure solutions for large-scale enterprise domain portfolios.",
+      icon: <Database size={24} />,
+      link: "/services/enterprise-domain-management",
     }
   ];
 
