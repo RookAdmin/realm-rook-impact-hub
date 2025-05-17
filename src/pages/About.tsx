@@ -1,19 +1,437 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Briefcase, TrendingUp, Users, Clock } from "lucide-react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
+  // Animations configuration
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  // Beliefs/Pillars data
+  const beliefs = [
+    {
+      title: "Precision-Led Design",
+      description: "Aesthetic meets function"
+    },
+    {
+      title: "Performance-Focused Code",
+      description: "Fast, scalable, bulletproof"
+    },
+    {
+      title: "Client Obsession",
+      description: "We're your partners, not vendors"
+    },
+    {
+      title: "Bold Thinking",
+      description: "Ideas that win hearts and markets"
+    }
+  ];
+
+  // Team data
+  const team = [
+    {
+      name: "Akshara",
+      bio: "Makes pixels behave. Jazz fan. UX nerd."
+    },
+    {
+      name: "Avinash",
+      bio: "Design strategist. Founder, fanatic, friend."
+    },
+    {
+      name: "Elena",
+      bio: "Code architect. Mountain climber. Problem solver."
+    },
+    {
+      name: "Marcus",
+      bio: "SEO wizard. Data junkie. Amateur chef."
+    }
+  ];
+
+  // Realm Code statements
+  const realmStatements = [
+    "Average is an insult.",
+    "Design must convert.",
+    "Every line of code is brand real estate.",
+    "We don't pitch. We prove."
+  ];
+
+  // Trusted brands
+  const trustedBrands = [
+    "ACME Corp", "Zenith", "Horizon", "Vertex", "Nova"
+  ];
+
+  // Impact metrics
+  const impactMetrics = [
+    { 
+      value: "40+", 
+      label: "brands scaled",
+      icon: <Briefcase className="h-6 w-6" />
+    },
+    { 
+      value: "2M+", 
+      label: "organic impressions driven",
+      icon: <TrendingUp className="h-6 w-6" />
+    },
+    { 
+      value: "95%", 
+      label: "client retention",
+      icon: <Users className="h-6 w-6" />
+    },
+    { 
+      value: "0", 
+      label: "missed deadlines",
+      icon: <Clock className="h-6 w-6" />
+    }
+  ];
+
   return (
-    <main className="min-h-screen pt-32 pb-16">
-      <div className="realm-container">
-        <h1 className="realm-headline">Who We Are?</h1>
-        <p className="realm-subheadline">
-          We're a team of designers, developers, and strategists passionate about creating digital experiences that make an impact.
-        </p>
-        
-        <div className="mt-16 border-t border-realm-lightgray pt-8">
-          <p className="text-lg">Coming soon - Our full about page</p>
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 bg-realm-black text-white">
+        <div className="realm-container">
+          <motion.div 
+            className="max-w-4xl"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.5 }}
+          >
+            <h1 className="realm-headline">
+              Agencies talk. We build realms that speak volumes.
+            </h1>
+            
+            <p className="realm-subheadline text-realm-lightgray mt-6">
+              For brands that want to matter, move people, and dominate digital. 
+              Realm by Rook is where identity, design, and growth meet precision.
+            </p>
+            
+            <div className="mt-12">
+              <Link to="/contact">
+                <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray flex items-center space-x-2">
+                  <span>Let's Build Your Realm</span>
+                  <ArrowRight size={16} />
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
-      </div>
+      </section>
+
+      {/* Origin Story */}
+      <section className="py-20 bg-white">
+        <div className="realm-container">
+          <motion.div 
+            className="max-w-3xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold">Built Different</h2>
+            <div className="w-16 h-1 bg-realm-black mt-4 mb-8"></div>
+            
+            <p className="text-xl leading-relaxed mb-6">
+              Realm was born from the ashes of mediocrity. We witnessed brands settle for 'good enough' 
+              design, half-baked strategies, and indistinguishable digital presences. So we built the 
+              antidote—a studio where precision meets ambition.
+            </p>
+            
+            <p className="text-xl leading-relaxed">
+              We exist for brands that refuse to be another face in the crowd. Leaders who understand 
+              that digital presence isn't decoration—it's the battlefield where market position is won 
+              or lost. If you're looking for just another agency, we're not it.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* The Realm Beliefs */}
+      <section className="py-20 bg-realm-black text-white">
+        <div className="realm-container">
+          <motion.div 
+            className="mb-16"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold">The Realm Beliefs</h2>
+            <div className="w-16 h-1 bg-white mt-4"></div>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {beliefs.map((belief, index) => (
+              <motion.div 
+                key={belief.title}
+                className="border border-gray-800 p-10"
+                initial="hidden"
+                whileInView="visible"
+                variants={fadeIn}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-display font-bold mb-3">{belief.title}</h3>
+                <p className="text-realm-lightgray">{belief.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Founder's Section */}
+      <section className="py-20 bg-white">
+        <div className="realm-container">
+          <motion.div 
+            className="max-w-3xl mx-auto text-center"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-3xl md:text-4xl font-display italic mb-8">
+              "We didn't create Realm to be liked. We created it to be remembered."
+            </div>
+            
+            <p className="text-lg mb-6">
+              Alex & Maya Rook, Founders
+            </p>
+            
+            <p className="text-lg text-realm-darkgray max-w-2xl mx-auto">
+              When we founded Realm, we had one goal: to create a studio that treats digital 
+              presence as the business asset it truly is—not as a decorative afterthought.
+              We believe in design that performs, code that scales, and strategy that converts.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Impact Metrics */}
+      <section className="py-20 bg-realm-black text-white">
+        <div className="realm-container">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            {impactMetrics.map((metric, index) => (
+              <motion.div 
+                key={index}
+                className="text-center"
+                initial="hidden"
+                whileInView="visible"
+                variants={fadeIn}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex justify-center mb-4">
+                  {metric.icon}
+                </div>
+                <div className="text-4xl font-display font-bold mb-2">{metric.value}</div>
+                <div className="text-realm-lightgray">{metric.label}</div>
+              </motion.div>
+            ))}
+          </div>
+          
+          <motion.div 
+            className="text-center"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-xl text-realm-lightgray">
+              We don't show off. We show results.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Who We Serve */}
+      <section className="py-20 bg-white">
+        <div className="realm-container">
+          <motion.div 
+            className="max-w-3xl mx-auto text-center"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">Who We Serve</h2>
+            
+            <p className="text-xl leading-relaxed">
+              We partner with visionaries, challengers, and changemakers — not with everyone who has a logo.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-20 bg-realm-black text-white">
+        <div className="realm-container">
+          <motion.div 
+            className="mb-16"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold">The Team</h2>
+            <div className="w-16 h-1 bg-white mt-4"></div>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {team.map((member, index) => (
+              <motion.div 
+                key={member.name}
+                className="bg-realm-black border border-gray-800 p-8"
+                initial="hidden"
+                whileInView="visible"
+                variants={fadeIn}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center text-xl font-bold mb-6">
+                  {member.name[0]}
+                </div>
+                <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+                <p className="text-realm-lightgray">{member.bio}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Realm Code */}
+      <section className="py-20 bg-white">
+        <div className="realm-container">
+          <motion.div 
+            className="mb-16"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold">The Realm Code</h2>
+            <div className="w-16 h-1 bg-realm-black mt-4"></div>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {realmStatements.map((statement, index) => (
+              <motion.div 
+                key={index}
+                className="border-l-4 border-realm-black pl-6 py-2"
+                initial="hidden"
+                whileInView="visible"
+                variants={fadeIn}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-2xl font-display">{statement}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Signature Quote */}
+      <section className="py-20 bg-realm-black text-white">
+        <div className="realm-container">
+          <motion.div 
+            className="max-w-3xl mx-auto text-center"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-3xl md:text-5xl font-display font-bold leading-tight">
+              "You don't need another agency. You need a realm of your own."
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Trusted By */}
+      <section className="py-16 bg-white">
+        <div className="realm-container">
+          <motion.div 
+            className="text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-lg font-medium text-realm-darkgray">
+              Trusted By Real Brands
+            </h3>
+          </motion.div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+            {trustedBrands.map((brand, index) => (
+              <motion.div 
+                key={brand}
+                className="flex items-center justify-center grayscale"
+                initial="hidden"
+                whileInView="visible"
+                variants={fadeIn}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-24 h-12 bg-realm-lightgray/20 flex items-center justify-center font-medium">
+                  {brand}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 bg-realm-black text-white">
+        <div className="realm-container">
+          <motion.div 
+            className="text-center"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeIn}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">
+              If you're ready to lead, we're ready to build.
+            </h2>
+            
+            <Link to="/contact">
+              <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray flex items-center space-x-2 mx-auto">
+                <span>Talk to Realm</span>
+                <ArrowRight size={16} />
+              </Button>
+            </Link>
+            
+            <div className="flex flex-wrap justify-center mt-16 space-x-6 text-realm-lightgray">
+              <Link to="/services" className="hover:text-white transition-colors">
+                What We Do?
+              </Link>
+              <Link to="/case-studies" className="hover:text-white transition-colors">
+                Impact Studies
+              </Link>
+              <Link to="/resources" className="hover:text-white transition-colors">
+                Insights & Press
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </main>
   );
 };
