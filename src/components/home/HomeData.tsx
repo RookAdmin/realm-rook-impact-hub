@@ -73,17 +73,17 @@ export const useHomeData = () => {
   // Customer testimonials data
   const testimonials: Testimonial[] = [
     {
-      quote: 'Realm isn't an agency. They're a weapon.',
+      quote: "Realm isn't an agency. They're a weapon.",
       author: 'Rishi B.',
       position: 'Founder, Zephyr Skincare'
     },
     {
-      quote: 'They understood our product better than we did.',
+      quote: "They understood our product better than we did.",
       author: 'Natasha D.',
       position: 'CEO, Finovo'
     },
     {
-      quote: 'The ROI speaks for itself. Best decision we made this year.',
+      quote: "The ROI speaks for itself. Best decision we made this year.",
       author: 'Marcus T.',
       position: 'CMO, Elevate Tech'
     }
