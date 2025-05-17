@@ -46,7 +46,7 @@ export const impactStudies: ImpactStudy[] = [
     companyLogo: '/placeholder.svg',
     impactSummary: '5s to 1.2s load time, 70% to 22% bounce rate, 41% higher AOV',
     category: 'Web/App Development',
-    problem: 'Elevate Tech's e-commerce store was plagued by slow load times (5 seconds on average) and a sky-high bounce rate of 70%. Cart abandonment was rampant, and the outdated technology stack couldn't support their growth plans.',
+    problem: "Elevate Tech's e-commerce store was plagued by slow load times (5 seconds on average) and a sky-high bounce rate of 70%. Cart abandonment was rampant, and the outdated technology stack couldn't support their growth plans.",
     process: 'We conducted a comprehensive technical audit and rebuilt their platform from scratch using modern technologies with performance at the core. The development process prioritized mobile optimization, reduced JavaScript overhead, implemented lazy loading, and optimized all media assets.',
     outcome: 'The new platform loads in just 1.2 seconds, reducing bounce rate to 22%. Average order value increased by 41% due to improved product discovery and checkout flow. Mobile conversions doubled, and the new architecture scales effortlessly during high-traffic periods.',
     testimonial: "The ROI speaks for itself. Best decision we made this year. Our customers constantly comment on how fast and easy our site is to use now.",
