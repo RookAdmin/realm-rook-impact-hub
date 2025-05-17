@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Palette, Smartphone, Code, TrendingUp } from "lucide-react";
+import { ArrowRight, Palette, Smartphone, Code, TrendingUp, MessageSquare } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -33,6 +33,13 @@ const Services = () => {
       link: '/services/seo',
       icon: <TrendingUp size={32} />,
       image: 'https://images.unsplash.com/photo-1572177812156-58036aae439c?auto=format&fit=crop&q=80&w=400'
+    },
+    {
+      title: 'Social Media Marketing',
+      description: 'Multiplying brand impact through strategic storytelling and AI-powered social media management.',
+      link: '/services/social-media-marketing',
+      icon: <MessageSquare size={32} />,
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400'
     }
   ];
 
@@ -41,10 +48,10 @@ const Services = () => {
       <div className="realm-container">
         <h1 className="realm-headline">What We Do?</h1>
         <p className="realm-subheadline">
-          We offer premium branding, UI/UX, development, and SEO services to help businesses achieve their goals.
+          We offer premium branding, UI/UX, development, SEO, and social media services to help businesses achieve their goals.
         </p>
         
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {services.map((service, index) => (
             <div key={index} className="service-card">
               <div className="mb-6 aspect-video overflow-hidden">

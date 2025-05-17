@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Palette, LayoutDashboard, Code, Search, ArrowRight } from 'lucide-react';
+import { Palette, LayoutDashboard, Code, Search, ArrowRight, MessageSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ServicesPreview = () => {
@@ -37,6 +37,14 @@ const ServicesPreview = () => {
       icon: <Search size={24} />,
       link: "/services/seo",
       image: "https://images.unsplash.com/photo-1572177812156-58036aae439c?auto=format&fit=crop&q=80&w=800&h=500"
+    },
+    {
+      id: "social",
+      title: "Social Media Marketing",
+      description: "Strategic storytelling that multiplies your brand's impact.",
+      icon: <MessageSquare size={24} />,
+      link: "/services/social-media-marketing",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800&h=500"
     }
   ];
 
@@ -53,7 +61,7 @@ const ServicesPreview = () => {
           <div className="w-16 h-1 bg-realm-black"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
