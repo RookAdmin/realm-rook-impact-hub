@@ -17,7 +17,7 @@ interface ServiceBreadcrumbProps {
 
 const ServiceBreadcrumb = ({ serviceName, serviceUrl }: ServiceBreadcrumbProps) => {
   return (
-    <Breadcrumb className="py-2">
+    <Breadcrumb className="py-4">
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
@@ -32,7 +32,9 @@ const ServiceBreadcrumb = ({ serviceName, serviceUrl }: ServiceBreadcrumbProps) 
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>{serviceName}</BreadcrumbPage>
+          <BreadcrumbLink asChild>
+            <Link to={serviceUrl}>{serviceName}</Link>
+          </BreadcrumbLink>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
