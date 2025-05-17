@@ -25,7 +25,7 @@ const InsightCard = ({ insight }: InsightCardProps) => {
             <img 
               src={insight.coverImage} 
               alt={insight.title} 
-              className="w-full h-full object-cover" 
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
             />
           </div>
           

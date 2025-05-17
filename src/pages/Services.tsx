@@ -2,29 +2,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Palette, Smartphone, Code, TrendingUp } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
       title: 'Branding',
       description: 'Crafting unique identities that resonate with your audience and stand the test of time.',
-      link: '/services/branding'
+      link: '/services/branding',
+      icon: <Palette size={32} />,
+      image: 'https://images.unsplash.com/photo-1545665277-5937489579f2?auto=format&fit=crop&q=80&w=400'
     },
     {
       title: 'UI/UX Design',
       description: 'Designing user-friendly experiences that delight users and achieve business goals.',
-      link: '/services/ui-ux-design'
+      link: '/services/ui-ux-design',
+      icon: <Smartphone size={32} />,
+      image: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=400'
     },
     {
       title: 'Web/App Development',
       description: 'Building responsive, scalable digital homes that perform flawlessly across all devices.',
-      link: '/services/web-app-development'
+      link: '/services/web-app-development',
+      icon: <Code size={32} />,
+      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=400'
     },
     {
       title: 'SEO',
       description: 'Boosting online visibility through data-driven strategies that deliver measurable results.',
-      link: '/services/seo'
+      link: '/services/seo',
+      icon: <TrendingUp size={32} />,
+      image: 'https://images.unsplash.com/photo-1572177812156-58036aae439c?auto=format&fit=crop&q=80&w=400'
     }
   ];
 
@@ -39,6 +47,16 @@ const Services = () => {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
           {services.map((service, index) => (
             <div key={index} className="service-card">
+              <div className="mb-6 aspect-video overflow-hidden">
+                <img 
+                  src={service.image}
+                  alt={`${service.title} service`}
+                  className="realm-image realm-image-greyscale hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="realm-icon-container">
+                {service.icon}
+              </div>
               <h3 className="text-2xl font-display font-bold mb-4">{service.title}</h3>
               <p className="text-realm-darkgray mb-6">{service.description}</p>
               <Link to={service.link} className="realm-link flex items-center space-x-2">

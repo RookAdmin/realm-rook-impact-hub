@@ -14,6 +14,15 @@ const ImpactStudyCard = ({ study }: ImpactStudyCardProps) => {
   return (
     <Card className="border border-realm-lightgray hover:border-realm-black transition-all duration-300 flex flex-col h-full">
       <CardContent className="pt-6 flex-grow">
+        {/* Added featured image */}
+        <div className="aspect-video mb-6 overflow-hidden">
+          <img 
+            src={study.featuredImage || "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=400"}
+            alt={study.title}
+            className="realm-image realm-image-greyscale hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        
         <div className="mb-4 flex items-center">
           <img 
             src={study.companyLogo} 

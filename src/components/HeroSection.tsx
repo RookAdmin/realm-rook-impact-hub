@@ -6,8 +6,17 @@ import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-realm-black text-white">
-      <div className="realm-container">
+    <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-realm-black text-white relative">
+      <div className="realm-image-container absolute inset-0 z-0 opacity-40">
+        <img 
+          src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80" 
+          alt="Architectural transformation" 
+          className="realm-image realm-image-greyscale"
+        />
+        <div className="realm-image-overlay"></div>
+      </div>
+      
+      <div className="realm-container relative z-20">
         <div className="max-w-4xl">
           <h1 className="realm-headline animate-fade-in">
             We don't just design.<br />We create realms of impact.
@@ -32,7 +41,7 @@ const HeroSection = () => {
         </div>
         
         {/* Availability indicator - FOMO tactic */}
-        <div className="mt-20 inline-block border border-realm-lightgray/30 px-4 py-2 text-sm animate-subtle-pulse">
+        <div className="mt-20 inline-block border border-realm-lightgray/30 px-4 py-2 text-sm animate-subtle-pulse bg-realm-black bg-opacity-70">
           <span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>
           Only 2 slots left for May onboarding
         </div>

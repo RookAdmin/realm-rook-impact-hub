@@ -11,14 +11,14 @@ const WhoWePartnerWith = () => {
   // Featured case studies (using the first 3 impact studies)
   const featuredStudies = impactStudies.slice(0, 3);
 
-  // Partner logos (placeholders for now)
+  // Partner logos (now using placeholder images)
   const partners = [
-    { name: 'Startup India', logo: '/placeholder.svg' },
-    { name: 'WIAWIS Archery', logo: '/placeholder.svg' },
-    { name: 'Lawtech Partners', logo: '/placeholder.svg' },
-    { name: 'FinTech Horizon', logo: '/placeholder.svg' },
-    { name: 'EduNext AI', logo: '/placeholder.svg' },
-    { name: 'Smart India Hackathon', logo: '/placeholder.svg' }
+    { name: 'Startup India', logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100' },
+    { name: 'WIAWIS Archery', logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100' },
+    { name: 'Lawtech Partners', logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100' },
+    { name: 'FinTech Horizon', logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100' },
+    { name: 'EduNext AI', logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100' },
+    { name: 'Smart India Hackathon', logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100' }
   ];
 
   // Industries we serve
@@ -37,12 +37,14 @@ const WhoWePartnerWith = () => {
     {
       quote: "Realm by Rook has been our digital backbone. Their clarity and execution is unmatched.",
       author: "CEO, Lawtech India",
-      company: "Lawtech India"
+      company: "Lawtech India",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100"
     },
     {
       quote: "Working with Realm transformed our entire digital strategy. They deliver both speed and quality.",
       author: "Marketing Director, EduNext AI",
-      company: "EduNext AI"
+      company: "EduNext AI",
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=100"
     }
   ];
 
@@ -50,15 +52,18 @@ const WhoWePartnerWith = () => {
   const strengths = [
     {
       title: "Clarity Over Chaos",
-      description: "We bring structure and transparency to every project."
+      description: "We bring structure and transparency to every project.",
+      image: "https://images.unsplash.com/photo-1453738773917-9c3eff1db985?auto=format&fit=crop&q=80&w=400"
     },
     {
       title: "Speed + Quality",
-      description: "With our RAD model, we move 10x faster without compromise."
+      description: "With our RAD model, we move 10x faster without compromise.",
+      image: "https://images.unsplash.com/photo-1595079676339-1534801ad6c5?auto=format&fit=crop&q=80&w=400"
     },
     {
       title: "Built for Growth",
-      description: "Our systems scale with your ambition."
+      description: "Our systems scale with your ambition.",
+      image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&q=80&w=400"
     }
   ];
 
@@ -94,9 +99,18 @@ const WhoWePartnerWith = () => {
           <h2 className="text-3xl font-display font-bold mb-12 text-center">What Makes Our Partnerships Work?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {strengths.map((strength, index) => (
-              <div key={index} className="bg-white p-8 border border-realm-black">
-                <h3 className="text-xl font-bold mb-4">{strength.title}</h3>
-                <p className="text-realm-darkgray">{strength.description}</p>
+              <div key={index} className="bg-white border border-realm-black">
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={strength.image} 
+                    alt={strength.title}
+                    className="w-full h-full object-cover realm-image-greyscale"
+                  />
+                </div>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold mb-4">{strength.title}</h3>
+                  <p className="text-realm-darkgray">{strength.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -124,9 +138,18 @@ const WhoWePartnerWith = () => {
           <h2 className="text-3xl font-display font-bold mb-12 text-center">Words from Our Partners</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="border border-gray-700 p-8">
-                <p className="text-xl mb-6 italic">"{testimonial.quote}"</p>
-                <p className="font-bold">– {testimonial.author}</p>
+              <div key={index} className="border border-gray-700 p-8 flex">
+                <div className="mr-6">
+                  <img 
+                    src={testimonial.image}
+                    alt={testimonial.author}
+                    className="w-16 h-16 object-cover rounded-full"
+                  />
+                </div>
+                <div>
+                  <p className="text-xl mb-6 italic">"{testimonial.quote}"</p>
+                  <p className="font-bold">– {testimonial.author}</p>
+                </div>
               </div>
             ))}
           </div>

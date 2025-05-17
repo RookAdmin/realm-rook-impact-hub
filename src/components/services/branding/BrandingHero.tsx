@@ -12,7 +12,7 @@ const BrandingHero = () => {
   };
 
   return (
-    <section className="pt-16 md:pt-24 pb-16">
+    <section className="pt-16 md:pt-24 pb-16 relative">
       <div className="realm-container">
         <div className="max-w-4xl">
           <h1 className="realm-headline mb-6">
@@ -25,12 +25,19 @@ const BrandingHero = () => {
             Get Your Brand Built <ArrowRight size={16} />
           </Button>
         </div>
-        <div className="mt-16 flex justify-center">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border border-realm-lightgray p-10">
             <img 
-              src="/placeholder.svg" 
+              src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80" 
+              alt="Brand Identity Example" 
+              className="w-full realm-image-greyscale" 
+            />
+          </div>
+          <div className="border border-realm-lightgray p-10">
+            <img 
+              src="https://images.unsplash.com/photo-1633613286991-611fe299c4be?auto=format&fit=crop&q=80" 
               alt="Brand Wordmark Example" 
-              className="w-full max-w-md" 
+              className="w-full realm-image-greyscale" 
             />
           </div>
         </div>
