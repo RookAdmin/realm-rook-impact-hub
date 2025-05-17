@@ -18,6 +18,7 @@ import RefundsPolicy from "./pages/RefundsPolicy";
 import BrandKit from "./pages/BrandKit";
 import ImpactStudies from "./pages/ImpactStudies";
 import ImpactStudyDetail from "./pages/ImpactStudyDetail";
+import Resources from "./pages/Resources";
 import ResourcesInsights from "./pages/ResourcesInsights";
 import InsightDetail from "./pages/InsightDetail";
 import PressReleases from "./pages/PressReleases";
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/brand-kit" element={<BrandKit />} />
           <Route path="/impact-studies" element={<ImpactStudies />} />
           <Route path="/impact-studies/:slug" element={<ImpactStudyDetail />} />
+          <Route path="/resources" element={<Resources />} />
           <Route path="/resources/insights" element={<ResourcesInsights />} />
           <Route path="/resources/insights/:slug" element={<InsightDetail />} />
           <Route path="/resources/press-releases" element={<PressReleases />} />

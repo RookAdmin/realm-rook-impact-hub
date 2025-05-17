@@ -4,6 +4,20 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger
+} from "@/components/ui/navigation-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,7 +28,14 @@ const Navbar = () => {
     { name: 'Who We Are?', path: '/about' },
     { name: 'What We Do?', path: '/services' },
     { name: 'Impact Studies', path: '/case-studies' },
-    { name: 'Resources', path: '/resources' },
+    { 
+      name: 'Resources', 
+      subItems: [
+        { name: 'All Resources', path: '/resources' },
+        { name: 'Insights', path: '/resources/insights' },
+        { name: 'Press Releases', path: '/resources/press-releases' },
+      ]
+    },
     { name: 'Brand Kit', path: '/brand-kit' },
   ];
 
@@ -50,13 +71,43 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
-            <Link 
-              key={item.name} 
-              to={item.path} 
-              className="text-sm font-medium text-realm-black hover:text-realm-black realm-link"
-            >
-              {item.name}
-            </Link>
+            item.subItems ? (
+              <NavigationMenu key={item.name}>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-sm font-medium text-realm-black hover:text-realm-black realm-link bg-transparent">
+                      {item.name}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[200px] gap-3 p-4">
+                        {item.subItems.map((subItem) => (
+                          <li key={subItem.name}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                to={subItem.path}
+                                className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-realm-lightgray hover:text-realm-black focus:bg-realm-lightgray focus:text-realm-black"
+                              >
+                                <div className="text-sm font-medium leading-none">
+                                  {subItem.name}
+                                </div>
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            ) : (
+              <Link 
+                key={item.name} 
+                to={item.path} 
+                className="text-sm font-medium text-realm-black hover:text-realm-black realm-link"
+              >
+                {item.name}
+              </Link>
+            )
           ))}
           <Link to="/contact">
             <Button className="realm-button">Let's Talk</Button>
@@ -79,13 +130,31 @@ const Navbar = () => {
           <div className="px-4 py-6 space-y-4">
             {navItems.map((item) => (
               <div key={item.name}>
-                <Link 
-                  to={item.path} 
-                  className="block py-2 text-lg font-medium text-realm-black hover:text-realm-darkgray"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
+                {item.subItems ? (
+                  <div className="py-2">
+                    <div className="text-lg font-medium text-realm-black mb-2">{item.name}</div>
+                    <div className="pl-4 space-y-2">
+                      {item.subItems.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          to={subItem.path}
+                          className="block py-1 text-base text-realm-black hover:text-realm-darkgray"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link 
+                    to={item.path} 
+                    className="block py-2 text-lg font-medium text-realm-black hover:text-realm-darkgray"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )}
               </div>
             ))}
             <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
