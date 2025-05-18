@@ -19,6 +19,7 @@ export const impactStudies: ImpactStudy[] = [
     images: ['/placeholder.svg', '/placeholder.svg', '/placeholder.svg'],
     tags: ['Branding', 'Website', 'SEO'],
     date: '2023-08-15',
+    region: 'North America'
   },
   {
     id: '2',
@@ -37,6 +38,7 @@ export const impactStudies: ImpactStudy[] = [
     images: ['/placeholder.svg', '/placeholder.svg', '/placeholder.svg'],
     tags: ['UI/UX Design', 'Financial Software', 'Conversion Optimization'],
     date: '2023-09-22',
+    region: 'Europe'
   },
   {
     id: '3',
@@ -55,6 +57,7 @@ export const impactStudies: ImpactStudy[] = [
     images: ['/placeholder.svg', '/placeholder.svg', '/placeholder.svg'],
     tags: ['Web Development', 'E-Commerce', 'Performance Optimization'],
     date: '2023-10-05',
+    region: 'Asia Pacific'
   },
   {
     id: '4',
@@ -64,7 +67,7 @@ export const impactStudies: ImpactStudy[] = [
     companyLogo: '/placeholder.svg',
     impactSummary: '400% increase in organic traffic, ranking for 60+ key terms',
     category: 'SEO',
-    problem: "GreenPath, an innovative sustainability startup, had created groundbreaking eco-friendly products but was invisible in search results. Their target audience couldn't find them organically, forcing reliance on expensive paid acquisition.",
+    problem: "GreenPath, an innovative sustainability startup, had invisible in search results. Their target audience couldn't find them organically, forcing reliance on expensive paid acquisition.",
     process: "We developed a comprehensive SEO strategy starting with technical site optimization and keyword research. We created an educational content hub, implemented structured data markup, built a strategic backlink profile, and optimized the site architecture for both users and search engines.",
     outcome: "Within 6 months, GreenPath saw a 400% increase in organic search traffic. The brand now ranks on the first page for 60+ key industry terms. Organic search became their largest acquisition channel, reducing CAC by 62% and allowing them to reallocate budget to R&D.",
     testimonial: "Realm's SEO expertise transformed our business model by making our digital presence truly sustainable. We're now reaching the right audience without paying for every visitor.",
@@ -73,6 +76,7 @@ export const impactStudies: ImpactStudy[] = [
     images: ['/placeholder.svg', '/placeholder.svg', '/placeholder.svg'],
     tags: ['SEO', 'Content Strategy', 'Organic Growth'],
     date: '2023-11-14',
+    region: 'Global'
   },
 ];
 

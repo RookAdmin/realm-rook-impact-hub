@@ -1,4 +1,3 @@
-
 export interface ImpactStudy {
   id: string;
   slug: string;
@@ -18,6 +17,7 @@ export interface ImpactStudy {
   images: string[];
   tags: string[];
   date: string;
+  region?: string;  // Add region as an optional property
 }
 
 export interface Insight {
