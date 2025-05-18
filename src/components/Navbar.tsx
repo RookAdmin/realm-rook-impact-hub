@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Logo from './common/Logo';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -110,14 +110,7 @@ const Navbar = () => {
     )}>
       <div className="realm-container flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <img
-            src={isHeroVisible ? "/public/logo-white.png" : "/public/logo-black.png"}
-            alt="Logo"
-            className="h-8 md:h-10 ${logoColorClass}"
-          />
-          {/* <h1 className={`text-xl font-display font-bold tracking-tight transition-colors duration-300 ${logoColorClass}`}>
-            REALM<span className="font-normal">by</span>ROOK
-          </h1> */}
+          <Logo variant={isHeroVisible ? 'light' : 'dark'} className="h-8 md:h-10" />
         </Link>
 
         {/* Desktop Navigation */}

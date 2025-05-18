@@ -61,7 +61,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12">
           {/* Realm by Rook column */}
           <div className="lg:col-span-2">
-            <img src="/public/logo-white.png" alt="Realm by Rook Logo" className="mb-4 w-32" />
+            <Logo variant="light" className="mb-4 w-32" />
             <p className="mb-6 text-gray-300 max-w-sm">
               We blend creativity and technology to build experiences that inspire action.
             </p>
@@ -80,20 +80,55 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Links columns */}
-          {footerLinks.map((column) => (
-            <div key={column.title}>
-              <h3 className="font-medium mb-4 text-sm text-gray-400">
-                {column.titleLink ? (
-                  <Link to={column.titleLink} className="hover:text-white transition-colors">
-                    {column.title}
+          {/* What We Do? column */}
+          <div>
+            <h3 className="font-medium mb-4 text-sm text-gray-400">
+              <Link to="/services" className="hover:text-white transition-colors">
+                What We Do?
+              </Link>
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks[0].links.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.path}
+                    className="hover:text-gray-300 transition-colors"
+                  >
+                    {link.name}
                   </Link>
-                ) : (
-                  column.title
-                )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company column */}
+          <div>
+            <h3 className="font-medium mb-4 text-sm text-gray-400">
+              {footerLinks[1].title}
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks[1].links.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.path}
+                    className="hover:text-gray-300 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources and Legal columns */}
+          <div>
+            {/* Resources section */}
+            <div className="mb-8">
+              <h3 className="font-medium mb-4 text-sm text-gray-400">
+                {footerLinks[2].title}
               </h3>
               <ul className="space-y-3">
-                {column.links.map((link) => (
+                {footerLinks[2].links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.path}
@@ -105,7 +140,26 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-          ))}
+
+            {/* Legal section */}
+            <div>
+              <h3 className="font-medium mb-4 text-sm text-gray-400">
+                {footerLinks[3].title}
+              </h3>
+              <ul className="space-y-3">
+                {footerLinks[3].links.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      to={link.path}
+                      className="hover:text-gray-300 transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
         {/* Copyright and address */}
