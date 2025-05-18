@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Rocket, Shield, Settings, Check } from "lucide-react";
+import { BriefcaseIcon, MonitorIcon, CodeIcon, BarChart3Icon, Share2Icon, CpuIcon, CheckIcon } from "lucide-react";
 import PageHeader from '@/components/common/PageHeader';
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 
@@ -28,25 +28,85 @@ const staggerContainer = {
 };
 
 const D2CStartups = () => {
-  // Benefits list
-  const benefits = [
-    "Secure your brand domains across all sales channels",
-    "Protect against cybersquatting and brand impersonation",
-    "Manage all domains in one unified dashboard",
-    "Expert support for international expansion"
+  // Services list
+  const services = [
+    {
+      title: "Strategic Brand Architecture",
+      description: "Architectures that command attention, build loyalty, and drive exponential growth.",
+      icon: BriefcaseIcon,
+    },
+    {
+      title: "Conversion-Optimized UI/UX",
+      description: "Designs engineered to captivate and convert every visitor into a loyal customer.",
+      icon: MonitorIcon,
+    },
+    {
+      title: "Robust, Scalable Development",
+      description: "Enterprise-grade technology stacks that support rapid expansion without compromise.",
+      icon: CodeIcon,
+    },
+    {
+      title: "Data-Driven SEO Excellence",
+      description: "Positioned for maximum visibility with proven strategies that generate sustainable traffic.",
+      icon: BarChart3Icon,
+    },
+    {
+      title: "Dynamic Social Media Influence",
+      description: "Amplify your brand presence with campaigns tailored to engage and convert at scale.",
+      icon: Share2Icon,
+    },
+    {
+      title: "AI-Enabled Business Automation",
+      description: "Implement intelligent systems that streamline operations, reduce overhead, and unlock growth potential.",
+      icon: CpuIcon,
+    }
+  ];
+
+  // Growth process steps
+  const growthSteps = [
+    {
+      number: 1,
+      title: "Precision Brand Strategy",
+      description: "Crafted to resonate deeply with target audiences and create lasting differentiation."
+    },
+    {
+      number: 2,
+      title: "Seamless Digital Engineering",
+      description: "From concept to launch, delivering flawless, scalable platforms."
+    },
+    {
+      number: 3,
+      title: "Impactful Search & Social Growth",
+      description: "Accelerating discovery and engagement through data-backed methodologies."
+    },
+    {
+      number: 4,
+      title: "Intelligent Automation Integration",
+      description: "Transforming complex workflows into effortless, efficient operations."
+    }
   ];
 
   // Testimonials
   const testimonials = [
     {
-      quote: "Realm eliminated our domain headaches so we could focus on growing our brand presence across channels.",
-      author: "Sarah J.",
-      company: "GlowCo Skincare"
+      quote: "Partnering with Realm revolutionized our customer acquisition and operational efficiency. Their approach delivers measurable impact.",
+      author: "Leading D2C Founder"
     },
     {
-      quote: "Their domain security package saved us from a potential brand disaster and customer confusion.",
-      author: "Michael T.",
-      company: "FitBox Subscription"
+      quote: "The automation solutions enabled us to scale rapidly while maintaining impeccable brand experience.",
+      author: "CEO, Emerging Consumer Brand"
+    }
+  ];
+
+  // FAQ items
+  const faqs = [
+    {
+      question: "What distinguishes your services from typical agencies?",
+      answer: "We deliver enterprise-caliber solutions tailored for aggressive growth and long-term brand leadership."
+    },
+    {
+      question: "How do you ensure alignment with our unique brand vision?",
+      answer: "Through collaborative strategy development and transparent execution at every step."
     }
   ];
 
@@ -58,29 +118,52 @@ const D2CStartups = () => {
       />
       
       {/* Hero Section */}
-      <PageHeader 
-        title="Protect & Scale Your D2C Brand Identity"
-        subtitle="Domain management and brand protection tailored for direct-to-consumer businesses."
-        isLarge={true}
-      />
-      
-      {/* Hero CTA Buttons */}
-      <section className="py-8 bg-white">
-        <div className="realm-container flex flex-wrap gap-4 justify-center">
-          <Link to="/contact">
-            <Button className="realm-button bg-realm-black text-white">
-              Secure Your Brand Today
-            </Button>
-          </Link>
-          <Link to="/services/domain-consultation">
-            <Button className="realm-button border border-realm-black bg-white text-realm-black hover:bg-realm-black hover:text-white">
-              Book Free Consultation
-            </Button>
-          </Link>
+      <section className="bg-realm-black text-white py-20 relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-40">
+          <img 
+            src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80" 
+            alt="Professional team collaboration" 
+            className="object-cover w-full h-full grayscale"
+          />
+          <div className="absolute inset-0 bg-realm-black bg-opacity-60"></div>
+        </div>
+        
+        <div className="realm-container relative z-10">
+          <div className="max-w-3xl">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6"
+            >
+              Elevate Your D2C Brand to Industry-Leading Excellence
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl md:text-2xl mb-10"
+            >
+              Comprehensive Solutions in Branding, UI/UX, Development, SEO, Social Media, and AI Automation — Engineered for Scalable Success
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Link to="/contact">
+                <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                  Request Your Strategic Consultation
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </section>
       
-      {/* Main Value Proposition */}
+      {/* Services Section */}
       <section className="realm-section bg-white">
         <div className="realm-container">
           <motion.div 
@@ -88,104 +171,107 @@ const D2CStartups = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeIn}
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-center">
-              D2C Brands Face Unique Domain Challenges
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              Defining Market Leadership for D2C Brands
             </h2>
-            
-            <div className="max-w-4xl mx-auto text-lg text-center mb-12">
-              <p className="mb-6">
-                As you scale across multiple channels, your domain portfolio becomes increasingly complex and vulnerable. 
-                A single domain oversight can cost you sales, customer trust, and brand equity.
-              </p>
-              <p className="font-medium">
-                Realm provides enterprise-grade domain management—scaled for growing D2C brands.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <div className="p-6 border border-realm-lightgray hover:border-realm-black transition-all duration-300">
-                <div className="w-16 h-16 mb-4 flex items-center justify-center border border-realm-black">
-                  <Rocket size={32} />
+          </motion.div>
+          
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {services.map((service, index) => (
+              <motion.div 
+                key={index}
+                variants={fadeIn}
+                className="service-card"
+              >
+                <div className="realm-icon-container">
+                  <service.icon size={24} />
                 </div>
-                <h3 className="text-xl font-medium mb-2">Growth-Ready</h3>
-                <p>Domain infrastructure that scales with your channel expansion strategy</p>
-              </div>
-              
-              <div className="p-6 border border-realm-lightgray hover:border-realm-black transition-all duration-300">
-                <div className="w-16 h-16 mb-4 flex items-center justify-center border border-realm-black">
-                  <Shield size={32} />
-                </div>
-                <h3 className="text-xl font-medium mb-2">Brand Protected</h3>
-                <p>Security measures to prevent counterfeits and unauthorized resellers</p>
-              </div>
-              
-              <div className="p-6 border border-realm-lightgray hover:border-realm-black transition-all duration-300">
-                <div className="w-16 h-16 mb-4 flex items-center justify-center border border-realm-black">
-                  <Settings size={32} />
-                </div>
-                <h3 className="text-xl font-medium mb-2">Effortless</h3>
-                <p>One dashboard for all your domains, renewals, and DNS settings</p>
-              </div>
-            </div>
+                <h3 className="text-xl font-medium mb-3">{service.title}</h3>
+                <p className="text-realm-darkgray">{service.description}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
       
-      {/* Benefits Section */}
+      {/* Growth Process Section */}
       <section className="realm-section bg-realm-lightgray">
         <div className="realm-container">
-          <motion.div
+          <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeIn}
+            className="text-center mb-16"
           >
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center">
-                Built For D2C Growth Trajectories
-              </h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start">
-                    <span className="text-realm-black mr-3 mt-1">
-                      <Check size={20} />
-                    </span>
-                    <p className="text-lg">{benefit}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              How Industry Leaders Grow with Realm
+            </h2>
           </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {growthSteps.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative"
+              >
+                <div className="w-12 h-12 mb-6 flex items-center justify-center border border-realm-black bg-white">
+                  <span className="text-xl font-medium">{step.number}</span>
+                </div>
+                <h3 className="text-xl font-medium mb-3">{step.title}</h3>
+                <p className="text-realm-darkgray">{step.description}</p>
+                
+                {index < growthSteps.length - 1 && (
+                  <div className="hidden lg:block absolute top-6 left-full w-full h-0.5 bg-realm-black opacity-20 -ml-4 -translate-x-1/2"></div>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
       
       {/* Testimonials Section */}
       <section className="realm-section bg-white">
         <div className="realm-container">
-          <motion.div
+          <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeIn}
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
-              Trusted by D2C Brands Like Yours
+            <h2 className="text-3xl md:text-4xl font-display font-bold">
+              Proven Outcomes from Ambitious Brands
             </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-realm-lightgray p-8">
-                  <p className="text-lg mb-6 italic">"{testimonial.quote}"</p>
-                  <div>
-                    <p className="font-medium">{testimonial.author}</p>
-                    <p className="text-sm text-gray-600">{testimonial.company}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-realm-lightgray p-8 border border-transparent hover:border-realm-black transition-all duration-300"
+              >
+                <p className="text-lg mb-6 italic">"{testimonial.quote}"</p>
+                <p className="font-medium">— {testimonial.author}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
       
@@ -197,22 +283,55 @@ const D2CStartups = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeIn}
-            className="text-center"
+            className="text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-              Your Brand Deserves Enterprise-Level Protection
+              Accelerate Your Brand's Growth Trajectory
             </h2>
             
-            <p className="text-xl mb-12 max-w-3xl mx-auto">
-              Join the D2C brands that trust Realm with their most valuable digital assets.
+            <p className="text-xl mb-12">
+              Complex challenges demand sophisticated solutions. Access the expertise that empowers top-tier D2C brands to dominate their markets.
             </p>
             
             <Link to="/contact">
-              <Button className="realm-button bg-white text-realm-black hover:bg-gray-200">
-                Get Started Now
+              <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                Secure Your Strategic Session
               </Button>
             </Link>
           </motion.div>
+        </div>
+      </section>
+      
+      {/* FAQ Section */}
+      <section className="realm-section bg-white">
+        <div className="realm-container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold">
+              Frequently Asked Questions
+            </h2>
+          </motion.div>
+          
+          <div className="max-w-3xl mx-auto space-y-8">
+            {faqs.map((faq, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="border-b border-realm-lightgray pb-6"
+              >
+                <h3 className="text-xl font-medium mb-3">{faq.question}</h3>
+                <p className="text-realm-darkgray">{faq.answer}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </main>
