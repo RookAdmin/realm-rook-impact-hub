@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Globe, Shield, Layers, Users, BarChart, Lock } from 'lucide-react';
@@ -83,7 +82,7 @@ const EnterpriseDomainService = () => {
   ];
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen">
       <ServiceBreadcrumb 
         serviceName="Enterprise Domain Management" 
         serviceUrl="/services/enterprise-domain-management" 

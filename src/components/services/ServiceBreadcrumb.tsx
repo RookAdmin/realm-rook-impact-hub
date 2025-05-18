@@ -32,9 +32,7 @@ const ServiceBreadcrumb = ({ serviceName, serviceUrl }: ServiceBreadcrumbProps) 
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link to={serviceUrl}>{serviceName}</Link>
-          </BreadcrumbLink>
+          <BreadcrumbPage>{serviceName}</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
