@@ -1,10 +1,10 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Shield, Database, Layers, Users, BarChart, Lock } from "lucide-react";
+import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 import PageHeader from '@/components/common/PageHeader';
 
 // Animation variants
@@ -73,6 +73,12 @@ const EnterpriseDomainManagement = () => {
 
   return (
     <main className="min-h-screen">
+      <ServiceBreadcrumb 
+        serviceName="Enterprise Domain Management" 
+        serviceUrl="/services/enterprise-domain-management" 
+      />
+      
+      {/* Hero Section starts after breadcrumb */}
       <PageHeader 
         title="Manage Domains at Scale—Without the Chaos."
         subtitle="We secure, monitor, and renew your critical digital assets—so your tech team can focus on scaling, not chasing expiring domains."

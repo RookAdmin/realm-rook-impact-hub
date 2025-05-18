@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Globe, Search, Shield, Check, Star } from 'lucide-react';
@@ -65,10 +64,10 @@ const DomainNameConsultation = () => {
   ];
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen">
       <ServiceBreadcrumb 
         serviceName="Domain Name Consultation" 
-        serviceUrl="/services/domain-consultation" 
+        serviceUrl="/services/domain-name-consultation" 
       />
       
       {/* Hero Section */}
