@@ -51,7 +51,7 @@ const Footer = () => {
   const socialLinks = [
     { name: 'Instagram', url: 'https://www.instagram.com/realmrook?igsh=NzFkM2g3NmZzcHp0' },
     // { name: 'Twitter', url: 'https://twitter.com' },
-    { name: 'LinkedIn', url: 'https://linkedin.comhttps://www.linkedin.com/company/realmco/' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/company/realmco/' },
     // { name: 'Behance', url: 'https://behance.net' },
   ];
 
