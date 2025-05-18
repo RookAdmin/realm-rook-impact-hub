@@ -22,6 +22,7 @@ const Footer = () => {
         { name: 'Case Studies', path: '/case-studies' },
         { name: 'Resources', path: '/resources' },
         { name: 'Brand Kit', path: '/brand-kit' },
+        { name: 'Partners & Affiliates', path: '/partners' },
       ],
     },
     {
