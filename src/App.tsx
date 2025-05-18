@@ -54,10 +54,10 @@ const App = () => (
           <Route path="/services/seo" element={<SEOService />} />
           <Route path="/services/social-media-marketing" element={<SocialMediaMarketingService />} />
           <Route path="/services/ai-business-automation" element={<AIBusinessAutomationService />} />
-          <Route path="/services/domain-consultation" element={<DomainConsultationService />} />
+          {/* <Route path="/services/domain-consultation" element={<DomainConsultationService />} /> */}
           <Route path="/services/domain-name-consultation" element={<DomainNameConsultation />} />
           <Route path="/services/enterprise-domain-management" element={<EnterpriseDomainService />} />
-          <Route path="/enterprise-domains" element={<EnterpriseDomainManagement />} />
+          {/* <Route path="/enterprise-domains" element={<EnterpriseDomainManagement />} /> */}
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/who-we-partner-with" element={<WhoWePartnerWith />} />
           <Route path="/contact" element={<Contact />} />
