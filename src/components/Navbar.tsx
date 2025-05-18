@@ -110,7 +110,8 @@ const Navbar = () => {
     )}>
       <div className="realm-container flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <Logo variant={isHeroVisible ? 'light' : 'dark'} className="h-8 md:h-10" />
+        <img src={isHeroVisible ? '/logo-white.png' : '/logo-black.png'} alt="Logo" className={`h-8 md:h-10 ${logoColorClass}`} />
+          {/* <Logo variant={isHeroVisible ? 'light' : 'dark'} className="h-8 md:h-10" /> */}
         </Link>
 
         {/* Desktop Navigation */}
