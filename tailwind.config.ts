@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -30,22 +29,22 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				realm: {
-					black: '#000000',
+					black: '#0A0A0A',
 					white: '#FFFFFF',
 					lightgray: '#F1F1F1',
 					darkgray: '#222222',
 					gray: '#888888',
 				},
 				primary: {
-					DEFAULT: '#000000',
+					DEFAULT: '#0A0A0A',
 					foreground: '#FFFFFF'
 				},
 				secondary: {
 					DEFAULT: '#FFFFFF',
-					foreground: '#000000'
+					foreground: '#0A0A0A'
 				},
 				destructive: {
-					DEFAULT: '#000000',
+					DEFAULT: '#0A0A0A',
 					foreground: '#FFFFFF'
 				},
 				muted: {
@@ -58,21 +57,21 @@ export default {
 				},
 				popover: {
 					DEFAULT: '#FFFFFF',
-					foreground: '#000000'
+					foreground: '#0A0A0A'
 				},
 				card: {
 					DEFAULT: '#FFFFFF',
-					foreground: '#000000'
+					foreground: '#0A0A0A'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: '#000000',
+					primary: '#0A0A0A',
 					'primary-foreground': '#FFFFFF',
 					accent: '#F1F1F1',
 					'accent-foreground': '#222222',
 					border: '#F1F1F1',
-					ring: '#000000'
+					ring: '#0A0A0A'
 				}
 			},
 			borderRadius: {
