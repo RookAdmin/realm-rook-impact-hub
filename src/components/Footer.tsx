@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './common/Logo';
@@ -61,8 +60,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12">
           {/* Realm by Rook column */}
           <div className="lg:col-span-2">
-            <img src="./public/logo-white.png" alt="Realm by Roo" className="mb-4 w-32" />
-            {/* <Logo variant="light" className="mb-4 w-32" /> */}
+            <Logo variant="light" className="mb-4 w-32" />
             <p className="mb-6 text-gray-300 max-w-sm">
               We blend creativity and technology to build experiences that inspire action.
             </p>
