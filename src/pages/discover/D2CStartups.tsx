@@ -144,17 +144,8 @@ const D2CStartups = () => {
         serviceUrl="/discover/d2c-startups" 
       />
       
-      {/* Hero Section */}
-      <section className="bg-realm-black text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-40">
-          <img 
-            src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80" 
-            alt="Professional team collaboration" 
-            className="object-cover w-full h-full grayscale"
-          />
-          <div className="absolute inset-0 bg-realm-black bg-opacity-60"></div>
-        </div>
-        
+      {/* Hero Section - Updated with solid black background */}
+      <section className="bg-realm-black text-white py-20">
         <div className="realm-container relative z-10">
           <div className="max-w-3xl">
             <motion.h1 
