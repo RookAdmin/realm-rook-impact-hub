@@ -1,7 +1,7 @@
 
 import React from 'react';
 import ServiceCard from '@/components/ServiceCard';
-import { Palette, LayoutDashboard, Code, Search, MessageSquare, Bot, Globe, Database } from 'lucide-react';
+import { Palette, LayoutDashboard, Code, Search, MessageSquare, Bot, Globe, Database, Shield } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
@@ -49,9 +49,9 @@ const ServicesSection = () => {
     },
     {
       title: "Enterprise Domain Management",
-      description: "Secure solutions for large-scale enterprise domain portfolios.",
-      icon: <Database size={24} />,
-      link: "/services/enterprise-domain-management",
+      description: "Secure solutions for managing and protecting large-scale domain portfolios.",
+      icon: <Shield size={24} />,
+      link: "/enterprise-domains",
     }
   ];
 

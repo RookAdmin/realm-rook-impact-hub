@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Palette, Smartphone, Code, Search, MessageSquare, Bot, Globe, Database } from "lucide-react";
+import { ArrowRight, Palette, Smartphone, Code, Search, MessageSquare, Bot, Globe, Database, Shield } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -58,8 +58,8 @@ const Services = () => {
     {
       title: 'Enterprise Domain Management',
       description: 'Comprehensive solutions for managing large-scale enterprise domain portfolios securely.',
-      link: '/services/enterprise-domain-management',
-      icon: <Database size={32} />,
+      link: '/enterprise-domains',
+      icon: <Shield size={32} />,
       image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=400'
     }
   ];

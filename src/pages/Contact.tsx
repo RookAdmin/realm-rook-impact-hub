@@ -7,7 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 // Animation variants
 const fadeIn = {
@@ -25,6 +26,7 @@ const Contact = () => {
       name: "",
       email: "",
       company: "",
+      service: "",
       message: "",
     }
   });
@@ -45,7 +47,7 @@ const Contact = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-16"
         >
           <div>
-            <h1 className="realm-headline">Let's Talk</h1>
+            <h1 className="realm-headline">Let's Start Something Great</h1>
             <p className="realm-subheadline">
               Ready to take your brand to the next level? Get in touch with us to discuss your project.
             </p>
@@ -57,7 +59,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium">Email</h3>
-                  <p className="text-realm-darkgray">hello@realmbybook.com</p>
+                  <p className="text-realm-darkgray">hello@realmrook.com</p>
                 </div>
               </div>
               
@@ -76,8 +78,9 @@ const Contact = () => {
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium">Locations</h3>
-                  <p className="text-realm-darkgray">Melbourne • Sydney • New York</p>
+                  <h3 className="text-lg font-medium">Office Hours</h3>
+                  <p className="text-realm-darkgray">Mon–Fri | 10 AM – 6 PM IST</p>
+                  <p className="text-realm-darkgray mt-1">Chennai, India</p>
                 </div>
               </div>
             </div>
@@ -119,7 +122,7 @@ const Contact = () => {
                   name="company"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Company</FormLabel>
+                      <FormLabel>Company Name</FormLabel>
                       <FormControl>
                         <Input placeholder="Your company name" {...field} />
                       </FormControl>
@@ -129,10 +132,37 @@ const Contact = () => {
                 
                 <FormField
                   control={form.control}
+                  name="service"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>What Do You Need?</FormLabel>
+                      <Select 
+                        onValueChange={field.onChange} 
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a service" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="AI Automation">AI Automation</SelectItem>
+                          <SelectItem value="Web Design">Web Design</SelectItem>
+                          <SelectItem value="Domain">Domain Services</SelectItem>
+                          <SelectItem value="Branding">Branding</SelectItem>
+                          <SelectItem value="Other">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Message</FormLabel>
+                      <FormLabel>Message / Project Details</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Tell us about your project and goals" 
@@ -145,9 +175,8 @@ const Contact = () => {
                   )}
                 />
                 
-                <Button type="submit" className="realm-button">
+                <Button type="submit" className="realm-button bg-realm-black text-white">
                   Send Message
-                  <ArrowRight size={16} className="ml-2" />
                 </Button>
               </form>
             </Form>

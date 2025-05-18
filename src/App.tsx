@@ -31,6 +31,7 @@ import DomainConsultationService from "./pages/services/DomainConsultationServic
 import EnterpriseDomainService from "./pages/services/EnterpriseDomainService";
 import WhoWePartnerWith from "./pages/WhoWePartnerWith";
 import DomainNameConsultation from "./pages/services/DomainNameConsultation";
+import EnterpriseDomainManagement from "./pages/services/EnterpriseDomainManagement";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/services/domain-consultation" element={<DomainConsultationService />} />
           <Route path="/services/domain-name-consultation" element={<DomainNameConsultation />} />
           <Route path="/services/enterprise-domain-management" element={<EnterpriseDomainService />} />
+          <Route path="/enterprise-domains" element={<EnterpriseDomainManagement />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/who-we-partner-with" element={<WhoWePartnerWith />} />
           <Route path="/contact" element={<Contact />} />

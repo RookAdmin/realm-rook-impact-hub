@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import PageHeader from '@/components/common/PageHeader';
 import { impactStudies, categories } from '@/data/impactStudiesData';
 import ImpactStudyCard from '@/components/impact-studies/ImpactStudyCard';
@@ -10,10 +10,17 @@ import CtaSection from '@/components/CtaSection';
 
 const CaseStudies = () => {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [activeRegion, setActiveRegion] = useState('All');
   
-  const filteredStudies = activeCategory === 'All' 
-    ? impactStudies 
-    : impactStudies.filter(study => study.category === activeCategory || study.tags.includes(activeCategory));
+  // Create a list of unique regions from the impact studies
+  const regions = ['All', ...new Set(impactStudies.map(study => study.region || 'Global'))];
+
+  // Filter studies by both category and region
+  const filteredStudies = impactStudies.filter(study => {
+    const matchesCategory = activeCategory === 'All' || study.category === activeCategory || study.tags.includes(activeCategory);
+    const matchesRegion = activeRegion === 'All' || study.region === activeRegion;
+    return matchesCategory && matchesRegion;
+  });
 
   // Featured case studies for the top section
   const featuredCaseStudies = [
@@ -91,20 +98,44 @@ const CaseStudies = () => {
         <div className="realm-container">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">All Impact Studies</h2>
           
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`px-4 py-2 ${
-                  activeCategory === category
-                    ? 'bg-realm-black text-white'
-                    : 'bg-white text-realm-black border border-realm-black'
-                } hover:bg-realm-black hover:text-white transition-colors`}
-                onClick={() => setActiveCategory(category)}
-              >
-                {category}
-              </button>
-            ))}
+          {/* Filter by Industry/Category */}
+          <div className="mb-6">
+            <h3 className="text-lg font-medium mb-3">Filter by Industry</h3>
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  className={`px-4 py-2 ${
+                    activeCategory === category
+                      ? 'bg-realm-black text-white'
+                      : 'bg-white text-realm-black border border-realm-black'
+                  } hover:bg-realm-black hover:text-white transition-colors`}
+                  onClick={() => setActiveCategory(category)}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          {/* Filter by Region */}
+          <div className="mb-8">
+            <h3 className="text-lg font-medium mb-3">Filter by Region</h3>
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              {regions.map((region) => (
+                <button
+                  key={region}
+                  className={`px-4 py-2 ${
+                    activeRegion === region
+                      ? 'bg-realm-black text-white'
+                      : 'bg-white text-realm-black border border-realm-black'
+                  } hover:bg-realm-black hover:text-white transition-colors`}
+                  onClick={() => setActiveRegion(region)}
+                >
+                  {region}
+                </button>
+              ))}
+            </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -115,13 +146,18 @@ const CaseStudies = () => {
           
           {filteredStudies.length === 0 && (
             <div className="text-center py-16">
-              <p className="text-xl">No impact studies found for this category.</p>
-              <button 
-                className="mt-4 realm-button bg-realm-black text-white"
-                onClick={() => setActiveCategory('All')}
-              >
-                View All Studies
-              </button>
+              <p className="text-xl">No impact studies found matching your filters.</p>
+              <div className="mt-4 flex flex-wrap justify-center gap-4">
+                <button 
+                  className="realm-button bg-realm-black text-white"
+                  onClick={() => {
+                    setActiveCategory('All');
+                    setActiveRegion('All');
+                  }}
+                >
+                  Reset All Filters
+                </button>
+              </div>
             </div>
           )}
         </div>
