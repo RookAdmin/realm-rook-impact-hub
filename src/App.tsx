@@ -32,6 +32,8 @@ import EnterpriseDomainService from "./pages/services/EnterpriseDomainService";
 import WhoWePartnerWith from "./pages/WhoWePartnerWith";
 import DomainNameConsultation from "./pages/services/DomainNameConsultation";
 import EnterpriseDomainManagement from "./pages/services/EnterpriseDomainManagement";
+import D2CStartups from "./pages/discover/D2CStartups";
+import SaaSStartups from "./pages/discover/SaaSStartups";
 
 const queryClient = new QueryClient();
 
@@ -68,6 +70,8 @@ const App = () => (
           <Route path="/terms-and-conditions" element={<TermsConditions />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/refunds-policy" element={<RefundsPolicy />} />
+          <Route path="/discover/d2c-startups" element={<D2CStartups />} />
+          <Route path="/discover/saas-startups" element={<SaaSStartups />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -26,8 +26,15 @@ const Navbar = () => {
 
   // Navigation items
   const navItems = [
-    { name: 'Who We Are?', path: '/about' },
     { name: 'What We Do?', path: '/services' },
+    { 
+      name: 'Discover', 
+      subItems: [
+        { name: 'D2C Startups', path: '/discover/d2c-startups' },
+        { name: 'SaaS Startups', path: '/discover/saas-startups' },
+      ]
+    },
+    { name: 'Who We Are?', path: '/about' },
     { name: 'Impact Studies', path: '/case-studies' },
     { 
       name: 'Resources', 
