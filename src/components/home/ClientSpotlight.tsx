@@ -64,7 +64,7 @@ const ClientSpotlight = () => {
           <CarouselContent>
             {caseStudies.map((study) => (
               <CarouselItem key={study.id} className="md:basis-1/2 lg:basis-1/3">
-                <Link to={`/impact-studies/${study.slug}`} className="block group">
+                <Link to={`/case-studies/${study.slug}`} className="block group">
                   <div className="border border-white/20 hover:border-white transition-all duration-300 p-0 overflow-hidden">
                     <div className="relative aspect-video overflow-hidden">
                       <img 
@@ -103,7 +103,7 @@ const ClientSpotlight = () => {
         
         <div className="mt-12 text-center">
           <Link 
-            to="/impact-studies" 
+            to="/case-studies" 
             className="inline-flex items-center text-white border-b border-white/40 hover:border-white pb-1 transition-colors"
           >
             <span>See All Impact Studies</span>

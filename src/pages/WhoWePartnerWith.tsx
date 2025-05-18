@@ -169,7 +169,7 @@ const WhoWePartnerWith = () => {
             ))}
           </div>
           <div className="mt-12 text-center">
-            <Link to="/impact-studies" className="realm-button inline-flex items-center">
+            <Link to="/case-studies" className="realm-button inline-flex items-center">
               View All Case Studies <ArrowRight size={16} className="ml-2" />
             </Link>
           </div>

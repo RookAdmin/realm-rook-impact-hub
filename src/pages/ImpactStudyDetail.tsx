@@ -15,7 +15,7 @@ const ImpactStudyDetail = () => {
       <div className="realm-container py-20 text-center">
         <h1 className="text-3xl font-display font-bold mb-6">Study Not Found</h1>
         <p className="mb-8">The impact study you're looking for doesn't exist.</p>
-        <Link to="/impact-studies" className="realm-button">
+        <Link to="/case-studies" className="realm-button">
           View All Impact Studies
         </Link>
       </div>
@@ -36,7 +36,7 @@ const ImpactStudyDetail = () => {
         </div>
         
         <div className="realm-container relative z-10">
-          <Link to="/impact-studies" className="inline-flex items-center text-white mb-8 hover:underline">
+          <Link to="/case-studies" className="inline-flex items-center text-white mb-8 hover:underline">
             <ArrowLeft size={16} className="mr-2" />
             Back to Impact Studies
           </Link>

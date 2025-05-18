@@ -51,7 +51,7 @@ const HeroSection = () => {
               </Button>
             </Link>
             
-            <Link to="/impact-studies" className="text-white flex items-center space-x-2 realm-link hover:text-realm-lightgray transition-colors">
+            <Link to="/case-studies" className="text-white flex items-center space-x-2 realm-link hover:text-realm-lightgray transition-colors">
               <span>View Impact Studies</span>
               <ArrowRight size={16} />
             </Link>

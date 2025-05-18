@@ -32,7 +32,7 @@ const Hero = () => {
                 Get My Custom Strategy
               </Button>
             </Link>
-            <Link to="/impact-studies" className="text-white flex items-center gap-2 realm-link hover:text-realm-lightgray">
+            <Link to="/case-studies" className="text-white flex items-center gap-2 realm-link hover:text-realm-lightgray">
               <span>See Impact Studies</span>
               <ArrowRight size={16} />
             </Link>
@@ -198,7 +198,7 @@ const ProofSection = () => {
                   <p className="text-sm text-realm-darkgray mb-4">
                     "The strategic approach Realm brought to our social presence completely transformed our brand perception."
                   </p>
-                  <Link to="/impact-studies" className="realm-link text-sm flex items-center gap-1">
+                  <Link to="/case-studies" className="realm-link text-sm flex items-center gap-1">
                     <span>View Case Study</span>
                     <ArrowRight size={14} />
                   </Link>
@@ -474,7 +474,7 @@ const ImpactStudies = () => {
         </div>
         
         <div className="mt-12 text-center">
-          <Link to="/impact-studies" className="realm-link text-lg font-medium flex items-center justify-center gap-2">
+          <Link to="/case-studies" className="realm-link text-lg font-medium flex items-center justify-center gap-2">
             <span>See More Wins</span>
             <ArrowRight size={18} />
           </Link>

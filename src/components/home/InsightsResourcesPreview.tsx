@@ -120,7 +120,7 @@ const InsightsResourcesPreview = () => {
             >
               {caseStudies.map((item) => (
                 <motion.div key={item.id} variants={itemVariants}>
-                  <Link to={`/impact-studies/${item.slug}`} className="group">
+                  <Link to={`/case-studies/${item.slug}`} className="group">
                     <div className="aspect-video overflow-hidden mb-4">
                       <img 
                         src={item.image} 
@@ -139,7 +139,7 @@ const InsightsResourcesPreview = () => {
               ))}
               
               <Link 
-                to="/impact-studies" 
+                to="/case-studies" 
                 className="inline-flex items-center font-medium hover:text-realm-black/80"
               >
                 <span>View All Impact Studies</span>

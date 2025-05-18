@@ -85,7 +85,7 @@ const BrandingImpact = () => {
         </div>
         
         <div className="mt-12 text-center">
-          <Link to="/impact-studies" className="inline-flex items-center gap-2 font-medium realm-link">
+          <Link to="/case-studies" className="inline-flex items-center gap-2 font-medium realm-link">
             View All Branding Case Studies <ArrowRight size={16} />
           </Link>
         </div>

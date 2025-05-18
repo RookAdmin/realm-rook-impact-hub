@@ -28,13 +28,13 @@ const CaseStudies = () => {
       category: "E-commerce / UX Design",
       title: "RetailCore Rebrand",
       description: "How we increased conversion rates by 38% through strategic UX redesign and brand positioning.",
-      link: "/impact-studies/retailcore-rebrand"
+      link: "/case-studies/retailcore-rebrand"
     },
     {
       category: "SaaS / Development",
       title: "Fluent Finance Dashboard",
       description: "Rebuilding a complex financial app that reduced load time by 75% and improved user retention.",
-      link: "/impact-studies/fluent-finance"
+      link: "/case-studies/fluent-finance"
     }
   ];
 

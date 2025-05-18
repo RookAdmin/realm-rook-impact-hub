@@ -332,7 +332,7 @@ const SaaSStartups = () => {
             </div>
             
             <div className="mt-12 text-center">
-              <Link to="/impact-studies" className="realm-link inline-flex items-center text-realm-black font-medium">
+              <Link to="/case-studies" className="realm-link inline-flex items-center text-realm-black font-medium">
                 View All Impact Studies
                 <ArrowRight size={16} className="ml-2" />
               </Link>
