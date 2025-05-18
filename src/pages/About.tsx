@@ -33,26 +33,6 @@ const About = () => {
     }
   ];
 
-  // Team data
-  const team = [
-    {
-      name: "Akshara",
-      bio: "Makes pixels behave. Jazz fan. UX nerd."
-    },
-    {
-      name: "Avinash",
-      bio: "Design strategist. Founder, fanatic, friend."
-    },
-    {
-      name: "Elena",
-      bio: "Code architect. Mountain climber. Problem solver."
-    },
-    {
-      name: "Marcus",
-      bio: "SEO wizard. Data junkie. Amateur chef."
-    }
-  ];
-
   // Realm Code statements
   const realmStatements = [
     "Average is an insult.",
@@ -198,17 +178,15 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="text-3xl md:text-4xl font-display italic mb-8">
-              "We didn't create Realm to be liked. We created it to be remembered."
+              "From Creators of Rook"
             </div>
             
             <p className="text-lg mb-6">
-              Alex & Maya Rook, Founders
+              Aravindh Ravichandran, Founder
             </p>
             
             <p className="text-lg text-realm-darkgray max-w-2xl mx-auto">
-              When we founded Realm, we had one goal: to create a studio that treats digital 
-              presence as the business asset it truly is—not as a decorative afterthought.
-              We believe in design that performs, code that scales, and strategy that converts.
+              Realm by Rook was founded by Aravindh Ravichandran as part of the Rook ecosystem, with a mission to help founders and creators launch standout digital identities. Realm operates independently within Rook, with a sharp focus on providing branding, domains, and web systems that are minimal, premium, and built to scale. Trusted by emerging startups and visionaries, Realm is designed to quietly power bold ideas with elegance and clarity.
             </p>
           </motion.div>
         </div>
@@ -269,43 +247,6 @@ const About = () => {
               We partner with visionaries, challengers, and changemakers — not with everyone who has a logo.
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-20 bg-realm-black text-white">
-        <div className="realm-container">
-          <motion.div 
-            className="mb-16"
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeIn}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-display font-bold">The Team</h2>
-            <div className="w-16 h-1 bg-white mt-4"></div>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <motion.div 
-                key={member.name}
-                className="bg-realm-black border border-gray-800 p-8"
-                initial="hidden"
-                whileInView="visible"
-                variants={fadeIn}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center text-xl font-bold mb-6">
-                  {member.name[0]}
-                </div>
-                <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                <p className="text-realm-lightgray">{member.bio}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
