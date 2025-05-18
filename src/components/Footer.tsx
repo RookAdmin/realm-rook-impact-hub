@@ -15,6 +15,8 @@ const Footer = () => {
         { name: 'SEO', path: '/services/seo' },
         { name: 'Social Media Marketing', path: '/services/social-media-marketing' },
         { name: 'AI Business Automation', path: '/services/ai-business-automation' },
+        { name: 'Domain Name Consultation', path: '/services/domain-name-consultation' },
+        { name: 'Enterprise Domain Management', path: '/services/enterprise-domain-management' },
       ],
     },
     {
