@@ -7,22 +7,32 @@ const Footer = () => {
   
   const footerLinks = [
     {
-      title: 'Services',
+      title: 'What We Do?',
       links: [
-        { name: 'Branding', path: '/services#branding' },
-        { name: 'UI/UX Design', path: '/services#ui-ux' },
-        { name: 'Web/App Development', path: '/services#development' },
-        { name: 'SEO', path: '/services#seo' },
+        { name: 'Branding', path: '/services/branding' },
+        { name: 'UI/UX Design', path: '/services/ui-ux-design' },
+        { name: 'Web/App Development', path: '/services/web-app-development' },
+        { name: 'SEO', path: '/services/seo' },
+        { name: 'Social Media Marketing', path: '/services/social-media-marketing' },
+        { name: 'AI Business Automation', path: '/services/ai-business-automation' },
       ],
     },
     {
       title: 'Company',
       links: [
         { name: 'About Us', path: '/about' },
-        { name: 'Case Studies', path: '/case-studies' },
-        { name: 'Resources', path: '/resources' },
+        { name: 'Impact Studies', path: '/case-studies' },
+        { name: 'Who We Partner With', path: '/who-we-partner-with' },
         { name: 'Brand Kit', path: '/brand-kit' },
         { name: 'Partners & Affiliates', path: '/partners' },
+      ],
+    },
+    {
+      title: 'Resources',
+      links: [
+        { name: 'All Resources', path: '/resources' },
+        { name: 'Insights', path: '/resources/insights' },
+        { name: 'Press Releases', path: '/resources/press-releases' },
       ],
     },
     {
