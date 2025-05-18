@@ -38,7 +38,6 @@ const Navbar = () => {
     { 
       name: 'Resources', 
       subItems: [
-        { name: 'All Resources', path: '/resources' },
         { name: 'Insights', path: '/resources/insights' },
         { name: 'Press Releases', path: '/resources/press-releases' },
       ]
