@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Palette, Smartphone, Code, TrendingUp, MessageSquare, Bot, Globe, Database } from "lucide-react";
+import { ArrowRight, Palette, Smartphone, Code, Search, MessageSquare, Bot, Globe, Database } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -31,7 +31,7 @@ const Services = () => {
       title: 'SEO',
       description: 'Boosting online visibility through data-driven strategies that deliver measurable results.',
       link: '/services/seo',
-      icon: <TrendingUp size={32} />,
+      icon: <Search size={32} />,
       image: 'https://images.unsplash.com/photo-1572177812156-58036aae439c?auto=format&fit=crop&q=80&w=400'
     },
     {
@@ -51,7 +51,7 @@ const Services = () => {
     {
       title: 'Domain Name Consultation',
       description: 'Expert guidance on strategic domain acquisition to build a solid foundation for your brand.',
-      link: '/services/domain-consultation',
+      link: '/services/domain-name-consultation',
       icon: <Globe size={32} />,
       image: 'https://images.unsplash.com/photo-1560472355-a3b4bcfe790d?auto=format&fit=crop&q=80&w=400'
     },

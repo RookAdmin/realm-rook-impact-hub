@@ -45,7 +45,7 @@ const ServicesSection = () => {
       title: "Domain Name Consultation",
       description: "Strategic domain acquisition that builds a solid foundation for your brand.",
       icon: <Globe size={24} />,
-      link: "/services/domain-consultation",
+      link: "/services/domain-name-consultation",
     },
     {
       title: "Enterprise Domain Management",

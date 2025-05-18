@@ -30,6 +30,7 @@ import AIBusinessAutomationService from "./pages/services/AIBusinessAutomationSe
 import DomainConsultationService from "./pages/services/DomainConsultationService";
 import EnterpriseDomainService from "./pages/services/EnterpriseDomainService";
 import WhoWePartnerWith from "./pages/WhoWePartnerWith";
+import DomainNameConsultation from "./pages/services/DomainNameConsultation";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/services/social-media-marketing" element={<SocialMediaMarketingService />} />
           <Route path="/services/ai-business-automation" element={<AIBusinessAutomationService />} />
           <Route path="/services/domain-consultation" element={<DomainConsultationService />} />
+          <Route path="/services/domain-name-consultation" element={<DomainNameConsultation />} />
           <Route path="/services/enterprise-domain-management" element={<EnterpriseDomainService />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/who-we-partner-with" element={<WhoWePartnerWith />} />
