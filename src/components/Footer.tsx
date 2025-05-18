@@ -59,7 +59,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12">
           {/* Realm by Rook column */}
           <div className="lg:col-span-2">
-            <h2 className="text-xl font-display font-bold tracking-tight mb-4">REALM<span className="font-normal">by</span>ROOK</h2>
+            <img src="/public/logo-white.png" alt="Realm by Rook" className="mb-4 w-36" />
+            {/* <h2 className="text-xl font-display font-bold tracking-tight mb-4">REALM<span className="font-normal">by</span>ROOK</h2> */}
             <p className="mb-6 text-gray-300 max-w-sm">
               We blend creativity and technology to build experiences that inspire action.
             </p>
@@ -106,7 +107,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="text-right text-sm text-gray-500">
-            <p>Melbourne • Sydney • New York</p>
+            <p>UK • UAE • India</p>
           </div>
         </div>
       </div>

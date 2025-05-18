@@ -66,7 +66,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           <span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>
-          Only 2 slots left for incoming projects
+          Only 10 slots left for incoming projects
         </motion.div>
       </div>
     </section>
