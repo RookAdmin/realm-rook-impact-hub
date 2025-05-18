@@ -41,7 +41,7 @@ const CaseStudies = () => {
   return (
     <main className="min-h-screen">
       <PageHeader 
-        title="Case & Impact Studies — The Proof is in the Results"
+        title="Impact Studies"
         subtitle="Real transformations. Real results. See how our work drives measurable business impact."
         isLarge={true}
       />

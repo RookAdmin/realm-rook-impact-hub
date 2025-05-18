@@ -70,7 +70,7 @@ const WhoWePartnerWith = () => {
   return (
     <main className="min-h-screen">
       <PageHeader 
-        title="We Partner With Visionaries Who Build the Future."
+        title="Who We Are?"
         subtitle="From high-growth startups to legacy brands, our partners trust us to craft digital solutions that scale."
         isLarge={true}
       />

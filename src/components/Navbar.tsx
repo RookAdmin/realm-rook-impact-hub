@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -25,7 +26,17 @@ const Navbar = () => {
 
   // Navigation items
   const navItems = [
-    { name: 'What We Do?', path: '/services' },
+    { 
+      name: 'What We Do?', 
+      subItems: [
+        { name: 'Branding', path: '/services/branding' },
+        { name: 'UI/UX Design', path: '/services/ui-ux-design' },
+        { name: 'Web/App Development', path: '/services/web-app-development' },
+        { name: 'SEO', path: '/services/seo' },
+        { name: 'Social Media Marketing', path: '/services/social-media-marketing' },
+        { name: 'AI Business Automation', path: '/services/ai-business-automation' },
+      ]
+    },
     { 
       name: 'Discover', 
       subItems: [
