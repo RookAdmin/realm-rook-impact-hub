@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Logo from './common/Logo';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,6 +9,7 @@ const Footer = () => {
   const footerLinks = [
     {
       title: 'What We Do?',
+      titleLink: '/services',
       links: [
         { name: 'Branding', path: '/services/branding' },
         { name: 'UI/UX Design', path: '/services/ui-ux-design' },
@@ -59,8 +61,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12">
           {/* Realm by Rook column */}
           <div className="lg:col-span-2">
-            <img src="/public/logo-white.png" alt="Realm by Rook" className="mb-4 w-36" />
-            {/* <h2 className="text-xl font-display font-bold tracking-tight mb-4">REALM<span className="font-normal">by</span>ROOK</h2> */}
+            <Logo variant="light" className="mb-4" />
             <p className="mb-6 text-gray-300 max-w-sm">
               We blend creativity and technology to build experiences that inspire action.
             </p>
@@ -82,7 +83,15 @@ const Footer = () => {
           {/* Links columns */}
           {footerLinks.map((column) => (
             <div key={column.title}>
-              <h3 className="font-medium mb-4 text-sm text-gray-400">{column.title}</h3>
+              <h3 className="font-medium mb-4 text-sm text-gray-400">
+                {column.titleLink ? (
+                  <Link to={column.titleLink} className="hover:text-white transition-colors">
+                    {column.title}
+                  </Link>
+                ) : (
+                  column.title
+                )}
+              </h3>
               <ul className="space-y-3">
                 {column.links.map((link) => (
                   <li key={link.name}>
