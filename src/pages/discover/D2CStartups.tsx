@@ -1,11 +1,14 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { BriefcaseIcon, MonitorIcon, CodeIcon, BarChart3Icon, Share2Icon, CpuIcon, CheckIcon } from "lucide-react";
+import { BriefcaseIcon, MonitorIcon, CodeIcon, BarChart3Icon, Share2Icon, CpuIcon, CheckIcon, ArrowRight } from "lucide-react";
 import PageHeader from '@/components/common/PageHeader';
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
+import { impactStudies } from '@/data/impactStudiesData';
+import ImpactStudyCard from '@/components/impact-studies/ImpactStudyCard';
+import BeforeAfterVisuals from '@/components/home/BeforeAfterVisuals';
+import TransformationStories from '@/components/home/TransformationStories';
 
 // Animation variants
 const fadeIn = {
@@ -107,6 +110,30 @@ const D2CStartups = () => {
     {
       question: "How do you ensure alignment with our unique brand vision?",
       answer: "Through collaborative strategy development and transparent execution at every step."
+    }
+  ];
+
+  // Client logos
+  const clientLogos = [
+    { name: 'Zephyr Skincare', logo: '/placeholder.svg', tooltip: 'Growth in MRR by 2.3x in 5 months' },
+    { name: 'Finovo', logo: '/placeholder.svg', tooltip: 'Increased conversion rate from 2% to 8.5%' },
+    { name: 'Elevate Tech', logo: '/placeholder.svg', tooltip: 'Reduced load time from 5s to 1.2s' },
+    { name: 'GreenPath', logo: '/placeholder.svg', tooltip: '400% increase in organic traffic' },
+  ];
+  
+  // Transformation stories
+  const transformationStories = [
+    { 
+      before: "Limited brand recognition with inconsistent visual identity", 
+      after: "Cohesive brand system driving 320% increase in visibility" 
+    },
+    { 
+      before: "Inefficient user flows with 70% bounce rate", 
+      after: "Streamlined UX with 61% longer session duration" 
+    },
+    { 
+      before: "Expensive manual processes draining resources", 
+      after: "AI-powered automation reducing overhead by 25%" 
     }
   ];
 
@@ -242,6 +269,112 @@ const D2CStartups = () => {
         </div>
       </section>
       
+      {/* Proof & Impact Section */}
+      <section className="realm-section bg-white">
+        <div className="realm-container">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              Real Transformations. Real Impact.
+            </h2>
+            <p className="text-xl max-w-3xl mx-auto">
+              Trusted by Visionaries, Proven by Outcomes
+            </p>
+          </motion.div>
+          
+          {/* Client Logos Strip */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            className="mb-20"
+          >
+            <div className="flex flex-wrap justify-center items-center gap-12 max-w-5xl mx-auto">
+              {clientLogos.map((client, index) => (
+                <div 
+                  key={index} 
+                  className="group relative cursor-pointer"
+                >
+                  <div className="realm-client-logo h-12 w-32 bg-gray-200 flex items-center justify-center">
+                    {client.name}
+                  </div>
+                  
+                  {/* Tooltip */}
+                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-realm-black text-white px-4 py-2 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    {client.tooltip}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+          
+          {/* Transformation Stories */}
+          <TransformationStories stories={transformationStories} />
+          
+          {/* Before/After Visuals */}
+          <BeforeAfterVisuals />
+          
+          {/* Impact Study Callout */}
+          <div className="mt-20 max-w-5xl mx-auto">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              className="mb-12"
+            >
+              <h3 className="text-2xl md:text-3xl font-display font-bold mb-6 text-center">
+                See Our Impact in Action
+              </h3>
+            </motion.div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {impactStudies.slice(0, 3).map((study) => (
+                <ImpactStudyCard key={study.id} study={study} />
+              ))}
+            </div>
+            
+            <div className="mt-12 text-center">
+              <Link to="/impact-studies" className="realm-link inline-flex items-center text-realm-black font-medium">
+                View All Impact Studies
+                <ArrowRight size={16} className="ml-2" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Final CTA Section */}
+      <section className="realm-section bg-realm-lightgray">
+        <div className="realm-container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              You've seen what's possible. Let's make it real for your brand.
+            </h2>
+            
+            <div className="mt-8">
+              <Link to="/contact">
+                <Button className="realm-button bg-realm-black text-white hover:bg-realm-darkgray">
+                  Book a Strategy Call
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      
       {/* Testimonials Section */}
       <section className="realm-section bg-white">
         <div className="realm-container">
@@ -275,7 +408,7 @@ const D2CStartups = () => {
         </div>
       </section>
       
-      {/* Final CTA Section */}
+      {/* Final CTA Section (original) */}
       <section className="realm-section bg-realm-black text-white">
         <div className="realm-container">
           <motion.div

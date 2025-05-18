@@ -1,11 +1,14 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Target, Monitor, Server, Search, Share2, Brain, CheckCircle } from "lucide-react";
+import { Target, Monitor, Server, Search, Share2, Brain, CheckCircle, ArrowRight } from "lucide-react";
 import PageHeader from '@/components/common/PageHeader';
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
+import { impactStudies } from '@/data/impactStudiesData';
+import ImpactStudyCard from '@/components/impact-studies/ImpactStudyCard';
+import BeforeAfterVisuals from '@/components/home/BeforeAfterVisuals';
+import TransformationStories from '@/components/home/TransformationStories';
 
 // Animation variants
 const fadeIn = {
@@ -107,6 +110,30 @@ const SaaSStartups = () => {
     {
       question: "How do you measure success?",
       answer: "Through actionable KPIs like user retention, conversion rates, and operational efficiency."
+    }
+  ];
+  
+  // Client logos
+  const clientLogos = [
+    { name: 'TechFlow', logo: '/placeholder.svg', tooltip: 'Increased user retention by 40% in 6 months' },
+    { name: 'DataSphere', logo: '/placeholder.svg', tooltip: 'Reduced operational costs by 25%' },
+    { name: 'CloudSync', logo: '/placeholder.svg', tooltip: '3.7x conversion growth in 90 days' },
+    { name: 'PlatformX', logo: '/placeholder.svg', tooltip: 'Scaled to 6 countries in 12 months' },
+  ];
+  
+  // Transformation stories
+  const transformationStories = [
+    { 
+      before: "Confusing UX leading to high churn rates", 
+      after: "Intuitive interface reducing churn by 35%" 
+    },
+    { 
+      before: "Slow, error-prone deployment process", 
+      after: "Automated CI/CD pipeline with 99.9% uptime" 
+    },
+    { 
+      before: "Limited organic traffic and high CAC", 
+      after: "SEO-optimized content driving 62% of new leads" 
     }
   ];
 
@@ -242,6 +269,112 @@ const SaaSStartups = () => {
         </div>
       </section>
       
+      {/* Proof & Impact Section */}
+      <section className="realm-section bg-white">
+        <div className="realm-container">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              Real Transformations. Real Impact.
+            </h2>
+            <p className="text-xl max-w-3xl mx-auto">
+              Trusted by Visionaries, Proven by Outcomes
+            </p>
+          </motion.div>
+          
+          {/* Client Logos Strip */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            className="mb-20"
+          >
+            <div className="flex flex-wrap justify-center items-center gap-12 max-w-5xl mx-auto">
+              {clientLogos.map((client, index) => (
+                <div 
+                  key={index} 
+                  className="group relative cursor-pointer"
+                >
+                  <div className="realm-client-logo h-12 w-32 bg-gray-200 flex items-center justify-center">
+                    {client.name}
+                  </div>
+                  
+                  {/* Tooltip */}
+                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-realm-black text-white px-4 py-2 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    {client.tooltip}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+          
+          {/* Transformation Stories */}
+          <TransformationStories stories={transformationStories} />
+          
+          {/* Before/After Visuals */}
+          <BeforeAfterVisuals />
+          
+          {/* Impact Study Callout */}
+          <div className="mt-20 max-w-5xl mx-auto">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              className="mb-12"
+            >
+              <h3 className="text-2xl md:text-3xl font-display font-bold mb-6 text-center">
+                See Our Impact in Action
+              </h3>
+            </motion.div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {impactStudies.slice(0, 3).map((study) => (
+                <ImpactStudyCard key={study.id} study={study} />
+              ))}
+            </div>
+            
+            <div className="mt-12 text-center">
+              <Link to="/impact-studies" className="realm-link inline-flex items-center text-realm-black font-medium">
+                View All Impact Studies
+                <ArrowRight size={16} className="ml-2" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Final CTA Section */}
+      <section className="realm-section bg-realm-lightgray">
+        <div className="realm-container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              You've seen what's possible. Let's make it real for your brand.
+            </h2>
+            
+            <div className="mt-8">
+              <Link to="/contact">
+                <Button className="realm-button bg-realm-black text-white hover:bg-realm-darkgray">
+                  Let's Build Your Case Study
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      
       {/* Testimonials Section */}
       <section className="realm-section bg-white">
         <div className="realm-container">
@@ -298,7 +431,7 @@ const SaaSStartups = () => {
         </div>
       </section>
       
-      {/* Final CTA Section */}
+      {/* Final CTA Section (original) */}
       <section className="realm-section bg-realm-black text-white">
         <div className="realm-container">
           <motion.div
