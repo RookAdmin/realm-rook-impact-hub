@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Globe, Shield, Layers, Zap, Check } from "lucide-react";
+import { Target, Monitor, Server, Search, Share2, Brain, CheckCircle } from "lucide-react";
 import PageHeader from '@/components/common/PageHeader';
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 
@@ -28,32 +28,86 @@ const staggerContainer = {
 };
 
 const SaaSStartups = () => {
-  // SaaS unique challenges
-  const challenges = [
+  // Services list
+  const services = [
     {
-      title: "Global Domain Presence",
-      description: "Secure consistent branding across international markets"
+      title: "Brand Positioning That Resonates",
+      description: "Craft a brand identity that stands out in competitive SaaS landscapes.",
+      icon: Target,
     },
     {
-      title: "Product Domain Portfolio",
-      description: "Manage multiple products and subdomains seamlessly"
+      title: "User-Centric UI/UX Design",
+      description: "Deliver intuitive experiences that maximize user adoption and retention.",
+      icon: Monitor,
     },
     {
-      title: "Security & Reliability",
-      description: "Enterprise-grade protection from phishing and DNS attacks"
+      title: "Robust & Scalable Development",
+      description: "Build architecture designed for seamless growth and high availability.",
+      icon: Server,
     },
     {
-      title: "Scaling Infrastructure",
-      description: "Domain architecture that scales with your user base"
+      title: "Search Engine & Content Strategy",
+      description: "Drive qualified organic traffic with data-driven SEO and content marketing.",
+      icon: Search,
+    },
+    {
+      title: "Growth-Focused Social Engagement",
+      description: "Fuel user acquisition and community building with targeted campaigns.",
+      icon: Share2,
+    },
+    {
+      title: "AI-Powered Workflow Automation",
+      description: "Streamline processes to reduce churn, optimize operations, and enhance customer satisfaction.",
+      icon: Brain,
     }
   ];
 
-  // Benefits list
-  const benefits = [
-    "Unified dashboard for all your product domains",
-    "DNS priority support with 99.9% uptime guarantee",
-    "Automatic renewal system to prevent costly outages",
-    "Expert guidance on geographical expansion strategy"
+  // Growth process steps
+  const growthSteps = [
+    {
+      number: 1,
+      title: "Strategic Brand Development",
+      description: "Design a SaaS brand narrative that inspires trust and loyalty."
+    },
+    {
+      number: 2,
+      title: "Cutting-Edge Product Experience",
+      description: "Deliver fast, reliable, and user-friendly SaaS platforms."
+    },
+    {
+      number: 3,
+      title: "Optimized Growth Channels",
+      description: "Implement multi-channel strategies to accelerate customer acquisition."
+    },
+    {
+      number: 4,
+      title: "Intelligent Automation & Analytics",
+      description: "Leverage AI for predictive insights, personalized marketing, and automated support."
+    }
+  ];
+
+  // Testimonials
+  const testimonials = [
+    {
+      quote: "Realm's solutions scaled our SaaS platform globally, improving engagement by 40% within 6 months.",
+      author: "CTO, Fast-Growing SaaS Company"
+    },
+    {
+      quote: "Their AI-driven automation cut operational costs by 25%, enabling us to focus on innovation.",
+      author: "Head of Growth, SaaS Startup"
+    }
+  ];
+
+  // FAQ items
+  const faqs = [
+    {
+      question: "Can you customize solutions for complex SaaS products?",
+      answer: "Absolutely. Our approach is tailored to your product's unique architecture and market."
+    },
+    {
+      question: "How do you measure success?",
+      answer: "Through actionable KPIs like user retention, conversion rates, and operational efficiency."
+    }
   ];
 
   return (
@@ -64,29 +118,52 @@ const SaaSStartups = () => {
       />
       
       {/* Hero Section */}
-      <PageHeader 
-        title="Domain Management Built for SaaS Scale"
-        subtitle="Simplified infrastructure management for fast-growing software companies."
-        isLarge={true}
-      />
-      
-      {/* Hero CTA Buttons */}
-      <section className="py-8 bg-white">
-        <div className="realm-container flex flex-wrap gap-4 justify-center">
-          <Link to="/contact">
-            <Button className="realm-button bg-realm-black text-white">
-              Protect Your SaaS Brand Now
-            </Button>
-          </Link>
-          <Link to="/services/domain-consultation">
-            <Button className="realm-button border border-realm-black bg-white text-realm-black hover:bg-realm-black hover:text-white">
-              Simplify Your Domain Management
-            </Button>
-          </Link>
+      <section className="bg-realm-black text-white py-20 relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-40">
+          <img 
+            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80" 
+            alt="SaaS collaboration platform" 
+            className="object-cover w-full h-full grayscale"
+          />
+          <div className="absolute inset-0 bg-realm-black bg-opacity-60"></div>
+        </div>
+        
+        <div className="realm-container relative z-10">
+          <div className="max-w-3xl">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6"
+            >
+              Accelerate Your SaaS Growth with Scalable, Intelligent Solutions
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl md:text-2xl mb-10"
+            >
+              Expertise in Branding, UI/UX, Development, SEO, Social Media, and AI Automation Tailored for SaaS Success
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Link to="/contact">
+                <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                  Book Your Growth Strategy Session
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </section>
       
-      {/* Main Value Proposition */}
+      {/* Services Section */}
       <section className="realm-section bg-white">
         <div className="realm-container">
           <motion.div 
@@ -94,94 +171,112 @@ const SaaSStartups = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeIn}
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center">
-              SaaS Domain Challenges Solved
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              Engineered for SaaS Market Leadership
             </h2>
-            
-            <div className="max-w-4xl mx-auto text-lg text-center mb-12">
-              <p>
-                Your software is only as reliable as the domain infrastructure it runs on. 
-                As you scale to serve thousands of users, even minutes of downtime can damage 
-                your reputation and impact revenue.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {challenges.map((challenge, index) => (
-                <div key={index} className="p-6 border border-realm-lightgray hover:border-realm-black transition-all duration-300">
-                  <h3 className="text-xl font-medium mb-2">{challenge.title}</h3>
-                  <p>{challenge.description}</p>
+          </motion.div>
+          
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {services.map((service, index) => (
+              <motion.div 
+                key={index}
+                variants={fadeIn}
+                className="service-card"
+              >
+                <div className="realm-icon-container">
+                  <service.icon size={24} />
                 </div>
-              ))}
-            </div>
+                <h3 className="text-xl font-medium mb-3">{service.title}</h3>
+                <p className="text-realm-darkgray">{service.description}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
       
-      {/* Benefits Section */}
+      {/* Growth Process Section */}
       <section className="realm-section bg-realm-lightgray">
         <div className="realm-container">
-          <motion.div
+          <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeIn}
-            className="max-w-4xl mx-auto"
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center">
-              Enterprise Management at Startup Speed
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              SaaS Success Framework
             </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start">
-                  <span className="text-realm-black mr-3 mt-1">
-                    <Check size={20} />
-                  </span>
-                  <p className="text-lg">{benefit}</p>
-                </div>
-              ))}
-            </div>
-            
-            <div className="mt-12 p-8 border border-realm-black">
-              <h3 className="text-xl font-medium mb-4 text-center">SaaS Domain Portfolio Management</h3>
-              <div className="flex flex-wrap justify-between items-center">
-                <div className="text-center p-4 w-full md:w-auto">
-                  <div className="h-14 w-14 rounded-full bg-realm-black text-white flex items-center justify-center mx-auto mb-3">
-                    <Globe size={24} />
-                  </div>
-                  <p>Core App Domains</p>
-                </div>
-                <div className="hidden md:block">→</div>
-                <div className="text-center p-4 w-full md:w-auto">
-                  <div className="h-14 w-14 rounded-full bg-realm-black text-white flex items-center justify-center mx-auto mb-3">
-                    <Layers size={24} />
-                  </div>
-                  <p>API Subdomains</p>
-                </div>
-                <div className="hidden md:block">→</div>
-                <div className="text-center p-4 w-full md:w-auto">
-                  <div className="h-14 w-14 rounded-full bg-realm-black text-white flex items-center justify-center mx-auto mb-3">
-                    <Shield size={24} />
-                  </div>
-                  <p>Security & DNS</p>
-                </div>
-                <div className="hidden md:block">→</div>
-                <div className="text-center p-4 w-full md:w-auto">
-                  <div className="h-14 w-14 rounded-full bg-realm-black text-white flex items-center justify-center mx-auto mb-3">
-                    <Zap size={24} />
-                  </div>
-                  <p>Automated Monitoring</p>
-                </div>
-              </div>
-            </div>
           </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {growthSteps.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative"
+              >
+                <div className="w-12 h-12 mb-6 flex items-center justify-center border border-realm-black bg-white">
+                  <span className="text-xl font-medium">{step.number}</span>
+                </div>
+                <h3 className="text-xl font-medium mb-3">{step.title}</h3>
+                <p className="text-realm-darkgray">{step.description}</p>
+                
+                {index < growthSteps.length - 1 && (
+                  <div className="hidden lg:block absolute top-6 left-full w-full h-0.5 bg-realm-black opacity-20 -ml-4 -translate-x-1/2"></div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Testimonials Section */}
+      <section className="realm-section bg-white">
+        <div className="realm-container">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold">
+              Transformative Impact from Our SaaS Partners
+            </h2>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-realm-lightgray p-8 border border-transparent hover:border-realm-black transition-all duration-300"
+              >
+                <p className="text-lg mb-6 italic">"{testimonial.quote}"</p>
+                <p className="font-medium">— {testimonial.author}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
       
       {/* Client Logos Section */}
-      <section className="realm-section bg-white">
+      <section className="realm-section bg-realm-lightgray">
         <div className="realm-container">
           <motion.div
             initial="hidden"
@@ -190,7 +285,7 @@ const SaaSStartups = () => {
             variants={fadeIn}
           >
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
-              Trusted By Growing SaaS Companies
+              Trusted By Leading SaaS Companies
             </h2>
             
             <div className="flex flex-wrap justify-center items-center gap-12 max-w-5xl mx-auto">
@@ -211,22 +306,55 @@ const SaaSStartups = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeIn}
-            className="text-center"
+            className="text-center max-w-3xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-              Never Worry About Domain Management Again
+              Unlock Your SaaS Potential Today
             </h2>
             
-            <p className="text-xl mb-12 max-w-3xl mx-auto">
-              Focus on building your product while we handle your entire domain infrastructure.
+            <p className="text-xl mb-12">
+              Sophisticated challenges require expert execution. Harness Realm's proven capabilities to lead your market with confidence.
             </p>
             
             <Link to="/contact">
-              <Button className="realm-button bg-white text-realm-black hover:bg-gray-200">
-                Schedule Strategy Session
+              <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                Schedule Your Strategy Call
               </Button>
             </Link>
           </motion.div>
+        </div>
+      </section>
+      
+      {/* FAQ Section */}
+      <section className="realm-section bg-white">
+        <div className="realm-container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-display font-bold">
+              Frequently Asked Questions
+            </h2>
+          </motion.div>
+          
+          <div className="max-w-3xl mx-auto space-y-8">
+            {faqs.map((faq, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="border-b border-realm-lightgray pb-6"
+              >
+                <h3 className="text-xl font-medium mb-3">{faq.question}</h3>
+                <p className="text-realm-darkgray">{faq.answer}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </main>
