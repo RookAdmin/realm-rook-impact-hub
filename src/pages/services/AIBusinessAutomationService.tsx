@@ -1,10 +1,23 @@
-
-import React, { useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Bot, CheckCircle, Layers, Mail, Handshake, Settings, 
-         TrendingUp, Brain, FileText, BarChart, Briefcase, Rocket, 
-         TrendingDown, DollarSign } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React, { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Bot,
+  CheckCircle,
+  Layers,
+  Mail,
+  Handshake,
+  Settings,
+  TrendingUp,
+  Brain,
+  FileText,
+  BarChart,
+  Briefcase,
+  Rocket,
+  TrendingDown,
+  DollarSign,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
@@ -12,11 +25,11 @@ import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 // Variants for animations
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { duration: 0.6 }
-  }
+    transition: { duration: 0.6 },
+  },
 };
 
 const staggerChildren = {
@@ -24,110 +37,148 @@ const staggerChildren = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
-    }
-  }
+      staggerChildren: 0.2,
+    },
+  },
 };
 
 const AIBusinessAutomationService = () => {
   // Ref for the sticky CTA
   const ctaSectionRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       if (ctaSectionRef.current) {
         const scrollY = window.scrollY;
         const windowHeight = window.innerHeight;
         const threshold = windowHeight * 0.25; // Show after 25% scroll
-        
+
         if (scrollY > threshold) {
-          ctaSectionRef.current.classList.add('opacity-100');
-          ctaSectionRef.current.classList.remove('opacity-0');
+          ctaSectionRef.current.classList.add("opacity-100");
+          ctaSectionRef.current.classList.remove("opacity-0");
         } else {
-          ctaSectionRef.current.classList.add('opacity-0');
-          ctaSectionRef.current.classList.remove('opacity-100');
+          ctaSectionRef.current.classList.add("opacity-0");
+          ctaSectionRef.current.classList.remove("opacity-100");
         }
       }
     };
-    
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   // Problem stats
   const problemStats = [
-    { label: 'Cut costs', icon: <CheckCircle size={20} /> },
-    { label: 'Eliminate delay', icon: <CheckCircle size={20} /> },
-    { label: 'Multiply decision velocity', icon: <CheckCircle size={20} /> }
+    { label: "Cut costs", icon: <CheckCircle size={20} /> },
+    { label: "Eliminate delay", icon: <CheckCircle size={20} /> },
+    { label: "Multiply decision velocity", icon: <CheckCircle size={20} /> },
   ];
 
   // AI agent capabilities
   const aiAgentCapabilities = [
-    'Reply to leads instantly (without sounding robotic)',
-    'Monitor your funnel, flag bottlenecks, and adapt messaging',
-    'Learn behavior patterns to predict customer needs',
-    'Trigger automations at exactly the right time'
+    "Reply to leads instantly (without sounding robotic)",
+    "Monitor your funnel, flag bottlenecks, and adapt messaging",
+    "Learn behavior patterns to predict customer needs",
+    "Trigger automations at exactly the right time",
   ];
 
   // Core automation capabilities
   const automationCapabilities = [
     { icon: <Mail size={24} />, title: "Lead Capture + CRM Integration" },
-    { icon: <Handshake size={24} />, title: "Client Onboarding & Nurture Sequences" },
-    { icon: <Settings size={24} />, title: "Internal Task Routing + Reminders" },
-    { icon: <TrendingUp size={24} />, title: "Marketing Flows with Real-Time Optimization" },
+    {
+      icon: <Handshake size={24} />,
+      title: "Client Onboarding & Nurture Sequences",
+    },
+    {
+      icon: <Settings size={24} />,
+      title: "Internal Task Routing + Reminders",
+    },
+    {
+      icon: <TrendingUp size={24} />,
+      title: "Marketing Flows with Real-Time Optimization",
+    },
     { icon: <Brain size={24} />, title: "Decision Trees for Sales Agents" },
-    { icon: <FileText size={24} />, title: "Document Generation (Proposals, Contracts, etc.)" },
-    { icon: <BarChart size={24} />, title: "Dashboards That Think (powered by GPT agents)" }
+    {
+      icon: <FileText size={24} />,
+      title: "Document Generation (Proposals, Contracts, etc.)",
+    },
+    {
+      icon: <BarChart size={24} />,
+      title: "Dashboards That Think (powered by GPT agents)",
+    },
   ];
 
-  // Impact stats 
+  // Impact stats
   const impactStats = [
-    { icon: <Briefcase size={24} />, value: "80+", label: "hours/month saved for a legal startup" },
-    { icon: <Rocket size={24} />, value: "7.2x", label: "faster lead conversion cycle" },
-    { icon: <TrendingDown size={24} />, value: "43%", label: "reduction in manual task handoffs" },
-    { icon: <Bot size={24} />, value: "90%", label: "accuracy in AI-led qualification bots" },
-    { icon: <DollarSign size={24} />, value: "$72,000+", label: "saved in operational costs in 3 months" }
+    {
+      icon: <Briefcase size={24} />,
+      value: "80+",
+      label: "hours/month saved for a legal startup",
+    },
+    {
+      icon: <Rocket size={24} />,
+      value: "7.2x",
+      label: "faster lead conversion cycle",
+    },
+    {
+      icon: <TrendingDown size={24} />,
+      value: "43%",
+      label: "reduction in manual task handoffs",
+    },
+    {
+      icon: <Bot size={24} />,
+      value: "90%",
+      label: "accuracy in AI-led qualification bots",
+    },
+    {
+      icon: <DollarSign size={24} />,
+      value: "$72,000+",
+      label: "saved in operational costs in 3 months",
+    },
   ];
 
   // Use cases
   const useCases = [
     {
       client: "D2C Wellness Brand",
-      quote: "AI onboarding reduced support tickets by 60% in under 45 days."
+      quote: "AI onboarding reduced support tickets by 60% in under 45 days.",
     },
     {
       client: "SaaS CRM Tool",
-      quote: "AI sales rep handled 4,300+ leads solo—without one missed follow-up."
+      quote:
+        "AI sales rep handled 4,300+ leads solo—without one missed follow-up.",
     },
     {
       client: "Online Educator",
-      quote: "End-to-end student journey (signup to certification) fully automated."
+      quote:
+        "End-to-end student journey (signup to certification) fully automated.",
     },
     {
       client: "FinTech Client",
-      quote: "GPT-powered document agent created 400+ contracts with 0 errors."
-    }
+      quote: "GPT-powered document agent created 400+ contracts with 0 errors.",
+    },
   ];
 
   // Testimonials
   const testimonials = [
     {
-      quote: "Realm built us an agent that replies in 17 seconds flat, personalizes each message, and schedules a call. Better than our best human rep.",
-      author: "Founder, HealthTech Startup"
+      quote:
+        "Realm built us an agent that replies in 17 seconds flat, personalizes each message, and schedules a call. Better than our best human rep.",
+      author: "Founder, HealthTech Startup",
     },
     {
       quote: "I onboarded 87 clients in 2 weeks—with zero emails from me.",
-      author: "Solopreneur, Service Business"
-    }
+      author: "Solopreneur, Service Business",
+    },
   ];
 
   return (
     <>
       {/* Fixed CTA for mobile */}
-      <div 
-        ref={ctaSectionRef} 
+      <div
+        ref={ctaSectionRef}
         className="fixed bottom-0 left-0 right-0 bg-realm-black p-4 z-40 opacity-0 transition-opacity duration-300 md:hidden"
       >
         <div className="flex justify-center">
@@ -141,15 +192,17 @@ const AIBusinessAutomationService = () => {
       </div>
 
       <main className="min-h-screen pt-20">
-        <ServiceBreadcrumb 
-          serviceName="AI & Business Automation" 
-          serviceUrl="/services/ai-business-automation" 
-        />
-        
+        <div className="p-10">
+          <ServiceBreadcrumb
+            serviceName="AI & Business Automation"
+            serviceUrl="/services/ai-business-automation"
+          />
+        </div>
+
         {/* Hero Section with dark background */}
         <section className="bg-realm-black text-white py-20 md:py-32">
           <div className="realm-container">
-            <motion.div 
+            <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeIn}
@@ -159,9 +212,11 @@ const AIBusinessAutomationService = () => {
                 Your Business, on Autopilot. Powered by AI Agents.
               </h1>
               <p className="realm-subheadline text-white/90 mb-10">
-                We turn workflows into ecosystems. From lead generation to client onboarding—our automation strategies scale what humans start.
+                We turn workflows into ecosystems. From lead generation to
+                client onboarding—our automation strategies scale what humans
+                start.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact">
                   <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray min-w-[250px]">
@@ -170,24 +225,29 @@ const AIBusinessAutomationService = () => {
                   </Button>
                 </Link>
                 <Link to="/case-studies">
-                  <Button variant="outline" className="realm-button border-white text-white hover:bg-white/10 min-w-[200px]">
+                  <Button
+                    variant="outline"
+                    className="realm-button border-white text-white hover:bg-white/10 min-w-[200px]"
+                  >
                     Explore Use Cases
                     <ArrowRight size={16} className="ml-2" />
                   </Button>
                 </Link>
               </div>
-              
+
               {/* Animated metric indicators */}
               <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-                <motion.div 
+                <motion.div
                   className="p-4 border border-white/20 backdrop-blur-sm"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="text-3xl font-bold mb-2 text-white">+560%</div>
+                  <div className="text-3xl font-bold mb-2 text-white">
+                    +560%
+                  </div>
                   <div className="text-white/70">Efficiency Boost</div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="p-4 border border-white/20 backdrop-blur-sm"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
@@ -195,7 +255,7 @@ const AIBusinessAutomationService = () => {
                   <div className="text-3xl font-bold mb-2 text-white">24/7</div>
                   <div className="text-white/70">Agent Availability</div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="p-4 border border-white/20 backdrop-blur-sm"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
@@ -211,7 +271,7 @@ const AIBusinessAutomationService = () => {
         {/* The Manual Drain (Problem Framing) */}
         <section className="py-16 md:py-24">
           <div className="realm-container">
-            <motion.div 
+            <motion.div
               className="max-w-4xl mx-auto"
               initial="hidden"
               whileInView="visible"
@@ -222,13 +282,14 @@ const AIBusinessAutomationService = () => {
                 You Weren't Meant to Repeat Tasks. Your Systems Were.
               </h2>
               <p className="text-xl mb-10 text-realm-darkgray">
-                Most teams lose 30–40% of productive hours to repeatable work.<br />
+                Most teams lose 30–40% of productive hours to repeatable work.
+                <br />
                 We design AI + automation frameworks that:
               </p>
-              
+
               <div className="space-y-4">
                 {problemStats.map((stat, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     className="flex items-center space-x-3"
                     initial={{ opacity: 0, x: -20 }}
@@ -248,7 +309,7 @@ const AIBusinessAutomationService = () => {
         {/* What Are AI Agents? */}
         <section className="py-16 md:py-24 bg-realm-black text-white">
           <div className="realm-container">
-            <motion.div 
+            <motion.div
               className="max-w-4xl mx-auto"
               initial="hidden"
               whileInView="visible"
@@ -260,11 +321,18 @@ const AIBusinessAutomationService = () => {
                   <div className="p-6 border border-white/20 rounded-lg relative overflow-hidden">
                     <div className="absolute inset-0 bg-white/5 pulse"></div>
                     <Bot size={120} className="mx-auto mb-6 text-white/80" />
-                    
+
                     {/* Animated flowchart */}
                     <div className="space-y-2">
-                      {["Lead", "AI Welcome", "Qualification", "Personalization", "Conversion", "Feedback loop"].map((step, index) => (
-                        <motion.div 
+                      {[
+                        "Lead",
+                        "AI Welcome",
+                        "Qualification",
+                        "Personalization",
+                        "Conversion",
+                        "Feedback loop",
+                      ].map((step, index) => (
+                        <motion.div
                           key={step}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
@@ -275,10 +343,13 @@ const AIBusinessAutomationService = () => {
                             {step}
                           </div>
                           {index < 5 && (
-                            <motion.div 
+                            <motion.div
                               initial={{ height: 0 }}
                               animate={{ height: 10 }}
-                              transition={{ delay: (index + 1) * 0.3, duration: 0.3 }}
+                              transition={{
+                                delay: (index + 1) * 0.3,
+                                duration: 0.3,
+                              }}
                               className="w-0.5 h-2 bg-white/40 my-1"
                             />
                           )}
@@ -287,19 +358,19 @@ const AIBusinessAutomationService = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="md:w-1/2">
                   <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">
                     AI Agents That Think, Act, and Learn—So You Don't Have To
                   </h2>
-                  
+
                   <p className="text-white/90 mb-6">
                     We build and implement AI Agents—intelligent systems that:
                   </p>
-                  
+
                   <ul className="space-y-4">
                     {aiAgentCapabilities.map((capability, index) => (
-                      <motion.li 
+                      <motion.li
                         key={index}
                         className="flex items-start space-x-3"
                         initial={{ opacity: 0, y: 10 }}
@@ -323,7 +394,7 @@ const AIBusinessAutomationService = () => {
         {/* Our Core Automation Capabilities */}
         <section className="py-16 md:py-24">
           <div className="realm-container">
-            <motion.div 
+            <motion.div
               className="text-center mb-16"
               initial="hidden"
               whileInView="visible"
@@ -334,8 +405,8 @@ const AIBusinessAutomationService = () => {
                 What We Automate
               </h2>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
               variants={staggerChildren}
               initial="hidden"
@@ -364,7 +435,7 @@ const AIBusinessAutomationService = () => {
         {/* Proof of Impact */}
         <section className="py-16 md:py-24 bg-realm-black text-white">
           <div className="realm-container">
-            <motion.div 
+            <motion.div
               className="max-w-4xl mx-auto"
               initial="hidden"
               whileInView="visible"
@@ -374,10 +445,10 @@ const AIBusinessAutomationService = () => {
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-10 text-center">
                 Time Saved is Revenue Earned.
               </h2>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {impactStats.map((stat, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     className="p-6 border border-white/20 text-center"
                     initial={{ opacity: 0, y: 20 }}
@@ -386,9 +457,7 @@ const AIBusinessAutomationService = () => {
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.02 }}
                   >
-                    <div className="flex justify-center mb-2">
-                      {stat.icon}
-                    </div>
+                    <div className="flex justify-center mb-2">{stat.icon}</div>
                     <div className="text-3xl font-bold mb-2">{stat.value}</div>
                     <div className="text-sm text-white/70">{stat.label}</div>
                   </motion.div>
@@ -401,7 +470,7 @@ const AIBusinessAutomationService = () => {
         {/* Use Cases */}
         <section className="py-16 md:py-24">
           <div className="realm-container">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -410,10 +479,10 @@ const AIBusinessAutomationService = () => {
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-10 text-center">
                 Real Clients. Real Results.
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {useCases.map((useCase, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     className="p-6 border border-realm-lightgray"
                     initial={{ opacity: 0, y: 20 }}
@@ -437,7 +506,7 @@ const AIBusinessAutomationService = () => {
         {/* Why Realm's Automation is Different */}
         <section className="py-16 md:py-24 bg-realm-black text-white">
           <div className="realm-container">
-            <motion.div 
+            <motion.div
               className="max-w-4xl mx-auto"
               initial="hidden"
               whileInView="visible"
@@ -449,29 +518,37 @@ const AIBusinessAutomationService = () => {
                   <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
                     We Don't Just Automate. We Architect.
                   </h2>
-                  
+
                   <p className="text-white/90 mb-6">
-                    Other firms plug in tools.<br />
-                    We create entire ecosystems—built to scale, adapt, and evolve.<br />
-                    With custom-coded logic, real-time AI insights, and human-level tone.
+                    Other firms plug in tools.
+                    <br />
+                    We create entire ecosystems—built to scale, adapt, and
+                    evolve.
+                    <br />
+                    With custom-coded logic, real-time AI insights, and
+                    human-level tone.
                   </p>
                 </div>
-                
+
                 <div className="md:w-1/2">
                   <div className="border border-white/20 p-6 rounded-lg relative overflow-hidden">
                     <div className="absolute inset-0 bg-white/5 pulse"></div>
-                    
+
                     {/* Animated Flywheel */}
                     <div className="relative">
                       <Layers size={60} className="mx-auto mb-4 text-white" />
-                      <motion.div 
+                      <motion.div
                         className="w-24 h-24 rounded-full border-2 border-white/30 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                        transition={{
+                          duration: 20,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
                       >
                         <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 bg-white w-2 h-2 rounded-full" />
                       </motion.div>
-                      
+
                       <div className="mt-8 text-center">
                         <div className="text-sm mb-2">Automated Flywheel</div>
                         <div className="text-xs text-white/70">
@@ -489,7 +566,7 @@ const AIBusinessAutomationService = () => {
         {/* Trust Block (Social Proof) */}
         <section className="py-16 md:py-24">
           <div className="realm-container">
-            <motion.div 
+            <motion.div
               className="max-w-4xl mx-auto"
               initial="hidden"
               whileInView="visible"
@@ -517,7 +594,7 @@ const AIBusinessAutomationService = () => {
         {/* Final Conversion Section */}
         <section className="py-16 md:py-24 bg-realm-black text-white">
           <div className="realm-container">
-            <motion.div 
+            <motion.div
               className="max-w-3xl mx-auto text-center"
               initial="hidden"
               whileInView="visible"
@@ -527,11 +604,12 @@ const AIBusinessAutomationService = () => {
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
                 Let's Build Your Automation Stack.
               </h2>
-              
+
               <p className="text-white/80 mb-10">
-                We only take on 2 automation projects per month to ensure deep strategy and long-term success.
+                We only take on 2 automation projects per month to ensure deep
+                strategy and long-term success.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Link to="/contact">
                   <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray min-w-[250px]">
@@ -540,7 +618,10 @@ const AIBusinessAutomationService = () => {
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button variant="outline" className="realm-button border-white text-white hover:bg-white/10 min-w-[200px]">
+                  <Button
+                    variant="outline"
+                    className="realm-button border-white text-white hover:bg-white/10 min-w-[200px]"
+                  >
                     Get a Free AI Audit
                     <ArrowRight size={16} className="ml-2" />
                   </Button>
