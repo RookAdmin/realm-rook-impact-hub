@@ -1,68 +1,81 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import Logo from './common/Logo';
+import Logo from "./common/Logo";
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger
+  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   // Navigation items
   const navItems = [
-    { 
-      name: 'What We Do?', 
+    {
+      name: "What We Do?",
       subItems: [
-        { name: 'Branding', path: '/services/branding' },
-        { name: 'UI/UX Design', path: '/services/ui-ux-design' },
-        { name: 'Web/App Development', path: '/services/web-app-development' },
-        { name: 'SEO', path: '/services/seo' },
-        { name: 'Social Media Marketing', path: '/services/social-media-marketing' },
-        { name: 'AI Business Automation', path: '/services/ai-business-automation' },
-        { name: 'Domain Name Consultation', path: '/services/domain-name-consultation' },
-        { name: 'Enterprise Domain Management', path: '/services/enterprise-domain-management' },
-      ]
+        { name: "Branding", path: "/services/branding" },
+        { name: "UI/UX Design", path: "/services/ui-ux-design" },
+        { name: "Web/App Development", path: "/services/web-app-development" },
+        { name: "SEO", path: "/services/seo" },
+        {
+          name: "Social Media Marketing",
+          path: "/services/social-media-marketing",
+        },
+        {
+          name: "AI Business Automation",
+          path: "/services/ai-business-automation",
+        },
+        {
+          name: "Domain Name Consultation",
+          path: "/services/domain-name-consultation",
+        },
+        {
+          name: "Enterprise Domain Management",
+          path: "/services/enterprise-domain-management",
+        },
+      ],
     },
-    { 
-      name: 'Discover', 
+    {
+      name: "Discover",
       subItems: [
-        { name: 'D2C Startups', path: '/discover/d2c-startups' },
-        { name: 'SaaS Startups', path: '/discover/saas-startups' },
-      ]
+        { name: "D2C Startups", path: "/discover/d2c-startups" },
+        { name: "SaaS Startups", path: "/discover/saas-startups" },
+      ],
     },
-    { name: 'Who We Are?', path: '/about' },
-    { name: 'Impact Studies', path: '/case-studies' },
-    { 
-      name: 'Resources', 
+    { name: "Who We Are?", path: "/about" },
+    { name: "Impact Studies", path: "/case-studies" },
+    {
+      name: "Resources",
       subItems: [
-        { name: 'Insights', path: '/resources/insights' },
-        { name: 'Press Releases', path: '/resources/press-releases' },
-      ]
+        { name: "Insights", path: "/resources/insights" },
+        { name: "Press Releases", path: "/resources/press-releases" },
+      ],
     },
-    { name: 'Brand Kit', path: '/brand-kit' },
+    { name: "Brand Kit", path: "/brand-kit" },
   ];
 
   // Set up intersection observer for hero section
   const heroObserverRef = useRef(null);
-  
+
   useEffect(() => {
-    const heroSection = document.querySelector('.bg-realm-black');
+    const heroSection = document.querySelector(".bg-realm-black");
     if (heroSection) {
       heroObserverRef.current = new IntersectionObserver(
         ([entry]) => {
@@ -71,10 +84,10 @@ const Navbar = () => {
         },
         { threshold: 0.1 } // Trigger when at least 10% of the hero is visible
       );
-      
+
       heroObserverRef.current.observe(heroSection);
     }
-    
+
     const handleScroll = () => {
       if (window.scrollY > 10) {
         setIsScrolled(true);
@@ -83,45 +96,64 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
       if (heroObserverRef.current && heroSection) {
         heroObserverRef.current.unobserve(heroSection);
       }
     };
   }, []);
 
+  // Add effect to scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   // Determine text color based on hero visibility and scroll position
-  const textColorClass = isHeroVisible ? 'text-white' : 'text-realm-black';
-  const logoColorClass = isHeroVisible ? 'text-white' : 'text-realm-black';
-  const buttonClass = isHeroVisible ? 'bg-white text-realm-black hover:bg-realm-lightgray' : 'bg-realm-black text-white hover:bg-realm-darkgray';
-  
+  const textColorClass = isHeroVisible ? "text-white" : "text-realm-black";
+  const logoColorClass = isHeroVisible ? "text-white" : "text-realm-black";
+  const buttonClass = isHeroVisible
+    ? "bg-white text-realm-black hover:bg-realm-lightgray"
+    : "bg-realm-black text-white hover:bg-realm-darkgray";
+
   const navLinkClass = `text-sm font-medium ${textColorClass} hover:opacity-80 realm-link transition-colors duration-300`;
 
   return (
-    <header className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 md:py-6",
-      isScrolled ? "bg-white shadow-md py-3 md:py-4" : isHeroVisible ? "bg-transparent" : "bg-white"
-    )}>
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 md:py-6",
+        isScrolled
+          ? "bg-white shadow-md py-3 md:py-4"
+          : isHeroVisible
+          ? "bg-transparent"
+          : "bg-white"
+      )}
+    >
       <div className="realm-container flex items-center justify-between">
         <Link to="/" className="flex items-center">
-        <img src={isHeroVisible ? '/logo-white.png' : '/logo-black.png'} alt="Logo" className={`h-8 md:h-10 ${logoColorClass}`} />
+          <img
+            src={isHeroVisible ? "/logo-white.png" : "/logo-black.png"}
+            alt="Logo"
+            className={`h-8 md:h-10 ${logoColorClass}`}
+          />
           {/* <Logo variant={isHeroVisible ? 'light' : 'dark'} className="h-8 md:h-10" /> */}
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => (
+          {navItems.map((item) =>
             item.subItems ? (
               <NavigationMenu key={item.name}>
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className={`text-sm font-medium ${textColorClass} hover:opacity-80 realm-link transition-colors duration-300 bg-transparent`}>
+                    <NavigationMenuTrigger
+                      className={`text-sm font-medium ${textColorClass} hover:opacity-80 realm-link transition-colors duration-300 bg-transparent`}
+                    >
                       {item.name}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -146,22 +178,22 @@ const Navbar = () => {
                 </NavigationMenuList>
               </NavigationMenu>
             ) : (
-              <Link 
-                key={item.name} 
-                to={item.path} 
-                className={navLinkClass}
-              >
+              <Link key={item.name} to={item.path} className={navLinkClass}>
                 {item.name}
               </Link>
             )
-          ))}
+          )}
           <Link to="/contact">
-            <Button className={`realm-button transition-colors duration-300 ${buttonClass}`}>Let's Talk</Button>
+            <Button
+              className={`realm-button transition-colors duration-300 ${buttonClass}`}
+            >
+              Let's Talk
+            </Button>
           </Link>
         </nav>
 
         {/* Mobile menu button */}
-        <button 
+        <button
           className={`md:hidden ${textColorClass} focus:outline-none transition-colors duration-300`}
           onClick={toggleMobileMenu}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
@@ -178,7 +210,9 @@ const Navbar = () => {
               <div key={item.name}>
                 {item.subItems ? (
                   <div className="py-2">
-                    <div className="text-lg font-medium text-realm-black mb-2">{item.name}</div>
+                    <div className="text-lg font-medium text-realm-black mb-2">
+                      {item.name}
+                    </div>
                     <div className="pl-4 space-y-2">
                       {item.subItems.map((subItem) => (
                         <Link
@@ -193,8 +227,8 @@ const Navbar = () => {
                     </div>
                   </div>
                 ) : (
-                  <Link 
-                    to={item.path} 
+                  <Link
+                    to={item.path}
                     className="block py-2 text-lg font-medium text-realm-black hover:text-realm-darkgray"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

@@ -1,57 +1,72 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Logo from './public/logo-white.png';
+"use client";
+import React from "react";
+import { Link } from "react-router-dom";
+import LogoImage from "/logo-white.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   const footerLinks = [
     {
-      title: 'What We Do?',
-      titleLink: '/services',
+      title: "What We Do?",
+      titleLink: "/services",
       links: [
-        { name: 'Branding', path: '/services/branding' },
-        { name: 'UI/UX Design', path: '/services/ui-ux-design' },
-        { name: 'Web/App Development', path: '/services/web-app-development' },
-        { name: 'SEO', path: '/services/seo' },
-        { name: 'Social Media Marketing', path: '/services/social-media-marketing' },
-        { name: 'AI Business Automation', path: '/services/ai-business-automation' },
-        { name: 'Domain Name Consultation', path: '/services/domain-name-consultation' },
-        { name: 'Enterprise Domain Management', path: '/services/enterprise-domain-management' },
+        { name: "Branding", path: "/services/branding" },
+        { name: "UI/UX Design", path: "/services/ui-ux-design" },
+        { name: "Web/App Development", path: "/services/web-app-development" },
+        { name: "SEO", path: "/services/seo" },
+        {
+          name: "Social Media Marketing",
+          path: "/services/social-media-marketing",
+        },
+        {
+          name: "AI Business Automation",
+          path: "/services/ai-business-automation",
+        },
+        {
+          name: "Domain Name Consultation",
+          path: "/services/domain-name-consultation",
+        },
+        {
+          name: "Enterprise Domain Management",
+          path: "/services/enterprise-domain-management",
+        },
       ],
     },
     {
-      title: 'Company',
+      title: "Company",
       links: [
-        { name: 'About Us', path: '/about' },
-        { name: 'Impact Studies', path: '/case-studies' },
-        { name: 'Who We Partner With', path: '/who-we-partner-with' },
-        { name: 'Brand Kit', path: '/brand-kit' },
-        { name: 'Partners & Affiliates', path: '/partners' },
+        { name: "About Us", path: "/about" },
+        { name: "Impact Studies", path: "/case-studies" },
+        { name: "Who We Partner With", path: "/who-we-partner-with" },
+        { name: "Brand Kit", path: "/brand-kit" },
+        { name: "Partners & Affiliates", path: "/partners" },
       ],
     },
     {
-      title: 'Resources',
+      title: "Resources",
       links: [
-        { name: 'Insights', path: '/resources/insights' },
-        { name: 'Press Releases', path: '/resources/press-releases' },
+        { name: "Insights", path: "/resources/insights" },
+        { name: "Press Releases", path: "/resources/press-releases" },
       ],
     },
     {
-      title: 'Legal',
+      title: "Legal",
       links: [
-        { name: 'Privacy Policy', path: '/privacy-policy' },
-        { name: 'Terms & Conditions', path: '/terms-and-conditions' },
-        { name: 'Refunds Policy', path: '/refunds-policy' },
+        { name: "Privacy Policy", path: "/privacy-policy" },
+        { name: "Terms & Conditions", path: "/terms-and-conditions" },
+        { name: "Refunds Policy", path: "/refunds-policy" },
       ],
     },
   ];
 
   const socialLinks = [
-    { name: 'Instagram', url: 'https://www.instagram.com/realmrook?igsh=NzFkM2g3NmZzcHp0' },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/realmrook?igsh=NzFkM2g3NmZzcHp0",
+    },
     // { name: 'Twitter', url: 'https://twitter.com' },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/company/realmco/' },
+    { name: "LinkedIn", url: "https://www.linkedin.com/company/realmco/" },
     // { name: 'Behance', url: 'https://behance.net' },
   ];
 
@@ -61,9 +76,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12">
           {/* Realm by Rook column */}
           <div className="lg:col-span-2">
-            <Logo variant="light" className="mb-4 w-32" />
+            <img src={LogoImage} alt="Realm by Rook" className="mb-4 w-32" />
             <p className="mb-6 text-gray-300 max-w-sm">
-              We blend creativity and technology to build experiences that inspire action.
+              We blend creativity and technology to build experiences that
+              inspire action.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
@@ -83,7 +99,10 @@ const Footer = () => {
           {/* What We Do? column */}
           <div>
             <h3 className="font-medium mb-4 text-sm text-gray-400">
-              <Link to="/services" className="hover:text-white transition-colors">
+              <Link
+                to="/services"
+                className="hover:text-white transition-colors"
+              >
                 What We Do?
               </Link>
             </h3>
