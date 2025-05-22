@@ -37,6 +37,7 @@ const Navbar = () => {
     "/resources/insights",
     "/resources/press-releases",
     "/brand-kit",
+    "/",
   ];
 
   const [isInvertedPage, setIsInvertedPage] = useState(false);
@@ -87,7 +88,6 @@ const Navbar = () => {
     { name: "Brand Kit", path: "/brand-kit" },
   ];
 
-  // Set up intersection observer for hero section
   const heroObserverRef = useRef(null);
 
   useEffect(() => {

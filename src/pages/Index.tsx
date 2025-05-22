@@ -11,7 +11,7 @@ import PartnerLogos from '@/components/home/PartnerLogos';
 import InsightsResourcesPreview from '@/components/home/InsightsResourcesPreview';
 import FinalCta from '@/components/home/FinalCta';
 
-const Index = () => {
+const   Index = () => {
   return (
     <main className="min-h-screen">
       {/* Hero Section - Solid Black Background with Bold Typography */}

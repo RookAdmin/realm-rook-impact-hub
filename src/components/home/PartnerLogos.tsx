@@ -5,12 +5,12 @@ import { motion } from 'framer-motion';
 const PartnerLogos = () => {
   // Mock client logos (in a real application, these would be images imported from assets)
   const clients = [
-    { name: 'Client 1', logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100' },
-    { name: 'Client 2', logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100' },
-    { name: 'Client 3', logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100' },
-    { name: 'Client 4', logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100' },
-    { name: 'Client 5', logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100' },
-    { name: 'Client 6', logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100' },
+    { name: 'Client 1', logo: 'src/components/assets/PartnerLogos/CapitalEngineeringConsultancy.png' },
+    { name: 'Client 2', logo: 'src/components/assets/PartnerLogos/CoventryRoadDentalCare.png' },
+    { name: 'Client 3', logo: 'src/components/assets/PartnerLogos/finequs.webp' },
+    { name: 'Client 4', logo: 'src/components/assets/PartnerLogos/Greenhouse.png' },
+    { name: 'Client 5', logo: 'src/components/assets/PartnerLogos/V5Digital.png' },
+    { name: 'Client 6', logo: 'src/components/assets/PartnerLogos/ZGuard.png' },
   ];
 
   const container = {
