@@ -25,20 +25,23 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  const invertedRoutes = [
-    "/services/social-media-marketing",
-    "/services/ai-business-automation",
-    "/services/domain-name-consultation",
-    "/services/enterprise-domain-management",
-    "/discover/d2c-startups",
-    "/discover/saas-startups",
-    "/about",
-    "/case-studies",
-    "/resources/insights",
-    "/resources/press-releases",
-    "/brand-kit",
-    "/",
-  ];
+  const invertedRoutes = React.useMemo(
+    () => [
+      "/services/social-media-marketing",
+      "/services/ai-business-automation",
+      "/services/domain-name-consultation",
+      "/services/enterprise-domain-management",
+      "/discover/d2c-startups",
+      "/discover/saas-startups",
+      "/about",
+      "/case-studies",
+      "/resources/insights",
+      "/resources/press-releases",
+      "/brand-kit",
+      "/",
+    ],
+    []
+  );
 
   const [isInvertedPage, setIsInvertedPage] = useState(false);
 
@@ -147,15 +150,15 @@ const Navbar = () => {
     } else {
       setIsHeroVisible(false);
     }
-  }, [location.pathname]);
+  }, [location.pathname, invertedRoutes]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const useWhiteText = isInvertedPage;
+  const useWhiteText = isInvertedPage && !isScrolled && isHeroVisible;
 
-  const headerBackgroundClass = isInvertedPage
+  const headerBackgroundClass = isInvertedPage && !isScrolled
     ? "bg-realm-black"
     : isScrolled
     ? "bg-white shadow-md py-3 md:py-4"

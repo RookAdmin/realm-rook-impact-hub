@@ -31,7 +31,7 @@ const Contact = () => {
     }
   });
 
-  const handleSubmit = (data: any) => {
+  const handleSubmit = (data: unknown) => {
     console.log(data);
     toast.success("Your message has been sent! We'll get back to you shortly.");
     form.reset();
