@@ -25,6 +25,15 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  const invertedPaths = [
+    "/services/social-media-marketing",
+    "/services/ai-business-automation",
+    "/services/domain-name-consultation",
+    "/services/enterprise-domain-management",
+  ];
+
+  const [isInvertedPage, setIsInvertedPage] = useState(false);
+
   // Navigation items
   const navItems = [
     {
@@ -108,17 +117,49 @@ const Navbar = () => {
   // Add effect to scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    const currentPath = location.pathname;
+    setIsInvertedPage(invertedPaths.includes(currentPath));
+
+    const heroSection = document.querySelector(".bg-realm-black");
+
+    if (heroSection) {
+      const rect = heroSection.getBoundingClientRect();
+      setIsHeroVisible(rect.top < window.innerHeight && rect.bottom > 0);
+
+      if (heroObserverRef.current) {
+        heroObserverRef.current.disconnect();
+      }
+      heroObserverRef.current = new IntersectionObserver(
+        ([entry]) => {
+          setIsHeroVisible(entry.isIntersecting);
+        },
+        { threshold: 0.1 }
+      );
+      heroObserverRef.current.observe(heroSection);
+    } else {
+      setIsHeroVisible(false);
+    }
   }, [location.pathname]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Determine text color based on hero visibility and scroll position
-  const textColorClass = isHeroVisible ? "text-white" : "text-realm-black";
-  const logoColorClass = isHeroVisible ? "text-white" : "text-realm-black";
-  const buttonClass = isHeroVisible
-    ? "bg-white text-realm-black hover:bg-realm-lightgray"
+  const useWhiteText = isInvertedPage;
+
+  const headerBackgroundClass = isInvertedPage
+    ? "bg-realm-black"
+    : isScrolled
+    ? "bg-white shadow-md py-3 md:py-4"
+    : isHeroVisible
+    ? "bg-transparent"
+    : "bg-white";
+
+  const textColorClass = useWhiteText ? "text-white" : "text-realm-black";
+  const logoColorClass = textColorClass;
+  const buttonClass = useWhiteText
+    ? "bg-white text-realm-black hover:bg-gray-200"
     : "bg-realm-black text-white hover:bg-realm-darkgray";
 
   const navLinkClass = `text-sm font-medium ${textColorClass} hover:opacity-80 realm-link transition-colors duration-300`;
@@ -127,24 +168,18 @@ const Navbar = () => {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 md:py-6",
-        isScrolled
-          ? "bg-white shadow-md py-3 md:py-4"
-          : isHeroVisible
-          ? "bg-transparent"
-          : "bg-white"
+        headerBackgroundClass
       )}
     >
       <div className="realm-container flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img
-            src={isHeroVisible ? "/logo-white.png" : "/logo-black.png"}
+            src={useWhiteText ? "/logo-white.png" : "/logo-black.png"}
             alt="Logo"
-            className={`h-8 md:h-10 ${logoColorClass}`}
+            className="h-8 md:h-10 transition-all duration-300"
           />
-          {/* <Logo variant={isHeroVisible ? 'light' : 'dark'} className="h-8 md:h-10" /> */}
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) =>
             item.subItems ? (
@@ -192,7 +227,6 @@ const Navbar = () => {
           </Link>
         </nav>
 
-        {/* Mobile menu button */}
         <button
           className={`md:hidden ${textColorClass} focus:outline-none transition-colors duration-300`}
           onClick={toggleMobileMenu}
@@ -202,7 +236,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md">
           <div className="px-4 py-6 space-y-4">

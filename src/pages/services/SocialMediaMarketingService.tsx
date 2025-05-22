@@ -668,65 +668,23 @@ const SocialMediaMarketingService = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const ctaSectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (ctaSectionRef.current) {
-        const scrollY = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const threshold = windowHeight * 0.25; // Show after 25% scroll
-
-        if (scrollY > threshold) {
-          ctaSectionRef.current.classList.add("opacity-100");
-          ctaSectionRef.current.classList.remove("opacity-0");
-        } else {
-          ctaSectionRef.current.classList.add("opacity-0");
-          ctaSectionRef.current.classList.remove("opacity-100");
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <>
-      <div
-        ref={ctaSectionRef}
-        className="fixed bottom-0 left-0 right-0 bg-realm-black p-4 z-40 opacity-0 transition-opacity duration-300 md:hidden"
-      >
-        <div className="flex justify-center">
-          <Link to="/contact" className="w-full">
-            <Button className="realm-button w-full bg-white text-realm-black hover:bg-realm-lightgray">
-              Book a 1:1 Domain Strategy Call
-              <ArrowRight size={16} className="ml-2" />
-            </Button>
-          </Link>
-        </div>
-      </div>
-      <main className="min-h-screen pt-20">
-        <div className="p-10">
-          <ServiceBreadcrumb
-            serviceName="Social Media Marketing"
-            serviceUrl="/services/social-media-marketing"
-          />
-        </div>
+    <main className="min-h-screen pt-20">
+      <ServiceBreadcrumb
+        serviceName="Social Media Marketing"
+        serviceUrl="/services/social-media-marketing"
+      />
 
-        <Hero />
-        <ProblemSection />
-        <ProofSection />
-        <ServicesIncluded />
-        <AIUpgrade />
-        <SocialProof />
-        <ImpactStudies />
-        <FinalCTA />
-        <StickyCTA />
-      </main>
-    </>
+      <Hero />
+      <ProblemSection />
+      <ProofSection />
+      <ServicesIncluded />
+      <AIUpgrade />
+      <SocialProof />
+      <ImpactStudies />
+      <FinalCTA />
+      <StickyCTA />
+    </main>
   );
 };
 

@@ -25,7 +25,7 @@ export const brandAssets: BrandAsset[] = [
       PNG: '/assets/brand/realm-primary-logo.png',
       EPS: '/assets/brand/realm-primary-logo.eps',
     },
-    previewUrl: '/placeholder.svg',
+    previewUrl: '/assets/brand/realm-primary-logo.svg',
   },
   {
     id: '2',
@@ -37,7 +37,7 @@ export const brandAssets: BrandAsset[] = [
       PNG: '/assets/brand/realm-secondary-logo.png',
       EPS: '/assets/brand/realm-secondary-logo.eps',
     },
-    previewUrl: '/placeholder.svg',
+    previewUrl: '/assets/brand/realm-secondary-logo.svg',
   },
   {
     id: '3',
