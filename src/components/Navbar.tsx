@@ -25,11 +25,18 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  const invertedPaths = [
+  const invertedRoutes = [
     "/services/social-media-marketing",
     "/services/ai-business-automation",
     "/services/domain-name-consultation",
     "/services/enterprise-domain-management",
+    "/discover/d2c-startups",
+    "/discover/saas-startups",
+    "/about",
+    "/case-studies",
+    "/resources/insights",
+    "/resources/press-releases",
+    "/brand-kit",
   ];
 
   const [isInvertedPage, setIsInvertedPage] = useState(false);
@@ -119,7 +126,7 @@ const Navbar = () => {
     window.scrollTo(0, 0);
 
     const currentPath = location.pathname;
-    setIsInvertedPage(invertedPaths.includes(currentPath));
+    setIsInvertedPage(invertedRoutes.includes(currentPath));
 
     const heroSection = document.querySelector(".bg-realm-black");
 
