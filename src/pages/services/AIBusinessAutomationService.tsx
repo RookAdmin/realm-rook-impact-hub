@@ -207,7 +207,7 @@ const AIBusinessAutomationService = () => {
               <Link to="/case-studies">
                 <Button
                   variant="outline"
-                  className="realm-button border-white text-white hover:bg-white/10 min-w-[200px]"
+                  className="realm-button border-white text-black hover:text-white hover:bg-white/10 min-w-[200px]"
                 >
                   Explore Use Cases
                   <ArrowRight size={16} className="ml-2" />

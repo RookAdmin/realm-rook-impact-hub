@@ -136,7 +136,7 @@ const DomainNameConsultation = () => {
               <Link to="/case-studies">
                 <Button
                   variant="outline"
-                  className="realm-button border-white text-white hover:bg-white/10"
+                  className="realm-button border-white text-black hover:text-white hover:bg-white/10"
                 >
                   View Past Domain Success Stories
                   <ArrowRight size={16} className="ml-2" />
