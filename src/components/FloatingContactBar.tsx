@@ -56,8 +56,9 @@ const FloatingContactBar = () => {
     }
     if (action) action();
   };
-
-  return (
+  
+  return isMobile ?(
+    
     <>
       <motion.div 
         className="fixed right-0 bottom-16 z-40 flex flex-col"
@@ -101,7 +102,7 @@ const FloatingContactBar = () => {
             <TooltipTrigger asChild>
               <motion.a
                 variants={itemVariants}
-                href="tel:+917092800022"
+                href="tel:+917092700022"
                 onClick={() => handleItemInteraction('call')}
                 onMouseEnter={() => !isMobile && setExpandedItem('call')}
                 onMouseLeave={() => !isMobile && setExpandedItem(null)}
@@ -171,7 +172,7 @@ const FloatingContactBar = () => {
         </DialogContent>
       </Dialog>
     </>
-  );
+  ) : null;
 };
 
 export default FloatingContactBar;
