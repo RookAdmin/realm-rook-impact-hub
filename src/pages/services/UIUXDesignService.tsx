@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ArrowDown, Check, Smartphone, Layout, Framer, ActivitySquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ServiceBreadcrumb from '@/components/services/ServiceBreadcrumb';
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import ContactForm from '@/components/ContactForm';
 
 // Remove the imports for components that don't exist
 // import UIUXHero from '@/components/services/uiux/UIUXHero';
@@ -14,6 +16,7 @@ import ServiceBreadcrumb from '@/components/services/ServiceBreadcrumb';
 // import UIUXContactForm from '@/components/services/uiux/UIUXContactForm';
 
 const UIUXDesignService = () => {
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const benefits = [
     {
       icon: <ActivitySquare size={24} />,
@@ -58,10 +61,20 @@ const UIUXDesignService = () => {
             <p className="text-xl md:text-2xl mb-8 text-realm-darkgray">
               We craft human-first, experience-driven digital interfaces.
             </p>
-            <Button onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })} className="realm-button flex items-center gap-2">
+            <Button onClick={() => setIsContactOpen(true)} className="realm-button flex items-center gap-2">
               Let's Design Together <ArrowRight size={16} />
             </Button>
           </div>
+
+          {/* Contact Form Dialog */}
+      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <div className="py-2">
+            <h2 className="text-2xl font-display font-bold mb-6">Let's Design Together</h2>
+            <ContactForm onSuccess={() => setIsContactOpen(false)} />
+          </div>
+        </DialogContent>
+      </Dialog>
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="border border-realm-lightgray p-6">
@@ -277,17 +290,17 @@ const UIUXDesignService = () => {
             Your Idea Deserves a Beautiful, Functional Experience.
           </h2>
           <div className="flex flex-col md:flex-row gap-4 justify-center mt-8">
-            <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+            {/* <Button  className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
               Start My Project
-            </Button>
-            <Button variant="outline" className="text-white border-white hover:bg-white hover:text-realm-black">
+            </Button> */}
+            <Button  onClick={() => setIsContactOpen(true)} variant="outline" className="text-black border-white">
               Talk to Our Design Team
             </Button>
           </div>
         </div>
       </section>
 
-      <div className="py-16 text-center">
+      <div className="py-16 pl-12 text-center">
         <Link to="/">
           <Button variant="outline" className="realm-button bg-transparent border-realm-black text-realm-black hover:bg-realm-black hover:text-white flex items-center gap-2">
             <ArrowLeft size={16} /> Back to Homepage

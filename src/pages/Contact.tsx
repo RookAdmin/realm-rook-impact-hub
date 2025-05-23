@@ -59,7 +59,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium">Email</h3>
-                  <p className="text-realm-darkgray">hello@realmrook.com</p>
+                  <p className="text-realm-darkgray">hlo@realmrook.com</p>
                 </div>
               </div>
               
@@ -69,7 +69,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium">Phone</h3>
-                  <p className="text-realm-darkgray">+1 (555) 123-4567</p>
+                  <p className="text-realm-darkgray">+91 70927 00022</p>
                 </div>
               </div>
               
@@ -80,7 +80,7 @@ const Contact = () => {
                 <div>
                   <h3 className="text-lg font-medium">Office Hours</h3>
                   <p className="text-realm-darkgray">Mon–Fri | 10 AM – 6 PM IST</p>
-                  <p className="text-realm-darkgray mt-1">Chennai, India</p>
+                  <p className="text-realm-darkgray mt-1">Chennai, Mumbai, Bangalore,  India</p>
                 </div>
               </div>
             </div>
@@ -146,11 +146,14 @@ const Contact = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="AI Automation">AI Automation</SelectItem>
-                          <SelectItem value="Web Design">Web Design</SelectItem>
-                          <SelectItem value="Domain">Domain Services</SelectItem>
-                          <SelectItem value="Branding">Branding</SelectItem>
-                          <SelectItem value="Other">Other</SelectItem>
+                            <SelectItem value="Branding">Branding</SelectItem>
+                            <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
+                            <SelectItem value="Web/App Development">Web/App Development</SelectItem>
+                            <SelectItem value="SEO">SEO</SelectItem>
+                            <SelectItem value="Social Media Marketing">Social Media Marketing</SelectItem>
+                            <SelectItem value="AI Business Automation">AI Business Automation</SelectItem>
+                            <SelectItem value="Domain Name Consultation">Domain Name Consultation</SelectItem>
+                            <SelectItem value="Enterprise Domain Management">Enterprise Domain Management</SelectItem>
                         </SelectContent>
                       </Select>
                     </FormItem>

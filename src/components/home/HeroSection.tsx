@@ -73,7 +73,7 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Contact Form Dialog */}
+      {/* Contact  Form Dialog */}
       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
         <DialogContent className="sm:max-w-[500px]">
           <div className="py-2">

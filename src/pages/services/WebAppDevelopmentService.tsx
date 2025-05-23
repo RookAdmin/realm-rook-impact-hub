@@ -1,13 +1,16 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Code, Database, Zap, Check, Monitor, Smartphone, Layout as LayoutDashboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ServiceBreadcrumb from '@/components/services/ServiceBreadcrumb';
 import PageHeader from '@/components/common/PageHeader';
 import { Separator } from "@/components/ui/separator";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import ContactForm from '@/components/ContactForm';
 
 const WebAppDevelopmentService = () => {
+  const [isContactOpen, setIsContactOpen] = useState(false);
   return (
     <main className="min-h-screen">
       <div className="pt-32">
@@ -23,11 +26,20 @@ const WebAppDevelopmentService = () => {
             <p className="text-xl md:text-2xl text-realm-darkgray max-w-3xl mx-auto mb-12">
               We build experiences that perform — fast, scalable, and ready for growth.
             </p>
-            <Link to="#contact" className="realm-button bg-realm-black text-white hover:bg-realm-darkgray inline-flex items-center gap-2">
+            <Button onClick={() => setIsContactOpen(true)} className="realm-button bg-realm-black text-white hover:bg-realm-darkgray inline-flex items-center gap-2">
               Build With Realm <ArrowRight size={16} />
-            </Link>
+            </Button>
           </div>
         </section>
+        {/* Contact  Form Dialog */}
+      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <div className="py-2">
+            <h2 className="text-2xl font-display font-bold mb-6">Build With Realm</h2>
+            <ContactForm onSuccess={() => setIsContactOpen(false)} />
+          </div>
+        </DialogContent>
+      </Dialog>
 
         {/* Why Realm for Development */}
         <section className="py-16 bg-white">
@@ -445,12 +457,12 @@ const WebAppDevelopmentService = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link to="/contact" className="realm-button bg-realm-black text-white hover:bg-realm-darkgray inline-flex items-center gap-2 justify-center">
+                <Button onClick={() => setIsContactOpen(true)} className="realm-button bg-realm-black text-white hover:bg-realm-darkgray inline-flex items-center gap-2 justify-center">
                   Start a Project <ArrowRight size={16} />
-                </Link>
-                <a href="mailto:hlo@realmrook.com" className="realm-button bg-transparent border border-realm-black text-realm-black hover:bg-realm-black hover:text-white inline-flex items-center gap-2 justify-center">
+                </Button>
+                {/* <a href="mailto:hlo@realmrook.com" className="realm-button bg-transparent border border-realm-black text-realm-black hover:bg-realm-black hover:text-white inline-flex items-center gap-2 justify-center">
                   Write to us: hlo@realmrook.com
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

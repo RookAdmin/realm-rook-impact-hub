@@ -1,6 +1,8 @@
 
-import React from 'react';
+import React ,{ useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import ContactForm from '@/components/ContactForm';
 
 interface ProcessStepProps {
   number: string;
@@ -10,6 +12,7 @@ interface ProcessStepProps {
 }
 
 const ProcessStep = ({ number, title, description, timeline }: ProcessStepProps) => {
+ 
   return (
     <div className="flex flex-col md:flex-row gap-8 mb-16 last:mb-0">
       <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center border border-realm-black text-2xl font-bold">
@@ -27,6 +30,8 @@ const ProcessStep = ({ number, title, description, timeline }: ProcessStepProps)
 };
 
 const BrandingProcess = () => {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   return (
     <section className="py-16 md:py-24">
       <div className="realm-container">
@@ -62,13 +67,22 @@ const BrandingProcess = () => {
         
         <div className="mt-16 text-center">
           <a 
-            href="mailto:hlo@realmrook.com"
+            onClick={() => setIsContactOpen(true)}
             className="realm-button inline-flex items-center gap-2"
           >
             Talk to Branding Team <ArrowRight size={16} />
           </a>
         </div>
       </div>
+      {/* Contact Form Dialog */}
+      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <div className="py-2">
+            <h2 className="text-2xl font-display font-bold mb-6">Talk to Branding Team</h2>
+            <ContactForm onSuccess={() => setIsContactOpen(false)} />
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

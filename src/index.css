@@ -136,7 +136,7 @@
   }
   
   .realm-client-logo {
-    @apply grayscale hover:grayscale-0 transition-all duration-300 h-12 max-w-full;
+    @apply transition-all duration-300 h-12 max-w-full;
   }
   
   /* Navbar transition styles */

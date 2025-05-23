@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React  from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -12,7 +12,10 @@ import BrandingDifferentiators from '@/components/services/branding/BrandingDiff
 import BrandingTestimonials from '@/components/services/branding/BrandingTestimonials';
 import BrandingContactForm from '@/components/services/branding/BrandingContactForm';
 
+
 const BrandingService = () => {
+  
+
   return (
     <main className="min-h-screen pt-32">
       <div className="realm-container mb-6">
@@ -26,10 +29,10 @@ const BrandingService = () => {
         <BrandingImpact />
         <BrandingDifferentiators />
         <BrandingTestimonials />
-        <BrandingContactForm />
+        {/* <BrandingContactForm /> */}
       </div>
 
-      <div className="py-16 text-center">
+      <div className="py-16 pl-12 text-center">
         <Link to="/">
           <Button variant="outline" className="realm-button bg-transparent border-realm-black text-realm-black hover:bg-realm-black hover:text-white flex items-center gap-2">
             <ArrowLeft size={16} /> Back to Homepage

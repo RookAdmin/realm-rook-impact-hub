@@ -4,8 +4,13 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
+import ContactForm from '@/components/ContactForm';
+import { Dialog, DialogContent } from "@/components/ui/dialog"; 
+import { useState } from 'react';
 
 const FinalCta = () => {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   return (
     <section className="bg-realm-black text-white py-24 md:py-32">
       <div className="realm-container">
@@ -21,15 +26,22 @@ const FinalCta = () => {
           </h2>
           <p className="text-xl md:text-2xl mb-12 text-realm-lightgray">
             Let's build something that truly sets you apart and drives real business results.
-          </p>
-          <Link to="/contact">
-            <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray group px-8 py-6 text-lg">
+          </p>  
+            <Button onClick={() => setIsContactOpen(true)} className="realm-button bg-white text-realm-black hover:bg-realm-lightgray group px-8 py-6 text-lg">
               <span>Let's Build Something Together</span>
               <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
-          </Link>
+        
         </motion.div>
       </div>
+       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <div className="py-2">
+            <h2 className="text-2xl font-display font-bold mb-6">Let's Build Something Together</h2>
+            <ContactForm onSuccess={() => setIsContactOpen(false)} />
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
