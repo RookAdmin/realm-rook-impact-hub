@@ -1,11 +1,15 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import ContactForm from '@/components/ContactForm';
 
 const HeroSection = () => {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services-section');
     if (servicesSection) {
@@ -42,14 +46,13 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link to="/contact">
-              <Button 
-                className="realm-button bg-white text-realm-black hover:bg-realm-lightgray flex items-center"
-              >
-                <span>Get a Proposal</span>
-                <ArrowRight size={16} className="ml-2" />
-              </Button>
-            </Link>
+            <Button 
+              onClick={() => setIsContactOpen(true)}
+              className="realm-button bg-white text-realm-black hover:bg-realm-lightgray flex items-center"
+            >
+              <span>Get a Proposal</span>
+              <ArrowRight size={16} className="ml-2" />
+            </Button>
             
             <Link to="/case-studies" className="text-white flex items-center space-x-2 realm-link hover:text-realm-lightgray transition-colors">
               <span>View Impact Studies</span>
@@ -69,6 +72,16 @@ const HeroSection = () => {
           Only 10 slots left for incoming projects
         </motion.div>
       </div>
+
+      {/* Contact Form Dialog */}
+      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <div className="py-2">
+            <h2 className="text-2xl font-display font-bold mb-6">Get a Proposal</h2>
+            <ContactForm onSuccess={() => setIsContactOpen(false)} />
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
