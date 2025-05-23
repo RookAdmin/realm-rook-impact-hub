@@ -113,4 +113,4 @@ export const permissions = [
   "You may use our logo in presentations referencing our work or partnership.",
   "You may not use our logo to imply endorsement of products or services we haven't explicitly endorsed.",
   "You may not alter our logo or use it as part of another logo or design.",
-];
+]
