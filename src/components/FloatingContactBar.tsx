@@ -11,10 +11,12 @@ import {
 import ContactForm from './ContactForm';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const FloatingContactBar = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
+  const isMobile = useIsMobile();
 
   const barVariants = {
     hidden: { x: 100, opacity: 0 },
@@ -49,14 +51,16 @@ const FloatingContactBar = () => {
   };
 
   const handleItemInteraction = (itemId: string, action?: () => void) => {
-    setExpandedItem(expandedItem === itemId ? null : itemId);
+    if (isMobile) {
+      setExpandedItem(expandedItem === itemId ? null : itemId);
+    }
     if (action) action();
   };
 
   return (
     <>
       <motion.div 
-        className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col"
+        className="fixed right-0 bottom-16 z-40 flex flex-col"
         initial="hidden"
         animate="visible"
         variants={barVariants}
@@ -68,8 +72,8 @@ const FloatingContactBar = () => {
               <motion.button
                 variants={itemVariants}
                 onClick={() => handleItemInteraction('contact', () => setIsContactModalOpen(true))}
-                onMouseEnter={() => setExpandedItem('contact')}
-                onMouseLeave={() => setExpandedItem(null)}
+                onMouseEnter={() => !isMobile && setExpandedItem('contact')}
+                onMouseLeave={() => !isMobile && setExpandedItem(null)}
                 className={cn(
                   "flex items-center bg-realm-black text-white py-4 px-4",
                   "hover:bg-gray-800 transition-colors duration-300",
@@ -99,8 +103,8 @@ const FloatingContactBar = () => {
                 variants={itemVariants}
                 href="tel:+917092800022"
                 onClick={() => handleItemInteraction('call')}
-                onMouseEnter={() => setExpandedItem('call')}
-                onMouseLeave={() => setExpandedItem(null)}
+                onMouseEnter={() => !isMobile && setExpandedItem('call')}
+                onMouseLeave={() => !isMobile && setExpandedItem(null)}
                 className={cn(
                   "flex items-center bg-realm-black text-white py-4 px-4",
                   "hover:bg-gray-800 transition-colors duration-300",
@@ -132,8 +136,8 @@ const FloatingContactBar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleItemInteraction('whatsapp')}
-                onMouseEnter={() => setExpandedItem('whatsapp')}
-                onMouseLeave={() => setExpandedItem(null)}
+                onMouseEnter={() => !isMobile && setExpandedItem('whatsapp')}
+                onMouseLeave={() => !isMobile && setExpandedItem(null)}
                 className={cn(
                   "flex items-center bg-[#25D366] text-white py-4 px-4",
                   "hover:bg-[#1DA851] transition-colors duration-300",
