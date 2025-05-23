@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { MessageSquare, Phone, WhatsApp } from 'lucide-react';
+import { MessageSquare, Phone, MessageCircle } from 'lucide-react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import {
   Tooltip,
@@ -98,7 +98,7 @@ const FloatingContactBar = () => {
                 )}
                 aria-label="Chat on WhatsApp"
               >
-                <WhatsApp size={18} />
+                <MessageCircle size={18} />
                 <span className="font-medium text-sm">WhatsApp</span>
               </motion.a>
             </TooltipTrigger>
