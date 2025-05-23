@@ -5,12 +5,12 @@ import { motion } from 'framer-motion';
 const PartnerLogos = () => {
   // Mock client logos (in a real application, these would be images imported from assets)
   const clients = [
-    { name: 'Client 1', logo: 'src/components/assets/PartnerLogos/CapitalEngineeringConsultancy.png' },
-    { name: 'Client 2', logo: 'src/components/assets/PartnerLogos/CoventryRoadDentalCare.png' },
-    { name: 'Client 3', logo: 'src/components/assets/PartnerLogos/finequs.webp' },
-    { name: 'Client 4', logo: 'src/components/assets/PartnerLogos/Greenhouse.png' },
-    { name: 'Client 5', logo: 'src/components/assets/PartnerLogos/V5Digital.png' },
-    { name: 'Client 6', logo: 'src/components/assets/PartnerLogos/ZGuard.png' },
+    { name: 'Client 1', logo: '/PartnerLogos/CapitalEngineeringConsultancy.png' },
+    { name: 'Client 2', logo: '/PartnerLogos/CoventryRoadDentalCare.png' },
+    { name: 'Client 3', logo: '/PartnerLogos/finequs.webp' },
+    { name: 'Client 4', logo: '/PartnerLogos/Greenhouse.png' },
+    { name: 'Client 5', logo: '/PartnerLogos/V5Digital.png' },
+    { name: 'Client 6', logo: '/PartnerLogos/ZGuard.png' },
   ];
 
   const container = {
