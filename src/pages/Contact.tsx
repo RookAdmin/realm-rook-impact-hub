@@ -9,6 +9,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/
 import { useForm } from "react-hook-form";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { supabase } from "@/integrations/supabase/client";
 
 // Animation variants
 const fadeIn = {
@@ -28,13 +29,39 @@ const Contact = () => {
       company: "",
       service: "",
       message: "",
+      whatsapp_number: "",
     }
   });
 
-  const handleSubmit = (data: unknown) => {
-    console.log(data);
-    toast.success("Your message has been sent! We'll get back to you shortly.");
-    form.reset();
+  const handleSubmit = async (data: any) => {
+    console.log('Submitting form data:', data);
+    
+    try {
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([
+          {
+            name: data.name,
+            email: data.email,
+            company: data.company || null,
+            service: data.service || null,
+            message: data.message,
+            whatsapp_number: data.whatsapp_number || null,
+          }
+        ]);
+
+      if (error) {
+        console.error('Supabase error:', error);
+        toast.error("There was an error sending your message. Please try again.");
+        return;
+      }
+
+      toast.success("Your message has been sent! We'll get back to you shortly.");
+      form.reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error("There was an error sending your message. Please try again.");
+    }
   };
 
   return (
@@ -125,6 +152,23 @@ const Contact = () => {
                       <FormLabel>Company Name</FormLabel>
                       <FormControl>
                         <Input placeholder="Your company name" {...field} />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="whatsapp_number"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>WhatsApp Number</FormLabel>
+                      <FormControl>
+                        <Input 
+                          type="tel" 
+                          placeholder="+91 98765 43210" 
+                          {...field} 
+                        />
                       </FormControl>
                     </FormItem>
                   )}
