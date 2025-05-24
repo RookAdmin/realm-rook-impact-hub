@@ -180,6 +180,9 @@ const Navbar = () => {
     useWhiteText ? "text-white" : "text-realm-black"
   );
 
+  const isLightNavbar = headerBackgroundClass.includes("bg-white") || headerBackgroundClass.includes("bg-opacity") || headerBackgroundClass.includes("bg-transparent");
+const logoVariant = isLightNavbar ? "dark" : "light";
+
   return (
     <header
       className={cn(
@@ -190,7 +193,7 @@ const Navbar = () => {
       <div className="realm-container flex items-center justify-between">
         <Link to="/" className="flex items-center z-50 relative">
           <Logo 
-            variant={useWhiteText ? 'light' : 'dark'} 
+            variant={logoVariant} 
             className="h-8 md:h-10 transition-all duration-300"
           />
         </Link>
@@ -243,14 +246,15 @@ const Navbar = () => {
           </Link>
         </nav>
 
-        {/* Mobile Menu Button */}
         <button
-          className={mobileMenuButtonClass}
-          onClick={toggleMobileMenu}
-          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+  className={mobileMenuButtonClass}
+  onClick={toggleMobileMenu}
+  aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+>
+  {isMobileMenuOpen
+    ? <X size={24} className={isLightNavbar ? "text-black" : "text-white"} />
+    : <Menu size={24} className={isLightNavbar ? "text-black" : "text-white"} />}
+</button>
       </div>
 
       {/* Mobile Menu */}
