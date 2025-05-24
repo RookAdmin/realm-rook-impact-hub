@@ -13,9 +13,13 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import ContactForm from '@/components/ContactForm';
 
 // Hero section with animated metrics
 const Hero = () => {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   return (
     <section className="bg-realm-black text-white py-20 md:py-32 relative overflow-hidden">
       <div className="realm-container relative z-10">
@@ -37,11 +41,11 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/contact">
-              <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors text-base">
+            
+              <Button  onClick={() => setIsContactOpen(true)} className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors text-base">
                 Get My Custom Strategy
               </Button>
-            </Link>
+            
             <Link
               to="/case-studies"
               className="text-white flex items-center gap-2 realm-link hover:text-realm-lightgray"
@@ -96,6 +100,15 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
+      {/* Contact  Form Dialog */}
+      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <div className="py-2">
+            <h2 className="text-2xl font-display font-bold mb-6">Get My Custom Strategy</h2>
+            <ContactForm onSuccess={() => setIsContactOpen(false)} />
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
@@ -563,6 +576,7 @@ const ImpactStudies = () => {
 const FinalCTA = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
     <section ref={ref} className="py-20 bg-realm-black text-white">
@@ -578,19 +592,19 @@ const FinalCTA = () => {
           </h2>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Link to="/contact">
-              <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors">
+            
+              <Button onClick={() => setIsContactOpen(true)}  className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors">
                 Claim Your Slot Now <ArrowRight size={16} className="ml-2" />
               </Button>
-            </Link>
-            <Link to="/contact">
+           
+            {/* <Link to="/contact">
               <Button
                 variant="outline"
                 className="realm-button border-white text-white hover:bg-white/10 transition-colors"
               >
                 Book a Free Discovery Call
               </Button>
-            </Link>
+            </Link> */}
           </div>
 
           <ul className="text-left max-w-md mx-auto space-y-2 text-realm-lightgray">
@@ -609,6 +623,14 @@ const FinalCTA = () => {
           </ul>
         </motion.div>
       </div>
+      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <div className="py-2">
+            <h2 className="text-2xl font-display font-bold mb-6">Get My Custom Strategy</h2>
+            <ContactForm onSuccess={() => setIsContactOpen(false)} />
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
@@ -616,7 +638,7 @@ const FinalCTA = () => {
 // Sticky CTA component
 const StickyCTA = () => {
   const [isVisible, setIsVisible] = useState(false);
-
+  const [isContactOpen, setIsContactOpen] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       // Show sticky CTA once scrolled past ~50% of the page
@@ -652,13 +674,23 @@ const StickyCTA = () => {
             Only 2 slots left this month
           </p>
         </div>
-        <Link to="/contact" className="w-full sm:w-auto">
-          <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors w-full sm:w-auto">
+        
+          <Button onClick={() => setIsContactOpen(true)}  className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors w-full sm:w-auto">
             Claim Your Strategy Slot <ArrowRight size={16} className="ml-2" />
           </Button>
-        </Link>
+        
       </div>
+      {/* Contact  Form Dialog */}
+      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <div className="py-2">
+            <h2 className="text-2xl font-display font-bold mb-6">Get My Custom Strategy</h2>
+            <ContactForm onSuccess={() => setIsContactOpen(false)} />
+          </div>
+        </DialogContent>
+      </Dialog>
     </motion.div>
+    
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -21,6 +21,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import ContactForm from '@/components/ContactForm';
 
 // Variants for animations
 const fadeIn = {
@@ -43,6 +45,7 @@ const staggerChildren = {
 };
 
 const AIBusinessAutomationService = () => {
+  const [isContactOpen, setIsContactOpen] = useState(false);
   // Ref for the sticky CTA
   const ctaSectionRef = useRef<HTMLDivElement>(null);
 
@@ -198,12 +201,12 @@ const AIBusinessAutomationService = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray min-w-[250px]">
+             
+                <Button onClick={() => setIsContactOpen(true)} className="realm-button bg-white text-realm-black hover:bg-realm-lightgray min-w-[250px]">
                   Talk to an Automation Strategist
                   <ArrowRight size={16} className="ml-2" />
                 </Button>
-              </Link>
+            
               <Link to="/case-studies">
                 <Button
                   variant="outline"
@@ -214,6 +217,15 @@ const AIBusinessAutomationService = () => {
                 </Button>
               </Link>
             </div>
+            {/* Contact  Form Dialog */}
+                  <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+                    <DialogContent className="sm:max-w-[500px]">
+                      <div className="py-2">
+                        <h2 className="text-2xl font-display font-bold mb-6">Get a Proposal</h2>
+                        <ContactForm onSuccess={() => setIsContactOpen(false)} />
+                      </div>
+                    </DialogContent>
+                  </Dialog>
 
             {/* Animated metric indicators */}
             <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -586,21 +598,22 @@ const AIBusinessAutomationService = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link to="/contact">
+              {/* <Link to="/contact">
                 <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray min-w-[250px]">
                   Apply for Automation Project
                   <ArrowRight size={16} className="ml-2" />
                 </Button>
-              </Link>
-              <Link to="/contact">
+              </Link> */}
+              
                 <Button
+                  onClick={() => setIsContactOpen(true)}
                   variant="outline"
-                  className="realm-button border-white text-white hover:bg-white/10 min-w-[200px]"
+                  className="realm-button bg-white text-realm-black hover:bg-realm-lightgray min-w-[250px]"
                 >
                   Get a Free AI Audit
                   <ArrowRight size={16} className="ml-2" />
                 </Button>
-              </Link>
+              
             </div>
           </motion.div>
         </div>

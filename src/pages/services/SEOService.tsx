@@ -1,11 +1,15 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ServiceBreadcrumb from '@/components/services/ServiceBreadcrumb';
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import ContactForm from '@/components/ContactForm';
 
 const SEOService = () => {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   // Scroll to contact section handler
   const scrollToContact = () => {
     const contactSection = document.getElementById('seo-contact-section');
@@ -66,11 +70,12 @@ const SEOService = () => {
             <p className="text-xl md:text-2xl mb-8 text-realm-darkgray">
               We don't guess SEO. We engineer it — with data, content, and strategy.
             </p>
-            <Button onClick={scrollToContact} className="realm-button flex items-center gap-2">
+            <Button onClick={() => setIsContactOpen(true)} className="realm-button flex items-center gap-2">
               Boost My Rankings <ArrowRight size={16} />
             </Button>
           </div>
         </section>
+       
         
         {/* Why SEO with Realm */}
         <section className="py-16 border-t border-realm-lightgray">
@@ -165,15 +170,24 @@ const SEOService = () => {
             Your Competitors Are Ranking Higher. Let's Change That.
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Button className="realm-button flex items-center gap-2">
+            <Button onClick={() => setIsContactOpen(true)} className="realm-button flex items-center gap-2">
               Schedule SEO Audit <ArrowRight size={16} />
             </Button>
-            <Button variant="outline" className="realm-button bg-transparent border-realm-black text-realm-black hover:bg-realm-black hover:text-white flex items-center gap-2">
+            {/* <Button variant="outline" className="realm-button bg-transparent border-realm-black text-realm-black hover:bg-realm-black hover:text-white flex items-center gap-2">
               Talk to SEO Strategist
-            </Button>
+            </Button> */}
           </div>
         </section>
       </div>
+       {/* Contact  Form Dialog */}
+      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="sm:max-w-[500px]">
+          <div className="py-2">
+            <h2 className="text-2xl font-display font-bold mb-6">Get a Proposal</h2>
+            <ContactForm onSuccess={() => setIsContactOpen(false)} />
+          </div>
+        </DialogContent>
+      </Dialog>
     </main>
   );
 };
