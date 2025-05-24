@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -175,6 +176,12 @@ const Navbar = () => {
 
   const navLinkClass = `text-sm font-medium ${textColorClass} hover:opacity-80 realm-link transition-colors duration-300`;
 
+  // Mobile menu button classes - ensure visibility on black background
+  const mobileMenuButtonClass = cn(
+    "md:hidden focus:outline-none transition-colors duration-300 z-50 relative",
+    useWhiteText ? "text-white" : "text-realm-black"
+  );
+
   return (
     <header
       className={cn(
@@ -183,13 +190,14 @@ const Navbar = () => {
       )}
     >
       <div className="realm-container flex items-center justify-between">
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center z-50 relative">
           <Logo 
             variant={useWhiteText ? 'light' : 'dark'} 
             className="h-8 md:h-10 transition-all duration-300"
           />
         </Link>
 
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) =>
             item.subItems ? (
@@ -237,8 +245,9 @@ const Navbar = () => {
           </Link>
         </nav>
 
+        {/* Mobile Menu Button */}
         <button
-          className={`md:hidden ${textColorClass} focus:outline-none transition-colors duration-300`}
+          className={mobileMenuButtonClass}
           onClick={toggleMobileMenu}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -246,8 +255,9 @@ const Navbar = () => {
         </button>
       </div>
 
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md z-40">
           <div className="px-4 py-6 space-y-4">
             {navItems.map((item) => (
               <div key={item.name}>
@@ -291,3 +301,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
