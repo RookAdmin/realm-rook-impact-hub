@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
+import { countryCodes } from "@/data/countryCodes";
 
 // Animation variants
 const fadeIn = {
@@ -24,11 +25,13 @@ const fadeIn = {
 const Contact = () => {
   const form = useForm({
     defaultValues: {
-      name: "",
+      first_name: "",
+      last_name: "",
       email: "",
       company: "",
       service: "",
       message: "",
+      whatsapp_country_code: "91",
       whatsapp_number: "",
     }
   });
@@ -41,12 +44,12 @@ const Contact = () => {
         .from('contact_submissions')
         .insert([
           {
-            name: data.name,
+            name: `${data.first_name} ${data.last_name}`.trim(),
             email: data.email,
             company: data.company || null,
             service: data.service || null,
             message: data.message,
-            whatsapp_number: data.whatsapp_number || null,
+            whatsapp_number: data.whatsapp_country_code && data.whatsapp_number ? `+${data.whatsapp_country_code} ${data.whatsapp_number}` : null,
           }
         ]);
 
@@ -119,12 +122,12 @@ const Contact = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <FormField
                     control={form.control}
-                    name="name"
+                    name="first_name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Name</FormLabel>
+                        <FormLabel>First Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Your name" required {...field} />
+                          <Input placeholder="First name" required {...field} />
                         </FormControl>
                       </FormItem>
                     )}
@@ -132,17 +135,30 @@ const Contact = () => {
                   
                   <FormField
                     control={form.control}
-                    name="email"
+                    name="last_name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>Last Name</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="Your email" required {...field} />
+                          <Input placeholder="Last name" required {...field} />
                         </FormControl>
                       </FormItem>
                     )}
                   />
                 </div>
+                
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="Your email" required {...field} />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
                 
                 <FormField
                   control={form.control}
@@ -157,22 +173,52 @@ const Contact = () => {
                   )}
                 />
                 
-                <FormField
-                  control={form.control}
-                  name="whatsapp_number"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>WhatsApp Number</FormLabel>
-                      <FormControl>
-                        <Input 
-                          type="tel" 
-                          placeholder="+91 98765 43210" 
-                          {...field} 
-                        />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
+                <div>
+                  <FormLabel>WhatsApp Number</FormLabel>
+                  <div className="flex gap-2 mt-2">
+                    <FormField
+                      control={form.control}
+                      name="whatsapp_country_code"
+                      render={({ field }) => (
+                        <FormItem className="w-32">
+                          <Select 
+                            onValueChange={field.onChange} 
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Code" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="max-h-48">
+                              {countryCodes.map((country) => (
+                                <SelectItem key={country.iso} value={country.code}>
+                                  +{country.code}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="whatsapp_number"
+                      render={({ field }) => (
+                        <FormItem className="flex-1">
+                          <FormControl>
+                            <Input 
+                              type="tel" 
+                              placeholder="Phone number" 
+                              {...field} 
+                            />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                </div>
                 
                 <FormField
                   control={form.control}
