@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
@@ -51,6 +50,8 @@ const Contact = () => {
         .from('contact_submissions')
         .insert([
           {
+            first_name: data.first_name,
+            last_name: data.last_name,
             name: `${data.first_name} ${data.last_name}`.trim(),
             email: data.email,
             company: data.company || null,
