@@ -11,6 +11,11 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { countryCodes } from "@/data/countryCodes";
+import { useState } from "react";
+import { Check, ChevronDown } from "lucide-react";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 
 // Animation variants
 const fadeIn = {
@@ -23,6 +28,8 @@ const fadeIn = {
 };
 
 const Contact = () => {
+  const [openCountryCode, setOpenCountryCode] = useState(false);
+  
   const form = useForm({
     defaultValues: {
       first_name: "",
@@ -181,23 +188,55 @@ const Contact = () => {
                       name="whatsapp_country_code"
                       render={({ field }) => (
                         <FormItem className="w-32">
-                          <Select 
-                            onValueChange={field.onChange} 
-                            defaultValue={field.value}
-                          >
-                            <FormControl>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Code" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent className="max-h-48">
-                              {countryCodes.map((country) => (
-                                <SelectItem key={country.iso} value={country.code}>
-                                  +{country.code}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
+                          <Popover open={openCountryCode} onOpenChange={setOpenCountryCode}>
+                            <PopoverTrigger asChild>
+                              <FormControl>
+                                <Button
+                                  variant="outline"
+                                  role="combobox"
+                                  className={cn(
+                                    "justify-between",
+                                    !field.value && "text-muted-foreground"
+                                  )}
+                                >
+                                  {field.value
+                                    ? `+${field.value}`
+                                    : "Code"}
+                                  <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                </Button>
+                              </FormControl>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-[200px] p-0">
+                              <Command>
+                                <CommandInput placeholder="Search country..." />
+                                <CommandList>
+                                  <CommandEmpty>No country found.</CommandEmpty>
+                                  <CommandGroup>
+                                    {countryCodes.map((country) => (
+                                      <CommandItem
+                                        value={`${country.country} ${country.code}`}
+                                        key={country.iso}
+                                        onSelect={() => {
+                                          field.onChange(country.code);
+                                          setOpenCountryCode(false);
+                                        }}
+                                      >
+                                        <Check
+                                          className={cn(
+                                            "mr-2 h-4 w-4",
+                                            country.code === field.value
+                                              ? "opacity-100"
+                                              : "opacity-0"
+                                          )}
+                                        />
+                                        {country.country} (+{country.code})
+                                      </CommandItem>
+                                    ))}
+                                  </CommandGroup>
+                                </CommandList>
+                              </Command>
+                            </PopoverContent>
+                          </Popover>
                         </FormItem>
                       )}
                     />
