@@ -63,7 +63,7 @@ const Partners = () => {
                 {category.partners.map((partner) => (
                   <a 
                     key={partner.name}
-                    href={partner.url}
+                    // href={partner.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex flex-col items-center justify-center p-6 bg-white rounded-md shadow-sm hover:shadow-md transition-all duration-300"
