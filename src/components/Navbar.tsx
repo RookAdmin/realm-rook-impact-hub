@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -183,9 +184,8 @@ const Navbar = () => {
     >
       <div className="realm-container flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <img
-            src={useWhiteText ? "/logo-white.png" : "/logo-black.png"}
-            alt="Logo"
+          <Logo 
+            variant={useWhiteText ? 'light' : 'dark'} 
             className="h-8 md:h-10 transition-all duration-300"
           />
         </Link>
