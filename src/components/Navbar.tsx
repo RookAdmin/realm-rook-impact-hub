@@ -156,10 +156,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Detect if the device is mobile (screen width less than 768px)
-    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  
-    const useWhiteText = isInvertedPage && !isScrolled && isHeroVisible ;
+  const useWhiteText = isInvertedPage && !isScrolled && isHeroVisible;
 
   const headerBackgroundClass = isInvertedPage && !isScrolled
     ? "bg-realm-black"
@@ -176,8 +173,7 @@ const Navbar = () => {
     : "bg-realm-black text-white hover:bg-realm-darkgray";
 
   const navLinkClass = `text-sm font-medium ${textColorClass} hover:opacity-80 realm-link transition-colors duration-300`;
-const logoSrc = isScrolled ? "/logo-black.png" : "/logo-white.png";
-const textColorMobile = isScrolled ? "text-black" : "text-white";
+
   return (
     <header
       className={cn(
@@ -186,12 +182,13 @@ const textColorMobile = isScrolled ? "text-black" : "text-white";
       )}
     >
       <div className="realm-container flex items-center justify-between">
-        
-  <img
-    src={logoSrc}
-    alt="Logo"
-    className="h-8 md:h-10 transition-all duration-300"
-  />
+        <Link to="/" className="flex items-center">
+          <img
+            src={useWhiteText ? "/logo-white.png" : "/logo-black.png"}
+            alt="Logo"
+            className="h-8 md:h-10 transition-all duration-300"
+          />
+        </Link>
 
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) =>
@@ -241,7 +238,7 @@ const textColorMobile = isScrolled ? "text-black" : "text-white";
         </nav>
 
         <button
-          className={`md:hidden ${textColorMobile} focus:outline-none transition-colors duration-300`}
+          className={`md:hidden ${textColorClass} focus:outline-none transition-colors duration-300`}
           onClick={toggleMobileMenu}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
