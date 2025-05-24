@@ -9,39 +9,30 @@ const Partners = () => {
     {
       title: "Technology Partners",
       partners: [
-        { name: "AWS", logo: "/placeholder.svg", url: "https://aws.amazon.com" },
-        { name: "Stripe", logo: "/placeholder.svg", url: "https://stripe.com" },
-        { name: "Figma", logo: "/placeholder.svg", url: "https://figma.com" },
-        { name: "Vercel", logo: "/placeholder.svg", url: "https://vercel.com" },
+        { name: "Microsoft", logo: "/partner-logo/micro.jpg" },
+        { name: "AWS", logo: "/partner-logo/aws.png"},
+        { name: "Razorpay", logo: "/partner-logo/razorpay.png" },
+        { name: "Google Cloud", logo: "/partner-logo/gcloud.png" },
       ]
     },
     {
       title: "Strategic Collaborators",
       partners: [
-        { name: "ProductHunt", logo: "/placeholder.svg", url: "https://producthunt.com" },
-        { name: "YCombinator", logo: "/placeholder.svg", url: "https://ycombinator.com" },
-        { name: "TechStars", logo: "/placeholder.svg", url: "https://techstars.com" },
-        { name: "Adobe", logo: "/placeholder.svg", url: "https://adobe.com" },
+        { name: "Hlo", logo: "/partner-logo/hlo.png" },
+        { name: "Myprobuddy", logo: "/partner-logo/mypro.avif"},
+        { name: "Hlo Legal+", logo: "/partner-logo/hlolegal.png"},
+        { name: "Rook", logo: "/partner-logo/rook.png" },
       ]
     },
     {
       title: "Affiliate Networks",
       partners: [
-        { name: "ReferralCandy", logo: "/placeholder.svg", url: "https://referralcandy.com" },
-        { name: "ShareASale", logo: "/placeholder.svg", url: "https://shareasale.com" },
-        { name: "Impact", logo: "/placeholder.svg", url: "https://impact.com" },
-        { name: "PartnerStack", logo: "/placeholder.svg", url: "https://partnerstack.com" },
+        { name: "Zoho", logo: "/partner-logo/zoho.png"},
+        { name: "Namecheap", logo: "/partner-logo/name.png"},
+        { name: "Wati", logo: "/partner-logo/wati.png" },
+        { name: "Madgicx", logo: "/partner-logo/madg.png" },
       ]
     },
-    {
-      title: "Platform Integrations",
-      partners: [
-        { name: "Shopify", logo: "/placeholder.svg", url: "https://shopify.com" },
-        { name: "Salesforce", logo: "/placeholder.svg", url: "https://salesforce.com" },
-        { name: "HubSpot", logo: "/placeholder.svg", url: "https://hubspot.com" },
-        { name: "Slack", logo: "/placeholder.svg", url: "https://slack.com" },
-      ]
-    }
   ];
 
   return (
@@ -50,7 +41,7 @@ const Partners = () => {
       <section className="realm-section bg-background">
         <div className="realm-container">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="realm-headline mb-4">Built with Trusted Collaborations</h1>
+            <h1 className="realm-headline mb-4">Who We Partner With?</h1>
             <p className="realm-subheadline">
               We partner with industry leaders, innovative platforms, and strategic affiliates to deliver exponential value to our clients.
             </p>
@@ -81,12 +72,12 @@ const Partners = () => {
                       <img 
                         src={partner.logo} 
                         alt={`${partner.name} logo`} 
-                        className="h-12 w-auto max-w-full realm-client-logo transition-all duration-300"
+                        className="h-20 w-auto max-w-full realm-client-logo transition-all duration-300"
                       />
                     </div>
-                    <p className="text-realm-gray text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {/* <p className="text-realm-gray text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       Official Partner
-                    </p>
+                    </p> */}
                   </a>
                 ))}
               </div>

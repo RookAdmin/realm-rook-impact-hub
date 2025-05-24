@@ -81,14 +81,17 @@ const Navbar = () => {
     },
     { name: "Who We Are?", path: "/about" },
     { name: "Impact Studies", path: "/case-studies" },
+    
     {
       name: "Resources",
       subItems: [
         { name: "Insights", path: "/resources/insights" },
         { name: "Press Releases", path: "/resources/press-releases" },
+        { name: "Who We Partner With?", path: "/who-we-partner-with" },
+        { name: "Brand Kit", path: "/brand-kit" }
       ],
     },
-    { name: "Brand Kit", path: "/brand-kit" },
+    ,
   ];
 
   const heroObserverRef = useRef(null);

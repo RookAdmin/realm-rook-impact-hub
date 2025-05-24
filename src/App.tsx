@@ -61,7 +61,7 @@ const App = () => (
           <Route path="/services/enterprise-domain-management" element={<EnterpriseDomainService />} />
           {/* <Route path="/enterprise-domains" element={<EnterpriseDomainManagement />} /> */}
           <Route path="/case-studies" element={<CaseStudies />} />
-          <Route path="/who-we-partner-with" element={<WhoWePartnerWith />} />
+          {/* <Route path="/who-we-partner-with" element={<WhoWePartnerWith />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/brand-kit" element={<BrandKit />} />
           <Route path="/case-studies/:slug" element={<ImpactStudyDetail />} />
@@ -73,7 +73,7 @@ const App = () => (
           <Route path="/refunds-policy" element={<RefundsPolicy />} />
           <Route path="/discover/d2c-startups" element={<D2CStartups />} />
           <Route path="/discover/saas-startups" element={<SaaSStartups />} />
-          <Route path="/partners" element={<Partners />} />
+          <Route path="/who-we-partner-with" element={<Partners />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
