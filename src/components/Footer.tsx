@@ -38,9 +38,8 @@ const Footer = () => {
       links: [
         { name: "About Us", path: "/about" },
         { name: "Impact Studies", path: "/case-studies" },
-        { name: "Who We Partner With", path: "/who-we-partner-with" },
+        { name: "Who We Partner With?", path: "/who-we-partner-with" },
         { name: "Brand Kit", path: "/brand-kit" },
-        { name: "Partners & Affiliates", path: "/partners" },
       ],
     },
     {
