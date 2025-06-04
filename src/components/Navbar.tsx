@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Logo from "./common/Logo";
@@ -81,14 +81,14 @@ const Navbar = () => {
     },
     { name: "Who We Are?", path: "/about" },
     { name: "Impact Studies", path: "/case-studies" },
-    
+
     {
       name: "Resources",
       subItems: [
         { name: "Insights", path: "/resources/insights" },
         { name: "Press Releases", path: "/resources/press-releases" },
         { name: "Who We Partner With?", path: "/who-we-partner-with" },
-        { name: "Brand Kit", path: "/brand-kit" }
+        { name: "Brand Kit", path: "/brand-kit" },
       ],
     },
     ,
@@ -159,15 +159,29 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const [mobileDropdowns, setMobileDropdowns] = useState({
+    "What We Do?": false,
+    Discover: false,
+    Resources: false,
+  });
+
+  const toggleMobileDropdown = (itemName) => {
+    setMobileDropdowns((prev) => ({
+      ...prev,
+      [itemName]: !prev[itemName],
+    }));
+  };
+
   const useWhiteText = isInvertedPage && !isScrolled && isHeroVisible;
 
-  const headerBackgroundClass = isInvertedPage && !isScrolled
-    ? "bg-realm-black"
-    : isScrolled
-    ? "bg-white shadow-md py-3 md:py-4"
-    : isHeroVisible
-    ? "bg-transparent"
-    : "bg-white";
+  const headerBackgroundClass =
+    isInvertedPage && !isScrolled
+      ? "bg-realm-black"
+      : isScrolled
+      ? "bg-white shadow-md py-3 md:py-4"
+      : isHeroVisible
+      ? "bg-transparent"
+      : "bg-white";
 
   const textColorClass = useWhiteText ? "text-white" : "text-realm-black";
   const logoColorClass = textColorClass;
@@ -183,8 +197,11 @@ const Navbar = () => {
     useWhiteText ? "text-white" : "text-realm-black"
   );
 
-  const isLightNavbar = headerBackgroundClass.includes("bg-white") || headerBackgroundClass.includes("bg-opacity") || headerBackgroundClass.includes("bg-transparent");
-const logoVariant = isLightNavbar ? "dark" : "light";
+  const isLightNavbar =
+    headerBackgroundClass.includes("bg-white") ||
+    headerBackgroundClass.includes("bg-opacity") ||
+    headerBackgroundClass.includes("bg-transparent");
+  const logoVariant = isLightNavbar ? "dark" : "light";
 
   return (
     <header
@@ -195,8 +212,8 @@ const logoVariant = isLightNavbar ? "dark" : "light";
     >
       <div className="realm-container flex items-center justify-between">
         <Link to="/" className="flex items-center z-50 relative">
-          <Logo 
-            variant={logoVariant} 
+          <Logo
+            variant={logoVariant}
             className="h-8 md:h-10 transition-all duration-300"
           />
         </Link>
@@ -250,14 +267,22 @@ const logoVariant = isLightNavbar ? "dark" : "light";
         </nav>
 
         <button
-  className={mobileMenuButtonClass}
-  onClick={toggleMobileMenu}
-  aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
->
-  {isMobileMenuOpen
-    ? <X size={24} className={isLightNavbar ? "text-black" : "text-white"} />
-    : <Menu size={24} className={isLightNavbar ? "text-black" : "text-white"} />}
-</button>
+          className={mobileMenuButtonClass}
+          onClick={toggleMobileMenu}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+        >
+          {isMobileMenuOpen ? (
+            <X
+              size={24}
+              className={isLightNavbar ? "text-black" : "text-white"}
+            />
+          ) : (
+            <Menu
+              size={24}
+              className={isLightNavbar ? "text-black" : "text-white"}
+            />
+          )}
+        </button>
       </div>
 
       {/* Mobile Menu */}
@@ -268,21 +293,32 @@ const logoVariant = isLightNavbar ? "dark" : "light";
               <div key={item.name}>
                 {item.subItems ? (
                   <div className="py-2">
-                    <div className="text-lg font-medium text-realm-black mb-2">
+                    <div
+                      className="flex items-center justify-between text-lg font-medium text-realm-black mb-2 cursor-pointer"
+                      onClick={() => toggleMobileDropdown(item.name)}
+                    >
                       {item.name}
+                      <ChevronDown
+                        size={20}
+                        className={`transition-transform ${
+                          mobileDropdowns[item.name] ? "rotate-180" : ""
+                        }`}
+                      />
                     </div>
-                    <div className="pl-4 space-y-2">
-                      {item.subItems.map((subItem) => (
-                        <Link
-                          key={subItem.name}
-                          to={subItem.path}
-                          className="block py-1 text-base text-realm-black hover:text-realm-darkgray"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {subItem.name}
-                        </Link>
-                      ))}
-                    </div>
+                    {mobileDropdowns[item.name] && (
+                      <div className="pl-4 space-y-2">
+                        {item.subItems.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            to={subItem.path}
+                            className="block py-1 text-base text-realm-black hover:text-realm-darkgray"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ) : (
                   <Link
