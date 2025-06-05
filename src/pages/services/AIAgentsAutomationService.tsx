@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -23,13 +22,29 @@ import {
   Cpu,
   Target,
   Zap,
+  Cloud,
+  Code,
+  Terminal,
+  Paintbrush,
+  BookOpen,
+  Palette,
+  Sparkles,
+  MousePointer,
+  MessageSquare,
+  Heart,
+  Bolt,
+  Repeat,
+  BarChart2,
+  HeadingIcon,
+  Wand2,
+  Wrench,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import ContactForm from '@/components/ContactForm';
+import ContactForm from "@/components/ContactForm";
 
 // Variants for animations
 const fadeIn = {
@@ -88,11 +103,24 @@ const AIAgentsAutomationService = () => {
     },
   ];
 
-  // AI Tools logos
+  // AI Tools with icons
   const aiTools = [
-    "OpenAI", "n8n", "Google AI Studio", "Stability AI", "NotebookLM", 
-    "ComfyUI", "Microsoft Copilot", "Cursor", "Claude", "Lovable", 
-    "Bolt", "Repli", "Madgicx", "Head AI", "Zapier", "Make"
+    { name: "OpenAI", icon: <Sparkles size={24} /> },
+    { name: "n8n", icon: <Workflow size={24} /> },
+    { name: "Google AI Studio", icon: <Cloud size={24} /> },
+    { name: "Stability AI", icon: <Palette size={24} /> },
+    { name: "NotebookLM", icon: <BookOpen size={24} /> },
+    { name: "ComfyUI", icon: <Paintbrush size={24} /> },
+    { name: "Microsoft Copilot", icon: <Terminal size={24} /> },
+    { name: "Cursor", icon: <MousePointer size={24} /> },
+    { name: "Claude", icon: <MessageSquare size={24} /> },
+    { name: "Lovable", icon: <Heart size={24} /> },
+    { name: "Bolt", icon: <Bolt size={24} /> },
+    { name: "Repli", icon: <Repeat size={24} /> },
+    { name: "Madgicx", icon: <BarChart2 size={24} /> },
+    { name: "Head AI", icon: <HeadingIcon size={24} /> },
+    { name: "Zapier", icon: <Wand2 size={24} /> },
+    { name: "Make", icon: <Wrench size={24} /> },
   ];
 
   // What we automate
@@ -181,7 +209,7 @@ const AIAgentsAutomationService = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -191,7 +219,7 @@ const AIAgentsAutomationService = () => {
         serviceName="AI Agents Automation"
         serviceUrl="/services/ai-agents-automation"
       />
-      
+
       {/* Hero Section */}
       <section className="bg-realm-black text-white py-20 md:py-32">
         <div className="realm-container">
@@ -205,22 +233,24 @@ const AIAgentsAutomationService = () => {
               Your Business, on Autopilot. Powered by AI Agents.
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed">
-              AI that scales with you, lead capture to client onboarding.<br />
-              We build AI agents that save time, cut costs, and think like your best human rep.
+              AI that scales with you, lead capture to client onboarding.
+              <br />
+              We build AI agents that save time, cut costs, and think like your
+              best human rep.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-              <Button 
-                onClick={() => setIsContactOpen(true)} 
+              <Button
+                onClick={() => setIsContactOpen(true)}
                 className="bg-white text-realm-black hover:bg-gray-100 px-8 py-4 text-lg font-medium rounded-xl"
               >
                 Get Free AI Audit
                 <ArrowRight size={20} className="ml-2" />
               </Button>
               <Button
-                onClick={() => scrollToSection('case-studies')}
+                onClick={() => scrollToSection("case-studies")}
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-realm-black px-8 py-4 text-lg font-medium rounded-xl"
+                className="border-white text-black hover:bg-white hover:text-realm-black px-8 py-4 text-lg font-medium rounded-xl"
               >
                 See Real Results
                 <ArrowRight size={20} className="ml-2" />
@@ -228,7 +258,7 @@ const AIAgentsAutomationService = () => {
             </div>
 
             {/* AI Agent Visual */}
-            <div className="relative max-w-2xl mx-auto">
+            {/* <div className="relative max-w-2xl mx-auto">
               <div className="grid grid-cols-3 gap-4 opacity-50">
                 <div className="bg-white/10 rounded-xl p-4 aspect-square flex items-center justify-center">
                   <Bot size={40} />
@@ -243,11 +273,15 @@ const AIAgentsAutomationService = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                   className="w-32 h-32 border-2 border-white/30 rounded-full"
                 />
               </div>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>
@@ -276,23 +310,26 @@ const AIAgentsAutomationService = () => {
               Powered by 20+ AI Tools
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We integrate your stack with the world's best AI infrastructure, so you don't have to.<br />
+              We integrate your stack with the world's best AI infrastructure,
+              so you don't have to.
+              <br />
               Trusted tools. Custom workflows. Seamless results.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-4 md:grid-cols-8 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {aiTools.map((tool, index) => (
               <motion.div
-                key={tool}
-                className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow aspect-square flex items-center justify-center"
+                key={tool.name}
+                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow aspect-square flex flex-col items-center justify-center gap-3"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
+                <div className="text-realm-black">{tool.icon}</div>
                 <span className="text-xs font-medium text-center text-gray-700">
-                  {tool}
+                  {tool.name}
                 </span>
               </motion.div>
             ))}
@@ -331,9 +368,7 @@ const AIAgentsAutomationService = () => {
                 <div className="text-3xl md:text-4xl font-bold mb-2 text-realm-black">
                   {metric.value}
                 </div>
-                <div className="text-gray-600 font-medium">
-                  {metric.label}
-                </div>
+                <div className="text-gray-600 font-medium">{metric.label}</div>
               </motion.div>
             ))}
           </div>
@@ -438,8 +473,10 @@ const AIAgentsAutomationService = () => {
                   We Don't Just Automate. We Architect.
                 </h2>
                 <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                  Other firms plug in tools. We build adaptive ecosystems.<br />
-                  Custom-coded logic, real-time learning loops, and human-level AI tone.
+                  Other firms plug in tools. We build adaptive ecosystems.
+                  <br />
+                  Custom-coded logic, real-time learning loops, and human-level
+                  AI tone.
                 </p>
               </div>
 
@@ -447,7 +484,9 @@ const AIAgentsAutomationService = () => {
                 <div className="relative">
                   <div className="w-64 h-64 border-2 border-white/20 rounded-full flex items-center justify-center">
                     <div className="text-center">
-                      <div className="text-sm mb-2 opacity-75">Automated Flywheel</div>
+                      <div className="text-sm mb-2 opacity-75">
+                        Automated Flywheel
+                      </div>
                       <div className="text-xs opacity-60">
                         Inputs → AI Processing → Output → Learn → Optimize
                       </div>
@@ -456,7 +495,11 @@ const AIAgentsAutomationService = () => {
                   <motion.div
                     className="absolute inset-0 w-64 h-64 border-2 border-white/30 rounded-full"
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    transition={{
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
                   >
                     <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 bg-white w-2 h-2 rounded-full" />
                   </motion.div>
@@ -518,11 +561,13 @@ const AIAgentsAutomationService = () => {
             className="max-w-3xl mx-auto text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Time Saved is Revenue Earned.<br />
+              Time Saved is Revenue Earned.
+              <br />
               Let AI start working for you.
             </h2>
             <p className="text-xl text-white/80 mb-10 leading-relaxed">
-              Book a custom automation audit. We'll show you how much time, money, and sanity AI can save your business in 7 days or less.
+              Book a custom automation audit. We'll show you how much time,
+              money, and sanity AI can save your business in 7 days or less.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -533,13 +578,13 @@ const AIAgentsAutomationService = () => {
                 Book My Free Audit
                 <ArrowRight size={20} className="ml-2" />
               </Button>
-              <Button
+              {/* <Button
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-realm-black px-8 py-4 text-lg font-medium rounded-xl"
               >
                 Watch How It Works
                 <ArrowRight size={20} className="ml-2" />
-              </Button>
+              </Button> */}
             </div>
           </motion.div>
         </div>
