@@ -1,3 +1,4 @@
+
 "use client";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -20,8 +21,8 @@ const Footer = () => {
           path: "/services/social-media-marketing",
         },
         {
-          name: "AI Business Automation",
-          path: "/services/ai-business-automation",
+          name: "AI Agents Automation",
+          path: "/services/ai-agents-automation",
         },
         {
           name: "Domain Name Consultation",

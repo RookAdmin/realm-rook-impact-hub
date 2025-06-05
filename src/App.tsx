@@ -26,7 +26,7 @@ import UIUXDesignService from "./pages/services/UIUXDesignService";
 import WebAppDevelopmentService from "./pages/services/WebAppDevelopmentService";
 import SEOService from "./pages/services/SEOService";
 import SocialMediaMarketingService from "./pages/services/SocialMediaMarketingService";
-import AIBusinessAutomationService from "./pages/services/AIBusinessAutomationService";
+import AIAgentsAutomationService from "./pages/services/AIAgentsAutomationService";
 import DomainConsultationService from "./pages/services/DomainConsultationService";
 import EnterpriseDomainService from "./pages/services/EnterpriseDomainService";
 import WhoWePartnerWith from "./pages/WhoWePartnerWith";
@@ -55,13 +55,10 @@ const App = () => (
           <Route path="/services/web-app-development" element={<WebAppDevelopmentService />} />
           <Route path="/services/seo" element={<SEOService />} />
           <Route path="/services/social-media-marketing" element={<SocialMediaMarketingService />} />
-          <Route path="/services/ai-business-automation" element={<AIBusinessAutomationService />} />
-          {/* <Route path="/services/domain-consultation" element={<DomainConsultationService />} /> */}
+          <Route path="/services/ai-agents-automation" element={<AIAgentsAutomationService />} />
           <Route path="/services/domain-name-consultation" element={<DomainNameConsultation />} />
           <Route path="/services/enterprise-domain-management" element={<EnterpriseDomainService />} />
-          {/* <Route path="/enterprise-domains" element={<EnterpriseDomainManagement />} /> */}
           <Route path="/case-studies" element={<CaseStudies />} />
-          {/* <Route path="/who-we-partner-with" element={<WhoWePartnerWith />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/brand-kit" element={<BrandKit />} />
           <Route path="/case-studies/:slug" element={<ImpactStudyDetail />} />

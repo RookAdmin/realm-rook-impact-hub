@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -28,7 +29,7 @@ const Navbar = () => {
   const invertedRoutes = React.useMemo(
     () => [
       "/services/social-media-marketing",
-      "/services/ai-business-automation",
+      "/services/ai-agents-automation",
       "/services/domain-name-consultation",
       "/services/enterprise-domain-management",
       "/discover/d2c-startups",
@@ -59,8 +60,8 @@ const Navbar = () => {
           path: "/services/social-media-marketing",
         },
         {
-          name: "AI Business Automation",
-          path: "/services/ai-business-automation",
+          name: "AI Agents Automation",
+          path: "/services/ai-agents-automation",
         },
         {
           name: "Domain Name Consultation",
