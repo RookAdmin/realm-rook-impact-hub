@@ -51,6 +51,10 @@ const Navbar = () => {
     {
       name: "What We Do?",
       subItems: [
+        {
+          name: "AI Agents Automation",
+          path: "/services/ai-agents-automation",
+        },
         { name: "Branding", path: "/services/branding" },
         { name: "UI/UX Design", path: "/services/ui-ux-design" },
         { name: "Web/App Development", path: "/services/web-app-development" },
@@ -58,10 +62,6 @@ const Navbar = () => {
         {
           name: "Social Media Marketing",
           path: "/services/social-media-marketing",
-        },
-        {
-          name: "AI Agents Automation",
-          path: "/services/ai-agents-automation",
         },
         {
           name: "Domain Name Consultation",

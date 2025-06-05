@@ -12,6 +12,10 @@ const Footer = () => {
       title: "What We Do?",
       titleLink: "/services",
       links: [
+        {
+          name: "AI Agents Automation",
+          path: "/services/ai-agents-automation",
+        },
         { name: "Branding", path: "/services/branding" },
         { name: "UI/UX Design", path: "/services/ui-ux-design" },
         { name: "Web/App Development", path: "/services/web-app-development" },
@@ -19,10 +23,6 @@ const Footer = () => {
         {
           name: "Social Media Marketing",
           path: "/services/social-media-marketing",
-        },
-        {
-          name: "AI Agents Automation",
-          path: "/services/ai-agents-automation",
         },
         {
           name: "Domain Name Consultation",

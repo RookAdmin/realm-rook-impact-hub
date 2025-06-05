@@ -7,6 +7,14 @@ import { motion } from 'framer-motion';
 const ServicesPreview = () => {
   const services = [
     {
+      id: "automation",
+      title: "AI & Business Automation",
+      description: "Intelligent AI agents that automate workflows and scale your business.",
+      icon: <Bot size={24} />,
+      link: "/services/ai-business-automation",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800&h=500"
+    },
+    {
       id: "branding",
       title: "Branding",
       description: "Identity systems that captivate and resonate with your ideal audience.",
@@ -45,14 +53,6 @@ const ServicesPreview = () => {
       icon: <MessageSquare size={24} />,
       link: "/services/social-media-marketing",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800&h=500"
-    },
-    {
-      id: "automation",
-      title: "AI & Business Automation",
-      description: "Intelligent AI agents that automate workflows and scale your business.",
-      icon: <Bot size={24} />,
-      link: "/services/ai-business-automation",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800&h=500"
     }
   ];
 
