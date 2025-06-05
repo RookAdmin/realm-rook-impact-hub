@@ -28,7 +28,7 @@ const Navbar = () => {
   const invertedRoutes = React.useMemo(
     () => [
       "/services/social-media-marketing",
-      "/services/ai-agents-automation",
+      "/services/ai-business-automation",
       "/services/domain-name-consultation",
       "/services/enterprise-domain-management",
       "/discover/d2c-startups",
@@ -59,8 +59,8 @@ const Navbar = () => {
           path: "/services/social-media-marketing",
         },
         {
-          name: "AI Agents Automation",
-          path: "/services/ai-agents-automation",
+          name: "AI Business Automation",
+          path: "/services/ai-business-automation",
         },
         {
           name: "Domain Name Consultation",

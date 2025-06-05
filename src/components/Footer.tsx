@@ -20,8 +20,8 @@ const Footer = () => {
           path: "/services/social-media-marketing",
         },
         {
-          name: "AI Agents Automation",
-          path: "/services/ai-agents-automation",
+          name: "AI Business Automation",
+          path: "/services/ai-business-automation",
         },
         {
           name: "Domain Name Consultation",
