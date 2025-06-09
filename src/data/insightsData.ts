@@ -226,13 +226,15 @@ export const insights: Insight[] = [
 ];
 
 export const insightTags = [
-  'All',
-  'Design',
-  'UX',
-  'Development',
-  'Strategy',
-  'Technology',
-  'Analytics',
-  'Conversion',
-  'Architecture'
+  "All",
+ "Cloud",
+"Blockchain",
+"Consulting",
+"Data Analytics",
+"Enterprise Platform",
+"Artificial Intelligence",
+"Branding and Marketing",
+"Corporate Domain Name",
+"Cognitive Business Operations"
+
 ];
