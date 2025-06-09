@@ -181,7 +181,7 @@ const AIBusinessAutomationService = () => {
     <main className="min-h-screen pt-20">
       <ServiceBreadcrumb
         serviceName="AI & Business Automation"
-        serviceUrl="/services/ai-business-automation"
+        serviceUrl="/services/ai-agents-automation"
       />
       {/* Hero Section with dark background */}
       <section className="bg-realm-black text-white py-20 md:py-32">

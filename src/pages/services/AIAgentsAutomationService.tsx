@@ -105,22 +105,22 @@ const AIAgentsAutomationService = () => {
 
   // AI Tools with icons
   const aiTools = [
-    { name: "OpenAI", icon: <Sparkles size={24} /> },
-    { name: "n8n", icon: <Workflow size={24} /> },
-    { name: "Google AI Studio", icon: <Cloud size={24} /> },
-    { name: "Stability AI", icon: <Palette size={24} /> },
-    { name: "NotebookLM", icon: <BookOpen size={24} /> },
-    { name: "ComfyUI", icon: <Paintbrush size={24} /> },
-    { name: "Microsoft Copilot", icon: <Terminal size={24} /> },
-    { name: "Cursor", icon: <MousePointer size={24} /> },
-    { name: "Claude", icon: <MessageSquare size={24} /> },
-    { name: "Lovable", icon: <Heart size={24} /> },
-    { name: "Bolt", icon: <Bolt size={24} /> },
-    { name: "Repli", icon: <Repeat size={24} /> },
-    { name: "Madgicx", icon: <BarChart2 size={24} /> },
-    { name: "Head AI", icon: <HeadingIcon size={24} /> },
-    { name: "Zapier", icon: <Wand2 size={24} /> },
-    { name: "Make", icon: <Wrench size={24} /> },
+    { name: "OpenAI", icon: <img src="/ai/openai.png" alt="OpenAI" style={{ width: 24, height: 24 }} /> },
+    { name: "n8n", icon: <img src="/ai/n8n.png" alt="n8n" style={{ width: 24, height: 24 }} /> },
+    { name: "Google AI Studio", icon: <img src="/ai/gai.png" alt="Google AI Studio" style={{ width: 24, height: 24 }} /> },
+    { name: "Stability AI", icon: <img src="/ai/sai.jpeg" alt="Stability AI" style={{ width: 24, height: 24 }} /> },
+    { name: "NotebookLM", icon: <img src="/ai/notebooklm.png" alt="NotebookLM" style={{ width: 24, height: 24 }} /> },
+    { name: "ComfyUI", icon: <img src="/ai/comp.png" alt="ComfyUI" style={{ width: 24, height: 24 }} /> },
+    { name: "Microsoft Copilot", icon: <img src="/ai/copilot.png" alt="Microsoft Copilot" style={{ width: 24, height: 24 }} /> },
+    { name: "Cursor", icon: <img src="/ai/cursor.png" alt="Cursor" style={{ width: 24, height: 24 }} /> },
+    { name: "Claude", icon: <img src="/ai/claude.png" alt="Claude" style={{ width: 24, height: 24 }} /> },
+    { name: "Lovable", icon: <img src="/ai/lovable.ico" alt="Lovable" style={{ width: 24, height: 24 }} /> },
+    { name: "Bolt", icon: <img src="/ai/bolt.jpg" alt="Bolt" style={{ width: 24, height: 24 }} /> },
+    { name: "Replit", icon: <img src="/ai/replit.png" alt="Replit" style={{ width: 24, height: 24 }} /> },
+    { name: "Madgicx", icon: <img src="/ai/Madgicx.jpeg" alt="Madgicx" style={{ width: 24, height: 24 }} /> },
+    { name: "Head AI", icon: <img src="/ai/headai.png" alt="Head AI" style={{ width: 24, height: 24 }} /> },
+    { name: "Zapier", icon: <img src="/ai/zapier.png" alt="Zapier" style={{ width: 45, height: 24 }} /> },
+    { name: "Make", icon: <img src="/ai/make.jpeg" alt="Make" style={{ width: 24, height: 24 }} /> },
   ];
 
   // What we automate

@@ -9,7 +9,7 @@ const Services = () => {
     {
       title: 'AI Agents Automation',
       description: 'Building intelligent systems and AI agents to automate workflows and scale your business.',
-      link: '/services/ai-business-automation',
+      link: '/services/ai-agents-automation',
       icon: <Bot size={32} />,
       image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400'
     },

@@ -11,7 +11,7 @@ const ServicesPreview = () => {
       title: "AI & Business Automation",
       description: "Intelligent AI agents that automate workflows and scale your business.",
       icon: <Bot size={24} />,
-      link: "/services/ai-business-automation",
+      link: "/services/ai-agents-automation",
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800&h=500"
     },
     {
