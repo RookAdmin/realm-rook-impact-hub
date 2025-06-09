@@ -335,8 +335,8 @@ const About = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-medium text-realm-darkgray">
-              Trusted By Real Brands
+            <h3 className="text-lg font-large text-realm-darkgray">
+              Trusted By Top 1% Brands
             </h3>
           </motion.div>
           

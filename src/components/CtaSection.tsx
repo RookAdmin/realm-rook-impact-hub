@@ -17,7 +17,7 @@ const CtaSection = () => {
             Ready to transform your digital presence and create meaningful impact?
           </p>
           
-          <div className="mt-10">
+          <div className="mt-10 flex justify-center">
             <Link to="/contact">
               <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray flex items-center space-x-2">
                 <span>Get a Proposal</span>

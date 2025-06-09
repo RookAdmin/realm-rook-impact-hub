@@ -320,8 +320,7 @@ const AIAgentsAutomationService = () => {
               Powered by 20+ AI Tools
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We integrate your stack with the world's best AI infrastructure,
-              so you don't have to.
+              We integrate your stack with the world's best AI infrastructure.
               <br />
               Trusted tools. Custom workflows. Seamless results.
             </p>
