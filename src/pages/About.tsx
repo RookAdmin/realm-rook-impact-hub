@@ -13,6 +13,29 @@ const About = () => {
     visible: { opacity: 1, y: 0 }
   };
 
+  const clients = [
+    { name: 'Client 1', logo: '/PartnerLogos/CapitalEngineeringConsultancy.png' },
+    { name: 'Client 2', logo: '/PartnerLogos/CoventryRoadDentalCare.png' },
+    { name: 'Client 3', logo: '/PartnerLogos/finequs.webp' },
+    { name: 'Client 4', logo: '/PartnerLogos/Greenhouse.png' },
+    { name: 'Client 5', logo: '/PartnerLogos/V5Digital.png' },
+    { name: 'Client 6', logo: '/PartnerLogos/ZGuard.png' },
+  ];
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
+
   // Beliefs/Pillars data
   const beliefs = [
     {
@@ -317,23 +340,27 @@ const About = () => {
             </h3>
           </motion.div>
           
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-            {trustedBrands.map((brand, index) => (
-              <motion.div 
-                key={brand}
-                className="flex items-center justify-center grayscale"
-                initial="hidden"
-                whileInView="visible"
-                variants={fadeIn}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="w-24 h-12 bg-realm-lightgray/20 flex items-center justify-center font-medium">
-                  {brand}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+            <motion.div 
+                      className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8"
+                      variants={container}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true }}
+                    >
+                      {clients.map((client, index) => (
+                        <motion.div 
+                          key={index}
+                          className="flex items-center justify-center"
+                          variants={item}
+                        >
+                          <img 
+                            src={client.logo} 
+                            alt={`${client.name} logo`} 
+                            className="realm-client-logo"
+                          />
+                        </motion.div>
+                      ))}
+                    </motion.div>
         </div>
       </section>
 
