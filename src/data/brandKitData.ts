@@ -30,7 +30,7 @@ export const brandAssets: BrandAsset[] = [
     downloadUrls: {
       PNG: "/logo-black.png",
     },
-    previewUrl: "/logo-black.png",
+    previewUrl: "/logo-black1.png",
   },
   {
     id: "2",
@@ -40,7 +40,7 @@ export const brandAssets: BrandAsset[] = [
     downloadUrls: {
       PNG: "/logo-white.png",
     },
-    previewUrl: "/logo-white.png",
+    previewUrl: "/logo-white1.png",
   },
   {
     id: "3",
