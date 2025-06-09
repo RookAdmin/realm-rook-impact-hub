@@ -276,12 +276,12 @@ const Contact = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
+                            <SelectItem value="AI Agents Automation">AI Agents Automation</SelectItem>
                             <SelectItem value="Branding">Branding</SelectItem>
                             <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
                             <SelectItem value="Web/App Development">Web/App Development</SelectItem>
                             <SelectItem value="SEO">SEO</SelectItem>
                             <SelectItem value="Social Media Marketing">Social Media Marketing</SelectItem>
-                            <SelectItem value="AI Business Automation">AI Business Automation</SelectItem>
                             <SelectItem value="Domain Name Consultation">Domain Name Consultation</SelectItem>
                             <SelectItem value="Enterprise Domain Management">Enterprise Domain Management</SelectItem>
                         </SelectContent>

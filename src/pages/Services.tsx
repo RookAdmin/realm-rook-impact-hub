@@ -7,6 +7,13 @@ import { ArrowRight, Palette, Smartphone, Code, Search, MessageSquare, Bot, Glob
 const Services = () => {
   const services = [
     {
+      title: 'AI Agents Automation',
+      description: 'Building intelligent systems and AI agents to automate workflows and scale your business.',
+      link: '/services/ai-business-automation',
+      icon: <Bot size={32} />,
+      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400'
+    },
+    {
       title: 'Branding',
       description: 'Crafting unique identities that resonate with your audience and stand the test of time.',
       link: '/services/branding',
@@ -41,13 +48,7 @@ const Services = () => {
       icon: <MessageSquare size={32} />,
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400'
     },
-    {
-      title: 'AI & Business Automation',
-      description: 'Building intelligent systems and AI agents to automate workflows and scale your business.',
-      link: '/services/ai-business-automation',
-      icon: <Bot size={32} />,
-      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400'
-    },
+    
     {
       title: 'Domain Name Consultation',
       description: 'Expert guidance on strategic domain acquisition to build a solid foundation for your brand.',
