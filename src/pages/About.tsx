@@ -386,17 +386,7 @@ const About = () => {
               </Button>
             </Link>
             
-            <div className="flex flex-wrap justify-center mt-16 space-x-6 text-realm-lightgray">
-              <Link to="/services" className="hover:text-white transition-colors">
-                What We Do?
-              </Link>
-              <Link to="/case-studies" className="hover:text-white transition-colors">
-                Impact Studies
-              </Link>
-              <Link to="/resources" className="hover:text-white transition-colors">
-                Insights & Press
-              </Link>
-            </div>
+            
           </motion.div>
         </div>
       </section>

@@ -190,19 +190,19 @@ const AIAgentsAutomationService = () => {
   const testimonials = [
     {
       quote: "AI onboarding reduced tickets by 60% in 45 days.",
-      client: "D2C Brand",
+      client: "Finequs",
     },
     {
-      quote: "AI agent handled 4,300+ leads solo—zero missed follow-ups.",
-      client: "SaaS CRM",
+      quote: "AI agent handled 4,300+ leads solo, zero missed follow-ups.",
+      client: "ZGuard",
     },
     {
-      quote: "End-to-end journey automated—from signup to certification.",
-      client: "Online Educator",
+      quote: "End-to-end journey automated, from signup to certification.",
+      client: "ICM",
     },
     {
       quote: "400+ contracts built by AI agent. No errors. No edits.",
-      client: "FinTech Founder",
+      client: "Hlo Enterprise Legal+",
     },
   ];
 
