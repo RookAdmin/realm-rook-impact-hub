@@ -1,8 +1,8 @@
 import { BrandAsset } from "@/types";
 
 export const brandColors = [
-  { name: "Primary Black", hex: "#000000", rgb: "0, 0, 0" },
-  { name: "Primary White", hex: "#FFFFFF", rgb: "255, 255, 255" },
+  { name: "Primary Black", hex: "#131313", rgb: "19, 19, 19" },
+  { name: "Sky White", hex: "#FAF9F6", rgb: "250, 249, 246" },
   { name: "Light Gray", hex: "#F1F1F1", rgb: "241, 241, 241" },
   { name: "Dark Gray", hex: "#222222", rgb: "34, 34, 34" },
   { name: "Gray", hex: "#888888", rgb: "136, 136, 136" },
@@ -10,7 +10,7 @@ export const brandColors = [
 
 export const typography = [
   {
-    name: "Playfair Display",
+    name: "Delight",
     usage: "Display, Headings",
     weights: ["400", "500", "600", "700"],
   },
@@ -26,62 +26,32 @@ export const brandAssets: BrandAsset[] = [
     id: "1",
     name: "Primary Logo",
     description: "Our main logo for use on white backgrounds.",
-    fileTypes: ["SVG", "PNG", "EPS"],
+    fileTypes: ["PNG"],
     downloadUrls: {
-      SVG: "/assets/brand/realm-primary-logo.svg",
-      PNG: "/assets/brand/realm-primary-logo.png",
-      EPS: "/assets/brand/realm-primary-logo.eps",
+      PNG: "/logo-black.png",
     },
-    previewUrl: "src/components/assets/brand/realmbyRook_logo.webp",
+    previewUrl: "/logo-black.png",
   },
   {
     id: "2",
     name: "Secondary Logo",
     description: "Alternative logo for use on dark backgrounds.",
-    fileTypes: ["SVG", "PNG", "EPS"],
+    fileTypes: [ "PNG"],
     downloadUrls: {
-      SVG: "/assets/brand/realm-secondary-logo.svg",
-      PNG: "/assets/brand/realm-secondary-logo.png",
-      EPS: "/assets/brand/realm-secondary-logo.eps",
+      PNG: "/logo-white.png",
     },
-    previewUrl: "src/components/assets/brand/logo-white.png",
+    previewUrl: "/logo-white.png",
   },
   {
     id: "3",
     name: "Monochrome Logo",
     description: "Single color version for limited color applications.",
-    fileTypes: ["SVG", "PNG", "EPS"],
+    fileTypes: ["JPG"],
     downloadUrls: {
-      SVG: "/assets/brand/realm-mono-logo.svg",
-      PNG: "/assets/brand/realm-mono-logo.png",
-      EPS: "/assets/brand/realm-mono-logo.eps",
+      PNG: "/mono-logo.jpg",
     },
-    previewUrl: "src/components/assets/brand/logo-darkGray.png",
-  },
-  {
-    id: "4",
-    name: "Favicon",
-    description: "Icon for browser tabs and app icons.",
-    fileTypes: ["SVG", "PNG", "ICO"],
-    downloadUrls: {
-      SVG: "/assets/brand/realm-favicon.svg",
-      PNG: "/assets/brand/realm-favicon.png",
-      ICO: "/assets/brand/realm-favicon.ico",
-    },
-    previewUrl: "src/components/assets/brand/realmbyRook_logo.webp",
-  },
-  {
-    id: "5",
-    name: "Symbol Only",
-    description: "Our standalone symbol for recognizable applications.",
-    fileTypes: ["SVG", "PNG", "EPS"],
-    downloadUrls: {
-      SVG: "/assets/brand/realm-symbol.svg",
-      PNG: "/assets/brand/realm-symbol.png",
-      EPS: "/assets/brand/realm-symbol.eps",
-    },
-    previewUrl: "src/components/assets/brand/realmbyRook_logo.webp",
-  },
+    previewUrl: "/mono-logo.jpg",
+  }
 ];
 
 export const brandDosDonts = [

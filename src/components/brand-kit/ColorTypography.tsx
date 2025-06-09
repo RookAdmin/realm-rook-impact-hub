@@ -32,13 +32,13 @@ const ColorTypography = () => {
             {typography.map((font) => (
               <div key={font.name} className="flex flex-col">
                 <h4 
-                  className={`text-4xl mb-2 ${font.name === 'Playfair Display' ? 'font-display' : 'font-sans'}`}
+                  className={`text-4xl mb-2 ${font.name === 'Delight' ? 'Delight' : 'Delight'}`}
                 >
                   {font.name}
                 </h4>
                 <p className="text-realm-gray mb-2">{font.usage}</p>
                 <p className="text-sm text-realm-gray">Weights: {font.weights.join(', ')}</p>
-                <div className={`mt-4 ${font.name === 'Playfair Display' ? 'font-display' : 'font-sans'}`}>
+                <div className={`mt-4 ${font.name === 'Delight' ? 'Delight' : 'Delight'}`}>
                   <p className="font-normal mb-1">The quick brown fox jumps over the lazy dog</p>
                   <p className="font-medium mb-1">The quick brown fox jumps over the lazy dog</p>
                   <p className="font-bold">The quick brown fox jumps over the lazy dog</p>
