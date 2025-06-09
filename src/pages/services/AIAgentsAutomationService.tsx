@@ -215,10 +215,20 @@ const AIAgentsAutomationService = () => {
 
   return (
     <main className="min-h-screen pt-20">
-      <ServiceBreadcrumb
+      <div className="bg-black text-white">
+      <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4">
+        <ServiceBreadcrumb
+          serviceName="AI Agents Automation"
+          serviceUrl="/services/ai-agents-automation"
+        />
+      </div>
+    </div>
+
+
+      {/* <ServiceBreadcrumb
         serviceName="AI Agents Automation"
         serviceUrl="/services/ai-agents-automation"
-      />
+      /> */}
 
       {/* Hero Section */}
       <section className="bg-realm-black text-white py-20 md:py-32">
