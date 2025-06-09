@@ -18,7 +18,7 @@ const Partners = () => {
     {
       title: "Strategic Collaborators",
       partners: [
-        { name: "Hlo", logo: "/partner-logo/hlo.png" },
+        { name: "Hlo", logo: "/partner-logo/hlo.jpg" },
         { name: "Myprobuddy", logo: "/partner-logo/mypro.avif"},
         { name: "Hlo Legal+", logo: "/partner-logo/hlolegal.png"},
         { name: "Rook", logo: "/partner-logo/rook.png" },
@@ -28,9 +28,9 @@ const Partners = () => {
       title: "Affiliate Networks",
       partners: [
         { name: "Zoho", logo: "/partner-logo/zoho.png"},
-        { name: "Namecheap", logo: "/partner-logo/name.png"},
+        { name: "Namecheap", logo: "/partner-logo/namecheap.jpg"},
         { name: "Wati", logo: "/partner-logo/wati.png" },
-        { name: "Madgicx", logo: "/partner-logo/madg.png" },
+        { name: "Madgicx", logo: "/partner-logo/madg1.jpg" },
       ]
     },
   ];
@@ -68,7 +68,7 @@ const Partners = () => {
                     rel="noopener noreferrer"
                     className="group flex flex-col items-center justify-center p-6 bg-white rounded-md shadow-sm hover:shadow-md transition-all duration-300"
                   >
-                    <div className="w-full h-16 flex items-center justify-center mb-4">
+                    <div className="w-full h-16 flex items-center justify-center mb-2">
                       <img 
                         src={partner.logo} 
                         alt={`${partner.name} logo`} 
