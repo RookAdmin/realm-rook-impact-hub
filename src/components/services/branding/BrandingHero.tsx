@@ -29,14 +29,14 @@ const BrandingHero = () => {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="border border-realm-lightgray p-10">
             <img 
-              src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80" 
+              src="/services/Brand.png" 
               alt="Brand Identity Example" 
               className="w-full realm-image-greyscale" 
             />
           </div>
           <div className="border border-realm-lightgray p-10">
             <img 
-              src="https://images.unsplash.com/photo-1633613286991-611fe299c4be?auto=format&fit=crop&q=80" 
+              src="/services/branding (1).jpg" 
               alt="Brand Wordmark Example" 
               className="w-full realm-image-greyscale" 
             />
