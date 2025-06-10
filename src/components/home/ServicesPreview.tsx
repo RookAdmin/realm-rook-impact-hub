@@ -12,7 +12,7 @@ const ServicesPreview = () => {
       description: "Intelligent AI agents that automate workflows and scale your business.",
       icon: <Bot size={24} />,
       link: "/services/ai-agents-automation",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800&h=500"
+      image: "/home/AI & Automation.jpg"
     },
     {
       id: "branding",
@@ -20,7 +20,7 @@ const ServicesPreview = () => {
       description: "Identity systems that captivate and resonate with your ideal audience.",
       icon: <Palette size={24} />,
       link: "/services/branding",
-      image: "https://images.unsplash.com/photo-1545665277-5937489579f2?auto=format&fit=crop&q=80&w=800&h=500"
+      image: "/home/Branding.png"
     },
     {
       id: "uiux",
@@ -28,7 +28,7 @@ const ServicesPreview = () => {
       description: "Intuitive interfaces that convert visitors into customers.",
       icon: <LayoutDashboard size={24} />,
       link: "/services/ui-ux-design",
-      image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800&h=500"
+      image: "/home/UI UX.png"
     },
     {
       id: "development",
@@ -36,7 +36,7 @@ const ServicesPreview = () => {
       description: "Fast, responsive platforms built for speed and conversion.",
       icon: <Code size={24} />,
       link: "/services/web-app-development",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800&h=500"
+      image: "/home/Web & App development.jpg"
     },
     {
       id: "seo",
@@ -44,7 +44,7 @@ const ServicesPreview = () => {
       description: "Data-driven strategies that boost visibility and drive traffic.",
       icon: <Search size={24} />,
       link: "/services/seo",
-      image: "https://images.unsplash.com/photo-1572177812156-58036aae439c?auto=format&fit=crop&q=80&w=800&h=500"
+      image: "/home/SEO.jpg"
     },
     {
       id: "social",
@@ -52,7 +52,7 @@ const ServicesPreview = () => {
       description: "Strategic storytelling that multiplies your brand's impact.",
       icon: <MessageSquare size={24} />,
       link: "/services/social-media-marketing",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800&h=500"
+      image: "/home/SMM.jpg"
     }
   ];
 
