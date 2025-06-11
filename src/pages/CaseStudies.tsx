@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -18,7 +17,7 @@ interface ImpactStudy {
   slug: {
     current: string;
   };
-  industry?: {
+  capabilities?: {
     _id: string;
     title: string;
   }[];
@@ -33,8 +32,8 @@ interface ImpactStudy {
   outcome?: string;
 }
 
-// Industry Categories
-const industryCategories = [
+// Capabilities Categories
+const capabilitiesCategories = [
   "All",
   "AI Agents Automation",
   "Branding",
@@ -97,12 +96,12 @@ const ImpactStudyCard = ({ study }: ImpactStudyCardProps) => {
         </h2>
 
         <div className="flex flex-wrap gap-2 mt-4">
-          {study.industry?.map((industry) => (
+          {study.capabilities?.map((capabilities) => (
             <span
-              key={industry._id}
+              key={capabilities._id}
               className="inline-block bg-realm-lightgray text-realm-black px-3 py-1 rounded-full text-xs font-semibold"
             >
-              {industry.title}
+              {capabilities.title}
             </span>
           ))}
           {study.region?.map((region) => (
@@ -137,13 +136,16 @@ const fallbackStudies: ImpactStudy[] = [
     mainImage: null,
     perspectiveCategory: "Branding",
     slug: { current: "zephyr-skincare-rebranding" },
-    industry: [{ _id: "1", title: "Branding" }],
+    capabilities: [{ _id: "1", title: "Branding" }],
     region: [{ _id: "1", title: "MENA (Middle East and North Africa)" }],
     companyLogo: null,
     companyName: "Zephyr Skincare",
-    problem: "Zephyr Skincare was a local boutique with minimal online presence, averaging only 23 monthly website visits.",
-    process: "We conducted extensive market research and developed a comprehensive brand strategy.",
-    outcome: "Within six months, Zephyr experienced exponential growth: 18,000+ monthly visitors and 300% increase in online revenue."
+    problem:
+      "Zephyr Skincare was a local boutique with minimal online presence, averaging only 23 monthly website visits.",
+    process:
+      "We conducted extensive market research and developed a comprehensive brand strategy.",
+    outcome:
+      "Within six months, Zephyr experienced exponential growth: 18,000+ monthly visitors and 300% increase in online revenue.",
   },
   {
     _id: "2",
@@ -151,13 +153,16 @@ const fallbackStudies: ImpactStudy[] = [
     mainImage: null,
     perspectiveCategory: "UI/UX Design",
     slug: { current: "finovo-ux-redesign" },
-    industry: [{ _id: "2", title: "UI/UX Design" }],
+    capabilities: [{ _id: "2", title: "UI/UX Design" }],
     region: [{ _id: "2", title: "Europe" }],
     companyLogo: null,
     companyName: "Finovo",
-    problem: "Finovo was struggling with inconsistent branding and a complex user interface that resulted in a mere 2% conversion rate.",
-    process: "We began with a UX audit to identify pain points and conversion barriers.",
-    outcome: "The redesigned platform achieved an 8.5% conversion rate—a 325% improvement."
+    problem:
+      "Finovo was struggling with inconsistent branding and a complex user interface that resulted in a mere 2% conversion rate.",
+    process:
+      "We began with a UX audit to identify pain points and conversion barriers.",
+    outcome:
+      "The redesigned platform achieved an 8.5% conversion rate—a 325% improvement.",
   },
   {
     _id: "3",
@@ -165,14 +170,17 @@ const fallbackStudies: ImpactStudy[] = [
     mainImage: null,
     perspectiveCategory: "Web/App Development",
     slug: { current: "elevate-tech-ecommerce" },
-    industry: [{ _id: "3", title: "Web/App Development" }],
+    capabilities: [{ _id: "3", title: "Web/App Development" }],
     region: [{ _id: "3", title: "Asia-Pacific" }],
     companyLogo: null,
     companyName: "Elevate Tech",
-    problem: "Elevate Tech's e-commerce store was plagued by slow load times (5 seconds on average) and a sky-high bounce rate of 70%.",
-    process: "We rebuilt their platform from scratch using modern technologies with performance at the core.",
-    outcome: "The new platform loads in just 1.2 seconds, reducing bounce rate to 22%."
-  }
+    problem:
+      "Elevate Tech's e-commerce store was plagued by slow load times (5 seconds on average) and a sky-high bounce rate of 70%.",
+    process:
+      "We rebuilt their platform from scratch using modern technologies with performance at the core.",
+    outcome:
+      "The new platform loads in just 1.2 seconds, reducing bounce rate to 22%.",
+  },
 ];
 
 // Main Page Component
@@ -187,14 +195,14 @@ const CaseStudies = () => {
     const fetchStudies = async () => {
       try {
         console.log("Attempting to fetch studies from Sanity...");
-        
+
         // Try to fetch from ImpactStudy schema first
         const impactStudyQuery = `*[_type == "ImpactStudy"] {
           _id,
           title,
           mainImage,
           perspectiveCategory,
-          industry[]->{
+          capabilities[]->{
             _id,
             title
           },
@@ -211,7 +219,7 @@ const CaseStudies = () => {
         }`;
 
         let data = await client1.fetch(impactStudyQuery);
-        
+
         // If no ImpactStudy data, try post schema
         if (!data || data.length === 0) {
           console.log("No ImpactStudy data found, trying post schema...");
@@ -220,7 +228,7 @@ const CaseStudies = () => {
             title,
             mainImage,
             perspectiveCategory,
-            industry[]->{
+            capabilities[]->{
               _id,
               title
             },
@@ -260,7 +268,9 @@ const CaseStudies = () => {
   const filteredStudies = studies.filter((study) => {
     const matchesCategory =
       activeCategory === "All" ||
-      study.industry?.some((industry) => industry.title === activeCategory);
+      study.capabilities?.some(
+        (capabilities) => capabilities.title === activeCategory
+      );
     const matchesRegion =
       activeRegion === "All" ||
       study.region?.some((region) => region.title === activeRegion);
@@ -270,12 +280,17 @@ const CaseStudies = () => {
   return (
     <main className="min-h-screen">
       <Helmet>
-        <title>Impact Studies - Real Business Transformations | Realm by Rook</title>
-        <meta 
-          name="description" 
-          content="Discover real transformations and measurable results from our client projects. See how Realm by Rook drives business impact through strategic design and development." 
+        <title>
+          Impact Studies - Real Business Transformations | Realm by Rook
+        </title>
+        <meta
+          name="description"
+          content="Discover real transformations and measurable results from our client projects. See how Realm by Rook drives business impact through strategic design and development."
         />
-        <meta name="keywords" content="case studies, impact studies, business transformation, client results, success stories, Realm by Rook" />
+        <meta
+          name="keywords"
+          content="case studies, impact studies, business transformation, client results, success stories, Realm by Rook"
+        />
       </Helmet>
 
       <PageHeader
@@ -288,7 +303,8 @@ const CaseStudies = () => {
         <div className="realm-container mb-8">
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-center">
             <p className="text-yellow-800">
-              Currently showing demo case studies. Connect to Sanity CMS to display live data.
+              Currently showing demo case studies. Connect to Sanity CMS to
+              display live data.
             </p>
           </div>
         </div>
@@ -383,11 +399,11 @@ const CaseStudies = () => {
             All Case Studies
           </h2>
 
-          {/* Filter by Industry/Category */}
+          {/* Filter by capabilities/Category */}
           <div className="mb-6">
-            <h3 className="text-lg font-medium mb-3">Filter by Industry</h3>
+            <h3 className="text-lg font-medium mb-3">Filter by capabilities</h3>
             <div className="flex flex-wrap items-center gap-2 mb-6">
-              {industryCategories.map((category) => (
+              {capabilitiesCategories.map((category) => (
                 <button
                   key={category}
                   className={`px-4 py-2 ${

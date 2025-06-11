@@ -11,12 +11,13 @@ import { PortableText } from "@portabletext/react";
 interface ImpactStudy {
   _id: string;
   title: string;
+  scopeOfWork?: string;
   mainImage: any;
   perspectiveCategory: string;
   slug: {
     current: string;
   };
-  industry?: {
+  capabilities?: {
     _id: string;
     title: string;
   }[];
@@ -50,7 +51,7 @@ const fallbackStudies: { [key: string]: ImpactStudy } = {
     mainImage: null,
     perspectiveCategory: "Branding",
     slug: { current: "zephyr-skincare-rebranding" },
-    industry: [{ _id: "1", title: "Branding" }],
+    capabilities: [{ _id: "1", title: "Branding" }],
     region: [{ _id: "1", title: "MENA (Middle East and North Africa)" }],
     companyLogo: null,
     companyName: "Zephyr Skincare",
@@ -98,7 +99,7 @@ const fallbackStudies: { [key: string]: ImpactStudy } = {
     mainImage: null,
     perspectiveCategory: "UI/UX Design",
     slug: { current: "finovo-ux-redesign" },
-    industry: [{ _id: "2", title: "UI/UX Design" }],
+    capabilities: [{ _id: "2", title: "UI/UX Design" }],
     region: [{ _id: "2", title: "Europe" }],
     companyLogo: null,
     companyName: "Finovo",
@@ -146,7 +147,7 @@ const fallbackStudies: { [key: string]: ImpactStudy } = {
     mainImage: null,
     perspectiveCategory: "Web/App Development",
     slug: { current: "elevate-tech-ecommerce" },
-    industry: [{ _id: "3", title: "Web/App Development" }],
+    capabilities: [{ _id: "3", title: "Web/App Development" }],
     region: [{ _id: "3", title: "Asia-Pacific" }],
     companyLogo: null,
     companyName: "Elevate Tech",
@@ -213,8 +214,9 @@ const ImpactStudyDetail = () => {
           _id,
           title,
           mainImage,
+          scopeOfWork,
           perspectiveCategory,
-          industry[]->{
+          capabilities[]->{
             _id,
             title
           },
@@ -250,9 +252,10 @@ const ImpactStudyDetail = () => {
           query = `*[_type == "post" && slug.current == $slug][0] {
             _id,
             title,
+            scopeOfWork,
             mainImage,
             perspectiveCategory,
-            industry[]->{
+            capabilities[]->{
               _id,
               title
             },
@@ -384,7 +387,7 @@ const ImpactStudyDetail = () => {
         />
       </Helmet>
 
-      <div className="bg-gradient-to-br from-realm-black to-gray-900 text-white py-20 md:py-32 relative mt-20">
+      <div className="bg-gradient-to-br from-realm-black to-gray-900 text-white py-20 md:py-32 relative mt-20 border-b border-white/10">
         <div className="realm-container relative z-10">
           <Link
             to="/case-studies"
@@ -414,7 +417,7 @@ const ImpactStudyDetail = () => {
                   />
                 </div>
                 <span className="text-sm font-medium text-white/60">
-                  Impact  Studies
+                  Impact Studies
                 </span>
               </div>
 
@@ -439,7 +442,7 @@ const ImpactStudyDetail = () => {
 
             <div className="md:col-span-4">
               {study.companyName && (
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
                   <div className="flex items-center gap-4 mb-4">
                     {study.companyLogo && (
                       <div className="w-16 h-16 bg-white rounded-xl p-3">
@@ -464,21 +467,28 @@ const ImpactStudyDetail = () => {
                     </div>
                   </div>
 
-                  {study.industry && study.industry.length > 0 && (
+                  {study.scopeOfWork && (
                     <div className="mt-4 pt-4 border-t border-white/10">
-                      <p className="text-sm text-white/60 mb-2">Industry</p>
-                      <p className="font-medium">
-                        {study.industry.map((i) => i.title).join(", ")}
+                      <p className="text-sm text-white/60 mb-2">
+                        Scope of Work
                       </p>
+                      <p className="font-medium">{study.scopeOfWork}</p>
                     </div>
                   )}
 
                   {study.region && study.region.length > 0 && (
                     <div className="mt-4 pt-4 border-t border-white/10">
                       <p className="text-sm text-white/60 mb-2">Region</p>
-                      <p className="font-medium">
-                        {study.region.map((r) => r.title).join(", ")}
-                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {study.region.map((r) => (
+                          <div
+                            key={r._id}
+                            className="bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 transition-all duration-300 rounded-lg px-3 py-1"
+                          >
+                            <p className="font-medium text-white">{r.title}</p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -494,7 +504,10 @@ const ImpactStudyDetail = () => {
             <div>
               <h3 className="text-2xl font-display font-bold mb-4">Problem</h3>
               <div className="w-12 h-1 bg-realm-black mb-4"></div>
-              <div className="aspect-square bg-realm-lightgray overflow-hidden mb-8" style={{borderRadius:"10px"}}>
+              <div
+                className="aspect-square bg-realm-lightgray overflow-hidden mb-8 border border-realm-black/10 hover:border-realm-black/20 transition-all duration-300"
+                style={{ borderRadius: "10px" }}
+              >
                 {study.problemImage ? (
                   <img
                     src={urlForClient1(study.problemImage).width(800).url()}
@@ -539,7 +552,10 @@ const ImpactStudyDetail = () => {
             <div>
               <h3 className="text-2xl font-display font-bold mb-4">Process</h3>
               <div className="w-12 h-1 bg-realm-black mb-4"></div>
-              <div className="aspect-square bg-white border border-realm-black overflow-hidden mb-8" style={{borderRadius:"10px"}}>
+              <div
+                className="aspect-square bg-white border border-realm-black/10 hover:border-realm-black/20 transition-all duration-300 overflow-hidden mb-8"
+                style={{ borderRadius: "10px" }}
+              >
                 {study.processImage ? (
                   <img
                     src={urlForClient1(study.processImage).width(800).url()}
@@ -584,7 +600,10 @@ const ImpactStudyDetail = () => {
             <div>
               <h3 className="text-2xl font-display font-bold mb-4">Outcome</h3>
               <div className="w-12 h-1 bg-realm-black mb-4"></div>
-              <div className="aspect-square bg-realm-lightgray overflow-hidden mb-8" style={{borderRadius:"10px"}}>
+              <div
+                className="aspect-square bg-realm-lightgray overflow-hidden mb-8 border border-realm-black/10 hover:border-realm-black/20 transition-all duration-300"
+                style={{ borderRadius: "10px" }}
+              >
                 {study.outcomeImage ? (
                   <img
                     src={urlForClient1(study.outcomeImage).width(800).url()}
