@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -51,17 +50,38 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/branding" element={<BrandingService />} />
-          <Route path="/services/ui-ux-design" element={<UIUXDesignService />} />
-          <Route path="/services/web-app-development" element={<WebAppDevelopmentService />} />
+          <Route
+            path="/services/ui-ux-design"
+            element={<UIUXDesignService />}
+          />
+          <Route
+            path="/services/web-app-development"
+            element={<WebAppDevelopmentService />}
+          />
           <Route path="/services/seo" element={<SEOService />} />
-          <Route path="/services/social-media-marketing" element={<SocialMediaMarketingService />} />
-          <Route path="/services/ai-agents-automation" element={<AIAgentsAutomationService />} />
-          <Route path="/services/domain-name-consultation" element={<DomainNameConsultation />} />
-          <Route path="/services/enterprise-domain-management" element={<EnterpriseDomainService />} />
+          <Route
+            path="/services/social-media-marketing"
+            element={<SocialMediaMarketingService />}
+          />
+          <Route
+            path="/services/ai-agents-automation"
+            element={<AIAgentsAutomationService />}
+          />
+          <Route
+            path="/services/domain-name-consultation"
+            element={<DomainNameConsultation />}
+          />
+          <Route
+            path="/services/enterprise-domain-management"
+            element={<EnterpriseDomainService />}
+          />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/brand-kit" element={<BrandKit />} />
-          <Route path="/case-studies/:slug" element={<ImpactStudyDetail />} />
+          <Route
+            path="/case-studies-details/:slug"
+            element={<ImpactStudyDetail />}
+          />
           <Route path="/resources/insights" element={<ResourcesInsights />} />
           <Route path="/resources/insights/:slug" element={<InsightDetail />} />
           <Route path="/resources/press-releases" element={<PressReleases />} />
