@@ -8,11 +8,11 @@ const ServicesPreview = () => {
   const services = [
     {
       id: "automation",
-      title: "AI & Business Automation",
+      title: "AI Agents Automation",
       description: "Intelligent AI agents that automate workflows and scale your business.",
       icon: <Bot size={24} />,
       link: "/services/ai-agents-automation",
-      image: "/home/AI & Automation.jpg"
+      image: "services/aiagent.png"
     },
     {
       id: "branding",
@@ -28,7 +28,7 @@ const ServicesPreview = () => {
       description: "Intuitive interfaces that convert visitors into customers.",
       icon: <LayoutDashboard size={24} />,
       link: "/services/ui-ux-design",
-      image: "/home/UI UX.png"
+      image: "services/uxuit.png"
     },
     {
       id: "development",
@@ -52,7 +52,7 @@ const ServicesPreview = () => {
       description: "Strategic storytelling that multiplies your brand's impact.",
       icon: <MessageSquare size={24} />,
       link: "/services/social-media-marketing",
-      image: "/home/SMM.jpg"
+      image: "/services/smmt.png"
     }
   ];
 

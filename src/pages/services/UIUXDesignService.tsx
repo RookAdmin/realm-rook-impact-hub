@@ -286,7 +286,7 @@ const UIUXDesignService = () => {
                 },
                 {
                   name: "Marketing Materials",
-                  image: "/services/Dev Hand-0ffs kit.jpg",
+                  image: "/services/marketing.png",
                 },
               ].map((specialty, index) => (
                 <div
@@ -325,19 +325,19 @@ const UIUXDesignService = () => {
                   stat: "50%",
                   desc: "bounce rate drop after UI redesign",
                   image:
-                    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400",
+                    "/services/uxui32.png",
                 },
                 {
                   stat: "40%",
-                  desc: "user task time decreased",
+                  desc: "user retention rate increase",
                   image:
-                    "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&q=80&w=400",
+                    "/services/uxui31.png",
                 },
                 {
                   stat: "3X",
                   desc: "app downloads grew in 2 months post-redesign",
                   image:
-                    "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=400",
+                    "/services/uxui33.png",
                 },
               ].map((proof, index) => (
                 <div

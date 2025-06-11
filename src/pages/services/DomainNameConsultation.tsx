@@ -82,24 +82,28 @@ const DomainNameConsultation = () => {
   // Recent domain wins
   const domainWins = [
     {
-      domain: "lumiereai.com",
-      description: "Enterprise design AI platform",
+      domain: "hloapp.com",
+      description: "Legal Marketplace",
     },
     {
-      domain: "oakridge.org",
-      description: "Education non-profit",
+      domain: "icmpath.com",
+      description: "Study Abroad Consultancy",
     },
     {
-      domain: "lift.app",
-      description: "Mobile fitness startup",
+      domain: "paym.me",
+      description: "FinSaaS",
     },
     {
-      domain: "panora.ai",
-      description: "Brokered at 60% below listed value",
+      domain: "clickl.in",
+      description: "Link in Bio SaaS",
     },
     {
-      domain: "zettacore.com",
-      description: "Transitioned from zettacore.io in 6 weeks",
+      domain: "chefavr.com",
+      description: "Chef Portfolio",
+    },
+    {
+      domain: "namsushi.com",
+      description: "Food Chain Website",
     },
   ];
 

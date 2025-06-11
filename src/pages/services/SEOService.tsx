@@ -82,13 +82,34 @@ const SEOService = () => {
 
   // Tools
   const seoTools = [
-    "SEMrush",
-    "Ahrefs",
-    "Google Search Console",
-    "Surfer SEO",
-    "Screaming Frog",
-    "ChatGPT for SEO Content",
-    "Google Data Studio",
+    {
+      name: "SEMrush",
+      image: "/services/seo-tools/semrush.png",
+    },
+    {
+      name: "Ahrefs",
+      image: "/services/seo-tools/aher.png",
+    },
+    {
+      name: "Google Search Console",
+      image: "/services/seo-tools/gsearch.webp",
+    },
+    {
+      name: "Surfer SEO",
+      image: "/services/seo-tools/surfer.png",
+    },
+    {
+      name: "Screaming Frog",
+      image: "/services/seo-tools/Screaming Frog.jpeg",
+    },
+    {
+      name: "ChatGPT for SEO Content",
+      image: "/services/seo-tools/chatgpt.png",
+    },
+    {
+      name: "Google Data Studio",
+      image: "/services/seo-tools/datastudio.png",
+    },
   ];
 
   // Performance snapshots
@@ -191,12 +212,18 @@ const SEOService = () => {
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-4">
               {seoTools.map((tool, index) => (
-                <div
-                  key={index}
-                  className="border border-realm-lightgray p-4 hover:border-realm-black transition-all duration-300 flex items-center justify-center h-20"
-                >
-                  <h3 className="font-bold text-center">{tool}</h3>
-                </div>
+              <div
+                key={index}
+                className="border border-realm-lightgray p-4 hover:border-realm-black transition-all duration-300 flex flex-col items-center justify-center h-24"
+              >
+                <img
+                src={tool.image}
+                alt={`${tool.name} logo`}
+                className="w-8 h-8 mb-2 object-contain"
+                loading="lazy"
+                />
+                <h3 className="font-bold text-center">{tool.name}</h3>
+              </div>
               ))}
             </div>
           </section>
@@ -253,6 +280,7 @@ const SEOService = () => {
                     .
                   </p>
                   <Button
+                  onClick={() => setIsContactOpen(true)}
                     variant={index === 2 ? "default" : "outline"}
                     className={`${
                       index === 2

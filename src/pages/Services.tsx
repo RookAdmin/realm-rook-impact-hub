@@ -11,21 +11,21 @@ const Services = () => {
       description: 'Building intelligent systems and AI agents to automate workflows and scale your business.',
       link: '/services/ai-agents-automation',
       icon: <Bot size={32} />,
-      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400'
+      image: '/services/aiagent.png'
     },
     {
       title: 'Branding',
       description: 'Crafting unique identities that resonate with your audience and stand the test of time.',
       link: '/services/branding',
       icon: <Palette size={32} />,
-      image: 'https://images.unsplash.com/photo-1545665277-5937489579f2?auto=format&fit=crop&q=80&w=400'
+      image: '/services/brandingt.png'
     },
     {
       title: 'UI/UX Design',
       description: 'Designing user-friendly experiences that delight users and achieve business goals.',
       link: '/services/ui-ux-design',
       icon: <Smartphone size={32} />,
-      image: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=400'
+      image: '/services/uxuit.png'
     },
     {
       title: 'Web/App Development',
@@ -46,7 +46,7 @@ const Services = () => {
       description: 'Multiplying brand impact through strategic storytelling and AI-powered social media management.',
       link: '/services/social-media-marketing',
       icon: <MessageSquare size={32} />,
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400'
+      image: '/services/smmt.png'
     },
     
     {
@@ -54,14 +54,14 @@ const Services = () => {
       description: 'Expert guidance on strategic domain acquisition to build a solid foundation for your brand.',
       link: '/services/domain-name-consultation',
       icon: <Globe size={32} />,
-      image: 'https://images.unsplash.com/photo-1560472355-a3b4bcfe790d?auto=format&fit=crop&q=80&w=400'
+      image: '/services/domainname.png'
     },
     {
       title: 'Enterprise Domain Management',
       description: 'Comprehensive solutions for managing large-scale enterprise domain portfolios securely.',
       link: '/enterprise-domains',
       icon: <Shield size={32} />,
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=400'
+      image: '/services/enterprisedomain.png'
     }
   ];
 
