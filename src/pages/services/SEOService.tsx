@@ -134,6 +134,16 @@ const SEOService = () => {
             </div>
           </section>
 
+          <div className="w-full my-12">
+            <img
+              src="/services/seo2.png"
+              alt="Web and App Development Illustration"
+              className="w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </div>
+
+
           {/* Why SEO with Realm */}
           <section className="py-16 border-t border-realm-lightgray">
             <h2 className="text-3xl font-display font-bold mb-12">

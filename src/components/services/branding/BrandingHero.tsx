@@ -26,22 +26,15 @@ const BrandingHero = () => {
           </Button>
 
         </div>
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="border border-realm-lightgray p-10">
-            <img 
-              src="/services/Brand.png" 
-              alt="Brand Identity Example" 
-              className="w-full realm-image-greyscale" 
-            />
-          </div>
-          <div className="border border-realm-lightgray p-10">
-            <img 
-              src="/services/branding (1).jpg" 
-              alt="Brand Wordmark Example" 
-              className="w-full realm-image-greyscale" 
-            />
-          </div>
-        </div>
+        {/* Centered Responsive Image */}Add commentMore actions
+      <div className="w-full my-12">
+        <img
+          src="/services/branding.png"
+          alt="Web and App Development Illustration"
+          className="w-full h-auto object-contain"
+          loading="lazy"
+        />
+      </div>
       </div>
       {/* Contact Form Dialog */}
       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>

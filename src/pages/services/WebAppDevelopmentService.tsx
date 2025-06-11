@@ -63,6 +63,17 @@ const WebAppDevelopmentService = () => {
               </Button>
             </div>
           </section>
+
+          <div className="flex justify-center my-12">
+            <img
+              src="/services/website.png"
+              alt="Web and App Development Illustration"
+              className="max-w-full h-auto object-contain mx-auto"
+              loading="lazy"
+              style={{ maxWidth: "1200px", width: "100%" }}
+            />
+          </div>
+
           {/* Contact  Form Dialog */}
           <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
             <DialogContent className="sm:max-w-[500px]">

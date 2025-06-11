@@ -113,21 +113,14 @@ const UIUXDesignService = () => {
               </DialogContent>
             </Dialog>
 
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="border border-realm-lightgray p-6">
-                <img
-                  src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80"
-                  alt="UI/UX Design Wireframe"
-                  className="realm-image realm-image-greyscale"
-                />
-              </div>
-              <div className="border border-realm-lightgray p-6">
-                <img
-                  src="/services/Design mockup.jpeg"
-                  alt="UI/UX Design Mockup"
-                  className="realm-image realm-image-greyscale"
-                />
-              </div>
+             {/* Centered Responsive Image */}Add commentMore actions
+            <div className="w-full my-12">
+              <img
+                src="/services/uxui1.png"
+                alt="Web and App Development Illustration"
+                className="w-full h-auto object-contain"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
@@ -211,7 +204,7 @@ const UIUXDesignService = () => {
 
               <div className="mt-12 flex justify-center">
                 <img
-                  src="/services/UI UX wireframe & prototype.png"
+                  src="/services/uxui-phon.png"
                   alt="UI/UX Design Process"
                   className="realm-image-greyscale max-w-xl w-full"
                 />
@@ -280,18 +273,19 @@ const UIUXDesignService = () => {
                   name: "SaaS Dashboards",
                   image: "/services/SaaS Dashboard.png",
                 },
-                { name: "Portfolio Sites", image: "/services/portfolio.jpg" },
+                { name: "Portfolio Sites", image: "/services/uxui-port.png" },
+                
+                { name: "E-commerce UX", image: "/services/E commerce ux.png" },
                 {
                   name: "Product Landing Pages",
-                  image: "/services/landing page.jpg",
+                  image: "/services/uxui2.png",
                 },
-                { name: "E-commerce UX", image: "/services/E commerce ux.png" },
                 {
                   name: "App Interfaces",
                   image: "/services/App interface.jpg",
                 },
                 {
-                  name: "Dev Hand-off Kits",
+                  name: "Marketing Materials",
                   image: "/services/Dev Hand-0ffs kit.jpg",
                 },
               ].map((specialty, index) => (
