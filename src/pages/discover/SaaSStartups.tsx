@@ -17,7 +17,6 @@ import PageHeader from "@/components/common/PageHeader";
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 import { impactStudies } from "@/data/impactStudiesData";
 import ImpactStudyCard from "@/components/impact-studies/ImpactStudyCard";
-import BeforeAfterVisuals from "@/components/home/BeforeAfterVisuals";
 import TransformationStories from "@/components/home/TransformationStories";
 
 // Animation variants
@@ -357,8 +356,7 @@ const SaaSStartups = () => {
             {/* Transformation Stories */}
             <TransformationStories stories={transformationStories} />
 
-            {/* Before/After Visuals */}
-            <BeforeAfterVisuals />
+        
 
             {/* Impact Study Callout */}
             <div className="mt-20 max-w-5xl mx-auto">
