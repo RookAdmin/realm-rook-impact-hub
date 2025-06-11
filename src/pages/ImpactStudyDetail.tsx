@@ -384,23 +384,11 @@ const ImpactStudyDetail = () => {
         />
       </Helmet>
 
-      <div className="bg-realm-black text-white py-16 md:py-24 relative mt-20">
-        <div className="realm-image-container absolute inset-0 z-0 opacity-30">
-          <img
-            src={
-              study.featuredImage ||
-              "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80"
-            }
-            alt={study.title}
-            className="realm-image realm-image-greyscale"
-          />
-          <div className="realm-image-overlay"></div>
-        </div>
-
+      <div className="bg-gradient-to-br from-realm-black to-gray-900 text-white py-20 md:py-32 relative mt-20">
         <div className="realm-container relative z-10">
           <Link
             to="/case-studies"
-            className="inline-flex items-center text-white mb-8 hover:underline"
+            className="inline-flex items-center text-white/80 hover:text-white mb-12 transition-colors"
           >
             <ArrowLeft size={16} className="mr-2" />
             Back to Impact Studies
@@ -415,33 +403,87 @@ const ImpactStudyDetail = () => {
             </div>
           )}
 
-          {study.companyLogo && study.companyName && (
-            <div className="flex items-center mb-4">
-              <img
-                src={urlForClient1(study.companyLogo).width(100).url()}
-                alt={`${study.companyName} logo`}
-                className="w-12 h-12 object-contain mr-3 bg-white rounded"
-              />
-              <h1 className="text-2xl font-semibold">{study.companyName}</h1>
+          <div className="grid md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+                  <img
+                    src="/logo-black.png"
+                    alt="Realm by Rook"
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+                <span className="text-sm font-medium text-white/60">
+                  Impact  Studies
+                </span>
+              </div>
+
+              <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight">
+                {study.title}
+              </h1>
+
+              <p className="text-xl text-white/80 max-w-3xl mb-8">
+                {study.impactSummary}
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                {study.tags?.map((tag) => (
+                  <Tag
+                    key={tag}
+                    label={tag}
+                    className="bg-white/10 text-white hover:bg-white/20 transition-colors"
+                  />
+                ))}
+              </div>
             </div>
-          )}
 
-          <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl max-w-5xl mb-6">
-            {study.title}
-          </h2>
+            <div className="md:col-span-4">
+              {study.companyName && (
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                  <div className="flex items-center gap-4 mb-4">
+                    {study.companyLogo && (
+                      <div className="w-16 h-16 bg-white rounded-xl p-3">
+                        <img
+                          src={urlForClient1(study.companyLogo)
+                            .width(100)
+                            .url()}
+                          alt={`${study.companyName} logo`}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    )}
+                    <div>
+                      <h2 className="text-xl font-semibold">
+                        {study.companyName}
+                      </h2>
+                      {study.perspectiveCategory && (
+                        <p className="text-sm text-white/60">
+                          {study.perspectiveCategory}
+                        </p>
+                      )}
+                    </div>
+                  </div>
 
-          <p className="text-xl md:text-2xl font-medium max-w-3xl mb-8">
-            {study.impactSummary}
-          </p>
+                  {study.industry && study.industry.length > 0 && (
+                    <div className="mt-4 pt-4 border-t border-white/10">
+                      <p className="text-sm text-white/60 mb-2">Industry</p>
+                      <p className="font-medium">
+                        {study.industry.map((i) => i.title).join(", ")}
+                      </p>
+                    </div>
+                  )}
 
-          <div className="flex flex-wrap gap-2 mt-4">
-            {study.tags?.map((tag) => (
-              <Tag
-                key={tag}
-                label={tag}
-                className="bg-white text-realm-black"
-              />
-            ))}
+                  {study.region && study.region.length > 0 && (
+                    <div className="mt-4 pt-4 border-t border-white/10">
+                      <p className="text-sm text-white/60 mb-2">Region</p>
+                      <p className="font-medium">
+                        {study.region.map((r) => r.title).join(", ")}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -452,7 +494,7 @@ const ImpactStudyDetail = () => {
             <div>
               <h3 className="text-2xl font-display font-bold mb-4">Problem</h3>
               <div className="w-12 h-1 bg-realm-black mb-4"></div>
-              <div className="aspect-square bg-realm-lightgray overflow-hidden mb-8">
+              <div className="aspect-square bg-realm-lightgray overflow-hidden mb-8" style={{borderRadius:"10px"}}>
                 {study.problemImage ? (
                   <img
                     src={urlForClient1(study.problemImage).width(800).url()}
@@ -497,7 +539,7 @@ const ImpactStudyDetail = () => {
             <div>
               <h3 className="text-2xl font-display font-bold mb-4">Process</h3>
               <div className="w-12 h-1 bg-realm-black mb-4"></div>
-              <div className="aspect-square bg-white border border-realm-black overflow-hidden mb-8">
+              <div className="aspect-square bg-white border border-realm-black overflow-hidden mb-8" style={{borderRadius:"10px"}}>
                 {study.processImage ? (
                   <img
                     src={urlForClient1(study.processImage).width(800).url()}
@@ -542,7 +584,7 @@ const ImpactStudyDetail = () => {
             <div>
               <h3 className="text-2xl font-display font-bold mb-4">Outcome</h3>
               <div className="w-12 h-1 bg-realm-black mb-4"></div>
-              <div className="aspect-square bg-realm-lightgray overflow-hidden mb-8">
+              <div className="aspect-square bg-realm-lightgray overflow-hidden mb-8" style={{borderRadius:"10px"}}>
                 {study.outcomeImage ? (
                   <img
                     src={urlForClient1(study.outcomeImage).width(800).url()}
