@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { 
   Breadcrumb, 
@@ -17,8 +17,13 @@ const PrivacyPolicy = () => {
   const formattedDate = `${currentDate.toLocaleString('default', { month: 'long' })} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
 
   return (
-    <main className="min-h-screen bg-white">
-      <div className="realm-container py-8">
+    <>
+      <Helmet>
+        <title>Privacy Policy | Realm by Rook - Data Protection & Privacy</title>
+        <meta name="description" content="Learn how Realm by Rook protects your data and respects your privacy. Our comprehensive privacy policy covers data collection, usage, and protection practices." />
+        <meta name="keywords" content="privacy policy, data protection, privacy practices, data security, GDPR compliance" />
+      </Helmet>
+      <main className="min-h-screen bg-white">
         {/* Breadcrumb Navigation */}
         <Breadcrumb className="mb-8">
           <BreadcrumbList>
@@ -91,8 +96,8 @@ const PrivacyPolicy = () => {
             </Link>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 };
 
