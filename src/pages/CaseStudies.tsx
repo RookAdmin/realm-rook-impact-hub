@@ -1,63 +1,338 @@
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import PageHeader from '@/components/common/PageHeader';
-import { impactStudies, categories } from '@/data/impactStudiesData';
-import ImpactStudyCard from '@/components/impact-studies/ImpactStudyCard';
-import CtaSection from '@/components/CtaSection';
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import PageHeader from "@/components/common/PageHeader";
+import CtaSection from "@/components/CtaSection";
+import { client1, urlForClient1 } from "../../lib/sanity";
 
+// Types matching ImpactStudyDetail.tsx
+interface ImpactStudy {
+  _id: string;
+  title: string;
+  mainImage: any;
+  perspectiveCategory: string;
+  slug: {
+    current: string;
+  };
+  industry?: {
+    _id: string;
+    title: string;
+  }[];
+  region?: {
+    _id: string;
+    title: string;
+  }[];
+  companyLogo?: any;
+  companyName?: string;
+  problem?: string;
+  process?: string;
+  outcome?: string;
+}
+
+// Industry Categories
+const industryCategories = [
+  "All",
+  "AI Agents Automation",
+  "Branding",
+  "UI/UX Design",
+  "Web/App Development",
+  "SEO",
+  "SMM",
+  "Domain Name Consultation",
+  "Enterprise Domain Management",
+];
+
+// Region Categories
+const regionCategories = [
+  "All",
+  "MENA (Middle East and North Africa)",
+  "Asia-Pacific",
+  "Europe",
+  "North America",
+  "Latin America and the Caribbean",
+  "Sub-Saharan Africa",
+  "Central Asia",
+];
+
+// Components
+interface ImpactStudyCardProps {
+  study: ImpactStudy;
+}
+
+const ImpactStudyCard = ({ study }: ImpactStudyCardProps) => {
+  return (
+    <Card className="border border-realm-lightgray hover:border-realm-black transition-all duration-300 flex flex-col h-full">
+      <CardContent className="pt-6 flex-grow">
+        <div className="aspect-video mb-6 overflow-hidden">
+          {study.mainImage ? (
+            <img
+              src={urlForClient1(study.mainImage).width(800).url()}
+              alt={study.title}
+              className="realm-image realm-image-greyscale hover:scale-105 transition-transform duration-500"
+            />
+          ) : (
+            <div className="w-full h-full bg-realm-lightgray flex items-center justify-center">
+              <span className="text-realm-darkgray">No image</span>
+            </div>
+          )}
+        </div>
+
+        {study.companyLogo && study.companyName && (
+          <div className="flex items-center gap-4 mt-4">
+            <img
+              src={urlForClient1(study.companyLogo).width(50).url()}
+              alt={study.companyName || "Company Logo"}
+              className="w-12 h-12 object-cover rounded-full"
+            />
+            <span className="text-sm font-medium">{study.companyName}</span>
+          </div>
+        )}
+
+        <h2 className="text-xl font-display font-bold mt-4 mb-3 line-clamp-2">
+          {study.title}
+        </h2>
+
+        <div className="flex flex-wrap gap-2 mt-4">
+          {study.industry?.map((industry) => (
+            <span
+              key={industry._id}
+              className="inline-block bg-realm-lightgray text-realm-black px-3 py-1 rounded-full text-xs font-semibold"
+            >
+              {industry.title}
+            </span>
+          ))}
+          {study.region?.map((region) => (
+            <span
+              key={region._id}
+              className="inline-block bg-realm-lightgray text-realm-black px-3 py-1 rounded-full text-xs font-semibold"
+            >
+              {region.title}
+            </span>
+          ))}
+        </div>
+      </CardContent>
+
+      <CardFooter className="pt-0">
+        <Link
+          to={`/case-studies/${study.slug.current}`}
+          className="realm-button inline-flex items-center"
+        >
+          Read Full Study
+          <ArrowRight size={16} className="ml-2" />
+        </Link>
+      </CardFooter>
+    </Card>
+  );
+};
+
+// Fallback data for when Sanity is not available
+const fallbackStudies: ImpactStudy[] = [
+  {
+    _id: "1",
+    title: "Transforming a Local Skincare Brand into a Global Sensation",
+    mainImage: null,
+    perspectiveCategory: "Branding",
+    slug: { current: "zephyr-skincare-rebranding" },
+    industry: [{ _id: "1", title: "Branding" }],
+    region: [{ _id: "1", title: "MENA (Middle East and North Africa)" }],
+    companyLogo: null,
+    companyName: "Zephyr Skincare",
+    problem: "Zephyr Skincare was a local boutique with minimal online presence, averaging only 23 monthly website visits.",
+    process: "We conducted extensive market research and developed a comprehensive brand strategy.",
+    outcome: "Within six months, Zephyr experienced exponential growth: 18,000+ monthly visitors and 300% increase in online revenue."
+  },
+  {
+    _id: "2",
+    title: "Reimagining Financial Software for the Modern User",
+    mainImage: null,
+    perspectiveCategory: "UI/UX Design",
+    slug: { current: "finovo-ux-redesign" },
+    industry: [{ _id: "2", title: "UI/UX Design" }],
+    region: [{ _id: "2", title: "Europe" }],
+    companyLogo: null,
+    companyName: "Finovo",
+    problem: "Finovo was struggling with inconsistent branding and a complex user interface that resulted in a mere 2% conversion rate.",
+    process: "We began with a UX audit to identify pain points and conversion barriers.",
+    outcome: "The redesigned platform achieved an 8.5% conversion rate—a 325% improvement."
+  },
+  {
+    _id: "3",
+    title: "Rebuilding an E-Commerce Platform for Speed and Conversion",
+    mainImage: null,
+    perspectiveCategory: "Web/App Development",
+    slug: { current: "elevate-tech-ecommerce" },
+    industry: [{ _id: "3", title: "Web/App Development" }],
+    region: [{ _id: "3", title: "Asia-Pacific" }],
+    companyLogo: null,
+    companyName: "Elevate Tech",
+    problem: "Elevate Tech's e-commerce store was plagued by slow load times (5 seconds on average) and a sky-high bounce rate of 70%.",
+    process: "We rebuilt their platform from scratch using modern technologies with performance at the core.",
+    outcome: "The new platform loads in just 1.2 seconds, reducing bounce rate to 22%."
+  }
+];
+
+// Main Page Component
 const CaseStudies = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
-  const [activeRegion, setActiveRegion] = useState('All');
-  
-  // Create a list of unique regions from the impact studies
-  const regions = ['All', ...new Set(impactStudies.map(study => study.region || 'Global'))];
+  const [studies, setStudies] = useState<ImpactStudy[]>(fallbackStudies);
+  const [loading, setLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeRegion, setActiveRegion] = useState("All");
+  const [usingFallback, setUsingFallback] = useState(false);
 
-  // Filter studies by both category and region
-  const filteredStudies = impactStudies.filter(study => {
-    const matchesCategory = activeCategory === 'All' || study.category === activeCategory || study.tags.includes(activeCategory);
-    const matchesRegion = activeRegion === 'All' || study.region === activeRegion;
+  useEffect(() => {
+    const fetchStudies = async () => {
+      try {
+        console.log("Attempting to fetch studies from Sanity...");
+        
+        // Try to fetch from ImpactStudy schema first
+        const impactStudyQuery = `*[_type == "ImpactStudy"] {
+          _id,
+          title,
+          mainImage,
+          perspectiveCategory,
+          industry[]->{
+            _id,
+            title
+          },
+          region[]->{
+            _id,
+            title
+          },
+          companyLogo,
+          companyName,
+          problem,
+          process,
+          outcome,
+          "slug": slug
+        }`;
+
+        let data = await client1.fetch(impactStudyQuery);
+        
+        // If no ImpactStudy data, try post schema
+        if (!data || data.length === 0) {
+          console.log("No ImpactStudy data found, trying post schema...");
+          const postQuery = `*[_type == "post"] {
+            _id,
+            title,
+            mainImage,
+            perspectiveCategory,
+            industry[]->{
+              _id,
+              title
+            },
+            region[]->{
+              _id,
+              title
+            },
+            companyLogo,
+            companyName,
+            "slug": slug
+          }`;
+          data = await client1.fetch(postQuery);
+        }
+
+        if (data && data.length > 0) {
+          console.log("Successfully fetched studies:", data);
+          setStudies(data);
+          setUsingFallback(false);
+        } else {
+          console.log("No data found, using fallback studies");
+          setStudies(fallbackStudies);
+          setUsingFallback(true);
+        }
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching studies:", error);
+        console.log("Using fallback studies due to error");
+        setStudies(fallbackStudies);
+        setUsingFallback(true);
+        setLoading(false);
+      }
+    };
+
+    fetchStudies();
+  }, []);
+
+  const filteredStudies = studies.filter((study) => {
+    const matchesCategory =
+      activeCategory === "All" ||
+      study.industry?.some((industry) => industry.title === activeCategory);
+    const matchesRegion =
+      activeRegion === "All" ||
+      study.region?.some((region) => region.title === activeRegion);
     return matchesCategory && matchesRegion;
   });
 
-  // Featured case studies for the top section
-  const featuredCaseStudies = [
-    {
-      category: "E-commerce / UX Design",
-      title: "RetailCore Rebrand",
-      description: "How we increased conversion rates by 38% through strategic UX redesign and brand positioning.",
-      link: "/case-studies/retailcore-rebrand"
-    },
-    {
-      category: "SaaS / Development",
-      title: "Fluent Finance Dashboard",
-      description: "Rebuilding a complex financial app that reduced load time by 75% and improved user retention.",
-      link: "/case-studies/fluent-finance"
-    }
-  ];
-
   return (
     <main className="min-h-screen">
-      <PageHeader 
+      <Helmet>
+        <title>Impact Studies - Real Business Transformations | Realm by Rook</title>
+        <meta 
+          name="description" 
+          content="Discover real transformations and measurable results from our client projects. See how Realm by Rook drives business impact through strategic design and development." 
+        />
+        <meta name="keywords" content="case studies, impact studies, business transformation, client results, success stories, Realm by Rook" />
+      </Helmet>
+
+      <PageHeader
         title="Impact Studies"
         subtitle="Real transformations. Real results. See how our work drives measurable business impact."
         isLarge={true}
       />
-      
+
+      {usingFallback && (
+        <div className="realm-container mb-8">
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-center">
+            <p className="text-yellow-800">
+              Currently showing demo case studies. Connect to Sanity CMS to display live data.
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* Featured Case Studies Section */}
       <section className="realm-section">
         <div className="realm-container">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">Featured Case Studies</h2>
-          
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">
+            Featured Case Studies
+          </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {featuredCaseStudies.map((study, index) => (
-              <div key={index} className="border border-realm-lightgray p-8 hover:border-realm-black transition-all duration-300">
-                <span className="text-sm text-realm-darkgray block mb-4">{study.category}</span>
-                <h3 className="text-2xl font-display font-bold mb-4">{study.title}</h3>
+            {[
+              {
+                category: "E-commerce / UX Design",
+                title: "RetailCore Rebrand",
+                description:
+                  "How we increased conversion rates by 38% through strategic UX redesign and brand positioning.",
+                link: "/case-studies/retailcore-rebrand",
+              },
+              {
+                category: "SaaS / Development",
+                title: "Fluent Finance Dashboard",
+                description:
+                  "Rebuilding a complex financial app that reduced load time by 75% and improved user retention.",
+                link: "/case-studies/fluent-finance",
+              },
+            ].map((study, index) => (
+              <div
+                key={index}
+                className="border border-realm-lightgray p-8 hover:border-realm-black transition-all duration-300"
+              >
+                <span className="text-sm text-realm-darkgray block mb-4">
+                  {study.category}
+                </span>
+                <h3 className="text-2xl font-display font-bold mb-4">
+                  {study.title}
+                </h3>
                 <p className="text-realm-darkgray mb-6">{study.description}</p>
-                <Link to={study.link} className="realm-link flex items-center space-x-2">
+                <Link
+                  to={study.link}
+                  className="realm-link flex items-center space-x-2"
+                >
                   <span>View case study</span>
                   <ArrowRight size={16} />
                 </Link>
@@ -66,16 +341,20 @@ const CaseStudies = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Results & Metrics */}
       <section className="realm-section bg-realm-black text-white">
         <div className="realm-container">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">Our Impact By The Numbers</h2>
-          
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
+            Our Impact By The Numbers
+          </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center p-6 border border-white/20">
               <h3 className="text-4xl font-bold mb-2">38%</h3>
-              <p className="text-sm text-white/80">Average Increase in Conversion Rate</p>
+              <p className="text-sm text-white/80">
+                Average Increase in Conversion Rate
+              </p>
             </div>
             <div className="text-center p-6 border border-white/20">
               <h3 className="text-4xl font-bold mb-2">75%</h3>
@@ -83,32 +362,38 @@ const CaseStudies = () => {
             </div>
             <div className="text-center p-6 border border-white/20">
               <h3 className="text-4xl font-bold mb-2">230%</h3>
-              <p className="text-sm text-white/80">Increase in Social Engagement</p>
+              <p className="text-sm text-white/80">
+                Increase in Social Engagement
+              </p>
             </div>
             <div className="text-center p-6 border border-white/20">
               <h3 className="text-4xl font-bold mb-2">85+</h3>
-              <p className="text-sm text-white/80">Successful Client Projects</p>
+              <p className="text-sm text-white/80">
+                Successful Client Projects
+              </p>
             </div>
           </div>
         </div>
       </section>
-      
+
       {/* All Case Studies / Impact Studies */}
       <section className="realm-section">
         <div className="realm-container">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">All Impact Studies</h2>
-          
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">
+            All Case Studies
+          </h2>
+
           {/* Filter by Industry/Category */}
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-3">Filter by Industry</h3>
             <div className="flex flex-wrap items-center gap-2 mb-6">
-              {categories.map((category) => (
+              {industryCategories.map((category) => (
                 <button
                   key={category}
                   className={`px-4 py-2 ${
                     activeCategory === category
-                      ? 'bg-realm-black text-white'
-                      : 'bg-white text-realm-black border border-realm-black'
+                      ? "bg-realm-black text-white"
+                      : "bg-white text-realm-black border border-realm-black"
                   } hover:bg-realm-black hover:text-white transition-colors`}
                   onClick={() => setActiveCategory(category)}
                 >
@@ -117,18 +402,18 @@ const CaseStudies = () => {
               ))}
             </div>
           </div>
-          
+
           {/* Filter by Region */}
-          <div className="mb-8">
+          <div className="mb-6">
             <h3 className="text-lg font-medium mb-3">Filter by Region</h3>
             <div className="flex flex-wrap items-center gap-2 mb-6">
-              {regions.map((region) => (
+              {regionCategories.map((region) => (
                 <button
                   key={region}
                   className={`px-4 py-2 ${
                     activeRegion === region
-                      ? 'bg-realm-black text-white'
-                      : 'bg-white text-realm-black border border-realm-black'
+                      ? "bg-realm-black text-white"
+                      : "bg-white text-realm-black border border-realm-black"
                   } hover:bg-realm-black hover:text-white transition-colors`}
                   onClick={() => setActiveRegion(region)}
                 >
@@ -137,22 +422,36 @@ const CaseStudies = () => {
               ))}
             </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredStudies.map((study) => (
-              <ImpactStudyCard key={study.id} study={study} />
-            ))}
-          </div>
-          
-          {filteredStudies.length === 0 && (
+
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="animate-pulse">
+                  <div className="aspect-video bg-gray-200 mb-6"></div>
+                  <div className="h-6 bg-gray-200 mb-3"></div>
+                  <div className="h-4 bg-gray-200 w-24"></div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredStudies.map((study) => (
+                <ImpactStudyCard key={study._id} study={study} />
+              ))}
+            </div>
+          )}
+
+          {filteredStudies.length === 0 && !loading && (
             <div className="text-center py-16">
-              <p className="text-xl">No impact studies found matching your filters.</p>
+              <p className="text-xl">
+                No case studies found matching your filters.
+              </p>
               <div className="mt-4 flex flex-wrap justify-center gap-4">
-                <button 
+                <button
                   className="realm-button bg-realm-black text-white"
                   onClick={() => {
-                    setActiveCategory('All');
-                    setActiveRegion('All');
+                    setActiveCategory("All");
+                    setActiveRegion("All");
                   }}
                 >
                   Reset All Filters
@@ -160,28 +459,6 @@ const CaseStudies = () => {
               </div>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Client Testimonials */}
-      <section className="realm-section bg-realm-lightgray">
-        <div className="realm-container">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">Client Testimonials</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-8 bg-white">
-              <p className="text-lg italic mb-6">
-                "Realm transformed our entire digital presence. The results speak for themselves—our conversion rates have never been higher."
-              </p>
-              <p className="font-medium">— Marketing Director, RetailCore</p>
-            </div>
-            <div className="p-8 bg-white">
-              <p className="text-lg italic mb-6">
-                "Working with Realm was the best decision we made last year. Their strategic approach to our challenges delivered measurable impact."
-              </p>
-              <p className="font-medium">— CEO, Fluent Finance</p>
-            </div>
-          </div>
         </div>
       </section>
 
