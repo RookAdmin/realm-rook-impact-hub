@@ -28,8 +28,8 @@ const BrandingService = () => {
           content="branding services, brand identity, logo design, brand messaging, impactful brands"
         />
       </Helmet>
-      <main className="min-h-screen pt-32">
-        <div className="realm-container mb-6">
+      <main className="min-h-screen pt-20">
+        <div className="realm-container mb-6 pt-20">
           <ServiceBreadcrumb
             serviceName="Branding"
             serviceUrl="/services/branding"

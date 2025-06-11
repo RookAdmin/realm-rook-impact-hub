@@ -729,7 +729,7 @@ const SocialMediaMarketingService = () => {
       </Helmet>
       <main className="min-h-screen pt-20">
         <div className="bg-black text-white">
-          <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4">
+          <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4 pt-20">
             <ServiceBreadcrumb
               serviceName="Social Media Marketing"
               serviceUrl="/services/social-media-marketing"

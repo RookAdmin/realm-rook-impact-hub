@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React from "react";
 
 interface PageHeaderProps {
   title: string;
@@ -9,9 +8,15 @@ interface PageHeaderProps {
 
 const PageHeader = ({ title, subtitle, isLarge = false }: PageHeaderProps) => {
   return (
-    <header className="bg-realm-black text-white py-16 md:py-24">
+    <header className="bg-realm-black text-white py-16 md:py-24 mt-20">
       <div className="realm-container">
-        <h1 className={`font-display font-bold ${isLarge ? 'text-4xl md:text-5xl lg:text-6xl' : 'text-3xl md:text-4xl lg:text-5xl'} mb-4`}>
+        <h1
+          className={`font-display font-bold ${
+            isLarge
+              ? "text-4xl md:text-5xl lg:text-6xl"
+              : "text-3xl md:text-4xl lg:text-5xl"
+          } mb-4`}
+        >
           {title}
         </h1>
         {subtitle && (

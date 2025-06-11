@@ -33,7 +33,10 @@ interface ImpactStudy {
   testimonialAuthor?: string;
   testimonialPosition?: string;
   testimonialAuthorImage?: any;
-  images?: any[];
+  outcomeGallery?: any[];
+  processImage?: any;
+  problemImage?: any;
+  outcomeImage?: any;
   featuredImage?: string;
   impactSummary?: string;
   tags?: string[];
@@ -228,7 +231,10 @@ const ImpactStudyDetail = () => {
           testimonialAuthor,
           testimonialPosition,
           testimonialAuthorImage,
-          images,
+          outcomeGallery,
+          processImage,
+          problemImage,
+          outcomeImage,
           "slug": slug
         }`;
 
@@ -258,6 +264,11 @@ const ImpactStudyDetail = () => {
             companyName,
             problem,
             process,
+            outcome,
+            outcomeGallery,
+            processImage,
+            problemImage,
+            outcomeImage,
             "slug": slug
           }`;
           data = await client1.fetch(query, { slug });
@@ -373,7 +384,7 @@ const ImpactStudyDetail = () => {
         />
       </Helmet>
 
-      <div className="bg-realm-black text-white py-16 md:py-24 relative">
+      <div className="bg-realm-black text-white py-16 md:py-24 relative mt-20">
         <div className="realm-image-container absolute inset-0 z-0 opacity-30">
           <img
             src={
@@ -442,11 +453,15 @@ const ImpactStudyDetail = () => {
               <h3 className="text-2xl font-display font-bold mb-4">Problem</h3>
               <div className="w-12 h-1 bg-realm-black mb-4"></div>
               <div className="aspect-square bg-realm-lightgray overflow-hidden mb-8">
-                <img
-                  src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&q=80"
-                  alt="Problem visualization"
-                  className="realm-image realm-image-greyscale"
-                />
+                {study.problemImage ? (
+                  <img
+                    src={urlForClient1(study.problemImage).width(800).url()}
+                    alt="Problem visualization"
+                    className="realm-image realm-image-greyscale"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-realm-lightgray" />
+                )}
               </div>
             </div>
             <div className="md:col-span-2">
@@ -483,11 +498,15 @@ const ImpactStudyDetail = () => {
               <h3 className="text-2xl font-display font-bold mb-4">Process</h3>
               <div className="w-12 h-1 bg-realm-black mb-4"></div>
               <div className="aspect-square bg-white border border-realm-black overflow-hidden mb-8">
-                <img
-                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80"
-                  alt="Process visualization"
-                  className="realm-image realm-image-greyscale"
-                />
+                {study.processImage ? (
+                  <img
+                    src={urlForClient1(study.processImage).width(800).url()}
+                    alt="Process visualization"
+                    className="realm-image realm-image-greyscale"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-white" />
+                )}
               </div>
             </div>
             <div className="md:col-span-2">
@@ -524,50 +543,32 @@ const ImpactStudyDetail = () => {
               <h3 className="text-2xl font-display font-bold mb-4">Outcome</h3>
               <div className="w-12 h-1 bg-realm-black mb-4"></div>
               <div className="aspect-square bg-realm-lightgray overflow-hidden mb-8">
-                <img
-                  src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&q=80"
-                  alt="Outcome visualization"
-                  className="realm-image realm-image-greyscale"
-                />
+                {study.outcomeImage ? (
+                  <img
+                    src={urlForClient1(study.outcomeImage).width(800).url()}
+                    alt="Outcome visualization"
+                    className="realm-image realm-image-greyscale"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-realm-lightgray" />
+                )}
               </div>
             </div>
             <div className="md:col-span-2">
-              {study.outcome && (
-                <div className="prose prose-lg max-w-none">
-                  {(() => {
-                    console.log("Rendering outcome:", study.outcome);
-                    return (
-                      <PortableText
-                        value={study.outcome}
-                        components={{
-                          block: {
-                            normal: ({ children }) => (
-                              <p className="text-lg leading-relaxed">
-                                {children}
-                              </p>
-                            ),
-                          },
-                        }}
-                      />
-                    );
-                  })()}
-                </div>
-              )}
+              <PortableText value={study.outcome} />
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                {(
-                  study.images || [
-                    "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&q=80",
-                    "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&q=80",
-                    "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&q=80",
-                  ]
-                ).map((image, index) => (
-                  <img
+                {study.outcomeGallery?.map((image, index) => (
+                  <div
                     key={index}
-                    src={image}
-                    alt={`${study.companyName} result ${index + 1}`}
-                    className="w-full rounded realm-image-greyscale"
-                  />
+                    className="aspect-square overflow-hidden rounded"
+                  >
+                    <img
+                      src={urlForClient1(image).width(400).height(400).url()}
+                      alt={`${study.companyName} result ${index + 1}`}
+                      className="w-full h-full object-cover realm-image-greyscale"
+                    />
+                  </div>
                 ))}
               </div>
             </div>
