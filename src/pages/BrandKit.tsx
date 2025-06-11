@@ -46,21 +46,7 @@ const BrandKit = () => {
         <DosDonts />
         <Permissions />
         
-        <section className="realm-section bg-realm-lightgray">
-          <div className="realm-container text-center">
-            <h2 className="text-2xl font-display font-bold mb-6">Need Something Else?</h2>
-            <p className="text-lg mb-8">
-              If you require additional assets or have specific questions about our brand usage,
-              don't hesitate to reach out.
-            </p>
-            <a 
-              href="mailto:hlo@realmrook.com" 
-              className="realm-button inline-flex items-center"
-            >
-              Contact Us
-            </a>
-          </div>
-        </section>
+        
 
         <CtaSection />
       </main>

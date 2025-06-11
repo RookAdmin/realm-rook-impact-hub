@@ -48,7 +48,7 @@ export const brandAssets: BrandAsset[] = [
     description: "Single color version for limited color applications.",
     fileTypes: ["JPG"],
     downloadUrls: {
-      PNG: "/mono-logo.jpg",
+      JPG: "/mono-logo.jpg",
     },
     previewUrl: "/mono-logo.jpg",
   }
