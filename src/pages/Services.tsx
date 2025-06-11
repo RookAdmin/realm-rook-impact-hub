@@ -14,6 +14,13 @@ const Services = () => {
       image: '/services/aiagent.png'
     },
     {
+      title: 'Web/App Development',
+      description: 'Building responsive, scalable digital homes that perform flawlessly across all devices.',
+      link: '/services/web-app-development',
+      icon: <Code size={32} />,
+      image: '/services/website1.png'
+    },
+    {
       title: 'Branding',
       description: 'Crafting unique identities that resonate with your audience and stand the test of time.',
       link: '/services/branding',
@@ -27,13 +34,7 @@ const Services = () => {
       icon: <Smartphone size={32} />,
       image: '/services/uxuit.png'
     },
-    {
-      title: 'Web/App Development',
-      description: 'Building responsive, scalable digital homes that perform flawlessly across all devices.',
-      link: '/services/web-app-development',
-      icon: <Code size={32} />,
-      image: '/services/website1.png'
-    },
+    
     {
       title: 'SEO',
       description: 'Boosting online visibility through data-driven strategies that deliver measurable results.',

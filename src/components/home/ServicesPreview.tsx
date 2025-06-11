@@ -15,6 +15,14 @@ const ServicesPreview = () => {
       image: "services/aiagent.png"
     },
     {
+      id: "development",
+      title: "Web & App Development",
+      description: "Fast, responsive platforms built for speed and conversion.",
+      icon: <Code size={24} />,
+      link: "/services/web-app-development",
+      image: "/services/website1.png"
+    },
+    {
       id: "branding",
       title: "Branding",
       description: "Identity systems that captivate and resonate with your ideal audience.",
@@ -30,14 +38,7 @@ const ServicesPreview = () => {
       link: "/services/ui-ux-design",
       image: "services/uxuit.png"
     },
-    {
-      id: "development",
-      title: "Web & App Development",
-      description: "Fast, responsive platforms built for speed and conversion.",
-      icon: <Code size={24} />,
-      link: "/services/web-app-development",
-      image: "/services/website1.png"
-    },
+    
     {
       id: "seo",
       title: "SEO",

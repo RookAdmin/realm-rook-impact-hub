@@ -4,7 +4,18 @@ import ServiceCard from '@/components/ServiceCard';
 import { Palette, LayoutDashboard, Code, Search, MessageSquare, Bot, Globe, Database, Shield } from 'lucide-react';
 
 const ServicesSection = () => {
-  const services = [
+  const services = [{
+      title: "AI Agents Automation",
+      description: "Intelligent systems and AI agents to automate workflows and scale your business.",
+      icon: <Bot size={24} />,
+      link: "/services/ai-agents-automation",
+    },
+    {
+      title: "Web & App Development",
+      description: "Fast, responsive platforms built for speed and conversion.",
+      icon: <Code size={24} />,
+      link: "/services/web-app-development",
+    },
     {
       title: "Branding",
       description: "Identity systems that captivate and resonate with your ideal audience.",
@@ -17,12 +28,7 @@ const ServicesSection = () => {
       icon: <LayoutDashboard size={24} />,
       link: "/services/ui-ux-design",
     },
-    {
-      title: "Web & App Development",
-      description: "Fast, responsive platforms built for speed and conversion.",
-      icon: <Code size={24} />,
-      link: "/services/web-app-development",
-    },
+    
     {
       title: "SEO",
       description: "Data-driven strategies that boost visibility and drive traffic.",
@@ -35,12 +41,7 @@ const ServicesSection = () => {
       icon: <MessageSquare size={24} />,
       link: "/services/social-media-marketing",
     },
-    {
-      title: "AI & Business Automation",
-      description: "Intelligent systems and AI agents to automate workflows and scale your business.",
-      icon: <Bot size={24} />,
-      link: "/services/ai-agents-automation",
-    },
+    
     {
       title: "Domain Name Consultation",
       description: "Strategic domain acquisition that builds a solid foundation for your brand.",
