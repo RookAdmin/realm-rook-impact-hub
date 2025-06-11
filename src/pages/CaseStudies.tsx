@@ -401,7 +401,7 @@ const CaseStudies = () => {
 
           {/* Filter by capabilities/Category */}
           <div className="mb-6">
-            <h3 className="text-lg font-medium mb-3">Filter by capabilities</h3>
+            <h3 className="text-lg font-medium mb-3">Filter by Capabilities</h3>
             <div className="flex flex-wrap items-center gap-2 mb-6">
               {capabilitiesCategories.map((category) => (
                 <button
