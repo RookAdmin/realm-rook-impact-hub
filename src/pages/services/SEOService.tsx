@@ -75,6 +75,15 @@ const SEOService = () => {
             </Button>
           </div>
         </section>
+
+        <div className="w-full my-12">
+        <img
+          src="/services/seo2.png"
+          alt="Web and App Development Illustration"
+          className="w-full h-auto object-contain"
+          loading="lazy"
+        />
+      </div>
        
         
         {/* Why SEO with Realm */}
@@ -156,7 +165,7 @@ const SEOService = () => {
               <div key={index} className="border border-realm-lightgray p-8 hover:border-realm-black transition-all duration-300">
                 <h3 className="text-2xl font-bold mb-4">{pkg}</h3>
                 <p className="text-realm-darkgray mb-6">Custom SEO solution for {index === 0 ? 'small businesses' : index === 1 ? 'growing companies' : 'market leaders'}.</p>
-                <Button variant={index === 2 ? "default" : "outline"} className={`${index === 2 ? 'realm-button' : 'bg-transparent border-realm-black text-realm-black hover:bg-realm-black hover:text-white'} w-full`}>
+                <Button onClick={() => setIsContactOpen(true)} variant={index === 2 ? "default" : "outline"} className={`${index === 2 ? 'realm-button' : 'bg-transparent border-realm-black text-realm-black hover:bg-realm-black hover:text-white'} w-full`}>
                   Learn More
                 </Button>
               </div>

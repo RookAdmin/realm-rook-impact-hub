@@ -41,6 +41,17 @@ const WebAppDevelopmentService = () => {
         </DialogContent>
       </Dialog>
 
+      {/* Centered Responsive Image */}
+      <div className="flex justify-center my-12">
+        <img
+          src="/services/website.png"
+          alt="Web and App Development Illustration"
+          className="max-w-full h-auto object-contain mx-auto"
+          loading="lazy"
+          style={{ maxWidth: "1200px", width: "100%" }}
+        />
+      </div>
+
         {/* Why Realm for Development */}
         <section className="py-16 bg-white">
           <div className="realm-container">

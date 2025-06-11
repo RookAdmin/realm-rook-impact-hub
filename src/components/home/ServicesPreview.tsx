@@ -36,7 +36,7 @@ const ServicesPreview = () => {
       description: "Fast, responsive platforms built for speed and conversion.",
       icon: <Code size={24} />,
       link: "/services/web-app-development",
-      image: "/home/Web & App development.jpg"
+      image: "/services/website1.png"
     },
     {
       id: "seo",
@@ -44,7 +44,7 @@ const ServicesPreview = () => {
       description: "Data-driven strategies that boost visibility and drive traffic.",
       icon: <Search size={24} />,
       link: "/services/seo",
-      image: "/home/SEO.jpg"
+      image: "/services/seo1.png"
     },
     {
       id: "social",
