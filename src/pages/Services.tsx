@@ -32,14 +32,14 @@ const Services = () => {
       description: 'Building responsive, scalable digital homes that perform flawlessly across all devices.',
       link: '/services/web-app-development',
       icon: <Code size={32} />,
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=400'
+      image: '/services/website1.png'
     },
     {
       title: 'SEO',
       description: 'Boosting online visibility through data-driven strategies that deliver measurable results.',
       link: '/services/seo',
       icon: <Search size={32} />,
-      image: 'https://images.unsplash.com/photo-1572177812156-58036aae439c?auto=format&fit=crop&q=80&w=400'
+      image: '/services/seo1.png'
     },
     {
       title: 'Social Media Marketing',

@@ -26,7 +26,7 @@ const BrandingHero = () => {
           </Button>
 
         </div>
-        {/* Centered Responsive Image */}Add commentMore actions
+        {/* Centered Responsive Image */}
       <div className="w-full my-12">
         <img
           src="/services/branding.png"
