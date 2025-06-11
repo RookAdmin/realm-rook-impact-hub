@@ -7,8 +7,8 @@ const BeforeAfterVisuals = () => {
     {
       id: "branding",
       title: "Branding Transformation",
-      before: "https://images.unsplash.com/photo-1520333789090-1afc82db536a?auto=format&fit=crop&q=80&w=800&h=500",
-      after: "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&q=80&w=800&h=500",
+      before: "/home/Before rook.png",
+      after: "/home/After rook.png",
       beforeLabel: "Before Rook",
       afterLabel: "After Rook",
       caption: "From unclear visual identity to cohesive brand system that communicates value."

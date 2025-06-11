@@ -86,7 +86,7 @@ const UIUXDesignService = () => {
             </div>
             <div className="border border-realm-lightgray p-6">
               <img 
-                src="https://images.unsplash.com/photo-1586717791821-3f44a563fa24?auto=format&fit=crop&q=80" 
+                src="/services/Design mockup.jpeg" 
                 alt="UI/UX Design Mockup" 
                 className="realm-image realm-image-greyscale" 
               />
@@ -158,9 +158,9 @@ const UIUXDesignService = () => {
             
             <div className="mt-12 flex justify-center">
               <img 
-                src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800" 
+                src="/services/UI UX wireframe & prototype.png" 
                 alt="UI/UX Design Process" 
-                className="realm-image-greyscale max-w-2xl w-full"
+                className="realm-image-greyscale max-w-xl w-full"
               />
             </div>
           </div>
@@ -175,16 +175,23 @@ const UIUXDesignService = () => {
           </h2>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {['Figma', 'Adobe XD', 'Framer', 'Miro', 'FigJam', 'Whimsical'].map((tool, index) => (
+            {[
+              { name: 'Figma', image: '/services/UI UX tools/Figma.png' },
+              { name: 'Adobe XD', image: '/services/UI UX tools/Adobe XD.png' },
+              { name: 'Framer', image: '/services/UI UX tools/Framer logo.png' },
+              { name: 'Miro', image: '/services/UI UX tools/miro.webp' },
+              { name: 'UXPin', image: '/services/UI UX tools/uxpin.png' },
+              { name: 'Whimsical', image: '/services/UI UX tools/whimsical logo.png' }
+            ].map((tool, index) => (
               <div key={index} className="border border-white p-8 flex flex-col items-center">
-                <div className="mb-4 flex items-center justify-center w-16 h-16 rounded-full bg-white">
-                  <img 
-                    src={`https://via.placeholder.com/50x50?text=${tool[0]}`} 
-                    alt={`${tool} logo`} 
-                    className="w-10 h-10 object-contain" 
-                  />
-                </div>
-                <h3 className="text-center">{tool}</h3>
+              <div className="mb-4 flex items-center justify-center w-16 h-16 rounded-full bg-white">
+                <img 
+                src={tool.image} 
+                alt={`${tool.name} logo`} 
+                className="w-10 h-10 object-contain" 
+                />
+              </div>
+              <h3 className="text-center">{tool.name}</h3>
               </div>
             ))}
           </div>
@@ -203,19 +210,19 @@ const UIUXDesignService = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { name: 'SaaS Dashboards', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400' },
-              { name: 'Portfolio Sites', image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=400' },
-              { name: 'Product Landing Pages', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400' },
-              { name: 'E-commerce UX', image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=400' },
-              { name: 'App Interfaces', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=400' },
-              { name: 'Dev Hand-off Kits', image: 'https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&q=80&w=400' }
+              { name: 'SaaS Dashboards', image: '/services/SaaS Dashboard.png' },
+              { name: 'Portfolio Sites', image: '/services/portfolio.jpg' },
+              { name: 'Product Landing Pages', image: '/services/landing page.jpg' },
+              { name: 'E-commerce UX', image: '/services/E commerce ux.png' },
+              { name: 'App Interfaces', image: '/services/App interface.jpg' },
+              { name: 'Dev Hand-off Kits', image: '/services/Dev Hand-0ffs kit.jpg' }
             ].map((specialty, index) => (
               <div key={index} className="border border-realm-lightgray hover:border-realm-black transition-all duration-300">
                 <div className="aspect-video overflow-hidden">
                   <img 
                     src={specialty.image} 
                     alt={specialty.name} 
-                    className="realm-image realm-image-greyscale hover:scale-105 transition-transform duration-500"
+                    className="realm-image hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6">

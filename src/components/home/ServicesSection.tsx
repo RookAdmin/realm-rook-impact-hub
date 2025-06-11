@@ -39,7 +39,7 @@ const ServicesSection = () => {
       title: "AI & Business Automation",
       description: "Intelligent systems and AI agents to automate workflows and scale your business.",
       icon: <Bot size={24} />,
-      link: "/services/ai-business-automation",
+      link: "/services/ai-agents-automation",
     },
     {
       title: "Domain Name Consultation",

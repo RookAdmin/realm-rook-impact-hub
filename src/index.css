@@ -91,6 +91,11 @@
     @apply container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
+  .realm-container-black {
+  @apply container ;
+}
+
+
   .realm-section {
     @apply py-16 md:py-24;
   }
@@ -127,9 +132,9 @@
     @apply absolute inset-0 bg-realm-black bg-opacity-40 z-10;
   }
   
-  .realm-image-greyscale {
+  /* .realm-image-greyscale {
     @apply grayscale filter;
-  }
+  } */
   
   .realm-icon-container {
     @apply flex items-center justify-center w-16 h-16 border border-realm-black mb-4;

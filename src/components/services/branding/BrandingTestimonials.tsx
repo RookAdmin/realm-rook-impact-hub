@@ -49,13 +49,15 @@ const BrandingTestimonials = () => {
   ];
 
   const clientLogos = [
-    "/placeholder.svg",
-    "/placeholder.svg", 
-    "/placeholder.svg",
-    "/placeholder.svg",
-    "/placeholder.svg",
-    "/placeholder.svg"
+    '/PartnerLogos/CapitalEngineeringConsultancy.png',
+    '/PartnerLogos/CoventryRoadDentalCare.png', 
+    '/PartnerLogos/finequs.webp',
+    '/PartnerLogos/Greenhouse.png',
+    '/PartnerLogos/V5Digital.png' ,
+    '/PartnerLogos/ZGuard.png',
   ];
+ 
+
 
   return (
     <section className="py-16 md:py-24">
@@ -79,7 +81,7 @@ const BrandingTestimonials = () => {
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {clientLogos.map((logo, index) => (
-            <div key={index} className="flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all">
+            <div key={index} className="flex items-center justify-center p-4 transition-all">
               <img 
                 src={logo} 
                 alt="Client logo" 

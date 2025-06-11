@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FloatingContactBar from "./components/FloatingContactBar";
@@ -39,6 +40,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+<<<<<<< HEAD
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -97,6 +99,47 @@ const App = () => (
         <Footer />
       </BrowserRouter>
     </TooltipProvider>
+=======
+    <HelmetProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Navbar />
+          <FloatingContactBar />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/branding" element={<BrandingService />} />
+            <Route path="/services/ui-ux-design" element={<UIUXDesignService />} />
+            <Route path="/services/web-app-development" element={<WebAppDevelopmentService />} />
+            <Route path="/services/seo" element={<SEOService />} />
+            <Route path="/services/social-media-marketing" element={<SocialMediaMarketingService />} />
+            <Route path="/services/ai-agents-automation" element={<AIAgentsAutomationService />} />
+            <Route path="/services/domain-name-consultation" element={<DomainNameConsultation />} />
+            <Route path="/services/enterprise-domain-management" element={<EnterpriseDomainService />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/brand-kit" element={<BrandKit />} />
+            <Route path="/case-studies/:slug" element={<ImpactStudyDetail />} />
+            <Route path="/resources/insights" element={<ResourcesInsights />} />
+            <Route path="/resources/insights/:slug" element={<InsightDetail />} />
+            <Route path="/resources/press-releases" element={<PressReleases />} />
+            <Route path="/terms-and-conditions" element={<TermsConditions />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/refunds-policy" element={<RefundsPolicy />} />
+            <Route path="/discover/d2c-startups" element={<D2CStartups />} />
+            <Route path="/discover/saas-startups" element={<SaaSStartups />} />
+            <Route path="/who-we-partner-with" element={<Partners />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </TooltipProvider>
+    </HelmetProvider>
+>>>>>>> 41894f63601cd89f31f27c81dcb7353a589dbb85
   </QueryClientProvider>
 );
 

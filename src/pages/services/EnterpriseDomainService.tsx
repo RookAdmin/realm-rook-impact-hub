@@ -126,10 +126,18 @@ const EnterpriseDomainService = () => {
 
   return (
     <main className="min-h-screen pt-20">
-      <ServiceBreadcrumb
-        serviceName="Enterprise Domain Management"
-        serviceUrl="/services/enterprise-domain-management"
-      />
+
+
+      <div className="bg-black text-white">
+        <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4">
+         <ServiceBreadcrumb
+            serviceName="Enterprise Domain Management"
+            serviceUrl="/services/enterprise-domain-management"
+          />
+        </div>
+      </div>
+
+      
 
       {/* Hero Section */}
       <section className="bg-realm-black text-white py-20 md:py-32">

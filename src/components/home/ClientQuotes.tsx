@@ -14,28 +14,29 @@ const ClientQuotes = () => {
   const testimonials = [
     {
       id: "test1",
-      quote: "Realm isn't an agency. They're a weapon. They completely transformed how people perceive and interact with our brand, and the numbers speak for themselves.",
-      author: "Rishi B.",
+      quote: "Working with this team was a seamless experience. They understood our vision and delivered a sleek, high-converting landing page that perfectly represents our brand. The custom SaaS tool they built has significantly improved our internal processes and made student onboarding much easier. Highly professional, responsive, and results-driven!",
+      author: "Ashwin",
       position: "Founder",
-      company: "Zephyr Skincare",
+      company: "ICM",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
       id: "test2",
-      quote: "They understood our product better than we did. The team at Realm didn't just redesign our interface—they transformed how users interact with financial tools completely.",
-      author: "Natasha D.",
+      quote: "We wanted a clean, modern Shopify store to showcase our products, and they delivered exactly what we needed. The website is fast, visually appealing, and user-friendly. Their team was supportive throughout the project and quick to address our feedback. Thanks for making our online store a success!",
+      author: "Gowri Shankar",
       position: "CEO",
-      company: "Finovo",
+      company: "ZGuard",
       image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80&w=200&h=200"
     },
     {
       id: "test3",
-      quote: "The ROI speaks for itself. Best decision we made this year. Our customers constantly comment on how fast and easy our site is to use now.",
-      author: "Marcus T.",
-      position: "CMO",
-      company: "Elevate Tech",
+      quote: "The social media strategy they implemented for us has truly elevated our online presence. We've seen a noticeable increase in engagement and patient inquiries. Their creative, consistent content and attention to detail have made a real difference for our clinic. We’re very happy with the partnership!",
+      author: "Vik",
+      position: "Team",
+      company: "Coventry Road Dental Care",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=200"
-    }
+    },
+
   ];
 
   return (
@@ -63,7 +64,7 @@ const ClientQuotes = () => {
                   transition={{ duration: 0.5 }}
                 >
                   <div className="flex items-center mb-6">
-                    {testimonial.image ? (
+                    {/* {testimonial.image ? (
                       <img 
                         src={testimonial.image} 
                         alt={testimonial.author}
@@ -73,7 +74,7 @@ const ClientQuotes = () => {
                       <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mr-4">
                         <User size={20} className="text-white" />
                       </div>
-                    )}
+                    )} */}
                   </div>
                   
                   <blockquote className="text-lg font-display mb-6 flex-grow">

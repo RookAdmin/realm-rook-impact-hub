@@ -105,10 +105,17 @@ const DomainNameConsultation = () => {
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <ServiceBreadcrumb
-        serviceName="Domain Name Consultation"
-        serviceUrl="/services/domain-name-consultation"
-      />
+
+       <div className="bg-black text-white">
+        <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4">
+          <ServiceBreadcrumb
+            serviceName="Domain Name Consultation"
+            serviceUrl="/services/domain-name-consultation"
+          />
+        </div>
+      </div>
+
+      
       <section className="bg-realm-black text-white py-20 md:py-32">
         <div className="realm-container">
           <motion.div
