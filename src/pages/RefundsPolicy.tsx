@@ -1,5 +1,5 @@
+
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { 
   Breadcrumb, 
@@ -17,13 +17,8 @@ const RefundsPolicy = () => {
   const formattedDate = `${currentDate.toLocaleString('default', { month: 'long' })} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
 
   return (
-    <>
-      <Helmet>
-        <title>Refunds & Cancellation Policy | Realm by Rook</title>
-        <meta name="description" content="Understand Realm by Rook's refund and cancellation policies. Clear guidelines on project cancellation, refund eligibility, and dispute resolution." />
-        <meta name="keywords" content="refunds policy, cancellation policy, refund eligibility, project cancellation, dispute resolution" />
-      </Helmet>
-      <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
+      <div className="realm-container py-8">
         {/* Breadcrumb Navigation */}
         <Breadcrumb className="mb-8">
           <BreadcrumbList>
@@ -82,8 +77,8 @@ const RefundsPolicy = () => {
             </Link>
           </div>
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   );
 };
 

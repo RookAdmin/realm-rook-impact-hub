@@ -14,8 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import ContactForm from "@/components/ContactForm";
-import { Helmet } from "react-helmet-async";
+import ContactForm from '@/components/ContactForm';
 
 // Hero section with animated metrics
 const Hero = () => {
@@ -42,13 +41,11 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              onClick={() => setIsContactOpen(true)}
-              className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors text-base"
-            >
-              Get My Custom Strategy
-            </Button>
-
+            
+              <Button  onClick={() => setIsContactOpen(true)} className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors text-base">
+                Get My Custom Strategy
+              </Button>
+            
             <Link
               to="/case-studies"
               className="text-white flex items-center gap-2 realm-link hover:text-realm-lightgray"
@@ -107,9 +104,7 @@ const Hero = () => {
       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
         <DialogContent className="sm:max-w-[500px]">
           <div className="py-2">
-            <h2 className="text-2xl font-display font-bold mb-6">
-              Get My Custom Strategy
-            </h2>
+            <h2 className="text-2xl font-display font-bold mb-6">Get My Custom Strategy</h2>
             <ContactForm onSuccess={() => setIsContactOpen(false)} />
           </div>
         </DialogContent>
@@ -597,13 +592,11 @@ const FinalCTA = () => {
           </h2>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button
-              onClick={() => setIsContactOpen(true)}
-              className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors"
-            >
-              Claim Your Slot Now <ArrowRight size={16} className="ml-2" />
-            </Button>
-
+            
+              <Button onClick={() => setIsContactOpen(true)}  className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors">
+                Claim Your Slot Now <ArrowRight size={16} className="ml-2" />
+              </Button>
+           
             {/* <Link to="/contact">
               <Button
                 variant="outline"
@@ -633,9 +626,7 @@ const FinalCTA = () => {
       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
         <DialogContent className="sm:max-w-[500px]">
           <div className="py-2">
-            <h2 className="text-2xl font-display font-bold mb-6">
-              Get My Custom Strategy
-            </h2>
+            <h2 className="text-2xl font-display font-bold mb-6">Get My Custom Strategy</h2>
             <ContactForm onSuccess={() => setIsContactOpen(false)} />
           </div>
         </DialogContent>
@@ -683,26 +674,23 @@ const StickyCTA = () => {
             Only 2 slots left this month
           </p>
         </div>
-
-        <Button
-          onClick={() => setIsContactOpen(true)}
-          className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors w-full sm:w-auto"
-        >
-          Claim Your Strategy Slot <ArrowRight size={16} className="ml-2" />
-        </Button>
+        
+          <Button onClick={() => setIsContactOpen(true)}  className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors w-full sm:w-auto">
+            Claim Your Strategy Slot <ArrowRight size={16} className="ml-2" />
+          </Button>
+        
       </div>
       {/* Contact  Form Dialog */}
       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
         <DialogContent className="sm:max-w-[500px]">
           <div className="py-2">
-            <h2 className="text-2xl font-display font-bold mb-6">
-              Get My Custom Strategy
-            </h2>
+            <h2 className="text-2xl font-display font-bold mb-6">Get My Custom Strategy</h2>
             <ContactForm onSuccess={() => setIsContactOpen(false)} />
           </div>
         </DialogContent>
       </Dialog>
     </motion.div>
+    
   );
 };
 
@@ -713,41 +701,28 @@ const SocialMediaMarketingService = () => {
   }, []);
 
   return (
-    <>
-      <Helmet>
-        <title>
-          Social Media Marketing | Realm by Rook - Strategic Brand Growth
-        </title>
-        <meta
-          name="description"
-          content="Multiply your brand's impact with strategic social media marketing. Drive engagement, leads, and ROI with tailored strategies."
-        />
-        <meta
-          name="keywords"
-          content="social media marketing, brand growth, engagement, lead generation, ROI"
-        />
-      </Helmet>
-      <main className="min-h-screen pt-20">
-        <div className="bg-black text-white">
-          <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4">
-            <ServiceBreadcrumb
-              serviceName="Social Media Marketing"
-              serviceUrl="/services/social-media-marketing"
-            />
-          </div>
+    <main className="min-h-screen pt-20">
+      <div className="bg-black text-white">
+        <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4">
+          <ServiceBreadcrumb
+            serviceName="Social Media Marketing"
+            serviceUrl="/services/social-media-marketing"
+          />
         </div>
+      </div>
 
-        <Hero />
-        <ProblemSection />
-        <ProofSection />
-        <ServicesIncluded />
-        <AIUpgrade />
-        <SocialProof />
-        <ImpactStudies />
-        <FinalCTA />
-        <StickyCTA />
-      </main>
-    </>
+      
+
+      <Hero />
+      <ProblemSection />
+      <ProofSection />
+      <ServicesIncluded />
+      <AIUpgrade />
+      <SocialProof />
+      <ImpactStudies />
+      <FinalCTA />
+      <StickyCTA />
+    </main>
   );
 };
 
