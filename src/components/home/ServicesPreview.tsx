@@ -20,7 +20,7 @@ const ServicesPreview = () => {
       description: "Identity systems that captivate and resonate with your ideal audience.",
       icon: <Palette size={24} />,
       link: "/services/branding",
-      image: "/home/Branding.png"
+      image: "/services/brandingt.png"
     },
     {
       id: "uiux",

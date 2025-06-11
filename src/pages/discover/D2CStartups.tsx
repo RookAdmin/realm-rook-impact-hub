@@ -205,7 +205,7 @@ const D2CStartups = () => {
                 transition={{ duration: 0.6 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6"
               >
-                Elevate Your D2C Brand to Industry-Leading Excellence
+                Elevate Your D2C Brand to Industry
               </motion.h1>
 
               <motion.p
