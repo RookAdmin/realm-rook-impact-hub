@@ -78,9 +78,9 @@ const App = () => (
               element={<EnterpriseDomainService />}
             />
             <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/case-studies/:slug" element={<ImpactStudyDetail />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/brand-kit" element={<BrandKit />} />
-            <Route path="/case-studies/:slug" element={<ImpactStudyDetail />} />
             <Route path="/resources/insights" element={<ResourcesInsights />} />
             <Route
               path="/resources/insights/:slug"
