@@ -20,6 +20,13 @@ const Services = () => {
       icon: <Code size={32} />,
       image: '/services/website1.png'
     },
+     {
+      title: 'Social Media Marketing',
+      description: 'Multiplying brand impact through strategic storytelling and AI-powered social media management.',
+      link: '/services/social-media-marketing',
+      icon: <MessageSquare size={32} />,
+      image: '/services/smmt.png'
+    },
     {
       title: 'Branding',
       description: 'Crafting unique identities that resonate with your audience and stand the test of time.',
@@ -42,14 +49,7 @@ const Services = () => {
       icon: <Search size={32} />,
       image: '/services/seo1.png'
     },
-    {
-      title: 'Social Media Marketing',
-      description: 'Multiplying brand impact through strategic storytelling and AI-powered social media management.',
-      link: '/services/social-media-marketing',
-      icon: <MessageSquare size={32} />,
-      image: '/services/smmt.png'
-    },
-    
+      
     {
       title: 'Domain Name Consultation',
       description: 'Expert guidance on strategic domain acquisition to build a solid foundation for your brand.',

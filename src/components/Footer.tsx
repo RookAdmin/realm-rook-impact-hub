@@ -17,13 +17,13 @@ const Footer = () => {
           path: "/services/ai-agents-automation",
         },
         { name: "Web/App Development", path: "/services/web-app-development" },
-        { name: "Branding", path: "/services/branding" },
-        { name: "UI/UX Design", path: "/services/ui-ux-design" },
-        { name: "SEO", path: "/services/seo" },
-        {
+         {
           name: "Social Media Marketing",
           path: "/services/social-media-marketing",
         },
+        { name: "Branding", path: "/services/branding" },
+        { name: "UI/UX Design", path: "/services/ui-ux-design" },
+        { name: "SEO", path: "/services/seo" },
         {
           name: "Domain Name Consultation",
           path: "/services/domain-name-consultation",

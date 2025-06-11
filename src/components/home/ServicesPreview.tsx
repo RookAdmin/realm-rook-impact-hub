@@ -23,6 +23,14 @@ const ServicesPreview = () => {
       image: "/services/website1.png"
     },
     {
+      id: "social",
+      title: "Social Media Marketing",
+      description: "Strategic storytelling that multiplies your brand's impact.",
+      icon: <MessageSquare size={24} />,
+      link: "/services/social-media-marketing",
+      image: "/services/smmt.png"
+    },
+    {
       id: "branding",
       title: "Branding",
       description: "Identity systems that captivate and resonate with your ideal audience.",
@@ -47,14 +55,7 @@ const ServicesPreview = () => {
       link: "/services/seo",
       image: "/services/seo1.png"
     },
-    {
-      id: "social",
-      title: "Social Media Marketing",
-      description: "Strategic storytelling that multiplies your brand's impact.",
-      icon: <MessageSquare size={24} />,
-      link: "/services/social-media-marketing",
-      image: "/services/smmt.png"
-    }
+    
   ];
 
   const serviceVariants = {

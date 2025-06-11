@@ -17,6 +17,12 @@ const ServicesSection = () => {
       link: "/services/web-app-development",
     },
     {
+      title: "Social Media Marketing",
+      description: "Strategic storytelling that multiplies your brand's impact.",
+      icon: <MessageSquare size={24} />,
+      link: "/services/social-media-marketing",
+    },
+    {
       title: "Branding",
       description: "Identity systems that captivate and resonate with your ideal audience.",
       icon: <Palette size={24} />,
@@ -34,14 +40,7 @@ const ServicesSection = () => {
       description: "Data-driven strategies that boost visibility and drive traffic.",
       icon: <Search size={24} />,
       link: "/services/seo",
-    },
-    {
-      title: "Social Media Marketing",
-      description: "Strategic storytelling that multiplies your brand's impact.",
-      icon: <MessageSquare size={24} />,
-      link: "/services/social-media-marketing",
-    },
-    
+    },    
     {
       title: "Domain Name Consultation",
       description: "Strategic domain acquisition that builds a solid foundation for your brand.",
