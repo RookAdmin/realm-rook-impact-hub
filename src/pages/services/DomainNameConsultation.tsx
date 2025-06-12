@@ -614,50 +614,56 @@ const DomainNameConsultation = () => {
                       />
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      <FormField
-                        control={form.control}
-                        name="phoneCountryCode"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Country Code</FormLabel>
-                            <Select
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                            >
-                              <FormControl>
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Select code" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent className="max-h-60">
-                                {countryCodes.map((country) => (
-                                  <SelectItem key={country.iso} value={`+${country.code}`}>
-                                    {country.country} (+{country.code})
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="phoneNumber"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Phone Number</FormLabel>
-                            <FormControl>
-                              <Input
-                                type="tel"
-                                placeholder="Your phone number"
-                                {...field}
-                              />
-                            </FormControl>
-                          </FormItem>
-                        )}
-                      />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {/* Country Code + Phone Number in one row */}
+                      <div className="flex gap-2">
+                        <div className="w-32">
+                          <FormField
+                            control={form.control}
+                            name="phoneCountryCode"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Country Code</FormLabel>
+                                <Select
+                                  onValueChange={field.onChange}
+                                  defaultValue={field.value}
+                                >
+                                  <FormControl>
+                                    <SelectTrigger>
+                                      <SelectValue placeholder="Code" />
+                                    </SelectTrigger>
+                                  </FormControl>
+                                  <SelectContent className="max-h-60">
+                                    {countryCodes.map((country) => (
+                                      <SelectItem key={country.iso} value={`+${country.code}`}>
+                                        {country.country} (+{country.code})
+                                      </SelectItem>
+                                    ))}
+                                  </SelectContent>
+                                </Select>
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <FormField
+                            control={form.control}
+                            name="phoneNumber"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Phone Number</FormLabel>
+                                <FormControl>
+                                  <Input
+                                    type="tel"
+                                    placeholder="Your phone number"
+                                    {...field}
+                                  />
+                                </FormControl>
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                      </div>
 
                       <FormField
                         control={form.control}
