@@ -48,6 +48,45 @@ export type Database = {
         }
         Relationships: []
       }
+      domain_consultation_submissions: {
+        Row: {
+          brand_name: string
+          budget: string | null
+          business_type: string | null
+          country: string | null
+          created_at: string
+          email: string
+          extension: string | null
+          id: string
+          phone_country_code: string | null
+          phone_number: string | null
+        }
+        Insert: {
+          brand_name: string
+          budget?: string | null
+          business_type?: string | null
+          country?: string | null
+          created_at?: string
+          email: string
+          extension?: string | null
+          id?: string
+          phone_country_code?: string | null
+          phone_number?: string | null
+        }
+        Update: {
+          brand_name?: string
+          budget?: string | null
+          business_type?: string | null
+          country?: string | null
+          created_at?: string
+          email?: string
+          extension?: string | null
+          id?: string
+          phone_country_code?: string | null
+          phone_number?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

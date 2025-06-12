@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Globe, Search, Shield, Check, Star } from "lucide-react";
@@ -24,6 +25,8 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 import { Helmet } from "react-helmet-async";
+import { supabase } from "@/integrations/supabase/client";
+import { countryCodes } from "@/data/countryCodes";
 
 // Animation variants
 const fadeIn = {
@@ -43,6 +46,9 @@ const DomainNameConsultation = () => {
       extension: "",
       budget: "",
       email: "",
+      phoneCountryCode: "",
+      phoneNumber: "",
+      country: "",
     },
   });
 
@@ -71,12 +77,37 @@ const DomainNameConsultation = () => {
     };
   }, []);
 
-  const onSubmit = (data: unknown) => {
-    console.log(data);
-    toast.success(
-      "Your strategy request has been received. We'll be in touch shortly."
-    );
-    form.reset();
+  const onSubmit = async (data: any) => {
+    try {
+      const { error } = await supabase
+        .from('domain_consultation_submissions')
+        .insert([
+          {
+            brand_name: data.brandName,
+            business_type: data.businessType,
+            extension: data.extension,
+            budget: data.budget,
+            email: data.email,
+            phone_country_code: data.phoneCountryCode,
+            phone_number: data.phoneNumber,
+            country: data.country,
+          }
+        ]);
+
+      if (error) {
+        console.error('Error submitting form:', error);
+        toast.error("There was an error submitting your request. Please try again.");
+        return;
+      }
+
+      toast.success(
+        "Your domain strategy request has been received. We'll be in touch shortly."
+      );
+      form.reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error("There was an error submitting your request. Please try again.");
+    }
   };
 
   // Recent domain wins
@@ -578,6 +609,79 @@ const DomainNameConsultation = () => {
                                 {...field}
                               />
                             </FormControl>
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="phoneCountryCode"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Country Code</FormLabel>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                            >
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select code" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent className="max-h-60">
+                                {countryCodes.map((country) => (
+                                  <SelectItem key={country.iso} value={`+${country.code}`}>
+                                    {country.country} (+{country.code})
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="phoneNumber"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Phone Number</FormLabel>
+                            <FormControl>
+                              <Input
+                                type="tel"
+                                placeholder="Your phone number"
+                                {...field}
+                              />
+                            </FormControl>
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="country"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Country</FormLabel>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                            >
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select country" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent className="max-h-60">
+                                {countryCodes.map((country) => (
+                                  <SelectItem key={country.iso} value={country.country}>
+                                    {country.country}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
                           </FormItem>
                         )}
                       />
