@@ -387,7 +387,7 @@ const ImpactStudyDetail = () => {
         />
       </Helmet>
 
-      <div className="bg-gradient-to-br from-realm-black to-gray-900 text-white py-20 md:py-32 relative mt-20 border-b border-white/10">
+      <div className="bg-black from-realm-black to-gray-900 text-white py-20 md:py-32 relative mt-20 border-b border-white/10">
         <div className="realm-container relative z-10">
           <Link
             to="/case-studies"
@@ -442,7 +442,7 @@ const ImpactStudyDetail = () => {
 
             <div className="md:col-span-4">
               {study.companyName && (
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
+                <div className="bg-black rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
                   <div className="flex items-center gap-4 mb-4">
                     {study.companyLogo && (
                       <div className="w-16 h-16 bg-white rounded-xl p-3">
