@@ -164,72 +164,149 @@ const WebAppDevelopmentService = () => {
           </section>
 
           {/* RAD Method */}
-          <section className="py-16 bg-realm-lightgray">
-            <div className="realm-container">
-              <div className="max-w-3xl mx-auto text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                  Why Wait Months? Build in Days.
-                </h2>
-                <p className="text-lg text-realm-darkgray">
-                  Realm by Rook follows the RAD (Rapid Application Development)
-                  process — combining proven components, lean sprints, and
-                  AI-accelerated scaffolding. You get to market 90% faster.
-                </p>
-              </div>
+          <section className="bg-white py-24">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 className="text-3xl font-bold text-black text-center mb-8">
+                Why Wait Months? Build in Days.
+              </h2>
+              <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-16">
+                Realm by Rook follows the RAD (Rapid Application Development)
+                process — combining proven components, lean sprints, and
+                AI-accelerated scaffolding. You get to market 90% faster.
+              </p>
 
-              <div className="max-w-4xl mx-auto mb-12">
-                {/* Timeline */}
-                <div className="relative">
-                  {/* Line */}
-                  <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 h-full w-px bg-realm-black"></div>
+              <div className="relative">
+                {/* Vertical line */}
+                <div className="hidden md:block absolute left-1/2 w-px h-full bg-gray-200 transform -translate-x-1/2"></div>
 
-                  {/* Steps */}
-                  <div className="space-y-12 relative">
-                    <TimelineStep
-                      number="01"
-                      title="Discovery Call"
-                      days="1–2 Days"
-                      description="Quick exploration of your needs, goals, and vision."
-                      isLeft={true}
-                    />
-                    <TimelineStep
-                      number="02"
-                      title="UI/UX in Parallel"
-                      days="2–4 Days"
-                      description="Design interfaces while planning architecture for maximum efficiency."
-                      isLeft={false}
-                    />
-                    <TimelineStep
-                      number="03"
-                      title="Reusable Tech Blocks"
-                      days="3–5 Days"
-                      description="Assemble proven code modules tailored to your specific needs."
-                      isLeft={true}
-                    />
-                    <TimelineStep
-                      number="04"
-                      title="AI-Powered Dev"
-                      days="4–7 Days"
-                      description="Accelerate development with our AI toolchain and automation."
-                      isLeft={false}
-                    />
-                    <TimelineStep
-                      number="05"
-                      title="Launch + Support"
-                      days="Ongoing"
-                      description="Deploy with confidence and continuous improvement."
-                      isLeft={true}
-                    />
+                {/* Timeline items */}
+                <div className="space-y-12">
+                  {/* Item 01 - Right side */}
+                  <div className="flex flex-col md:flex-row items-center">
+                    <div className="md:w-1/2 md:pr-12 order-1 md:order-1">
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <span className="text-sm font-medium text-gray-400">
+                          01
+                        </span>
+                        <h3 className="text-xl font-semibold text-black mt-2 mb-3">
+                          Discovery Call
+                        </h3>
+                        <p className="text-gray-600 mb-3">
+                          Quick exploration of your needs, goals, and vision.
+                        </p>
+                        <div className="text-sm font-medium text-gray-400">
+                          1–2 Days
+                        </div>
+                      </div>
+                    </div>
+                    <div className="hidden md:block md:w-1/2 order-2 relative">
+                      <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-black border-2 border-white"></div>
+                    </div>
+                  </div>
+
+                  {/* Item 02 - Left side */}
+                  <div className="flex flex-col md:flex-row items-center">
+                    <div className="hidden md:block md:w-1/2 order-1 relative">
+                      <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-black border-2 border-white"></div>
+                    </div>
+                    <div className="md:w-1/2 md:pl-12 order-2 md:order-2">
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <span className="text-sm font-medium text-gray-400">
+                          02
+                        </span>
+                        <h3 className="text-xl font-semibold text-black mt-2 mb-3">
+                          UI/UX in Parallel
+                        </h3>
+                        <p className="text-gray-600 mb-3">
+                          Design interfaces while planning architecture for
+                          maximum efficiency.
+                        </p>
+                        <div className="text-sm font-medium text-gray-400">
+                          2–4 Days
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Item 03 - Right side */}
+                  <div className="flex flex-col md:flex-row items-center">
+                    <div className="md:w-1/2 md:pr-12 order-1 md:order-1">
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <span className="text-sm font-medium text-gray-400">
+                          03
+                        </span>
+                        <h3 className="text-xl font-semibold text-black mt-2 mb-3">
+                          Reusable Tech Blocks
+                        </h3>
+                        <p className="text-gray-600 mb-3">
+                          Assemble proven code modules tailored to your specific
+                          needs.
+                        </p>
+                        <div className="text-sm font-medium text-gray-400">
+                          3–5 Days
+                        </div>
+                      </div>
+                    </div>
+                    <div className="hidden md:block md:w-1/2 order-2 relative">
+                      <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-black border-2 border-white"></div>
+                    </div>
+                  </div>
+
+                  {/* Item 04 - Left side */}
+                  <div className="flex flex-col md:flex-row items-center">
+                    <div className="hidden md:block md:w-1/2 order-1 relative">
+                      <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-black border-2 border-white"></div>
+                    </div>
+                    <div className="md:w-1/2 md:pl-12 order-2 md:order-2">
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <span className="text-sm font-medium text-gray-400">
+                          04
+                        </span>
+                        <h3 className="text-xl font-semibold text-black mt-2 mb-3">
+                          AI-Powered Dev
+                        </h3>
+                        <p className="text-gray-600 mb-3">
+                          Accelerate development with our AI toolchain and
+                          automation.
+                        </p>
+                        <div className="text-sm font-medium text-gray-400">
+                          4–7 Days
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Item 05 - Right side */}
+                  <div className="flex flex-col md:flex-row items-center">
+                    <div className="md:w-1/2 md:pr-12 order-1 md:order-1">
+                      <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                        <span className="text-sm font-medium text-gray-400">
+                          05
+                        </span>
+                        <h3 className="text-xl font-semibold text-black mt-2 mb-3">
+                          Launch + Support
+                        </h3>
+                        <p className="text-gray-600 mb-3">
+                          Deploy with confidence and continuous improvement.
+                        </p>
+                        <div className="text-sm font-medium text-gray-400">
+                          Ongoing
+                        </div>
+                      </div>
+                    </div>
+                    <div className="hidden md:block md:w-1/2 order-2 relative">
+                      <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-black border-2 border-white"></div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="max-w-3xl mx-auto text-center">
-                <p className="text-lg font-medium mb-4">
+              <div className="mt-16 text-center">
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
                   You save time, budget, and mindspace — and start scaling weeks
                   ahead of your competitors.
                 </p>
-                <p className="text-lg font-bold italic">
+                <p className="text-xl font-semibold text-black">
                   Custom doesn't have to be slow.
                 </p>
               </div>
