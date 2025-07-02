@@ -14,7 +14,9 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Realm by Rook | Premium Creative-Tech Agency - Branding, UI/UX, Development</title>
+        <title>Realm by Rook | AI-Powered Tech & Marketing Ops Studio
+
+</title>
         <meta name="description" content="Premium creative-tech agency offering top-tier branding, UI/UX design, web development, SEO, and AI automation services. Transform your business with award-winning design and technology solutions." />
         <meta name="keywords" content="creative agency, tech agency, branding, UI/UX design, web development, SEO, AI automation, digital transformation" />
       </Helmet>
