@@ -45,7 +45,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import ContactForm from "@/components/ContactForm";
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 
 // Variants for animations
 const fadeIn = {
@@ -106,22 +106,154 @@ const AIAgentsAutomationService = () => {
 
   // AI Tools with icons
   const aiTools = [
-    { name: "OpenAI", icon: <img src="/ai/openai.png" alt="OpenAI" style={{ width: 24, height: 24 }} /> },
-    { name: "n8n", icon: <img src="/ai/n8n.png" alt="n8n" style={{ width: 24, height: 24 }} /> },
-    { name: "Google AI Studio", icon: <img src="/ai/gai.png" alt="Google AI Studio" style={{ width: 24, height: 24 }} /> },
-    { name: "Stability AI", icon: <img src="/ai/sai.jpeg" alt="Stability AI" style={{ width: 24, height: 24 }} /> },
-    { name: "NotebookLM", icon: <img src="/ai/notebooklm.png" alt="NotebookLM" style={{ width: 24, height: 24 }} /> },
-    { name: "ComfyUI", icon: <img src="/ai/comp.png" alt="ComfyUI" style={{ width: 24, height: 24 }} /> },
-    { name: "Microsoft Copilot", icon: <img src="/ai/copilot.png" alt="Microsoft Copilot" style={{ width: 24, height: 24 }} /> },
-    { name: "Cursor", icon: <img src="/ai/cursor.png" alt="Cursor" style={{ width: 24, height: 24 }} /> },
-    { name: "Claude", icon: <img src="/ai/claude.png" alt="Claude" style={{ width: 24, height: 24 }} /> },
-    { name: "Lovable", icon: <img src="/ai/lovable.ico" alt="Lovable" style={{ width: 24, height: 24 }} /> },
-    { name: "Bolt", icon: <img src="/ai/bolt.jpg" alt="Bolt" style={{ width: 24, height: 24 }} /> },
-    { name: "Replit", icon: <img src="/ai/replit.png" alt="Replit" style={{ width: 24, height: 24 }} /> },
-    { name: "Madgicx", icon: <img src="/ai/Madgicx.jpeg" alt="Madgicx" style={{ width: 24, height: 24 }} /> },
-    { name: "Head AI", icon: <img src="/ai/headai.png" alt="Head AI" style={{ width: 24, height: 24 }} /> },
-    { name: "Zapier", icon: <img src="/ai/zapier.png" alt="Zapier" style={{ width: 45, height: 24 }} /> },
-    { name: "Make", icon: <img src="/ai/make.jpeg" alt="Make" style={{ width: 24, height: 24 }} /> },
+    {
+      name: "OpenAI",
+      icon: (
+        <img
+          src="/ai/openai.png"
+          alt="OpenAI"
+          style={{ width: 24, height: 24 }}
+        />
+      ),
+    },
+    {
+      name: "n8n",
+      icon: (
+        <img src="/ai/n8n.png" alt="n8n" style={{ width: 24, height: 24 }} />
+      ),
+    },
+    {
+      name: "Google AI Studio",
+      icon: (
+        <img
+          src="/ai/gai.png"
+          alt="Google AI Studio"
+          style={{ width: 24, height: 24 }}
+        />
+      ),
+    },
+    {
+      name: "Stability AI",
+      icon: (
+        <img
+          src="/ai/sai.jpeg"
+          alt="Stability AI"
+          style={{ width: 24, height: 24 }}
+        />
+      ),
+    },
+    {
+      name: "NotebookLM",
+      icon: (
+        <img
+          src="/ai/notebooklm.png"
+          alt="NotebookLM"
+          style={{ width: 24, height: 24 }}
+        />
+      ),
+    },
+    {
+      name: "ComfyUI",
+      icon: (
+        <img
+          src="/ai/comp.png"
+          alt="ComfyUI"
+          style={{ width: 24, height: 24 }}
+        />
+      ),
+    },
+    {
+      name: "Microsoft Copilot",
+      icon: (
+        <img
+          src="/ai/copilot.png"
+          alt="Microsoft Copilot"
+          style={{ width: 24, height: 24 }}
+        />
+      ),
+    },
+    {
+      name: "Cursor",
+      icon: (
+        <img
+          src="/ai/cursor.png"
+          alt="Cursor"
+          style={{ width: 24, height: 24 }}
+        />
+      ),
+    },
+    {
+      name: "Claude",
+      icon: (
+        <img
+          src="/ai/claude.png"
+          alt="Claude"
+          style={{ width: 24, height: 24 }}
+        />
+      ),
+    },
+    {
+      name: "Lovable",
+      icon: (
+        <img
+          src="/ai/lovable.ico"
+          alt="Lovable"
+          style={{ width: 24, height: 24 }}
+        />
+      ),
+    },
+    {
+      name: "Bolt",
+      icon: (
+        <img src="/ai/bolt.jpg" alt="Bolt" style={{ width: 24, height: 24 }} />
+      ),
+    },
+    {
+      name: "Replit",
+      icon: (
+        <img
+          src="/ai/replit.png"
+          alt="Replit"
+          style={{ width: 24, height: 24 }}
+        />
+      ),
+    },
+    {
+      name: "Madgicx",
+      icon: (
+        <img
+          src="/ai/Madgicx.jpeg"
+          alt="Madgicx"
+          style={{ width: 24, height: 24 }}
+        />
+      ),
+    },
+    {
+      name: "Head AI",
+      icon: (
+        <img
+          src="/ai/headai.png"
+          alt="Head AI"
+          style={{ width: 24, height: 24 }}
+        />
+      ),
+    },
+    {
+      name: "Zapier",
+      icon: (
+        <img
+          src="/ai/zapier.png"
+          alt="Zapier"
+          style={{ width: 45, height: 24 }}
+        />
+      ),
+    },
+    {
+      name: "Make",
+      icon: (
+        <img src="/ai/make.jpeg" alt="Make" style={{ width: 24, height: 24 }} />
+      ),
+    },
   ];
 
   // What we automate
@@ -217,82 +349,84 @@ const AIAgentsAutomationService = () => {
   return (
     <>
       <Helmet>
-        <title>AI Agents Automation | Realm by Rook - Business Automation Solutions</title>
-        <meta name="description" content="Transform your business with AI agents that automate workflows, boost lead conversion, and reduce costs. Integrated with OpenAI, Claude, and 20+ top AI tools." />
-        <meta name="keywords" content="AI agents, workflow automation, business automation, GPT agents, CRM AI, lead automation, AI onboarding, AI business tools" />
+        <title>
+          AI Agents Automation | Realm by Rook - Business Automation Solutions
+        </title>
+        <meta
+          name="description"
+          content="Transform your business with AI agents that automate workflows, boost lead conversion, and reduce costs. Integrated with OpenAI, Claude, and 20+ top AI tools."
+        />
+        <meta
+          name="keywords"
+          content="AI agents, workflow automation, business automation, GPT agents, CRM AI, lead automation, AI onboarding, AI business tools"
+        />
       </Helmet>
       <main className="min-h-screen pt-20">
-        <div className="bg-black text-white">
+        {/* <div className="bg-black text-white">
           <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4">
             <ServiceBreadcrumb
               serviceName="AI Agents Automation"
               serviceUrl="/services/ai-agents-automation"
             />
           </div>
-        </div>
+        </div> */}
 
         {/* Hero Section */}
-        <section className="bg-realm-black text-white py-20 md:py-32">
+        <section className="bg-realm-black text-white  md:py-16">
           <div className="realm-container">
             <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeIn}
-              className="max-w-4xl mx-auto text-center"
+              className="flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto"
             >
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                Your Business, on Autopilot. Powered by AI Agents.
-              </h1>
-              <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed">
-                AI that scales with you, lead capture to client onboarding.
-                <br />
-                We build AI agents that save time, cut costs, and think like your
-                best human rep.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-                <Button
-                  onClick={() => setIsContactOpen(true)}
-                  className="bg-white text-realm-black hover:bg-gray-100 px-8 py-4 text-lg font-medium rounded-xl"
-                >
-                  Get Free AI Audit
-                  <ArrowRight size={20} className="ml-2" />
-                </Button>
-                <Button
-                  onClick={() => scrollToSection("case-studies")}
-                  variant="outline"
-                  className="border-white text-black hover:bg-white hover:text-realm-black px-8 py-4 text-lg font-medium rounded-xl"
-                >
-                  See Real Results
-                  <ArrowRight size={20} className="ml-2" />
-                </Button>
-              </div>
-
-              {/* AI Agent Visual */}
-              {/* <div className="relative max-w-2xl mx-auto">
-                <div className="grid grid-cols-3 gap-4 opacity-50">
-                  <div className="bg-white/10 rounded-xl p-4 aspect-square flex items-center justify-center">
-                    <Bot size={40} />
-                  </div>
-                  <div className="bg-white/10 rounded-xl p-4 aspect-square flex items-center justify-center">
-                    <Brain size={40} />
-                  </div>
-                  <div className="bg-white/10 rounded-xl p-4 aspect-square flex items-center justify-center">
-                    <Zap size={40} />
-                  </div>
+              {/* Left Side: Content */}
+              <div className="w-full md:w-1/2 text-center md:text-left mb-12 md:mb-0 md:pr-10">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                  Your Business, <br /> on Autopilot. Powered by <br /> AI Agents.
+                </h1>
+                <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed">
+                  AI that scales with you, lead capture to client onboarding.
+                  <br />
+                  We build AI agents that save time, cut costs, and think like
+                  your best human rep.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-6 justify-center md:justify-start mb-16">
+                  <Button
+                    onClick={() => setIsContactOpen(true)}
+                    className="bg-white text-realm-black hover:bg-gray-100 px-8 py-4 text-lg font-medium rounded-xl"
+                  >
+                    Get Free AI Audit
+                    <ArrowRight size={20} className="ml-2" />
+                  </Button>
+                  <Button
+                    onClick={() => scrollToSection("case-studies")}
+                    variant="outline"
+                    className="border-white text-black hover:bg-white hover:text-realm-black px-8 py-4 text-lg font-medium rounded-xl"
+                  >
+                    See Real Results
+                    <ArrowRight size={20} className="ml-2" />
+                  </Button>
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{
-                      duration: 20,
-                      repeat: Infinity,
-                      ease: "linear",
+              </div>
+              {/* Right Side: Spline Model (hidden on mobile) */}
+              <div className="hidden md:flex w-full md:w-1/2 justify-center items-center md:ml-8">
+                <div className="w-full max-w-md h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg">
+                  <iframe
+                    src="https://my.spline.design/genkubgreetingrobot-L6GznStQk5QW2YXXnSWjM9Dc/"
+                    frameBorder="0"
+                    width="100%"
+                    height="100%"
+                    allow="autoplay; fullscreen"
+                    title="AI Agent Spline Model"
+                    style={{
+                      minHeight: 400,
+                      border: "none",
+                      background: "transparent",
                     }}
-                    className="w-32 h-32 border-2 border-white/30 rounded-full"
                   />
                 </div>
-              </div> */}
+              </div>
             </motion.div>
           </div>
         </section>
@@ -301,7 +435,9 @@ const AIAgentsAutomationService = () => {
         <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
           <DialogContent className="sm:max-w-[500px]">
             <div className="py-2">
-              <h2 className="text-2xl font-bold mb-6">Get Your Free AI Audit</h2>
+              <h2 className="text-2xl font-bold mb-6">
+                Get Your Free AI Audit
+              </h2>
               <ContactForm onSuccess={() => setIsContactOpen(false)} />
             </div>
           </DialogContent>
@@ -378,7 +514,9 @@ const AIAgentsAutomationService = () => {
                   <div className="text-3xl md:text-4xl font-bold mb-2 text-realm-black">
                     {metric.value}
                   </div>
-                  <div className="text-gray-600 font-medium">{metric.label}</div>
+                  <div className="text-gray-600 font-medium">
+                    {metric.label}
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -485,8 +623,8 @@ const AIAgentsAutomationService = () => {
                   <p className="text-xl text-white/90 mb-8 leading-relaxed">
                     Other firms plug in tools. We build adaptive ecosystems.
                     <br />
-                    Custom-coded logic, real-time learning loops, and human-level
-                    AI tone.
+                    Custom-coded logic, real-time learning loops, and
+                    human-level AI tone.
                   </p>
                 </div>
 
