@@ -215,7 +215,7 @@ const D2CStartups = () => {
                 className="text-xl md:text-2xl mb-10"
               >
                 Comprehensive Solutions in Branding, UI/UX, Development, SEO,
-                Social Media, and AI Automation — Engineered for Scalable
+                Social Media, and AI Automation, Engineered for Scalable
                 Success
               </motion.p>
 

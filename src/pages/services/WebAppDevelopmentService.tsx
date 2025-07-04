@@ -52,7 +52,7 @@ const WebAppDevelopmentService = () => {
                 Websites That Scale. Apps That Convert.
               </h1>
               <p className="text-xl md:text-2xl text-realm-darkgray max-w-3xl mx-auto mb-12">
-                We build experiences that perform — fast, scalable, and ready
+                We build experiences that perform fast, scalable, and ready
                 for growth.
               </p>
               <Button
@@ -686,7 +686,7 @@ const WebAppDevelopmentService = () => {
                   Let's Build Something Worth Clicking.
                 </h2>
                 <p className="text-lg text-realm-darkgray mb-8">
-                  Talk to us about your idea — we'll show you how fast and
+                  Talk to us about your idea, we'll show you how fast and
                   powerful it can be.
                 </p>
 

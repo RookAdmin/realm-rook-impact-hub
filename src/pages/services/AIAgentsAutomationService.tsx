@@ -386,8 +386,7 @@ const AIAgentsAutomationService = () => {
                   Your Business, <br /> on Autopilot. Powered by <br /> AI Agents.
                 </h1>
                 <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed">
-                  AI that scales with you, lead capture to client onboarding.
-                  <br />
+                 
                   We build AI agents that save time, cut costs, and think like
                   your best human rep.
                 </p>

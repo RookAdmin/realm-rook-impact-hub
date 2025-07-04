@@ -179,7 +179,7 @@ const DomainNameConsultation = () => {
               </h1>
               <p className="realm-subheadline text-white/90 mb-10">
                 We help you secure the perfect .com, .org, .ai, .app, or your
-                custom TLD—designed to grow with your brand. Start smart, not
+                custom TLD designed to grow with your brand. Start smart, not
                 scattered.
               </p>
 

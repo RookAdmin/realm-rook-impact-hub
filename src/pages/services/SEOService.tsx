@@ -143,7 +143,7 @@ const SEOService = () => {
                 Outrank. Outperform. Own Search.
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-realm-darkgray">
-                We don't guess SEO. We engineer it — with data, content, and
+                We don't guess SEO. We engineer it with data, content, and
                 strategy.
               </p>
               <Button

@@ -38,7 +38,7 @@ const Hero = () => {
 
           <p className="text-xl md:text-2xl mb-12 text-realm-lightgray">
             Social media isn't about being everywhere. It's about showing up
-            where it matters—with strategy, storytelling, and systems.
+            where it matters with strategy, storytelling, and systems.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
