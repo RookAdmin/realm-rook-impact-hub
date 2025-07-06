@@ -22,7 +22,7 @@ const Hero = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
-    <section className="bg-realm-black text-white py-20 md:py-32 relative overflow-hidden">
+    <section className="bg-realm-black text-white py-20 md:py-24 relative overflow-hidden">
       <div className="realm-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -727,7 +727,7 @@ const SocialMediaMarketingService = () => {
           content="social media marketing, brand growth, engagement, lead generation, ROI"
         />
       </Helmet>
-      <main className="min-h-screen pt-20">
+      <main className="min-h-screen">
         <div className="bg-black text-white">
           <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4 pt-20">
             <ServiceBreadcrumb
