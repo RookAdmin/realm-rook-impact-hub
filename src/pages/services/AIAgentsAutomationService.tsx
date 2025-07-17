@@ -412,7 +412,7 @@ const AIAgentsAutomationService = () => {
               <div className="hidden md:flex w-full md:w-1/2 justify-center items-center md:ml-8">
                 <div className="w-full max-w-md h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg">
                   <iframe
-                    src="https://my.spline.design/genkubgreetingrobot-L6GznStQk5QW2YXXnSWjM9Dc/"
+                    src="https://my.spline.design/genkubgreetingrobot-YluAUBFogx35JJDuy1lyDMFX/"
                     frameBorder="0"
                     width="100%"
                     height="100%"

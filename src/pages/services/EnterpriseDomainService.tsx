@@ -149,29 +149,48 @@ const EnterpriseDomainService = () => {
         </div>
 
         {/* Hero Section */}
-        <section className="bg-realm-black text-white py-20 md:py-32">
+        <section className="bg-realm-black text-white">
           <div className="realm-container">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeIn}
-              className="max-w-4xl mx-auto text-center"
-            >
-              <h1 className="realm-headline mb-6">
-                Enterprise Domain Management
-              </h1>
-              <p className="realm-subheadline text-white/90 mb-10">
-                Secure, scalable, and strategic management for enterprise domain
-                portfolios.
-              </p>
+            <div className="relative z-20 flex flex-col md:flex-row items-start justify-between gap-12">
+              {/* Left side: Main hero content */}
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={fadeIn}
+                className="flex-1 min-w-0"
+              >
+                <h1 className="realm-headline mb-6 pt-24">
+                  Enterprise Domain Management
+                </h1>
+                <p className="realm-subheadline text-white/90 mb-10">
+                  Secure, scalable, and strategic management for enterprise
+                  domain portfolios.
+                </p>
 
-              <Link to="/contact">
-                <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
-                  Request Enterprise Consultation
-                  <ArrowRight size={16} className="ml-2" />
-                </Button>
-              </Link>
-            </motion.div>
+                <Link to="/contact">
+                  <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                    Request Enterprise Consultation
+                    <ArrowRight size={16} className="ml-2" />
+                  </Button>
+                </Link>
+              </motion.div>
+
+              {/* Right side: Spline iframe (hidden on mobile) */}
+              <div className="flex-1 min-w-0 hidden md:block">
+                <div className="w-full max-w-xl aspect-square overflow-hidden shadow-lg">
+                  <iframe
+                    src="https://my.spline.design/chips-eggOliVzaHMPbldEhNQ8GS21/"
+                    frameBorder="0"
+                    width="100%"
+                    height="100%"
+                    className="w-full h-full"
+                    style={{ display: "block" }}
+                    title="3D Spline Visual"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -193,7 +212,7 @@ const EnterpriseDomainService = () => {
                 control, and scalability that large organizations require.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 g8">
                 {benefits.map((benefit, index) => (
                   <motion.div
                     key={index}
@@ -244,7 +263,9 @@ const EnterpriseDomainService = () => {
                     <h3 className="text-2xl font-display font-medium mb-4">
                       {solution.title}
                     </h3>
-                    <p className="text-realm-darkgray">{solution.description}</p>
+                    <p className="text-realm-darkgray">
+                      {solution.description}
+                    </p>
                   </Card>
                 ))}
               </div>
@@ -268,8 +289,8 @@ const EnterpriseDomainService = () => {
                 </h2>
                 <p className="text-realm-darkgray mb-8 max-w-2xl mx-auto">
                   See how our enterprise domain management solutions have helped
-                  Fortune 500 companies secure their digital assets and streamline
-                  operations.
+                  Fortune 500 companies secure their digital assets and
+                  streamline operations.
                 </p>
                 <Link to="/case-studies">
                   <Button className="realm-button">
@@ -297,8 +318,8 @@ const EnterpriseDomainService = () => {
               </h2>
 
               <p className="text-white/80 mb-10">
-                Our enterprise domain specialists will create a tailored solution
-                for your organization's unique needs.
+                Our enterprise domain specialists will create a tailored
+                solution for your organization's unique needs.
               </p>
 
               <Link to="/contact">
