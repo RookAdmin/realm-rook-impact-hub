@@ -16,6 +16,7 @@ import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import ContactForm from "@/components/ContactForm";
 import { Helmet } from "react-helmet-async";
+import { IconCloudDemo } from "@/components/magicui/IconCloudDemo";
 
 // Hero section with animated metrics
 const Hero = () => {
@@ -24,40 +25,50 @@ const Hero = () => {
   return (
     <section className="bg-realm-black text-white py-20 md:py-24 relative overflow-hidden">
       <div className="realm-container relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="max-w-4xl"
-        >
-          <h1 className="realm-headline text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-            We Don't Just Manage.
-            <br />
-            We Multiply Your Brand's Impact.
-          </h1>
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
+          {/* Left side: Text and buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-2xl flex-1"
+          >
+            <h1 className="realm-headline text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
+              We Don't Just Manage.
+              <br />
+              We Multiply Your Brand's Impact.
+            </h1>
 
-          <p className="text-xl md:text-2xl mb-12 text-realm-lightgray">
-            Social media isn't about being everywhere. It's about showing up
-            where it matters with strategy, storytelling, and systems.
-          </p>
+            <p className="text-xl md:text-2xl mb-12 text-realm-lightgray">
+              Social media isn't about being everywhere. It's about showing up
+              where it matters with strategy, storytelling, and systems.
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              onClick={() => setIsContactOpen(true)}
-              className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors text-base"
-            >
-              Get My Custom Strategy
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                onClick={() => setIsContactOpen(true)}
+                className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors text-base"
+              >
+                Get My Custom Strategy
+              </Button>
 
-            <Link
-              to="/case-studies"
-              className="text-white flex items-center gap-2 realm-link hover:text-realm-lightgray"
-            >
-              <span>See Impact Studies</span>
-              <ArrowRight size={16} />
-            </Link>
+              <Link
+                to="/case-studies"
+                className="text-white flex items-center gap-2 realm-link hover:text-realm-lightgray"
+              >
+                <span>See Impact Studies</span>
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Right side: Icon Cloud */}
+          <div className="hidden md:flex flex-1 justify-center items-center w-full md:w-auto">
+            <div className="w-[400px] h-[400px] md:w-[500px] md:h-[500px] -mt-32">
+              <IconCloudDemo />
+            </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Animated metrics */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8">

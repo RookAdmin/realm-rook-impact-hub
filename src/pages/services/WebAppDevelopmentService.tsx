@@ -17,6 +17,7 @@ import PageHeader from "@/components/common/PageHeader";
 import { Separator } from "@/components/ui/separator";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import ContactForm from "@/components/ContactForm";
+import { RetroGrid } from "@/components/magicui/retro-grid";
 
 const WebAppDevelopmentService = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -46,14 +47,18 @@ const WebAppDevelopmentService = () => {
           </div>
 
           {/* Hero Section */}
-          <section className="py-16 md:py-24">
-            <div className="realm-container text-center">
+          <section className="py-16 md:py-24 relative overflow-hidden">
+            {/* RetroGrid background */}
+            <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+              <RetroGrid />
+            </div>
+            <div className="realm-container text-center relative z-10">
               <h1 className="realm-headline mb-6">
                 Websites That Scale. Apps That Convert.
               </h1>
               <p className="text-xl md:text-2xl text-realm-darkgray max-w-3xl mx-auto mb-12">
-                We build experiences that perform fast, scalable, and ready
-                for growth.
+                We build experiences that perform fast, scalable, and ready for
+                growth.
               </p>
               <Button
                 onClick={() => setIsContactOpen(true)}
