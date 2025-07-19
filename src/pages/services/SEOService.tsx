@@ -137,21 +137,41 @@ const SEOService = () => {
           <ServiceBreadcrumb serviceName="SEO" serviceUrl="/services/seo" />
 
           {/* Hero Section */}
-          <section className="py-16 md:py-24">
-            <div className="max-w-4xl">
-              <h1 className="realm-headline mb-6">
-                Outrank. Outperform. Own Search.
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-realm-darkgray">
-                We don't guess SEO. We engineer it with data, content, and
-                strategy.
-              </p>
-              <Button
-                onClick={() => setIsContactOpen(true)}
-                className="realm-button flex items-center gap-2"
-              >
-                Boost My Rankings <ArrowRight size={16} />
-              </Button>
+          <section className="">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              {/* Left: Text Content */}
+              <div className="flex-1 min-w-0 max-w-xl">
+                <h1 className="realm-headline mb-6">
+                  Outrank. Outperform. Own Search.
+                </h1>
+                <p className="text-xl md:text-2xl mb-8 text-realm-darkgray">
+                  We don't guess SEO. We engineer it with data, content, and
+                  strategy.
+                </p>
+                <Button
+                  onClick={() => setIsContactOpen(true)}
+                  className="realm-button flex items-center gap-2"
+                >
+                  Boost My Rankings <ArrowRight size={16} />
+                </Button>
+              </div>
+              {/* Right: Spline Model */}
+              <div className="flex-1 min-w-0 w-full max-w-xl h-[350px] md:h-[400px] lg:h-[500px]">
+                <iframe
+                  src="https://my.spline.design/3ddropdownseo-xnZe4lw3eATgUiR4PKQcCTVM/"
+                  frameBorder="0"
+                  width="100%"
+                  height="100%"
+                  style={{
+                    borderRadius: "16px",
+                    minHeight: "300px",
+                    maxHeight: "500px",
+                    background: "transparent",
+                  }}
+                  allowFullScreen
+                  title="SEO Spline Model"
+                ></iframe>
+              </div>
             </div>
           </section>
 
@@ -163,7 +183,6 @@ const SEOService = () => {
               loading="lazy"
             />
           </div>
-
 
           {/* Why SEO with Realm */}
           <section className="py-16 border-t border-realm-lightgray">
@@ -212,18 +231,18 @@ const SEOService = () => {
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-4">
               {seoTools.map((tool, index) => (
-              <div
-                key={index}
-                className="border border-realm-lightgray p-4 hover:border-realm-black transition-all duration-300 flex flex-col items-center justify-center h-24"
-              >
-                <img
-                src={tool.image}
-                alt={`${tool.name} logo`}
-                className="w-8 h-8 mb-2 object-contain"
-                loading="lazy"
-                />
-                <h3 className="font-bold text-center">{tool.name}</h3>
-              </div>
+                <div
+                  key={index}
+                  className="border border-realm-lightgray p-4 hover:border-realm-black transition-all duration-300 flex flex-col items-center justify-center h-24"
+                >
+                  <img
+                    src={tool.image}
+                    alt={`${tool.name} logo`}
+                    className="w-8 h-8 mb-2 object-contain"
+                    loading="lazy"
+                  />
+                  <h3 className="font-bold text-center">{tool.name}</h3>
+                </div>
               ))}
             </div>
           </section>
@@ -280,7 +299,7 @@ const SEOService = () => {
                     .
                   </p>
                   <Button
-                  onClick={() => setIsContactOpen(true)}
+                    onClick={() => setIsContactOpen(true)}
                     variant={index === 2 ? "default" : "outline"}
                     className={`${
                       index === 2
