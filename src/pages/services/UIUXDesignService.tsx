@@ -16,15 +16,6 @@ import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import ContactForm from "@/components/ContactForm";
 
-// Remove the imports for components that don't exist
-// import UIUXHero from '@/components/services/uiux/UIUXHero';
-// import UIUXProcess from '@/components/services/uiux/UIUXProcess';
-// import UIUXTools from '@/components/services/uiux/UIUXTools';
-// import UIUXSpecialties from '@/components/services/uiux/UIUXSpecialties';
-// import UIUXImpact from '@/components/services/uiux/UIUXImpact';
-// import UIUXTestimonials from '@/components/services/uiux/UIUXTestimonials';
-// import UIUXContactForm from '@/components/services/uiux/UIUXContactForm';
-
 const UIUXDesignService = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const benefits = [
@@ -84,21 +75,36 @@ const UIUXDesignService = () => {
         </div>
 
         {/* Hero Section with Visual */}
-        <section className="pt-16 md:pt-24 pb-16 relative">
+        <section className="pb-16 relative">
           <div className="realm-container">
-            <div className="max-w-4xl">
-              <h1 className="realm-headline mb-6">
-                Designs That Don't Just Look Good. They Work.
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-realm-darkgray">
-                We craft human-first, experience-driven digital interfaces.
-              </p>
-              <Button
-                onClick={() => setIsContactOpen(true)}
-                className="realm-button flex items-center gap-2"
-              >
-                Let's Design Together <ArrowRight size={16} />
-              </Button>
+            <div className="flex flex-col md:flex-row items-center ">
+              {/* Left: Hero Content */}
+              <div className="flex-1 max-w-xl">
+                <h1 className="realm-headline mb-6">
+                  Designs That Don't Just Look Good. They Work.
+                </h1>
+                <p className="text-xl md:text-2xl mb-8 text-realm-darkgray">
+                  We craft human-first, experience-driven digital interfaces.
+                </p>
+                <Button
+                  onClick={() => setIsContactOpen(true)}
+                  className="realm-button flex items-center gap-2"
+                >
+                  Let's Design Together <ArrowRight size={16} />
+                </Button>
+              </div>
+              {/* Right: Spline Model */}
+              <div className="flex-1 w-full h-[400px] md:h-[500px] lg:h-[600px]">
+                <iframe
+                  src="https://my.spline.design/designelementsuikit-FfdKKBMxOVtaF6cAJ9qy4ZEy/"
+                  frameBorder="0"
+                  width="100%"
+                  height="100%"
+                  className=""
+                  title="Spline 3D Model"
+                  allow="autoplay; fullscreen"
+                ></iframe>
+              </div>
             </div>
 
             {/* Contact Form Dialog */}
@@ -112,16 +118,6 @@ const UIUXDesignService = () => {
                 </div>
               </DialogContent>
             </Dialog>
-
-             {/* Centered Responsive Image */}Add commentMore actions
-            <div className="w-full my-12">
-              <img
-                src="/services/uxui1.png"
-                alt="Web and App Development Illustration"
-                className="w-full h-auto object-contain"
-                loading="lazy"
-              />
-            </div>
           </div>
         </section>
 
@@ -274,7 +270,7 @@ const UIUXDesignService = () => {
                   image: "/services/SaaS Dashboard.png",
                 },
                 { name: "Portfolio Sites", image: "/services/uxui-port.png" },
-                
+
                 { name: "E-commerce UX", image: "/services/E commerce ux.png" },
                 {
                   name: "Product Landing Pages",
@@ -324,20 +320,17 @@ const UIUXDesignService = () => {
                 {
                   stat: "50%",
                   desc: "bounce rate drop after UI redesign",
-                  image:
-                    "/services/uxui32.png",
+                  image: "/services/uxui32.png",
                 },
                 {
                   stat: "40%",
                   desc: "user retention rate increase",
-                  image:
-                    "/services/uxui31.png",
+                  image: "/services/uxui31.png",
                 },
                 {
                   stat: "3X",
                   desc: "app downloads grew in 2 months post-redesign",
-                  image:
-                    "/services/uxui33.png",
+                  image: "/services/uxui33.png",
                 },
               ].map((proof, index) => (
                 <div
