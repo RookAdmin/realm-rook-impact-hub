@@ -197,37 +197,48 @@ const SaaSStartups = () => {
         {/* Hero Section - Updated with solid black background */}
         <section className="bg-realm-black text-white py-20">
           <div className="realm-container relative z-10">
-            <div className="max-w-3xl">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6"
-              >
-                Accelerate Your SaaS Growth with Scalable, Intelligent Solutions
-              </motion.h1>
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="max-w-xl">
+                <motion.h1
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6"
+                >
+                  Accelerate Your SaaS Growth with Scalable, Intelligent
+                  Solutions
+                </motion.h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xl md:text-2xl mb-10"
-              >
-                Expertise in Branding, UI/UX, Development, SEO, Social Media,
-                and AI Automation Tailored for SaaS Success
-              </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-xl md:text-2xl mb-10"
+                >
+                  Expertise in Branding, UI/UX, Development, SEO, Social Media,
+                  and AI Automation Tailored for SaaS Success
+                </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <Link to="/contact">
-                  <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
-                    Book Your Growth Strategy Session
-                  </Button>
-                </Link>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                  <Link to="/contact">
+                    <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                      Book Your Growth Strategy Session
+                    </Button>
+                  </Link>
+                </motion.div>
+              </div>
+              <div className="w-full h-full min-h-[500px]">
+                <iframe
+                  src="https://my.spline.design/ascending-aS8tAdsQud8yT9OaAdNt0ej1/"
+                  frameBorder="0"
+                  width="100%"
+                  height="100%"
+                ></iframe>
+              </div>
             </div>
           </div>
         </section>
@@ -355,8 +366,6 @@ const SaaSStartups = () => {
 
             {/* Transformation Stories */}
             <TransformationStories stories={transformationStories} />
-
-        
 
             {/* Impact Study Callout */}
             <div className="mt-20 max-w-5xl mx-auto">

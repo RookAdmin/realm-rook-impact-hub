@@ -196,9 +196,9 @@ const D2CStartups = () => {
         />
 
         {/* Hero Section - Updated with solid black background */}
-        <section className="bg-realm-black text-white py-20">
-          <div className="realm-container relative z-10">
-            <div className="max-w-3xl">
+        <section className="bg-realm-black text-white min-h-screen flex flex-col justify-center relative">
+          <div className="realm-container relative z-10 text-left">
+            <div className="max-w-xl">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -215,8 +215,7 @@ const D2CStartups = () => {
                 className="text-xl md:text-2xl mb-10"
               >
                 Comprehensive Solutions in Branding, UI/UX, Development, SEO,
-                Social Media, and AI Automation, Engineered for Scalable
-                Success
+                Social Media, and AI Automation, Engineered for Scalable Success
               </motion.p>
 
               <motion.div
@@ -231,6 +230,14 @@ const D2CStartups = () => {
                 </Link>
               </motion.div>
             </div>
+          </div>
+          <div className="absolute bottom-0 w-full h-full z-0">
+            <iframe
+              src="https://my.spline.design/reactiveorb-9ZpKucDxKigWh7ivdzLr2Jb2/"
+              frameBorder="0"
+              width="100%"
+              height="100%"
+            ></iframe>
           </div>
         </section>
 
@@ -359,7 +366,6 @@ const D2CStartups = () => {
             <TransformationStories stories={transformationStories} />
 
             {/* Before/After Visuals */}
-            
 
             {/* Impact Study Callout */}
             <div className="mt-20 max-w-5xl mx-auto">
