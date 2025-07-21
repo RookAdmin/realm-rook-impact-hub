@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Globe, Search, Shield, Check, Star } from "lucide-react";
@@ -80,7 +79,7 @@ const DomainNameConsultation = () => {
   const onSubmit = async (data: any) => {
     try {
       const { error } = await supabase
-        .from('domain_consultation_submissions')
+        .from("domain_consultation_submissions")
         .insert([
           {
             brand_name: data.brandName,
@@ -91,12 +90,14 @@ const DomainNameConsultation = () => {
             phone_country_code: data.phoneCountryCode,
             phone_number: data.phoneNumber,
             country: data.country,
-          }
+          },
         ]);
 
       if (error) {
-        console.error('Error submitting form:', error);
-        toast.error("There was an error submitting your request. Please try again.");
+        console.error("Error submitting form:", error);
+        toast.error(
+          "There was an error submitting your request. Please try again."
+        );
         return;
       }
 
@@ -105,8 +106,10 @@ const DomainNameConsultation = () => {
       );
       form.reset();
     } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error("There was an error submitting your request. Please try again.");
+      console.error("Error submitting form:", error);
+      toast.error(
+        "There was an error submitting your request. Please try again."
+      );
     }
   };
 
@@ -156,7 +159,7 @@ const DomainNameConsultation = () => {
       </Helmet>
       <main className="min-h-screen pt-20">
         {/* Hero Section */}
-
+        {/* 
         <div className="bg-black text-white">
           <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4">
             <ServiceBreadcrumb
@@ -164,43 +167,59 @@ const DomainNameConsultation = () => {
               serviceUrl="/services/domain-name-consultation"
             />
           </div>
-        </div>
+        </div> */}
 
-        <section className="bg-realm-black text-white py-20 md:py-32">
+        <section className="bg-realm-black text-white py-12 md:py-16 ">
           <div className="realm-container">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeIn}
-              className="max-w-4xl mx-auto text-center"
-            >
-              <h1 className="realm-headline mb-6">
-                The Right Domain is Not Taken. It's Strategically Chosen.
-              </h1>
-              <p className="realm-subheadline text-white/90 mb-10">
-                We help you secure the perfect .com, .org, .ai, .app, or your
-                custom TLD designed to grow with your brand. Start smart, not
-                scattered.
-              </p>
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16">
+              {/* Left: Content */}
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={fadeIn}
+                className="flex-1 max-w-xl text-center md:text-left"
+              >
+                <h1 className="realm-headline mb-6">
+                  The Right Domain is Not Taken. It's Strategically Chosen.
+                </h1>
+                <p className="realm-subheadline text-white/90 mb-10">
+                  We help you secure the perfect .com, .org, .ai, .app, or your
+                  custom TLD designed to grow with your brand. Start smart, not
+                  scattered.
+                </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link to="/contact">
-                  <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
-                    Book a 1:1 Domain Strategy Call
-                    <ArrowRight size={16} className="ml-2" />
-                  </Button>
-                </Link>
-                <Link to="/case-studies">
-                  <Button
-                    variant="outline"
-                    className="realm-button border-white text-black hover:text-white hover:bg-white/10"
-                  >
-                    View Past Domain Success Stories
-                    <ArrowRight size={16} className="ml-2" />
-                  </Button>
-                </Link>
+                <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                  <Link to="/contact">
+                    <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                      Book a 1:1 Domain Strategy Call
+                      <ArrowRight size={16} className="ml-2" />
+                    </Button>
+                  </Link>
+                  <Link to="/case-studies">
+                    <Button
+                      variant="outline"
+                      className="realm-button border-white text-black hover:text-white hover:bg-white/10"
+                    >
+                      View Past Domain Success Stories
+                      <ArrowRight size={16} className="ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              </motion.div>
+
+              {/* Right: Spline Model */}
+              <div className="hidden md:block flex-1 w-full max-w-xl h-72 md:h-[400px] lg:h-[500px] xl:h-[600px]">
+                <iframe
+                  src="https://my.spline.design/holographicearthwithdynamiclines-ih09wmLZaSDG1xz7kgm3WEFY/"
+                  frameBorder="0"
+                  width="100%"
+                  height="100%"
+                  style={{ borderRadius: "16px", background: "transparent" }}
+                  allowFullScreen
+                  title="Holographic Earth Spline Model"
+                ></iframe>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -635,7 +654,10 @@ const DomainNameConsultation = () => {
                                   </FormControl>
                                   <SelectContent className="max-h-60">
                                     {countryCodes.map((country) => (
-                                      <SelectItem key={country.iso} value={`+${country.code}`}>
+                                      <SelectItem
+                                        key={country.iso}
+                                        value={`+${country.code}`}
+                                      >
                                         {country.country} (+{country.code})
                                       </SelectItem>
                                     ))}
@@ -682,7 +704,10 @@ const DomainNameConsultation = () => {
                               </FormControl>
                               <SelectContent className="max-h-60">
                                 {countryCodes.map((country) => (
-                                  <SelectItem key={country.iso} value={country.country}>
+                                  <SelectItem
+                                    key={country.iso}
+                                    value={country.country}
+                                  >
                                     {country.country}
                                   </SelectItem>
                                 ))}

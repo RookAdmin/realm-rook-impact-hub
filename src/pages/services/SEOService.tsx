@@ -156,7 +156,7 @@ const SEOService = () => {
                 </Button>
               </div>
               {/* Right: Spline Model */}
-              <div className="flex-1 min-w-0 w-full max-w-xl h-[350px] md:h-[400px] lg:h-[500px]">
+              <div className="hidden md:block flex-1 min-w-0 w-full max-w-xl h-[350px] md:h-[400px] lg:h-[500px]">
                 <iframe
                   src="https://my.spline.design/3ddropdownseo-xnZe4lw3eATgUiR4PKQcCTVM/"
                   frameBorder="0"
