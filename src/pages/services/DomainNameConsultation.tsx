@@ -177,7 +177,7 @@ const DomainNameConsultation = () => {
                 initial="hidden"
                 animate="visible"
                 variants={fadeIn}
-                className="flex-1 max-w-xl text-center md:text-left"
+                className="flex-1 max-w-xl text-center pt-16 md:text-left"
               >
                 <h1 className="realm-headline mb-6">
                   The Right Domain is Not Taken. It's Strategically Chosen.
@@ -208,13 +208,13 @@ const DomainNameConsultation = () => {
               </motion.div>
 
               {/* Right: Spline Model */}
-              <div className="hidden md:block flex-1 w-full max-w-xl h-72 md:h-[400px] lg:h-[500px] xl:h-[600px]">
+              <div className="hidden md:block flex-1 w-full max-w-xl h-72 md:h-[400px] lg:h-[500px] xl:h-[600px] md:mt-12">
                 <iframe
-                  src="https://my.spline.design/holographicearthwithdynamiclines-ih09wmLZaSDG1xz7kgm3WEFY/"
+                  src="https://my.spline.design/techinspired3dassetsweb-Sr6P23Scv8PBpfI3dMi8xHiA/"
                   frameBorder="0"
                   width="100%"
                   height="100%"
-                  style={{ borderRadius: "16px", background: "transparent" }}
+                  style={{ background: "transparent" }}
                   allowFullScreen
                   title="Holographic Earth Spline Model"
                 ></iframe>
