@@ -233,7 +233,7 @@ const SaaSStartups = () => {
               </div>
               <div className="w-full h-full min-h-[500px]">
                 <iframe
-                  src="https://my.spline.design/ascending-aS8tAdsQud8yT9OaAdNt0ej1/"
+                  src="https://my.spline.design/rubik39scube-8dqnRh6XuCm4PAWuRyunPqnH/"
                   frameBorder="0"
                   width="100%"
                   height="100%"

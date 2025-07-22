@@ -124,14 +124,14 @@ const HeroSection = () => {
           {/* Right side: Spline 3D Model */}
           <div className="hidden md:flex flex-1 w-full lg:max-w-2xl">
             <motion.div
-              className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden -mt-12 lg:-mt-24"
+              className="relative w-full h-[300px] md:h-[400px] lg:h-[450px] overflow-hidden -mt-12 lg:-mt-24"
               initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
               animate={{ opacity: 1, scale: 1, rotateY: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               style={{ perspective: "1000px" }}
             >
               <iframe
-                src="https://my.spline.design/cubeandballs-6uBVa2t8q2ZukNShifSeNyMA/"
+                src="https://my.spline.design/threadsfeatureheaderanimation-cgasgRCWav0GUtiGd3NIfGZI/"
                 frameBorder="0"
                 width="100%"
                 height="100%"
@@ -139,10 +139,6 @@ const HeroSection = () => {
                 title="3D Cube and Balls Animation"
                 loading="lazy"
               />
-
-              {/* Subtle glow effect */}
-
-              {/* Border glow */}
             </motion.div>
           </div>
         </div>
