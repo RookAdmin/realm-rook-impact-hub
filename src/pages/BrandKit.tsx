@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import PageHeader from '@/components/common/PageHeader';
+import PageHeader from '@/components/common/PageHeaderBrand';
 import ColorTypography from '@/components/brand-kit/ColorTypography';
 import BrandAssets from '@/components/brand-kit/BrandAssets';
 import DosDonts from '@/components/brand-kit/DosDonts';

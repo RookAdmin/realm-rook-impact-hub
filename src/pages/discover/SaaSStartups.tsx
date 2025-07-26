@@ -205,8 +205,7 @@ const SaaSStartups = () => {
                   transition={{ duration: 0.6 }}
                   className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6"
                 >
-                  Accelerate Your SaaS Growth with Scalable, Intelligent
-                  Solutions
+                  Accelerate Your SaaS! 
                 </motion.h1>
 
                 <motion.p

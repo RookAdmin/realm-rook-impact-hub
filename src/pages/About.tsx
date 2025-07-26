@@ -109,10 +109,10 @@ const About = () => {
       </Helmet>
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="pt-40 pb-60 bg-realm-black text-white">
-          <div className="realm-container grid grid-cols-1 items-center gap-16 md:grid-cols-2">
+        <section className="pt-60 pb-60 bg-realm-black text-white">
+          <div className="realm-container flex flex-col items-center justify-center text-center">
             <motion.div
-              className=""
+              className="max-w-3xl"
               initial="hidden"
               animate="visible"
               variants={fadeIn}
@@ -130,21 +130,13 @@ const About = () => {
 
               <div className="mt-12">
                 <Link to="/contact">
-                  <Button className="realm-button flex items-center space-x-2 bg-white text-realm-black hover:bg-realm-lightgray">
+                  <Button className="realm-button flex items-center space-x-2 bg-white text-realm-black hover:bg-realm-lightgray mx-auto">
                     <span>Let's Build Your Realm</span>
                     <ArrowRight size={16} />
                   </Button>
                 </Link>
               </div>
             </motion.div>
-            <div className="h-[400px] md:h-full">
-              <iframe
-                src="https://my.spline.design/quantum-oiyy2beRxoqVq1SsONtzhIcV/"
-                frameBorder="0"
-                width="100%"
-                height="100%"
-              ></iframe>
-            </div>
           </div>
         </section>
 

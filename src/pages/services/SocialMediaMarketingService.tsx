@@ -33,9 +33,7 @@ const Hero = () => {
             transition={{ duration: 0.7 }}
             className="max-w-2xl flex-1"
           >
-            <h1 className="realm-headline text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              We Don't Just Manage.
-              <br />
+            <h1 className="realm-headline text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 mt-12">
               We Multiply Your Brand's Impact.
             </h1>
 
@@ -64,7 +62,7 @@ const Hero = () => {
 
           {/* Right side: Icon Cloud */}
           <div className="hidden md:flex flex-1 justify-center items-center w-full md:w-auto">
-            <div className="w-[400px] h-[400px] md:w-[500px] md:h-[500px] -mt-32">
+            <div className="w-[400px] h-[400px] md:w-[500px] md:h-[500px] -mt-12">
               <IconCloudDemo />
             </div>
           </div>
@@ -739,14 +737,14 @@ const SocialMediaMarketingService = () => {
         />
       </Helmet>
       <main className="min-h-screen">
-        <div className="bg-black text-white">
+        {/* <div className="bg-black text-white">
           <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4 pt-20">
             <ServiceBreadcrumb
               serviceName="Social Media Marketing"
               serviceUrl="/services/social-media-marketing"
             />
           </div>
-        </div>
+        </div> */}
 
         <Hero />
         <ProblemSection />

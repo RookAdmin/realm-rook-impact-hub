@@ -63,8 +63,8 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="pt-32 pb-32 md:pt-40 md:pb-40 bg-black text-white relative overflow-hidden min-h-screen">
-      <div className="container mx-auto px-4 relative z-20">
+    <section className="pt-16 pb-32 md:pb-40 bg-black text-white relative overflow-hidden min-h-screen">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 xl:px-12 relative z-20">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 min-h-[600px]">
           {/* Left side: Main hero content */}
           <div className="flex-1 max-w-3xl lg:pr-8">
@@ -74,7 +74,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              We don't just design.
+              {/* We don't just design. */}
               <br />
               We create realms of impact.
             </motion.h1>
@@ -124,7 +124,7 @@ const HeroSection = () => {
           {/* Right side: Spline 3D Model */}
           <div className="hidden md:flex flex-1 w-full lg:max-w-2xl">
             <motion.div
-              className="relative w-full h-[300px] md:h-[400px] lg:h-[450px] overflow-hidden -mt-12 lg:-mt-24"
+              className="relative w-full h-[300px] md:h-[400px] lg:h-[450px] overflow-hidden"
               initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
               animate={{ opacity: 1, scale: 1, rotateY: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -135,7 +135,7 @@ const HeroSection = () => {
                 frameBorder="0"
                 width="100%"
                 height="100%"
-                className="rounded-2xl"
+                className="rounded-2xl pointer-events-auto cursor-auto"
                 title="3D Cube and Balls Animation"
                 loading="lazy"
               />

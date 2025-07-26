@@ -67,12 +67,12 @@ const UIUXDesignService = () => {
         />
       </Helmet>
       <main className="min-h-screen pt-32">
-        <div className="realm-container mb-6">
+        {/* <div className="realm-container mb-6">
           <ServiceBreadcrumb
             serviceName="UI/UX Design"
             serviceUrl="/services/ui-ux-design"
           />
-        </div>
+        </div> */}
 
         {/* Hero Section with Visual */}
         <section className="pb-16 relative">
