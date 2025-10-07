@@ -43,7 +43,7 @@
     "@sanity/client": "^7.5.0",
     "@sanity/image-url": "^1.1.0",
     "@splinetool/react-spline": "^4.1.0",
-    "@supabase/supabase-js": "^2.74.0",
+    "@supabase/supabase-js": "^2.49.9",
     "@tabler/icons-react": "^3.34.0",
     "@tanstack/react-query": "^5.56.2",
     "caniuse-lite": "^1.0.30001727",
