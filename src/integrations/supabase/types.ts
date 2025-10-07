@@ -14,7 +14,84 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_submissions: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string
+          first_name: string
+          id: string
+          last_name: string
+          message: string | null
+          name: string
+          service: string | null
+          whatsapp_number: string | null
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email: string
+          first_name: string
+          id?: string
+          last_name: string
+          message?: string | null
+          name: string
+          service?: string | null
+          whatsapp_number?: string | null
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string
+          first_name?: string
+          id?: string
+          last_name?: string
+          message?: string | null
+          name?: string
+          service?: string | null
+          whatsapp_number?: string | null
+        }
+        Relationships: []
+      }
+      domain_consultation_submissions: {
+        Row: {
+          brand_name: string
+          budget: string | null
+          business_type: string | null
+          country: string | null
+          created_at: string
+          email: string
+          extension: string | null
+          id: string
+          phone_country_code: string | null
+          phone_number: string | null
+        }
+        Insert: {
+          brand_name: string
+          budget?: string | null
+          business_type?: string | null
+          country?: string | null
+          created_at?: string
+          email: string
+          extension?: string | null
+          id?: string
+          phone_country_code?: string | null
+          phone_number?: string | null
+        }
+        Update: {
+          brand_name?: string
+          budget?: string | null
+          business_type?: string | null
+          country?: string | null
+          created_at?: string
+          email?: string
+          extension?: string | null
+          id?: string
+          phone_country_code?: string | null
+          phone_number?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
