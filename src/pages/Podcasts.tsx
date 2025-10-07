@@ -98,7 +98,7 @@ const PodcastTile = ({ episode }: { episode: PodcastEpisode }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
-      className="w-full bg-[#55185d] text-white rounded-lg overflow-hidden hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+      className="w-full bg-foreground text-background rounded-lg overflow-hidden hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
     >
       <div className="flex flex-col md:flex-row gap-6 p-6 md:p-8">
         {/* Episode Image */}
@@ -116,10 +116,10 @@ const PodcastTile = ({ episode }: { episode: PodcastEpisode }) => {
             <h3 className="text-2xl md:text-3xl font-bold mb-3 leading-tight">
               {episode.title}
             </h3>
-            <p className="text-white/90 text-base md:text-lg leading-relaxed mb-2">
+            <p className="text-background/90 text-base md:text-lg leading-relaxed mb-2">
               {episode.description}
             </p>
-            <p className="text-white/70 text-sm">Duration: {episode.duration}</p>
+            <p className="text-background/70 text-sm">Duration: {episode.duration}</p>
           </div>
 
           {/* Platform Buttons */}
@@ -134,7 +134,7 @@ const PodcastTile = ({ episode }: { episode: PodcastEpisode }) => {
               <img
                 src="/podcasts/spotify-button.png"
                 alt="Listen on Spotify"
-                className="h-10 md:h-12"
+                className="h-[3.25rem] md:h-[3.9rem]"
               />
             </a>
             <a
@@ -175,7 +175,7 @@ const Podcasts = () => {
 
       <main className="min-h-screen bg-background">
         {/* Header Section */}
-        <section className="bg-gradient-to-b from-[#55185d] to-[#3d1243] text-white py-16 md:py-24">
+        <section className="bg-gradient-to-b from-foreground to-foreground/90 text-background py-16 md:py-24">
           <div className="container mx-auto px-4 max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -186,7 +186,7 @@ const Podcasts = () => {
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Startup Stories Podcast Series
               </h1>
-              <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-background/90 max-w-3xl mx-auto leading-relaxed">
                 Explore all Startup Stories episodes—a showcase of pivotal business journeys, 
                 founder wisdom, and the wild evolution of world-changing companies. Every episode 
                 is crafted for insight and emotion, revealing exclusive stories and startup strategies.
