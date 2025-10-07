@@ -46,7 +46,7 @@ const FloatingContactBar = () => {
       width: "auto",
       opacity: 1,
       marginLeft: 8,
-      transition: { duration: 0.3, ease: "easeOut" }
+      transition: { duration: 0.3 }
     }
   };
 
