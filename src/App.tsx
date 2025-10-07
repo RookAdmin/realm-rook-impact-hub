@@ -35,6 +35,7 @@ import EnterpriseDomainManagement from "./pages/services/EnterpriseDomainManagem
 import D2CStartups from "./pages/discover/D2CStartups";
 import SaaSStartups from "./pages/discover/SaaSStartups";
 import Partners from "./pages/Partners";
+import Podcasts from "./pages/Podcasts";
 
 const queryClient = new QueryClient();
 
@@ -96,6 +97,7 @@ const App = () => (
             <Route path="/discover/d2c-startups" element={<D2CStartups />} />
             <Route path="/discover/saas-startups" element={<SaaSStartups />} />
             <Route path="/who-we-partner-with" element={<Partners />} />
+            <Route path="/podcasts" element={<Podcasts />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
