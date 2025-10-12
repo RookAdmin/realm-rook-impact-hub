@@ -88,6 +88,7 @@ const Navbar = () => {
       subItems: [
         { name: "Insights", path: "/resources/insights" },
         { name: "Press Releases", path: "/resources/press-releases" },
+        { name: "Podcasts", path: "/podcasts" },
         { name: "Who We Partner With?", path: "/who-we-partner-with" },
         { name: "Brand Kit", path: "/brand-kit" },
       ],

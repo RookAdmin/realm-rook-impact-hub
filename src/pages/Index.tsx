@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import HeroSection from '@/components/home/HeroSection';
+import PodcastCarousel from '@/components/home/PodcastCarousel';
 import ImpactMetrics from '@/components/home/ImpactMetrics';
 import ServicesPreview from '@/components/home/ServicesPreview';
 import ClientSpotlight from '@/components/home/ClientSpotlight';
@@ -23,6 +24,9 @@ const Index = () => {
       <main className="min-h-screen">
         {/* Hero Section - Solid Black Background with Bold Typography */}
         <HeroSection />
+        
+        {/* Podcast Carousel - Running Thumbnails */}
+        <PodcastCarousel />
         
         {/* Impact Metrics Section - Animated Counters */}
         <ImpactMetrics />

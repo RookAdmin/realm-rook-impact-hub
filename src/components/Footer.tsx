@@ -48,6 +48,7 @@ const Footer = () => {
       links: [
         { name: "Insights", path: "/resources/insights" },
         { name: "Press Releases", path: "/resources/press-releases" },
+        { name: "Podcasts", path: "/podcasts" },
       ],
     },
     {
