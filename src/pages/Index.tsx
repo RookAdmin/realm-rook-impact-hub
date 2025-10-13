@@ -25,21 +25,17 @@ const Index = () => {
         {/* Hero Section - Solid Black Background with Bold Typography */}
         <HeroSection />
         
-        {/* Podcast Carousel - Running Thumbnails */}
-        <PodcastCarousel />
-        
-        {/* Impact Metrics Section - Animated Counters */}
-        <ImpactMetrics />
-        
-        {/* What We Do - Services Preview */}
-        <ServicesPreview />
-        
         {/* Client Spotlight - Success Stories */}
         <ClientSpotlight />
-        
-        
+
+        {/* What We Do - Services Preview */}
+        <ServicesPreview />
+
         {/* Client Testimonials */}
         <ClientQuotes />
+
+        {/* Impact Metrics Section - Animated Counters */}
+        <ImpactMetrics />   
         
         {/* RAD Process Visual */}
         <RadProcessVisual />
@@ -48,8 +44,11 @@ const Index = () => {
         <PartnerLogos />
         
         {/* Insights and Resources Preview */}
-        <InsightsResourcesPreview />
+        {/* <InsightsResourcesPreview /> */}
         
+        {/* Podcast Carousel - Running Thumbnails */}
+        <PodcastCarousel />
+
         {/* Final CTA Section */}
         <FinalCta />
       </main>

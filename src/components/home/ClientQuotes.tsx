@@ -89,8 +89,8 @@ const ClientQuotes = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex" />
-          <CarouselNext className="hidden md:flex" />
+          <CarouselPrevious className="ml-4 hidden md:flex" />
+          <CarouselNext className="mr-4 hidden md:flex" />
         </Carousel>
       </div>
     </section>

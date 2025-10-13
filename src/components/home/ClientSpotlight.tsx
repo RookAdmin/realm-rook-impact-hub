@@ -9,49 +9,57 @@ import {
   CarouselNext,
   CarouselPrevious
 } from "@/components/ui/carousel";
+import Icm from '@/components/assets/impact-studies/icm.png';
+import IcmLogo from '@/components/assets/impact-studies/icm-logo.png';
+import ChefavrLogo from '@/components/assets/impact-studies/chefavr-logo.jpg';
+import Chefavr from '@/components/assets/impact-studies/chefavr.png';
+import Light from '@/components/assets/impact-studies/light.png';
+import LightLogo from '@/components/assets/impact-studies/light-logo.png';
+import Mpb from '@/components/assets/impact-studies/mpb.png';
+import MpbLogo from '@/components/assets/impact-studies/mpb-logo.png';
 
 const ClientSpotlight = () => {
   const caseStudies = [
     {
       id: "case1",
-      client: "Zephyr Skincare",
-      logo: "https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100",
-      transformation: "2X conversions in 4 weeks",
-      image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=800&h=500",
-      slug: "zephyr-skincare-brand-transformation"
+      client: "ChefAVR",
+      logo: ChefavrLogo,
+      transformation: "Building chefavr.com: Digital Portfolio of Chef AVR – Culinary Leader & Food Business Advisor",
+      image: Chefavr,
+      slug: "building-chefavr-com-digital-portfolio-of-chefavr-culinary-leader-and-food-business-advisor"
     },
     {
       id: "case2",
-      client: "Finovo",
-      logo: "https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100",
-      transformation: "10X user engagement through UX redesign",
-      image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&q=80&w=800&h=500",
-      slug: "finovo-ux-redesign-engagement"
+      client: "Lightspire Media",
+      logo: LightLogo,
+      transformation: "Animating a Digital Hub: Lightspire Media’s Web Presence & Creative Outreach",
+      image: Light,
+      slug: "animating-a-digital-hub-lightspire-media-s-web-presence-and-creative-outreach"
     },
     {
       id: "case3",
-      client: "Elevate Tech",
-      logo: "https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100",
-      transformation: "3s to 0.5s page load speed improvement",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800&h=500",
-      slug: "elevate-tech-performance-optimization"
+      client: "ICM Study Abroad",
+      logo: IcmLogo,
+      transformation: "icmstudyabroad.com: A 360° Digital Hub for Study Abroad, Placement, Courses, CRM, and Startup Empowerment",
+      image: Icm,
+      slug: "icmstudyabroad-com-a-360-digital-hub-for-study-abroad-placement-courses-crm-and-startup"
     },
     {
       id: "case4",
-      client: "Atlas Travel",
-      logo: "https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80&w=200&h=100",
-      transformation: "400% increase in organic traffic",
-      image: "https://images.unsplash.com/photo-1576153192396-180ecef2a715?auto=format&fit=crop&q=80&w=800&h=500",
-      slug: "atlas-travel-seo-success"
+      client: "MyProBuddy",
+      logo: MpbLogo,
+      transformation: "MyProBuddy.com: Accelerating Startup Funding Through AI, Investor Networks & Expert Advisory",
+      image: Mpb,
+      slug: "myprobuddy-com-accelerating-startup-funding-through-ai-investor-networks-and-expert-advisory"
     }
   ];
 
   return (
-    <section className="realm-section bg-realm-black text-white">
+    <section className="realm-section text-black">
       <div className="realm-container">
         <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Client Impact</h2>
-          <div className="w-16 h-1 bg-white"></div>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-black mb-4">Client Impact</h2>
+          <div className="w-16 h-1 bg-black"></div>
         </div>
         
         <Carousel
@@ -65,7 +73,7 @@ const ClientSpotlight = () => {
             {caseStudies.map((study) => (
               <CarouselItem key={study.id} className="md:basis-1/2 lg:basis-1/3">
                 <Link to={`/case-studies/${study.slug}`} className="block group">
-                  <div className="border border-white/20 hover:border-white transition-all duration-300 p-0 overflow-hidden">
+                  <div className="border border-black/20 hover:border-white transition-all duration-300 p-0 overflow-hidden">
                     <div className="relative aspect-video overflow-hidden">
                       <img 
                         src={study.image} 
@@ -83,11 +91,11 @@ const ClientSpotlight = () => {
                         <h3 className="text-lg font-display font-medium">{study.client}</h3>
                       </div>
                       
-                      <p className="text-xl font-display font-bold mb-4">
+                      <p className="text-xl font-display font-bold mb-4 line-clamp-2">
                         {study.transformation}
                       </p>
                       
-                      <div className="inline-flex items-center font-medium text-sm text-white/80 group-hover:text-white transition-colors">
+                      <div className="inline-flex items-center font-medium text-sm text-black/80 group-hover:text-black transition-colors">
                         <span>View Case Study</span>
                         <ArrowRight size={14} className="ml-2 transition-transform group-hover:translate-x-1" />
                       </div>
@@ -97,14 +105,14 @@ const ClientSpotlight = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex" />
-          <CarouselNext className="hidden md:flex" />
+          <CarouselPrevious className="ml-4 hidden md:flex" />
+          <CarouselNext className="mr-4 hidden md:flex" />
         </Carousel>
         
         <div className="mt-12 text-center">
           <Link 
             to="/case-studies" 
-            className="inline-flex items-center text-white border-b border-white/40 hover:border-white pb-1 transition-colors"
+            className="inline-flex items-center text-black border-b border-black/40 hover:border-white pb-1 transition-colors"
           >
             <span>See All Impact Studies</span>
             <ArrowRight size={16} className="ml-2" />
