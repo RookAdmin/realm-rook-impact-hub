@@ -500,7 +500,7 @@ const ImpactStudyDetail = () => {
 
       <section className="realm-section">
         <div className="realm-container max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 md:items-center">
             <div>
               <h3 className="text-2xl font-display font-bold mb-4">Problem</h3>
               <div className="w-12 h-1 bg-realm-black mb-4"></div>
@@ -519,7 +519,7 @@ const ImpactStudyDetail = () => {
                 )}
               </div>
             </div>
-            <div className="md:col-span-2">
+            <div className="md:col-span-2 flex items-center">
               {study.problem && (
                 <div className="prose prose-lg max-w-none">
                   {(() => {
@@ -530,9 +530,32 @@ const ImpactStudyDetail = () => {
                         components={{
                           block: {
                             normal: ({ children }) => (
-                              <p className="text-lg leading-relaxed">
+                              <p className="text-lg leading-relaxed mb-4">
                                 {children}
                               </p>
+                            ),
+                          },
+                          list: {
+                            bullet: ({ children }) => (
+                              <ul className="space-y-3 my-6">{children}</ul>
+                            ),
+                            number: ({ children }) => (
+                              <ol className="space-y-3 my-6 list-decimal list-inside">
+                                {children}
+                              </ol>
+                            ),
+                          },
+                          listItem: {
+                            bullet: ({ children }) => (
+                              <li className="text-lg leading-relaxed flex items-start">
+                                <span className="inline-block w-2 h-2 bg-realm-black rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                                <span>{children}</span>
+                              </li>
+                            ),
+                            number: ({ children }) => (
+                              <li className="text-lg leading-relaxed ml-4">
+                                {children}
+                              </li>
                             ),
                           },
                         }}
@@ -548,7 +571,7 @@ const ImpactStudyDetail = () => {
 
       <section className="realm-section bg-realm-lightgray">
         <div className="realm-container max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 md:items-center">
             <div>
               <h3 className="text-2xl font-display font-bold mb-4">Process</h3>
               <div className="w-12 h-1 bg-realm-black mb-4"></div>
@@ -567,7 +590,7 @@ const ImpactStudyDetail = () => {
                 )}
               </div>
             </div>
-            <div className="md:col-span-2">
+            <div className="md:col-span-2 flex items-center">
               {study.process && (
                 <div className="prose prose-lg max-w-none">
                   {(() => {
@@ -578,9 +601,32 @@ const ImpactStudyDetail = () => {
                         components={{
                           block: {
                             normal: ({ children }) => (
-                              <p className="text-lg leading-relaxed">
+                              <p className="text-lg leading-relaxed mb-4">
                                 {children}
                               </p>
+                            ),
+                          },
+                          list: {
+                            bullet: ({ children }) => (
+                              <ul className="space-y-3 my-6">{children}</ul>
+                            ),
+                            number: ({ children }) => (
+                              <ol className="space-y-3 my-6 list-decimal list-inside">
+                                {children}
+                              </ol>
+                            ),
+                          },
+                          listItem: {
+                            bullet: ({ children }) => (
+                              <li className="text-lg leading-relaxed flex items-start">
+                                <span className="inline-block w-2 h-2 bg-realm-black rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                                <span>{children}</span>
+                              </li>
+                            ),
+                            number: ({ children }) => (
+                              <li className="text-lg leading-relaxed ml-4">
+                                {children}
+                              </li>
                             ),
                           },
                         }}
@@ -596,7 +642,7 @@ const ImpactStudyDetail = () => {
 
       <section className="realm-section">
         <div className="realm-container max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 md:items-center">
             <div>
               <h3 className="text-2xl font-display font-bold mb-4">Outcome</h3>
               <div className="w-12 h-1 bg-realm-black mb-4"></div>
@@ -615,8 +661,46 @@ const ImpactStudyDetail = () => {
                 )}
               </div>
             </div>
-            <div className="md:col-span-2">
-              <PortableText value={study.outcome} />
+            <div className="md:col-span-2 flex items-center">
+              {study.outcome && (
+                <div className="prose prose-lg max-w-none">
+                  <PortableText
+                    value={study.outcome}
+                    components={{
+                      block: {
+                        normal: ({ children }) => (
+                          <p className="text-lg leading-relaxed mb-4">
+                            {children}
+                          </p>
+                        ),
+                      },
+                      list: {
+                        bullet: ({ children }) => (
+                          <ul className="space-y-3 my-6">{children}</ul>
+                        ),
+                        number: ({ children }) => (
+                          <ol className="space-y-3 my-6 list-decimal list-inside">
+                            {children}
+                          </ol>
+                        ),
+                      },
+                      listItem: {
+                        bullet: ({ children }) => (
+                          <li className="text-lg leading-relaxed flex items-start">
+                            <span className="inline-block w-2 h-2 bg-realm-black rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                            <span>{children}</span>
+                          </li>
+                        ),
+                        number: ({ children }) => (
+                          <li className="text-lg leading-relaxed ml-4">
+                            {children}
+                          </li>
+                        ),
+                      },
+                    }}
+                  />
+                </div>
+              )}
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                 {study.outcomeGallery?.map((image, index) => (
