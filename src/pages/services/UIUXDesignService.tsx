@@ -16,6 +16,8 @@ import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import ContactForm from "@/components/ContactForm";
 
+import Bob from "@/components/assets/client/bob.jpg"
+
 const UIUXDesignService = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const benefits = [
@@ -363,14 +365,14 @@ const UIUXDesignService = () => {
               <div className="flex items-center justify-center">
                 <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
                   <img
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100"
+                    src={Bob}
                     alt="Client portrait"
                     className="realm-image"
                   />
                 </div>
                 <div className="text-left">
-                  <p className="font-bold">Sarah Johnson</p>
-                  <p className="text-realm-darkgray">CPO, TechVision Inc.</p>
+                  <p className="font-bold">Bob Deol</p>
+                  <p className="text-realm-darkgray">Founder, V5 Digital</p>
                 </div>
               </div>
             </div>

@@ -23,6 +23,12 @@ const About = () => {
     { name: "Client 4", logo: "/PartnerLogos/Greenhouse.png" },
     { name: "Client 5", logo: "/PartnerLogos/V5Digital.png" },
     { name: "Client 6", logo: "/PartnerLogos/ZGuard.png" },
+    { name: 'Client 7', logo: '/PartnerLogos/chefavr.png' },
+    { name: 'Client 8', logo: '/PartnerLogos/dspgroups.png' },
+    { name: 'Client 9', logo: '/PartnerLogos/namsushi.png' },
+    { name: 'Client 10', logo: '/PartnerLogos/sports29.png' },
+    { name: 'Client 11', logo: '/PartnerLogos/annauni.png' },
+    { name: 'Client 12', logo: '/PartnerLogos/huarchery.png' },
   ];
 
   const container = {
@@ -42,11 +48,11 @@ const About = () => {
   // Beliefs/Pillars data
   const beliefs = [
     {
-      title: "Precision-Led Design",
+      title: "Precision Led Design",
       description: "Aesthetic meets function",
     },
     {
-      title: "Performance-Focused Code",
+      title: "Performance Focused Code",
       description: "Fast, scalable, bulletproof",
     },
     {
@@ -158,15 +164,15 @@ const About = () => {
 
               <p className="text-xl leading-relaxed mb-6">
                 Realm was born from the ashes of mediocrity. We witnessed brands
-                settle for 'good enough' design, half-baked strategies, and
-                indistinguishable digital presences. So we built the antidote—a
+                settle for 'good enough' design, half baked strategies, and
+                indistinguishable digital presences. So we built the antidote a
                 studio where precision meets ambition.
               </p>
 
               <p className="text-xl leading-relaxed">
                 We exist for brands that refuse to be another face in the crowd.
                 Leaders who understand that digital presence isn't
-                decoration—it's the battlefield where market position is won or
+                decoration it's the battlefield where market position is won or
                 lost. If you're looking for just another agency, we're not it.
               </p>
             </motion.div>
@@ -295,7 +301,7 @@ const About = () => {
               </h2>
 
               <p className="text-xl leading-relaxed">
-                We partner with visionaries, challengers, and changemakers — not
+                We partner with visionaries, challengers, and changemakers - not
                 with everyone who has a logo.
               </p>
             </motion.div>
@@ -372,26 +378,29 @@ const About = () => {
             </motion.div>
 
             <motion.div
-              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8"
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-            >
-              {clients.map((client, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-center justify-center"
-                  variants={item}
-                >
-                  <img
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    className="realm-client-logo"
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
+            className="flex gap-12"
+            animate={{
+              x: ["0%", "-100%"], // continuous scroll
+            }}
+            transition={{
+              ease: "linear",
+              duration: 25,
+              repeat: Infinity,
+            }}
+          >
+            {[...clients, ...clients].map((client, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center flex-shrink-0"
+              >
+                <img
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  className="w-32 h-20 object-contain"
+                />
+              </div>
+            ))}
+          </motion.div>
           </div>
         </section>
 

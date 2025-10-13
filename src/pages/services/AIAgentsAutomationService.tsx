@@ -372,7 +372,7 @@ const AIAgentsAutomationService = () => {
         </div> */}
 
         {/* Hero Section */}
-        <section className="bg-realm-black text-white  md:py-16">
+        <section className="bg-realm-black  text-white  md:py-16">
           <div className="realm-container">
             <motion.div
               initial="hidden"

@@ -18,6 +18,7 @@ import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 import { impactStudies } from "@/data/impactStudiesData";
 import ImpactStudyCard from "@/components/impact-studies/ImpactStudyCard";
 import TransformationStories from "@/components/home/TransformationStories";
+import ImpactStudyOne from "@/components/impact-studies/ImpactStudiesOne";
 
 // Animation variants
 const fadeIn = {
@@ -140,23 +141,13 @@ const D2CStartups = () => {
   const clientLogos = [
     {
       name: "Zephyr Skincare",
-      logo: "/placeholder.svg",
+      logo: "/PartnerLogos/ZGuard.png",
       tooltip: "Growth in MRR by 2.3x in 5 months",
     },
     {
       name: "Finovo",
-      logo: "/placeholder.svg",
+      logo: "/PartnerLogos/Moufil.png",
       tooltip: "Increased conversion rate from 2% to 8.5%",
-    },
-    {
-      name: "Elevate Tech",
-      logo: "/placeholder.svg",
-      tooltip: "Reduced load time from 5s to 1.2s",
-    },
-    {
-      name: "GreenPath",
-      logo: "/placeholder.svg",
-      tooltip: "400% increase in organic traffic",
     },
   ];
 
@@ -349,14 +340,14 @@ const D2CStartups = () => {
               <div className="flex flex-wrap justify-center items-center gap-12 max-w-5xl mx-auto">
                 {clientLogos.map((client, index) => (
                   <div key={index} className="group relative cursor-pointer">
-                    <div className="realm-client-logo h-12 w-32 bg-gray-200 flex items-center justify-center">
-                      {client.name}
+                    <div className="realm-client-logo h-12 w-48  flex items-center justify-center">
+                      <img src={client.logo} />
                     </div>
 
                     {/* Tooltip */}
-                    <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-realm-black text-white px-4 py-2 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    {/* <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-realm-black text-white px-4 py-2 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                       {client.tooltip}
-                    </div>
+                    </div> */}
                   </div>
                 ))}
               </div>
@@ -381,11 +372,12 @@ const D2CStartups = () => {
                 </h3>
               </motion.div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {impactStudies.slice(0, 3).map((study) => (
-                  <ImpactStudyCard key={study.id} study={study} />
-                ))}
-              </div>
+               <div className="max-w-4xl mx-auto">
+      {impactStudies.length > 0 && (
+        <ImpactStudyOne study={impactStudies[0]} />
+      )}
+    </div>
+
 
               <div className="mt-12 text-center">
                 <Link

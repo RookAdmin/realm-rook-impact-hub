@@ -522,69 +522,69 @@ const SocialProof = () => {
 };
 
 // Impact Studies Preview section
-const ImpactStudies = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+// const ImpactStudies = () => {
+//   const ref = useRef(null);
+//   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-  const caseStudies = [
-    {
-      title: "D2C Fashion Brand",
-      result: "220% engagement jump in 6 weeks",
-    },
-    {
-      title: "HealthTech Startup",
-      result: "3x social-driven inbound leads",
-    },
-    {
-      title: "Fitness Coach",
-      result: "Reels views from 200 → 28,000 avg in 30 days",
-    },
-    {
-      title: "B2B SaaS",
-      result: "LinkedIn leads up 530% using AI content repurposing",
-    },
-  ];
+//   const caseStudies = [
+//     {
+//       title: "D2C Fashion Brand",
+//       result: "220% engagement jump in 6 weeks",
+//     },
+//     {
+//       title: "HealthTech Startup",
+//       result: "3x social-driven inbound leads",
+//     },
+//     {
+//       title: "Fitness Coach",
+//       result: "Reels views from 200 → 28,000 avg in 30 days",
+//     },
+//     {
+//       title: "B2B SaaS",
+//       result: "LinkedIn leads up 530% using AI content repurposing",
+//     },
+//   ];
 
-  return (
-    <section ref={ref} className="py-20 bg-white">
-      <div className="realm-container">
-        <motion.h2
-          className="text-3xl md:text-4xl font-display font-bold mb-8 text-center"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Impact Studies
-        </motion.h2>
+//   return (
+//     <section ref={ref} className="py-20 bg-white">
+//       <div className="realm-container">
+//         <motion.h2
+//           className="text-3xl md:text-4xl font-display font-bold mb-8 text-center"
+//           initial={{ opacity: 0 }}
+//           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+//           transition={{ duration: 0.5 }}
+//         >
+//           Impact Studies
+//         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {caseStudies.map((study, index) => (
-            <motion.div
-              key={index}
-              className="border border-realm-lightgray p-6 hover:border-realm-black transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-            >
-              <div className="text-lg font-bold mb-2">✨ {study.title}</div>
-              <p className="text-realm-darkgray mb-0">{study.result}</p>
-            </motion.div>
-          ))}
-        </div>
+//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+//           {caseStudies.map((study, index) => (
+//             <motion.div
+//               key={index}
+//               className="border border-realm-lightgray p-6 hover:border-realm-black transition-all duration-300"
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+//               transition={{ duration: 0.4, delay: index * 0.1 }}
+//             >
+//               <div className="text-lg font-bold mb-2">✨ {study.title}</div>
+//               <p className="text-realm-darkgray mb-0">{study.result}</p>
+//             </motion.div>
+//           ))}
+//         </div>
 
-        <div className="mt-12 text-center">
-          <Link
-            to="/case-studies"
-            className="realm-link text-lg font-medium flex items-center justify-center gap-2"
-          >
-            <span>See More Wins</span>
-            <ArrowRight size={18} />
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-};
+//         <div className="mt-12 text-center">
+//           <Link
+//             to="/case-studies"
+//             className="realm-link text-lg font-medium flex items-center justify-center gap-2"
+//           >
+//             <span>See More Wins</span>
+//             <ArrowRight size={18} />
+//           </Link>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
 
 // Final CTA section
 const FinalCTA = () => {
@@ -752,7 +752,7 @@ const SocialMediaMarketingService = () => {
         <ServicesIncluded />
         <AIUpgrade />
         <SocialProof />
-        <ImpactStudies />
+        {/* <ImpactStudies /> */}
         <FinalCTA />
         <StickyCTA />
       </main>
