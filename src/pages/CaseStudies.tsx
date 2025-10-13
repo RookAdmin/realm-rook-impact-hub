@@ -16,7 +16,7 @@ interface ImpactStudy {
   perspectiveCategory: string;
   slug: {
     current: string;
-  };
+  } | null;
   capabilities?: {
     _id: string;
     title: string;
@@ -30,6 +30,9 @@ interface ImpactStudy {
   problem?: string;
   process?: string;
   outcome?: string;
+  _createdAt?: string;
+  _updatedAt?: string;
+  publishedAt?: string;
 }
 
 // Capabilities Categories
@@ -117,7 +120,7 @@ const ImpactStudyCard = ({ study }: ImpactStudyCardProps) => {
 
       <CardFooter className="pt-0">
         <Link
-          to={`/case-studies/${study.slug?.current}`}
+          to={`/case-studies/${study.slug?.current || study._id}`}
           className="realm-button inline-flex items-center"
         >
           Read Full Study
@@ -146,6 +149,7 @@ const fallbackStudies: ImpactStudy[] = [
       "We conducted extensive market research and developed a comprehensive brand strategy.",
     outcome:
       "Within six months, Zephyr experienced exponential growth: 18,000+ monthly visitors and 300% increase in online revenue.",
+    _createdAt: "2023-08-15T00:00:00Z",
   },
   {
     _id: "2",
@@ -163,6 +167,7 @@ const fallbackStudies: ImpactStudy[] = [
       "We began with a UX audit to identify pain points and conversion barriers.",
     outcome:
       "The redesigned platform achieved an 8.5% conversion rate—a 325% improvement.",
+    _createdAt: "2023-07-10T00:00:00Z",
   },
   {
     _id: "3",
@@ -180,6 +185,7 @@ const fallbackStudies: ImpactStudy[] = [
       "We rebuilt their platform from scratch using modern technologies with performance at the core.",
     outcome:
       "The new platform loads in just 1.2 seconds, reducing bounce rate to 22%.",
+    _createdAt: "2023-06-05T00:00:00Z",
   },
 ];
 
@@ -196,8 +202,8 @@ const CaseStudies = () => {
       try {
         console.log("Attempting to fetch studies from Sanity...");
 
-        // Try to fetch from ImpactStudy schema first
-        const impactStudyQuery = `*[_type == "ImpactStudy"] {
+        // Try to fetch from ImpactStudy schema first with sorting (newest first)
+        const impactStudyQuery = `*[_type == "ImpactStudy"] | order(coalesce(publishedAt, _updatedAt, _createdAt) desc) {
           _id,
           title,
           mainImage,
@@ -215,15 +221,18 @@ const CaseStudies = () => {
           problem,
           process,
           outcome,
-          "slug": slug
+          _createdAt,
+          _updatedAt,
+          publishedAt,
+          slug
         }`;
 
         let data = await client1.fetch(impactStudyQuery);
 
-        // If no ImpactStudy data, try post schema
+        // If no ImpactStudy data, try post schema with sorting (newest first)
         if (!data || data.length === 0) {
           console.log("No ImpactStudy data found, trying post schema...");
-          const postQuery = `*[_type == "post"] {
+          const postQuery = `*[_type == "post"] | order(coalesce(publishedAt, _updatedAt, _createdAt) desc) {
             _id,
             title,
             mainImage,
@@ -238,14 +247,37 @@ const CaseStudies = () => {
             },
             companyLogo,
             companyName,
-            "slug": slug
+            _createdAt,
+            _updatedAt,
+            publishedAt,
+            slug
           }`;
           data = await client1.fetch(postQuery);
         }
 
         if (data && data.length > 0) {
           console.log("Successfully fetched studies:", data);
-          setStudies(data);
+
+          // Sort by date as an additional safeguard (newest first)
+          const sortedData = data.sort((a: any, b: any) => {
+            const dateA = new Date(
+              a.publishedAt || a._updatedAt || a._createdAt
+            ).getTime();
+            const dateB = new Date(
+              b.publishedAt || b._updatedAt || b._createdAt
+            ).getTime();
+            return dateB - dateA; // Descending order (newest first)
+          });
+
+          console.log(
+            "Sorted studies by date:",
+            sortedData.map((s: any) => ({
+              title: s.title,
+              date: s.publishedAt || s._updatedAt || s._createdAt,
+            }))
+          );
+
+          setStudies(sortedData);
           setUsingFallback(false);
         } else {
           console.log("No data found, using fallback studies");
@@ -265,17 +297,28 @@ const CaseStudies = () => {
     fetchStudies();
   }, []);
 
-  const filteredStudies = studies.filter((study) => {
-    const matchesCategory =
-      activeCategory === "All" ||
-      study.capabilities?.some(
-        (capabilities) => capabilities.title === activeCategory
-      );
-    const matchesRegion =
-      activeRegion === "All" ||
-      study.region?.some((region) => region.title === activeRegion);
-    return matchesCategory && matchesRegion;
-  });
+  const filteredStudies = studies
+    .filter((study) => {
+      const matchesCategory =
+        activeCategory === "All" ||
+        study.capabilities?.some(
+          (capabilities) => capabilities.title === activeCategory
+        );
+      const matchesRegion =
+        activeRegion === "All" ||
+        study.region?.some((region) => region.title === activeRegion);
+      return matchesCategory && matchesRegion;
+    })
+    .sort((a: any, b: any) => {
+      // Maintain chronological order after filtering (newest first)
+      const dateA = new Date(
+        a.publishedAt || a._updatedAt || a._createdAt
+      ).getTime();
+      const dateB = new Date(
+        b.publishedAt || b._updatedAt || b._createdAt
+      ).getTime();
+      return dateB - dateA; // Descending order (newest first)
+    });
 
   return (
     <main className="min-h-screen">
