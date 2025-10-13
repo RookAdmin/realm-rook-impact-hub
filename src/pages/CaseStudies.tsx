@@ -117,7 +117,7 @@ const ImpactStudyCard = ({ study }: ImpactStudyCardProps) => {
 
       <CardFooter className="pt-0">
         <Link
-          to={`/case-studies/${study.slug?.current}`}
+          to={`/case-studies/${study.slug.current}`}
           className="realm-button inline-flex items-center"
         >
           Read Full Study
