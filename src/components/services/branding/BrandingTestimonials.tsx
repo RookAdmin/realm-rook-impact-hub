@@ -1,6 +1,8 @@
 
 import React from 'react';
 
+import Ravichandran from "@/components/assets/client/ravi-namsushi.png"
+import Ashwin from "@/components/assets/client/ashwin-icm.png"
 interface TestimonialProps {
   quote: string;
   author: string;
@@ -33,18 +35,18 @@ const Testimonial = ({ quote, author, position, company, image }: TestimonialPro
 const BrandingTestimonials = () => {
   const testimonials = [
     {
-      quote: "Working with Realm by Rook transformed our business. They didn't just create a logo—they crafted an identity that resonates with our customers on a deeper level and has become integral to our success.",
-      author: "Alexandra Chen",
-      position: "Founder & CEO",
-      company: "Lumina Beauty",
-      image: "/placeholder.svg"
+      quote: "Working with Realm by Rook transformed our business. They didn't just create a logo they crafted an identity that resonates with our customers on a deeper level and has become integral to our success.",
+      author: "Ravichandran V",
+      position: "Founder",
+      company: "Nam Sushi",
+      image: Ravichandran
     },
     {
       quote: "The team took the time to truly understand our vision, values, and goals. The result was a brand that authentically represents who we are while standing out in a crowded market.",
-      author: "Marcus Johnson",
-      position: "Co-founder",
-      company: "Evergreen Technologies",
-      image: "/placeholder.svg"
+      author: "Ashwin G",
+      position: "Founder",
+      company: "ICM",
+      image: Ashwin
     }
   ];
 
@@ -55,6 +57,12 @@ const BrandingTestimonials = () => {
     '/PartnerLogos/Greenhouse.png',
     '/PartnerLogos/V5Digital.png' ,
     '/PartnerLogos/ZGuard.png',
+    '/PartnerLogos/chefavr.png',
+    '/PartnerLogos/dspgroups.png',
+    '/PartnerLogos/namsushi.png',
+    '/PartnerLogos/sports29.png' ,
+    '/PartnerLogos/annauni.png' ,
+    '/PartnerLogos/huarchery.png'
   ];
  
 
@@ -76,7 +84,7 @@ const BrandingTestimonials = () => {
         </div>
         
         <p className="text-center text-xl font-display mt-12 mb-8">
-          People don't just love what we create — they trust us with everything.
+          People don't just love what we create, they trust us with everything.
         </p>
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">

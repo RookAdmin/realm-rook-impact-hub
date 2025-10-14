@@ -4,18 +4,24 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
+import Rlinks from "@/components/assets/impact-studies/rlinks.png"
+import Coventry from "@/components/assets/impact-studies/coventry.png"
+import Namsushi from "@/components/assets/impact-studies/namsushi.png"
+
 interface ImpactCardProps {
   brandName: string;
   result: string;
   quote?: string;
   author?: string;
   image: string;
+  slug: string;
 }
 
-const ImpactCard = ({ brandName, result, quote, author, image }: ImpactCardProps) => {
+const ImpactCard = ({ brandName, result, quote, author, image, slug }: ImpactCardProps) => {
   return (
     <Card className="border border-realm-lightgray hover:border-realm-black transition-all duration-300">
       <CardContent className="p-6">
+        <a href={slug} >
         <div className="mb-6 aspect-video bg-realm-lightgray flex items-center justify-center">
           <img 
             src={image} 
@@ -24,13 +30,14 @@ const ImpactCard = ({ brandName, result, quote, author, image }: ImpactCardProps
           />
         </div>
         <h3 className="text-xl font-display font-bold mb-2">{brandName}</h3>
-        <p className="text-realm-darkgray font-medium mb-4">{result}</p>
+        {/* <p className="text-realm-darkgray font-medium mb-4">{result}</p> */}
         {quote && (
           <div className="border-l-2 border-realm-black pl-4 mt-4 italic">
             <p className="mb-2">"{quote}"</p>
-            {author && <p className="text-sm font-medium">— {author}</p>}
+            {/* {author && <p className="text-sm font-medium">— {author}</p>} */}
           </div>
         )}
+        </a>
       </CardContent>
     </Card>
   );
@@ -39,26 +46,29 @@ const ImpactCard = ({ brandName, result, quote, author, image }: ImpactCardProps
 const BrandingImpact = () => {
   const impacts = [
     {
-      brandName: "Zephyr Skincare",
+      brandName: "Nam Sushi",
       result: "+300% online revenue after rebranding",
-      quote: "Realm completely transformed how people perceive our brand.",
+      quote: "Building Nam Sushi’s Digital Experience & SEO Success.",
       author: "Rishi B., Founder",
-      image: "/placeholder.svg"
+      image: Namsushi,
+      slug: "/case-studies/building-nam-sushi-s-digital-experience-and-seo-success"
     },
     {
-      brandName: "TechNova Solutions",
-      result: "40% increase in brand recognition",
-      quote: "Our new identity perfectly captures our innovative spirit.",
-      author: "Sarah L., CEO",
-      image: "/placeholder.svg"
-    },
-    {
-      brandName: "Evergreen Organics",
+      brandName: "Rook Links",
       result: "+180% in retail partnerships post-rebrand",
-      quote: "We're now recognized instantly on store shelves.",
+      quote: "Enterprise-Grade, In-House SaaS for Visual Link Management",
       author: "Daniel K., Marketing Director",
-      image: "/placeholder.svg"
-    }
+      image: Rlinks,
+      slug: "/case-studies/building-rook-links-enterprise-grade-in-house-saas-for-visual-link-management"
+    },
+    {
+      brandName: "Coventry Road Dental Care",
+      result: "40% increase in brand recognition",
+      quote: "Transforming Coventry Road Dentalcare’s Social Media Presence & ROI",
+      author: "Sarah L., CEO",
+      image: Coventry,
+      slug: "/case-studies/transforming-coventry-road-dentalcare-s-social-media-presence-and-roi"
+    },
   ];
 
   return (
@@ -80,6 +90,7 @@ const BrandingImpact = () => {
               quote={impact.quote}
               author={impact.author}
               image={impact.image}
+              slug={impact.slug}
             />
           ))}
         </div>

@@ -18,6 +18,10 @@ import ContactForm from "@/components/ContactForm";
 import { Helmet } from "react-helmet-async";
 import { IconCloudDemo } from "@/components/magicui/IconCloudDemo";
 
+import Finequs from "@/components/assets/impact-studies/finequs-logo.webp"
+import Avr from "@/components/assets/impact-studies/avr-favicon.png"
+import Coventry from "@/components/assets/impact-studies/coventry-logo.png"
+
 // Hero section with animated metrics
 const Hero = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -222,6 +226,34 @@ const ProofSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
+  const caseStudies = [
+    
+    {
+      id: 1,
+      logo: Avr,
+      stat: "69,128+ Impressions Organically",
+      quote:
+        "Social Media Acceleration: Aravindh Ravichandran's Personal Brand on Instagram & LinkedIn",
+      link: "/case-studies/social-media-acceleration-aravindh-ravichandran-personal-brand-on-instagram-and-linkedin",
+    },
+    {
+      id: 2,
+      logo: Finequs,
+      stat: "93,502+ High Quality Leads ",
+      quote:
+        "Transforming Lead Generation & Brand Growth for Finequs: Meta Ads, AI, and WhatsApp Automation",
+      link: "/case-studies/transforming-lead-generation-and-brand-growth-for-finequs-meta-ads-ai-and-whatsapp-automation",
+    },
+    {
+      id: 3,
+      logo: Coventry,
+      stat: "62,454+ Impressions Organically",
+      quote:
+        "Transforming Coventry Road Dentalcare’s Social Media Presence & ROI",
+      link: "/case-studies/transforming-coventry-road-dentalcare-s-social-media-presence-and-roi",
+    },
+  ];
+
   return (
     <section ref={ref} className="py-20 bg-realm-lightgray">
       <div className="realm-container">
@@ -261,26 +293,29 @@ const ProofSection = () => {
 
         <div className="mt-12">
           <h3 className="text-xl font-bold mb-6 text-center">
-            Success Stories
+            Impact Studies
           </h3>
           <div className="overflow-x-auto pb-4">
             <div className="flex gap-6 min-w-max">
-              {[1, 2, 3].map((item) => (
+              {caseStudies.map((study) => (
                 <div
-                  key={item}
-                  className="bg-white p-6 min-w-[300px] shadow-sm"
+                  key={study.id}
+                  className="bg-white p-6 min-w-[300px] shadow-sm rounded-xl border border-gray-100 hover:shadow-md transition-all duration-300"
                 >
-                  <div className="w-16 h-8 bg-gray-200 mb-4"></div>
-                  <p className="text-xl font-bold mb-2">+320% Engagement</p>
-                  <p className="text-sm text-realm-darkgray mb-4">
-                    "The strategic approach Realm brought to our social presence
-                    completely transformed our brand perception."
-                  </p>
+                  <div className="w-16 h-8 mb-4">
+                    <img
+                      src={study.logo}
+                      alt="Company Logo"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <p className="text-xl font-bold mb-2">{study.stat}</p>
+                  <p className="text-sm text-realm-darkgray mb-4">"{study.quote}"</p>
                   <Link
-                    to="/case-studies"
-                    className="realm-link text-sm flex items-center gap-1"
+                    to={study.link}
+                    className="realm-link text-sm flex items-center gap-1 font-medium text-realm-black hover:text-realm-primary transition-colors"
                   >
-                    <span>View Case Study</span>
+                    <span>View Impact Studies</span>
                     <ArrowRight size={14} />
                   </Link>
                 </div>
