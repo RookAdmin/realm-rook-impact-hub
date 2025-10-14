@@ -15,9 +15,22 @@ import {
 } from "lucide-react";
 import PageHeader from "@/components/common/PageHeader";
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
-import { impactStudies } from "@/data/impactStudiesData";
+
 import ImpactStudyCard from "@/components/impact-studies/ImpactStudyCard";
 import TransformationStories from "@/components/home/TransformationStories";
+
+import Rlinks from "@/components/assets/impact-studies/rlinks-logo.png"
+import Mpb from "../../../public/partner-logo/mypro.avif"
+import Paym from "@/components/assets/impact-studies/paym-logo.png"
+import Hlo from "../../../public/partner-logo/hlo.png"
+import Rook from "../../../public/partner-logo/rook.png"
+
+import RookFavi from "@/components/assets/impact-studies/rook-favicon.png"
+import MpbFavi from "@/components/assets/impact-studies/mpb-favicon.png"
+
+import MpbImpact from "@/components/assets/impact-studies/mpb.png"
+import RlinkImpact from "@/components/assets/impact-studies/rlinks.png"
+import PaymImpact from "@/components/assets/impact-studies/paym.png"
 
 // Animation variants
 const fadeIn = {
@@ -121,6 +134,36 @@ const SaaSStartups = () => {
     },
   ];
 
+  const impactStudies = [
+    {
+      id:1,
+      company: "Rook Links",
+      companyLogo: RookFavi,
+      title: "Building Rook Links: Enterprise-Grade, In-House SaaS for Visual Link Management",
+      featuredImage: RlinkImpact,
+      tags: ["Web/App Development", "UX/UI"],
+      slug: "building-rook-links-enterprise-grade-in-house-saas-for-visual-link-management"
+    },
+    {
+      id:2,
+      company: "MyProBuddy",
+      companyLogo: MpbFavi,
+      title: "Accelerating Startup Funding Through AI, Investor Networks & Expert Advisory",
+      featuredImage: MpbImpact,
+      tags: ["Web/App Development", "UI/UX"],
+      slug: ""
+    },
+    {
+      id:3,
+      company: "Paym.me",
+      companyLogo: RookFavi,
+      title: "Direct, Secure Payment Links for Individuals & Businesses",
+      featuredImage:PaymImpact, 
+      tags: ["Web/App Development", "UI/UX"],
+      slug: ""
+    },
+  ];
+
   // FAQ items
   const faqs = [
     {
@@ -138,25 +181,21 @@ const SaaSStartups = () => {
   // Client logos
   const clientLogos = [
     {
-      name: "TechFlow",
-      logo: "/placeholder.svg",
+      name: "Rook Links",
+      logo: Rlinks,
       tooltip: "Increased user retention by 40% in 6 months",
     },
     {
-      name: "DataSphere",
-      logo: "/placeholder.svg",
+      name: "MyProBuddy",
+      logo: Mpb,
       tooltip: "Reduced operational costs by 25%",
     },
     {
-      name: "CloudSync",
-      logo: "/placeholder.svg",
-      tooltip: "3.7x conversion growth in 90 days",
+      name: "Paym.me",
+      logo: Paym,
+      tooltip: "Reduced operational costs by 25%",
     },
-    {
-      name: "PlatformX",
-      logo: "/placeholder.svg",
-      tooltip: "Scaled to 6 countries in 12 months",
-    },
+    
   ];
 
   // Transformation stories
@@ -332,7 +371,7 @@ const SaaSStartups = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-                Real Transformations. Real Impact.
+                Crafting Products. Creating Impact.
               </h2>
               <p className="text-xl max-w-3xl mx-auto">
                 Trusted by Visionaries, Proven by Outcomes
@@ -350,14 +389,14 @@ const SaaSStartups = () => {
               <div className="flex flex-wrap justify-center items-center gap-12 max-w-5xl mx-auto">
                 {clientLogos.map((client, index) => (
                   <div key={index} className="group relative cursor-pointer">
-                    <div className="realm-client-logo h-12 w-32 bg-gray-200 flex items-center justify-center">
-                      {client.name}
+                    <div className="realm-client-logo h-12 w-48  flex items-center justify-center">
+                      <img src={client.logo} />
                     </div>
 
                     {/* Tooltip */}
-                    <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-realm-black text-white px-4 py-2 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    {/* <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-realm-black text-white px-4 py-2 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                       {client.tooltip}
-                    </div>
+                    </div> */}
                   </div>
                 ))}
               </div>
@@ -471,18 +510,16 @@ const SaaSStartups = () => {
               </h2>
 
               <div className="flex flex-wrap justify-center items-center gap-12 max-w-5xl mx-auto">
-                <div className="realm-client-logo h-12 w-32 bg-gray-200 flex items-center justify-center">
-                  Client 1
-                </div>
-                <div className="realm-client-logo h-12 w-32 bg-gray-200 flex items-center justify-center">
-                  Client 2
-                </div>
-                <div className="realm-client-logo h-12 w-32 bg-gray-200 flex items-center justify-center">
-                  Client 3
-                </div>
-                <div className="realm-client-logo h-12 w-32 bg-gray-200 flex items-center justify-center">
-                  Client 4
-                </div>
+                <div className="realm-client-logo h-12 w-36  flex items-center justify-center">
+                      <img src={Rook} />
+                    </div>
+                <div className="realm-client-logo h-12 w-36  flex items-center justify-center">
+                      <img src={Hlo} />
+                    </div>
+                <div className="realm-client-logo h-12 w-36  flex items-center justify-center">
+                      <img src={Mpb} />
+                    </div>
+                
               </div>
             </motion.div>
           </div>

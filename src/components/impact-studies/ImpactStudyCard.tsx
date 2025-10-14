@@ -4,11 +4,8 @@ import { ImpactStudy } from "@/types";
 import { ArrowRight } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
-interface ImpactStudyCardProps {
-  study: ImpactStudy;
-}
 
-const ImpactStudyCard = ({ study }: ImpactStudyCardProps) => {
+const ImpactStudyCard = ({ study }) => {
   return (
     <Card className="border border-realm-lightgray hover:border-realm-black transition-all duration-300 flex flex-col h-full">
       <CardContent className="pt-6 flex-grow">
@@ -33,7 +30,7 @@ const ImpactStudyCard = ({ study }: ImpactStudyCardProps) => {
           <h3 className="font-semibold">{study.company}</h3>
         </div>
 
-        <h2 className="text-xl font-display font-bold mb-3 line-clamp-2">
+        <h2 className="text-xl font-display font-bold mb-3 ">
           {study.title}
         </h2>
 

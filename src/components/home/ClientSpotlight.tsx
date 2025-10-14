@@ -21,20 +21,12 @@ import MpbLogo from '@/components/assets/impact-studies/mpb-logo.png';
 const ClientSpotlight = () => {
   const caseStudies = [
     {
-      id: "case1",
-      client: "ChefAVR",
-      logo: ChefavrLogo,
-      transformation: "Building chefavr.com: Digital Portfolio of Chef AVR – Culinary Leader & Food Business Advisor",
-      image: Chefavr,
-      slug: "building-chefavr-com-digital-portfolio-of-chefavr-culinary-leader-and-food-business-advisor"
-    },
-    {
-      id: "case2",
-      client: "Lightspire Media",
-      logo: LightLogo,
-      transformation: "Animating a Digital Hub: Lightspire Media’s Web Presence & Creative Outreach",
-      image: Light,
-      slug: "animating-a-digital-hub-lightspire-media-s-web-presence-and-creative-outreach"
+      id: "case4",
+      client: "MyProBuddy",
+      logo: MpbLogo,
+      transformation: "MyProBuddy.com: Accelerating Startup Funding Through AI, Investor Networks & Expert Advisory",
+      image: Mpb,
+      slug: "myprobuddy-com-accelerating-startup-funding-through-ai-investor-networks-and-expert-advisory"
     },
     {
       id: "case3",
@@ -45,13 +37,30 @@ const ClientSpotlight = () => {
       slug: "icmstudyabroad-com-a-360-digital-hub-for-study-abroad-placement-courses-crm-and-startup"
     },
     {
+      id: "case2",
+      client: "Lightspire Media",
+      logo: LightLogo,
+      transformation: "Animating a Digital Hub: Lightspire Media’s Web Presence & Creative Outreach",
+      image: Light,
+      slug: "animating-a-digital-hub-lightspire-media-s-web-presence-and-creative-outreach"
+    },
+    
+    {
       id: "case4",
       client: "MyProBuddy",
       logo: MpbLogo,
       transformation: "MyProBuddy.com: Accelerating Startup Funding Through AI, Investor Networks & Expert Advisory",
       image: Mpb,
       slug: "myprobuddy-com-accelerating-startup-funding-through-ai-investor-networks-and-expert-advisory"
-    }
+    },
+    {
+      id: "case1",
+      client: "ChefAVR",
+      logo: ChefavrLogo,
+      transformation: "Building chefavr.com: Digital Portfolio of Chef AVR – Culinary Leader & Food Business Advisor",
+      image: Chefavr,
+      slug: "building-chefavr-com-digital-portfolio-of-chefavr-culinary-leader-and-food-business-advisor"
+    },
   ];
 
   return (

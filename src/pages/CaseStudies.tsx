@@ -8,6 +8,8 @@ import PageHeader from "@/components/common/PageHeader";
 import CtaSection from "@/components/CtaSection";
 import { client1, urlForClient1 } from "../../lib/sanity";
 
+import AnnaUniLogo from "../../public/PartnerLogos/annauni.png"
+import FinequsLogo from "@/components/assets/impact-studies/finequs-logo.webp"
 // Types matching ImpactStudyDetail.tsx
 interface ImpactStudy {
   _id: string;
@@ -363,18 +365,20 @@ const CaseStudies = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {[
               {
-                category: "E-commerce / UX Design",
-                title: "RetailCore Rebrand",
+                category: "Web/App Development & UI/UX",
+                title: "Anna University",
+                logo: AnnaUniLogo,
                 description:
-                  "How we increased conversion rates by 38% through strategic UX redesign and brand positioning.",
-                link: "/case-studies/retailcore-rebrand",
+                  "Transforming Research Management: ERP for Student Research Submission & Invigilation at Anna University",
+                link: "/case-studies/transforming-research-management-erp-for-student-research-submission-and-invigilation-at-anna",
               },
               {
-                category: "SaaS / Development",
-                title: "Fluent Finance Dashboard",
-                description:
-                  "Rebuilding a complex financial app that reduced load time by 75% and improved user retention.",
-                link: "/case-studies/fluent-finance",
+                category: "Digital Marketing & Web/App Development",
+                title: "Finequs",
+                logo: FinequsLogo,
+                description:          
+                        "Transforming Lead Generation & Brand Growth for Finequs: Meta Ads, AI, and WhatsApp Automation",
+                link: "/case-studies/transforming-lead-generation-and-brand-growth-for-finequs-meta-ads-ai-and-whatsapp-automation",
               },
             ].map((study, index) => (
               <div
@@ -384,6 +388,7 @@ const CaseStudies = () => {
                 <span className="text-sm text-realm-darkgray block mb-4">
                   {study.category}
                 </span>
+                <img src={study.logo} alt="Logo" className="w-16 h-16"/>
                 <h3 className="text-2xl font-display font-bold mb-4">
                   {study.title}
                 </h3>

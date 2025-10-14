@@ -19,7 +19,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import ContactForm from "@/components/ContactForm";
 import { RetroGrid } from "@/components/magicui/retro-grid";
 
-import ZguardLogo from "@/components/assets/impact-studies/zguard-logo.png";
+import HloFavi from "@/components/assets/impact-studies/hlo-favicon.png";
 import NamsushiLogo from "@/components/assets/impact-studies/namsushi-logo.jpg";
 import CoventryLogo from "@/components/assets/impact-studies/coventry-logo.png";
 const WebAppDevelopmentService = () => {
@@ -541,18 +541,18 @@ const WebAppDevelopmentService = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <div className="border border-realm-lightgray p-8 hover:border-realm-black transition-all duration-300">
-                  <a href="/case-studies/shopify-website-transformation-and-ui-ux-upgrade-for-zguard">
+                  <a href="/case-studies/building-hloapp-com-the-digital-hub-for-ip-legal-trademark-patent-and-brand-safeguarding">
                   <img
-                    src={ZguardLogo}
+                    src={HloFavi}
                     alt="Client logo"
                     className="w-12 h-12 mb-4"
                   />
-                  <h3 className="font-medium text-lg mb-2">ZGuard</h3>
+                  <h3 className="font-medium text-lg mb-2">Hlo</h3>
                   <p className="text-realm-darkgray mb-4">
-                    Shopify Website Transformation and UI/UX Upgrade for ZGuard
+                    The Digital Hub for IP Legal+, Trademark, Patent, and Brand Safeguarding
                   </p>
                   <div className="font-bold">
-                    Increased site conversion rates and time-on-site
+                    Global enterprise and startup adoption for IP management
                   </div>
                   </a>
                 </div>
