@@ -14,7 +14,7 @@ const TopHeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section className="relative py-20 md:py-32 lg:py-40 flex items-center justify-center overflow-hidden bg-background">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -44,17 +44,17 @@ const TopHeroSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 xl:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 xl:px-12 relative z-10 max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left side - Main content */}
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-6"
+              className="space-y-4 md:space-y-6"
             >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-foreground">
                 Become A Top 1%{" "}
                 <span className="relative inline-block">
                   Brand
@@ -67,7 +67,7 @@ const TopHeroSection = () => {
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              <p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl">
                 Unleash next-level growth with AI-powered agents orchestrating your tech, marketing, and creative—crafted for brands serious about dominance.
               </p>
             </motion.div>
@@ -101,7 +101,7 @@ const TopHeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="pt-6 space-y-2"
+              className="pt-4 md:pt-6 space-y-2"
             >
               <p className="text-sm font-medium text-foreground">
                 Agency-grade AI agents for marketing, operations, and product.
@@ -120,7 +120,7 @@ const TopHeroSection = () => {
             className="relative"
           >
             {/* Glassmorphism panel */}
-            <div className="relative backdrop-blur-xl bg-foreground/5 border border-foreground/10 rounded-3xl p-8 md:p-10 shadow-2xl">
+            <div className="relative backdrop-blur-xl bg-foreground/5 border border-foreground/10 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 shadow-2xl">
               {/* Animated glow effect */}
               <motion.div
                 className="absolute -inset-0.5 bg-gradient-to-r from-foreground/20 to-foreground/10 rounded-3xl blur opacity-30"
@@ -134,9 +134,9 @@ const TopHeroSection = () => {
                 }}
               />
 
-              <div className="relative space-y-8">
+              <div className="relative space-y-6 md:space-y-8">
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-foreground">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground">
                     Driving Results That Matter
                   </h3>
                   <p className="text-muted-foreground">
