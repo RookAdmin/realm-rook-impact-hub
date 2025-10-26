@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import TopHeroSection from '@/components/home/TopHeroSection';
 import HeroSection from '@/components/home/HeroSection';
 import PodcastCarousel from '@/components/home/PodcastCarousel';
 import ImpactMetrics from '@/components/home/ImpactMetrics';
@@ -22,6 +23,9 @@ const Index = () => {
         <meta name="keywords" content="creative agency, tech agency, branding, UI/UX design, web development, SEO, AI automation, digital transformation" />
       </Helmet>
       <main className="min-h-screen">
+        {/* Top Hero Section - Modern AI Agency Positioning */}
+        <TopHeroSection />
+        
         {/* Hero Section - Solid Black Background with Bold Typography */}
         <HeroSection />
         
