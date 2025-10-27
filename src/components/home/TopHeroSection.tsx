@@ -2,32 +2,31 @@ import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import ContactForm from '@/components/ContactForm';
+import ContactForm from "@/components/ContactForm";
 
 const TopHeroSection = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
-  const services = [
-    "Website Development",
-    "Digital Marketing", 
-    "Branding",
-    "Process Automation"
-  ];
+  const services = ["AI Automation", "App/Website Development", "Digital Marketing", "Domain Name Advisory"];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-realm-black">
       {/* Subtle grid background */}
       <div className="absolute inset-0 opacity-[0.06]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px)",
+            backgroundSize: "50px 50px",
+          }}
+        />
       </div>
 
       {/* Subtle floating orbs - more visible */}
       <motion.div
         className="absolute top-1/4 left-1/6 w-[500px] h-[500px] rounded-full blur-[100px]"
-        style={{ backgroundColor: 'rgba(255, 255, 255, 0.06)' }}
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.06)" }}
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.06, 0.1, 0.06],
@@ -40,7 +39,7 @@ const TopHeroSection = () => {
       />
       <motion.div
         className="absolute bottom-1/4 right-1/6 w-[450px] h-[450px] rounded-full blur-[90px]"
-        style={{ backgroundColor: 'rgba(255, 255, 255, 0.08)' }}
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.08)" }}
         animate={{
           scale: [1.2, 1, 1.2],
           opacity: [0.08, 0.06, 0.08],
@@ -52,7 +51,7 @@ const TopHeroSection = () => {
           delay: 3,
         }}
       />
-      
+
       {/* Additional ambient light */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[40%] bg-gradient-to-b from-white/[0.04] to-transparent" />
 
@@ -66,14 +65,10 @@ const TopHeroSection = () => {
             className="space-y-4 md:space-y-6"
           >
             <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[5rem] xl:text-[6rem] font-light leading-[1.05] text-background tracking-tight">
-              Become a Top{" "}
-              <span className="font-bold text-[1.15em] inline-block">
-                1%
-              </span>{" "}
-              Brand
+              Become a Top <span className="font-bold text-[1.15em] inline-block">1%</span> Brand
             </h1>
 
-            <motion.p 
+            <motion.p
               className="text-sm md:text-lg lg:text-xl text-background/70 max-w-2xl mx-auto font-light leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -94,10 +89,7 @@ const TopHeroSection = () => {
               className="group relative inline-flex items-center gap-2.5 bg-background text-foreground px-8 py-4 md:px-10 md:py-4 rounded-full font-medium text-sm md:text-base transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-background/20"
             >
               <span>Get Started</span>
-              <ArrowRight 
-                size={18} 
-                className="transition-transform duration-300 group-hover:translate-x-1" 
-              />
+              <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
               <motion.div
                 className="absolute inset-0 rounded-full bg-background/10"
                 initial={{ scale: 0, opacity: 0 }}
@@ -119,18 +111,16 @@ const TopHeroSection = () => {
                 <motion.span
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: 0.5 + (index * 0.1),
-                    ease: [0.22, 1, 0.36, 1]
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.5 + index * 0.1,
+                    ease: [0.22, 1, 0.36, 1],
                   }}
                   className="hover:text-background transition-colors duration-300 cursor-default"
                 >
                   {service}
                 </motion.span>
-                {index < services.length - 1 && (
-                  <span className="w-1 h-1 rounded-full bg-background/30" />
-                )}
+                {index < services.length - 1 && <span className="w-1 h-1 rounded-full bg-background/30" />}
               </React.Fragment>
             ))}
           </motion.div>
@@ -144,7 +134,7 @@ const TopHeroSection = () => {
         animate={{ opacity: 1, y: [0, 8, 0] }}
         transition={{
           opacity: { duration: 1, delay: 1 },
-          y: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+          y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
         }}
       >
         <div className="w-6 h-10 border border-background/20 rounded-full p-1.5 flex items-start justify-center">
