@@ -15,21 +15,21 @@ const TopHeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-foreground">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: 'hsl(var(--foreground))' }}>
       {/* Subtle grid background */}
-      <div className="absolute inset-0 opacity-[0.08]">
+      <div className="absolute inset-0 opacity-[0.06]">
         <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(hsl(var(--background) / 0.15) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--background) / 0.15) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(hsl(var(--background) / 0.12) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--background) / 0.12) 1px, transparent 1px)',
           backgroundSize: '50px 50px'
         }} />
       </div>
 
       {/* Subtle floating orbs - more visible */}
       <motion.div
-        className="absolute top-1/4 left-1/6 w-[500px] h-[500px] bg-background/[0.08] rounded-full blur-[100px]"
+        className="absolute top-1/4 left-1/6 w-[500px] h-[500px] bg-background/[0.06] rounded-full blur-[100px]"
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.08, 0.12, 0.08],
+          opacity: [0.06, 0.1, 0.06],
         }}
         transition={{
           duration: 15,
@@ -38,10 +38,10 @@ const TopHeroSection = () => {
         }}
       />
       <motion.div
-        className="absolute bottom-1/4 right-1/6 w-[450px] h-[450px] bg-background/[0.1] rounded-full blur-[90px]"
+        className="absolute bottom-1/4 right-1/6 w-[450px] h-[450px] bg-background/[0.08] rounded-full blur-[90px]"
         animate={{
           scale: [1.2, 1, 1.2],
-          opacity: [0.1, 0.08, 0.1],
+          opacity: [0.08, 0.06, 0.08],
         }}
         transition={{
           duration: 15,
@@ -52,7 +52,7 @@ const TopHeroSection = () => {
       />
       
       {/* Additional ambient light */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[40%] bg-gradient-to-b from-background/[0.05] to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[40%] bg-gradient-to-b from-background/[0.04] to-transparent" />
 
       <div className="container mx-auto px-4 md:px-8 lg:px-12 relative z-10 max-w-7xl py-20">
         <div className="text-center space-y-8 md:space-y-10">
