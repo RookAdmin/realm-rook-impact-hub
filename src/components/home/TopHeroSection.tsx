@@ -10,14 +10,14 @@ const TopHeroSection = () => {
   const services = ["AI Automation", "App/Website Development", "Digital Marketing", "Domain Name Advisory"];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-realm-black">
       {/* Subtle grid background */}
-      <div className="absolute inset-0 opacity-[0.02]">
+      <div className="absolute inset-0 opacity-[0.06]">
         <div
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px)",
+              "linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px)",
             backgroundSize: "50px 50px",
           }}
         />
@@ -26,10 +26,10 @@ const TopHeroSection = () => {
       {/* Subtle floating orbs - more visible */}
       <motion.div
         className="absolute top-1/4 left-1/6 w-[500px] h-[500px] rounded-full blur-[100px]"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.03)" }}
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.06)" }}
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.03, 0.05, 0.03],
+          opacity: [0.06, 0.1, 0.06],
         }}
         transition={{
           duration: 15,
@@ -39,10 +39,10 @@ const TopHeroSection = () => {
       />
       <motion.div
         className="absolute bottom-1/4 right-1/6 w-[450px] h-[450px] rounded-full blur-[90px]"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.04)" }}
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.08)" }}
         animate={{
           scale: [1.2, 1, 1.2],
-          opacity: [0.04, 0.03, 0.04],
+          opacity: [0.08, 0.06, 0.08],
         }}
         transition={{
           duration: 15,
@@ -53,7 +53,7 @@ const TopHeroSection = () => {
       />
 
       {/* Additional ambient light */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[40%] bg-gradient-to-b from-white/[0.02] to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[40%] bg-gradient-to-b from-white/[0.04] to-transparent" />
 
       <div className="container mx-auto px-4 md:px-8 lg:px-12 relative z-10 max-w-7xl py-20">
         <div className="text-center space-y-8 md:space-y-10">
