@@ -44,13 +44,6 @@ const D2CStartups = () => {
   // Services list
   const services = [
     {
-      title: "Conversational Commerce with Agentica",
-      description:
-        "Agentica enables direct sales, support, and payments—all through chat. Elevate your customer journey with zero screens.",
-      icon: BriefcaseIcon,
-      link: "/services/agentica",
-    },
-    {
       title: "Strategic Brand Architecture",
       description:
         "Architectures that command attention, build loyalty, and drive exponential growth.",
@@ -265,23 +258,109 @@ const D2CStartups = () => {
                 <motion.div
                   key={index}
                   variants={fadeIn}
-                  className={`service-card ${service.link ? 'cursor-pointer' : ''}`}
-                  onClick={() => service.link && (window.location.href = service.link)}
+                  className="service-card"
                 >
                   <div className="realm-icon-container">
                     <service.icon size={24} />
                   </div>
                   <h3 className="text-xl font-medium mb-3">{service.title}</h3>
                   <p className="text-realm-darkgray">{service.description}</p>
-                  {service.link && (
-                    <Link to={service.link} className="text-sm font-medium text-realm-black hover:underline mt-4 inline-flex items-center">
-                      Explore Agentica for D2C
-                      <ArrowRight size={14} className="ml-1" />
-                    </Link>
-                  )}
                 </motion.div>
               ))}
             </motion.div>
+          </div>
+        </section>
+
+        {/* Conversational Commerce with Agentica Section */}
+        <section className="realm-section bg-white border-t border-gray-200">
+          <div className="realm-container">
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+              {/* Left Content */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="inline-block px-3 py-1 bg-black text-white text-xs font-medium rounded-full mb-6">
+                  FUTURE OF D2C
+                </div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-6">
+                  Conversational Commerce with <span className="font-bold">Agentica</span>
+                </h2>
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  Agentica enables direct sales, support, and payments—all through chat. Elevate your customer journey with zero screens.
+                </p>
+                <Link to="/services/agentica">
+                  <Button className="bg-black text-white hover:bg-gray-800 px-8 py-6 text-base rounded-lg font-medium inline-flex items-center gap-2">
+                    Explore Agentica
+                    <ArrowRight size={20} />
+                  </Button>
+                </Link>
+              </motion.div>
+
+              {/* Right Thumbnail - D2C Chat Interface */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative"
+              >
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white border border-gray-200">
+                  {/* Chat Interface Mockup */}
+                  <div className="p-6 space-y-4">
+                    {/* Header */}
+                    <div className="flex items-center gap-3 pb-4 border-b border-gray-200">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-600" />
+                      <div>
+                        <p className="font-semibold text-sm">D2C Shopping Assistant</p>
+                        <p className="text-xs text-gray-500">Powered by Agentica</p>
+                      </div>
+                    </div>
+                    
+                    {/* Chat Messages */}
+                    <div className="space-y-3">
+                      <div className="flex gap-2">
+                        <div className="flex-1 bg-gray-100 rounded-2xl rounded-tl-sm p-4">
+                          <p className="text-sm text-gray-800">Show me organic skincare products</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-2 justify-end">
+                        <div className="flex-1 bg-black text-white rounded-2xl rounded-tr-sm p-4">
+                          <p className="text-sm">Here are our top-rated organic serums. The Vitamin C Serum is 20% off today!</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <div className="flex-1 bg-gray-100 rounded-2xl rounded-tl-sm p-4">
+                          <p className="text-sm text-gray-800">I'll take 2 bottles. Can you add them to my cart?</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-2 justify-end">
+                        <div className="flex-1 bg-black text-white rounded-2xl rounded-tr-sm p-4">
+                          <p className="text-sm">Done! 2 bottles added. Total: $48. Ready to checkout? ✓</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Input */}
+                    <div className="flex items-center gap-2 pt-2">
+                      <div className="flex-1 bg-gray-100 rounded-full px-4 py-2">
+                        <p className="text-sm text-gray-400">Type a message...</p>
+                      </div>
+                      <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                        <ArrowRight size={18} className="text-white" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating badge */}
+                <div className="absolute -top-4 -right-4 bg-green-500 text-white px-4 py-2 rounded-full text-xs font-medium shadow-lg">
+                  Shop via Chat
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 

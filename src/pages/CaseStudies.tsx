@@ -8,7 +8,7 @@ import PageHeader from "@/components/common/PageHeader";
 import CtaSection from "@/components/CtaSection";
 import { client1, urlForClient1 } from "../../lib/sanity";
 
-import AnnaUniLogo from "../../public/PartnerLogos/annauni.png"
+import AnnaUniLogo from "/PartnerLogos/annauni.png"
 import FinequsLogo from "@/components/assets/impact-studies/finequs-logo.webp"
 // Types matching ImpactStudyDetail.tsx
 interface ImpactStudy {

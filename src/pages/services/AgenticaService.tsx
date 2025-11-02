@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import ContactForm from "@/components/ContactForm";
 import {
   MessageSquare,
   CreditCard,
@@ -93,6 +95,8 @@ const newsItems = [
 ];
 
 const AgenticaService = () => {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   return (
     <>
       <Helmet>
@@ -162,23 +166,20 @@ const AgenticaService = () => {
               Bring your SaaS or D2C product to any chat platform. Voice or text—one message, endless possibilities.
             </motion.p>
 
-            {/* CTAs */}
+            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-8 flex justify-center items-center"
             >
-              <Link to="/contact">
-                <Button className="realm-button bg-white text-realm-black hover:bg-white/90 px-8 py-6 text-lg">
-                  See How Agentica Works
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
-                  Enterprise Demo
-                </Button>
-              </Link>
+              <Button 
+                onClick={() => setIsContactOpen(true)}
+                className="bg-white text-black hover:bg-gray-200 flex items-center justify-center px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+              >
+                <span>Get Started</span>
+                <ArrowRight size={16} className="ml-2" />
+              </Button>
             </motion.div>
 
             {/* Glassmorphic device preview placeholder */}
@@ -213,6 +214,16 @@ const AgenticaService = () => {
             </motion.div>
           </div>
         </div>
+
+        {/* Contact Form Dialog */}
+        <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+          <DialogContent className="sm:max-w-[500px]">
+            <div className="py-2">
+              <h2 className="text-2xl font-display font-bold mb-6">Get Started with Agentica</h2>
+              <ContactForm onSuccess={() => setIsContactOpen(false)} />
+            </div>
+          </DialogContent>
+        </Dialog>
       </section>
 
       {/* Social Proof Bar */}

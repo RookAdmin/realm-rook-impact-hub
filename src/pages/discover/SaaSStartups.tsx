@@ -20,10 +20,10 @@ import ImpactStudyCard from "@/components/impact-studies/ImpactStudyCard";
 import TransformationStories from "@/components/home/TransformationStories";
 
 import Rlinks from "@/components/assets/impact-studies/rlinks-logo.png"
-import Mpb from "../../../public/partner-logo/mypro.avif"
+import Mpb from "/partner-logo/mypro.avif"
 import Paym from "@/components/assets/impact-studies/paym-logo.png"
-import Hlo from "../../../public/partner-logo/hlo.png"
-import Rook from "../../../public/partner-logo/rook.png"
+import Hlo from "/partner-logo/hlo.png"
+import Rook from "/partner-logo/rook.png"
 
 import RookFavi from "@/components/assets/impact-studies/rook-favicon.png"
 import MpbFavi from "@/components/assets/impact-studies/mpb-favicon.png"
@@ -55,13 +55,6 @@ const staggerContainer = {
 const SaaSStartups = () => {
   // Services list
   const services = [
-    {
-      title: "Conversational Commerce with Agentica",
-      description:
-        "Deploy your SaaS as a conversational service. Power booking, onboarding, and payments entirely in chat or voice.",
-      icon: Target,
-      link: "/services/agentica",
-    },
     {
       title: "Brand Positioning That Resonates",
       description:
@@ -314,23 +307,109 @@ const SaaSStartups = () => {
                 <motion.div
                   key={index}
                   variants={fadeIn}
-                  className={`service-card ${service.link ? 'cursor-pointer' : ''}`}
-                  onClick={() => service.link && (window.location.href = service.link)}
+                  className="service-card"
                 >
                   <div className="realm-icon-container">
                     <service.icon size={24} />
                   </div>
                   <h3 className="text-xl font-medium mb-3">{service.title}</h3>
                   <p className="text-realm-darkgray">{service.description}</p>
-                  {service.link && (
-                    <Link to={service.link} className="text-sm font-medium text-realm-black hover:underline mt-4 inline-flex items-center">
-                      Learn more about Agentica
-                      <ArrowRight size={14} className="ml-1" />
-                    </Link>
-                  )}
                 </motion.div>
               ))}
             </motion.div>
+          </div>
+        </section>
+
+        {/* Conversational Commerce with Agentica Section */}
+        <section className="realm-section bg-white border-t border-gray-200">
+          <div className="realm-container">
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+              {/* Left Content */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="inline-block px-3 py-1 bg-black text-white text-xs font-medium rounded-full mb-6">
+                  NEXT-GEN SAAS
+                </div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-6">
+                  Conversational Commerce with <span className="font-bold">Agentica</span>
+                </h2>
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  Deploy your SaaS as a conversational service. Power booking, onboarding, and payments entirely in chat or voice—no screens, just conversation.
+                </p>
+                <Link to="/services/agentica">
+                  <Button className="bg-black text-white hover:bg-gray-800 px-8 py-6 text-base rounded-lg font-medium inline-flex items-center gap-2">
+                    Explore Agentica
+                    <ArrowRight size={20} />
+                  </Button>
+                </Link>
+              </motion.div>
+
+              {/* Right Thumbnail - Chat Interface */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative"
+              >
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white border border-gray-200">
+                  {/* Chat Interface Mockup */}
+                  <div className="p-6 space-y-4">
+                    {/* Header */}
+                    <div className="flex items-center gap-3 pb-4 border-b border-gray-200">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600" />
+                      <div>
+                        <p className="font-semibold text-sm">SaaS Assistant</p>
+                        <p className="text-xs text-gray-500">Powered by Agentica</p>
+                      </div>
+                    </div>
+                    
+                    {/* Chat Messages */}
+                    <div className="space-y-3">
+                      <div className="flex gap-2">
+                        <div className="flex-1 bg-gray-100 rounded-2xl rounded-tl-sm p-4">
+                          <p className="text-sm text-gray-800">I'd like to book a demo for the Pro plan</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-2 justify-end">
+                        <div className="flex-1 bg-black text-white rounded-2xl rounded-tr-sm p-4">
+                          <p className="text-sm">Perfect! I've scheduled your demo for tomorrow at 3 PM. You'll receive a calendar invite shortly.</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <div className="flex-1 bg-gray-100 rounded-2xl rounded-tl-sm p-4">
+                          <p className="text-sm text-gray-800">Can I upgrade my subscription now?</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-2 justify-end">
+                        <div className="flex-1 bg-black text-white rounded-2xl rounded-tr-sm p-4">
+                          <p className="text-sm">Absolutely! Upgrading you to Pro now. Payment processed. ✓</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Input */}
+                    <div className="flex items-center gap-2 pt-2">
+                      <div className="flex-1 bg-gray-100 rounded-full px-4 py-2">
+                        <p className="text-sm text-gray-400">Type a message...</p>
+                      </div>
+                      <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                        <ArrowRight size={18} className="text-white" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating badge */}
+                <div className="absolute -top-4 -right-4 bg-green-500 text-white px-4 py-2 rounded-full text-xs font-medium shadow-lg">
+                  Live Chat Commerce
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 

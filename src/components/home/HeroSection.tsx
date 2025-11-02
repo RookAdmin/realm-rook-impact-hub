@@ -26,7 +26,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="pt-16 pb-32 md:pb-40 bg-black text-white relative overflow-hidden min-h-screen">
+    <section className="pt-16 pb-32 md:pb-40 bg-white text-black relative overflow-hidden min-h-screen">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 xl:px-12 relative z-20">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 min-h-[600px]">
           {/* Left side: Main hero content */}
@@ -37,19 +37,18 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              {/* We don't just design. */}
+              Apps Are Dead.
               <br />
-              We create realms of impact.
+              Automate with Conversation.
             </motion.h1>
 
             <motion.p
-              className="text-lg md:text-xl lg:text-2xl font-normal text-gray-300 mb-12 leading-relaxed"
+              className="text-lg md:text-xl lg:text-2xl font-normal text-gray-700 mb-12 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              At Realm by Rook, we blend creativity and technology to build
-              experiences that inspire action.
+              Bring your SaaS or D2C product to any chat platform. Voice or text—one message, endless possibilities.
             </motion.p>
 
             <motion.div
@@ -60,22 +59,22 @@ const HeroSection = () => {
             >
               <Button
                 onClick={() => setIsContactOpen(true)}
-                className="bg-white text-black hover:bg-gray-200 flex items-center justify-center px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                className="bg-black text-white hover:bg-gray-800 flex items-center justify-center px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
               >
                 <span>Get a Proposal</span>
                 <ArrowRight size={16} className="ml-2" />
               </Button>
 
             
-              <a href="/case-studies" className="text-white flex items-center space-x-2 hover:text-gray-300 transition-colors px-8 py-4 border border-gray-600 rounded-lg hover:border-gray-400">
-                <span>View Impact Studies</span>
+              <a href="/services/agentica" className="text-black flex items-center space-x-2 hover:text-gray-700 transition-colors px-8 py-4 border border-gray-400 rounded-lg hover:border-gray-600">
+                <span>Discover Agentica</span>
                 <ArrowRight size={16} />
               </a>
             </motion.div>
 
             {/* Availability indicator - FOMO tactic */}
             <motion.div
-              className="mt-16 inline-block border border-gray-600 px-4 py-2 text-sm bg-gray-900 bg-opacity-70 rounded-full"
+              className="mt-16 inline-block border border-gray-400 px-4 py-2 text-sm bg-gray-100 bg-opacity-70 rounded-full"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
@@ -109,8 +108,8 @@ const HeroSection = () => {
       </div>
 
       {/* Background elements */}
-      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse" />
-      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse delay-1000" />
+      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" />
+      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse delay-1000" />
 
       {/* Contact Form Dialog */}
       {/* <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>

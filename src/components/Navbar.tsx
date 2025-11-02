@@ -40,7 +40,6 @@ const Navbar = () => {
       "/resources/insights",
       "/resources/press-releases",
       "/brand-kit",
-      "/",
     ],
     []
   );
@@ -104,7 +103,7 @@ const Navbar = () => {
   const heroObserverRef = useRef(null);
 
   useEffect(() => {
-    const heroSection = document.querySelector(".bg-realm-black");
+    const heroSection = document.querySelector(".bg-realm-black, .bg-white");
     if (heroSection) {
       heroObserverRef.current = new IntersectionObserver(
         ([entry]) => {
@@ -141,7 +140,7 @@ const Navbar = () => {
     const currentPath = location.pathname;
     setIsInvertedPage(invertedRoutes.includes(currentPath));
 
-    const heroSection = document.querySelector(".bg-realm-black");
+    const heroSection = document.querySelector(".bg-realm-black, .bg-white");
 
     if (heroSection) {
       const rect = heroSection.getBoundingClientRect();
