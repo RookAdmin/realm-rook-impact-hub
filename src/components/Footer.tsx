@@ -13,6 +13,10 @@ const Footer = () => {
       titleLink: "/services",
       links: [
         {
+          name: "Agentica",
+          path: "/services/agentica",
+        },
+        {
           name: "AI Agents Automation",
           path: "/services/ai-agents-automation",
         },

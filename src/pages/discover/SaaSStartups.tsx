@@ -56,6 +56,13 @@ const SaaSStartups = () => {
   // Services list
   const services = [
     {
+      title: "Conversational Commerce with Agentica",
+      description:
+        "Deploy your SaaS as a conversational service. Power booking, onboarding, and payments entirely in chat or voice.",
+      icon: Target,
+      link: "/services/agentica",
+    },
+    {
       title: "Brand Positioning That Resonates",
       description:
         "Craft a brand identity that stands out in competitive SaaS landscapes.",
@@ -307,13 +314,20 @@ const SaaSStartups = () => {
                 <motion.div
                   key={index}
                   variants={fadeIn}
-                  className="service-card"
+                  className={`service-card ${service.link ? 'cursor-pointer' : ''}`}
+                  onClick={() => service.link && (window.location.href = service.link)}
                 >
                   <div className="realm-icon-container">
                     <service.icon size={24} />
                   </div>
                   <h3 className="text-xl font-medium mb-3">{service.title}</h3>
                   <p className="text-realm-darkgray">{service.description}</p>
+                  {service.link && (
+                    <Link to={service.link} className="text-sm font-medium text-realm-black hover:underline mt-4 inline-flex items-center">
+                      Learn more about Agentica
+                      <ArrowRight size={14} className="ml-1" />
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </motion.div>

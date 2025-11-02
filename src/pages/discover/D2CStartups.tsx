@@ -44,6 +44,13 @@ const D2CStartups = () => {
   // Services list
   const services = [
     {
+      title: "Conversational Commerce with Agentica",
+      description:
+        "Agentica enables direct sales, support, and payments—all through chat. Elevate your customer journey with zero screens.",
+      icon: BriefcaseIcon,
+      link: "/services/agentica",
+    },
+    {
       title: "Strategic Brand Architecture",
       description:
         "Architectures that command attention, build loyalty, and drive exponential growth.",
@@ -258,13 +265,20 @@ const D2CStartups = () => {
                 <motion.div
                   key={index}
                   variants={fadeIn}
-                  className="service-card"
+                  className={`service-card ${service.link ? 'cursor-pointer' : ''}`}
+                  onClick={() => service.link && (window.location.href = service.link)}
                 >
                   <div className="realm-icon-container">
                     <service.icon size={24} />
                   </div>
                   <h3 className="text-xl font-medium mb-3">{service.title}</h3>
                   <p className="text-realm-darkgray">{service.description}</p>
+                  {service.link && (
+                    <Link to={service.link} className="text-sm font-medium text-realm-black hover:underline mt-4 inline-flex items-center">
+                      Explore Agentica for D2C
+                      <ArrowRight size={14} className="ml-1" />
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </motion.div>

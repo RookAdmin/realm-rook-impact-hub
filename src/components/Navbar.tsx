@@ -28,6 +28,7 @@ const Navbar = () => {
 
   const invertedRoutes = React.useMemo(
     () => [
+      "/services/agentica",
       "/services/social-media-marketing",
       "/services/ai-agents-automation",
       "/services/domain-name-consultation",
@@ -51,6 +52,10 @@ const Navbar = () => {
     {
       name: "What We Do?",
       subItems: [
+        {
+          name: "Agentica",
+          path: "/services/agentica",
+        },
         {
           name: "AI Agents Automation",
           path: "/services/ai-agents-automation",
