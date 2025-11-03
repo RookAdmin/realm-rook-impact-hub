@@ -30,6 +30,7 @@ import AIAgentsAutomationService from "./pages/services/AIAgentsAutomationServic
 import DomainConsultationService from "./pages/services/DomainConsultationService";
 import EnterpriseDomainService from "./pages/services/EnterpriseDomainService";
 import AgenticaService from "./pages/services/AgenticaService";
+import GEOService from "./pages/services/GEOService";
 import WhoWePartnerWith from "./pages/WhoWePartnerWith";
 import DomainNameConsultation from "./pages/services/DomainNameConsultation";
 import EnterpriseDomainManagement from "./pages/services/EnterpriseDomainManagement";
@@ -54,6 +55,7 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/agentica" element={<AgenticaService />} />
+            <Route path="/services/geo" element={<GEOService />} />
             <Route path="/services/branding" element={<BrandingService />} />
             <Route
               path="/services/ui-ux-design"

@@ -17,6 +17,10 @@ const Footer = () => {
           path: "/services/agentica",
         },
         {
+          name: "GEO Service",
+          path: "/services/geo",
+        },
+        {
           name: "AI Agents Automation",
           path: "/services/ai-agents-automation",
         },

@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Palette, Smartphone, Code, Search, MessageSquare, Bot, Globe, Database, Shield } from "lucide-react";
+import { ArrowRight, Palette, Smartphone, Code, Search, MessageSquare, Bot, Globe, Database, Shield, Sparkles } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -12,6 +12,13 @@ const Services = () => {
       link: '/services/ai-agents-automation',
       icon: <Bot size={32} />,
       image: '/services/aiagent.png'
+    },
+    {
+      title: 'GEO Service',
+      description: 'Get your brand seen, cited, and trusted by AI systems. Next-gen optimization for ChatGPT, Gemini, Claude, and more.',
+      link: '/services/geo',
+      icon: <Sparkles size={32} />,
+      image: '/ai/comp.png'
     },
     {
       title: 'Web/App Development',
@@ -69,15 +76,15 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Services | Realm by Rook - Branding, UI/UX, Development, SEO & AI Automation</title>
-        <meta name="description" content="Comprehensive digital services including branding, UI/UX design, web/app development, SEO, social media marketing, and AI automation. Premium solutions for scaling businesses." />
-        <meta name="keywords" content="branding services, UI/UX design, web development, app development, SEO services, social media marketing, AI automation, digital marketing" />
+        <title>Services | Realm by Rook - Branding, UI/UX, Development, SEO, GEO & AI Automation</title>
+        <meta name="description" content="Comprehensive digital services including branding, UI/UX design, web/app development, SEO, GEO (AI citation optimization), social media marketing, and AI automation. Premium solutions for scaling businesses." />
+        <meta name="keywords" content="branding services, UI/UX design, web development, app development, SEO services, GEO service, AI citation optimization, social media marketing, AI automation, digital marketing" />
       </Helmet>
       <main className="min-h-screen pt-32 pb-16">
         <div className="realm-container">
           <h1 className="realm-headline">What We Do?</h1>
           <p className="realm-subheadline">
-            We offer premium branding, UI/UX, development, SEO, social media services, and AI business automation to help businesses achieve their goals.
+            We offer premium branding, UI/UX, development, SEO, GEO (AI citation optimization), social media services, and AI business automation to help businesses achieve their goals.
           </p>
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
