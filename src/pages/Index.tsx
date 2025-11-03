@@ -7,6 +7,7 @@ import ImpactMetrics from '@/components/home/ImpactMetrics';
 import ServicesPreview from '@/components/home/ServicesPreview';
 import ClientSpotlight from '@/components/home/ClientSpotlight';
 import ClientQuotes from '@/components/home/ClientQuotes';
+import GEOSection from '@/components/home/GEOSection';
 import RadProcessVisual from '@/components/home/RadProcessVisual';
 import PartnerLogos from '@/components/home/PartnerLogos';
 import InsightsResourcesPreview from '@/components/home/InsightsResourcesPreview';
@@ -37,6 +38,9 @@ const Index = () => {
 
         {/* Client Testimonials */}
         <ClientQuotes />
+
+        {/* GEO Section - AI Citation Optimization */}
+        <GEOSection />
 
         {/* Impact Metrics Section - Animated Counters */}
         <ImpactMetrics />   

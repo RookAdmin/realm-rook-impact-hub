@@ -47,38 +47,35 @@ const Navbar = () => {
 
   const [isInvertedPage, setIsInvertedPage] = useState(false);
 
-  // Navigation items
+  // Navigation items with categories
   const navItems = [
     {
       name: "What We Do?",
-      subItems: [
+      categories: [
         {
-          name: "Agentica",
-          path: "/services/agentica",
+          categoryName: "Artificial Intelligence",
+          items: [
+            { name: "GEO", path: "/services/geo" },
+            { name: "Agentica", path: "/services/agentica" },
+            { name: "AI Agents Automation", path: "/services/ai-agents-automation" },
+          ],
         },
         {
-          name: "GEO Service",
-          path: "/services/geo",
+          categoryName: "Digital",
+          items: [
+            { name: "Web/App Development", path: "/services/web-app-development" },
+            { name: "UI/UX Design", path: "/services/ui-ux-design" },
+            { name: "Branding", path: "/services/branding" },
+          ],
         },
         {
-          name: "AI Agents Automation",
-          path: "/services/ai-agents-automation",
-        },
-        { name: "Web/App Development", path: "/services/web-app-development" },
-        {
-          name: "Social Media Marketing",
-          path: "/services/social-media-marketing",
-        },
-        { name: "Branding", path: "/services/branding" },
-        { name: "UI/UX Design", path: "/services/ui-ux-design" },
-        { name: "SEO", path: "/services/seo" },
-        {
-          name: "Domain Name Consultation",
-          path: "/services/domain-name-consultation",
-        },
-        {
-          name: "Enterprise Domain Management",
-          path: "/services/enterprise-domain-management",
+          categoryName: "Growth",
+          items: [
+            { name: "Social Media Marketing", path: "/services/social-media-marketing" },
+            { name: "SEO", path: "/services/seo" },
+            { name: "Domain Name Consultation", path: "/services/domain-name-consultation" },
+            { name: "Enterprise Domain Management", path: "/services/enterprise-domain-management" },
+          ],
         },
       ],
     },
@@ -232,7 +229,48 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) =>
-            item.subItems ? (
+            item.categories ? (
+              <NavigationMenu key={item.name}>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger
+                      className={`text-sm font-medium ${textColorClass} hover:opacity-80 realm-link transition-colors duration-300 bg-transparent`}
+                    >
+                      {item.name}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="w-[600px] max-h-[70vh] overflow-y-auto p-6">
+                        <div className="grid grid-cols-3 gap-6">
+                          {item.categories.map((category, index) => (
+                            <div key={category.categoryName} className="space-y-3">
+                              <h3 className="text-xs font-semibold uppercase tracking-wide text-realm-darkgray mb-3">
+                                {category.categoryName}
+                              </h3>
+                              <ul className="space-y-2">
+                                {category.items.map((subItem) => (
+                                  <li key={subItem.name}>
+                                    <NavigationMenuLink asChild>
+                                      <Link
+                                        to={subItem.path}
+                                        className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-realm-lightgray hover:text-realm-black focus:bg-realm-lightgray focus:text-realm-black"
+                                      >
+                                        <div className="text-sm font-medium leading-snug">
+                                          {subItem.name}
+                                        </div>
+                                      </Link>
+                                    </NavigationMenuLink>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            ) : item.subItems ? (
               <NavigationMenu key={item.name}>
                 <NavigationMenuList>
                   <NavigationMenuItem>
@@ -298,11 +336,49 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md z-40">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md z-40 max-h-[80vh] overflow-y-auto">
           <div className="px-4 py-6 space-y-4">
             {navItems.map((item) => (
               <div key={item.name}>
-                {item.subItems ? (
+                {item.categories ? (
+                  <div className="py-2">
+                    <div
+                      className="flex items-center justify-between text-lg font-medium text-realm-black mb-2 cursor-pointer"
+                      onClick={() => toggleMobileDropdown(item.name)}
+                    >
+                      {item.name}
+                      <ChevronDown
+                        size={20}
+                        className={`transition-transform ${
+                          mobileDropdowns[item.name] ? "rotate-180" : ""
+                        }`}
+                      />
+                    </div>
+                    {mobileDropdowns[item.name] && (
+                      <div className="pl-4 space-y-4">
+                        {item.categories.map((category) => (
+                          <div key={category.categoryName} className="space-y-2">
+                            <h4 className="text-xs font-semibold uppercase tracking-wide text-realm-darkgray">
+                              {category.categoryName}
+                            </h4>
+                            <div className="space-y-1">
+                              {category.items.map((subItem) => (
+                                <Link
+                                  key={subItem.name}
+                                  to={subItem.path}
+                                  className="block py-2 text-base text-realm-black hover:text-realm-darkgray"
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : item.subItems ? (
                   <div className="py-2">
                     <div
                       className="flex items-center justify-between text-lg font-medium text-realm-black mb-2 cursor-pointer"

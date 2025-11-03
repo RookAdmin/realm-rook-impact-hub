@@ -9,37 +9,31 @@ const Footer = () => {
 
   const footerLinks = [
     {
-      title: "What We Do?",
+      title: "Artificial Intelligence",
       titleLink: "/services",
       links: [
-        {
-          name: "Agentica",
-          path: "/services/agentica",
-        },
-        {
-          name: "GEO Service",
-          path: "/services/geo",
-        },
-        {
-          name: "AI Agents Automation",
-          path: "/services/ai-agents-automation",
-        },
+        { name: "GEO", path: "/services/geo" },
+        { name: "Agentica", path: "/services/agentica" },
+        { name: "AI Agents Automation", path: "/services/ai-agents-automation" },
+      ],
+    },
+    {
+      title: "Digital",
+      titleLink: "/services",
+      links: [
         { name: "Web/App Development", path: "/services/web-app-development" },
-         {
-          name: "Social Media Marketing",
-          path: "/services/social-media-marketing",
-        },
-        { name: "Branding", path: "/services/branding" },
         { name: "UI/UX Design", path: "/services/ui-ux-design" },
+        { name: "Branding", path: "/services/branding" },
+      ],
+    },
+    {
+      title: "Growth",
+      titleLink: "/services",
+      links: [
+        { name: "Social Media Marketing", path: "/services/social-media-marketing" },
         { name: "SEO", path: "/services/seo" },
-        {
-          name: "Domain Name Consultation",
-          path: "/services/domain-name-consultation",
-        },
-        {
-          name: "Enterprise Domain Management",
-          path: "/services/enterprise-domain-management",
-        },
+        { name: "Domain Name Consultation", path: "/services/domain-name-consultation" },
+        { name: "Enterprise Domain Management", path: "/services/enterprise-domain-management" },
       ],
     },
     {
@@ -82,7 +76,7 @@ const Footer = () => {
   return (
     <footer className="bg-realm-black text-white pt-16 pb-8">
       <div className="realm-container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 pb-12">
           {/* Realm by Rook column */}
           <div className="lg:col-span-2">
             <img src={LogoImage} alt="Realm by Rook" className="mb-4 w-32" />
@@ -105,14 +99,14 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* What We Do? column */}
+          {/* Artificial Intelligence */}
           <div>
             <h3 className="font-medium mb-4 text-sm text-gray-400">
               <Link
-                to="/services"
+                to={footerLinks[0].titleLink}
                 className="hover:text-white transition-colors"
               >
-                What We Do?
+                {footerLinks[0].title}
               </Link>
             </h3>
             <ul className="space-y-3">
@@ -129,10 +123,15 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Company column */}
+          {/* Digital */}
           <div>
             <h3 className="font-medium mb-4 text-sm text-gray-400">
-              {footerLinks[1].title}
+              <Link
+                to={footerLinks[1].titleLink}
+                className="hover:text-white transition-colors"
+              >
+                {footerLinks[1].title}
+              </Link>
             </h3>
             <ul className="space-y-3">
               {footerLinks[1].links.map((link) => (
@@ -148,15 +147,58 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Resources and Legal columns */}
+          {/* Growth */}
           <div>
+            <h3 className="font-medium mb-4 text-sm text-gray-400">
+              <Link
+                to={footerLinks[2].titleLink}
+                className="hover:text-white transition-colors"
+              >
+                {footerLinks[2].title}
+              </Link>
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks[2].links.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.path}
+                    className="hover:text-gray-300 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company, Resources and Legal columns */}
+          <div>
+            {/* Company section */}
+            <div className="mb-8">
+              <h3 className="font-medium mb-4 text-sm text-gray-400">
+                {footerLinks[3].title}
+              </h3>
+              <ul className="space-y-3">
+                {footerLinks[3].links.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      to={link.path}
+                      className="hover:text-gray-300 transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Resources section */}
             <div className="mb-8">
               <h3 className="font-medium mb-4 text-sm text-gray-400">
-                {footerLinks[2].title}
+                {footerLinks[4].title}
               </h3>
               <ul className="space-y-3">
-                {footerLinks[2].links.map((link) => (
+                {footerLinks[4].links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.path}
@@ -172,10 +214,10 @@ const Footer = () => {
             {/* Legal section */}
             <div>
               <h3 className="font-medium mb-4 text-sm text-gray-400">
-                {footerLinks[3].title}
+                {footerLinks[5].title}
               </h3>
               <ul className="space-y-3">
-                {footerLinks[3].links.map((link) => (
+                {footerLinks[5].links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.path}

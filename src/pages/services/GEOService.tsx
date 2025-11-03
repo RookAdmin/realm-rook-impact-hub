@@ -242,7 +242,7 @@ const GEOService = () => {
     <>
       <Helmet>
         <title>
-          GEO Service by Realm by Rook | Get Your Brand Cited by AI Systems
+          GEO by Realm by Rook | Get Your Brand Cited by AI Systems
         </title>
         <meta
           name="description"
