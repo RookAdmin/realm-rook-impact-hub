@@ -222,6 +222,8 @@ const ContactForm = ({ onSuccess }: ContactFormProps) => {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
+                  <SelectItem value="GEO">GEO</SelectItem>
+                  <SelectItem value="Agentica">Agentica</SelectItem>
                   <SelectItem value="AI Agents Automation">AI Agents Automation</SelectItem>
                   <SelectItem value="Web/App Development">Web/App Development</SelectItem>
                   <SelectItem value="Social Media Marketing">Social Media Marketing</SelectItem> 

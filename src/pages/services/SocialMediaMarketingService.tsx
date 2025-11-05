@@ -49,7 +49,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 onClick={() => setIsContactOpen(true)}
-                className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors text-base"
+                className="realm-button bg-white rounded-full text-realm-black hover:bg-realm-lightgray transition-colors text-base"
               >
                 Get My Custom Strategy
               </Button>
@@ -643,7 +643,7 @@ const FinalCTA = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button
               onClick={() => setIsContactOpen(true)}
-              className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors"
+              className="realm-button rounded-full bg-white text-realm-black hover:bg-realm-lightgray transition-colors"
             >
               Claim Your Slot Now <ArrowRight size={16} className="ml-2" />
             </Button>
@@ -730,7 +730,7 @@ const StickyCTA = () => {
 
         <Button
           onClick={() => setIsContactOpen(true)}
-          className="realm-button bg-white text-realm-black hover:bg-realm-lightgray transition-colors w-full sm:w-auto"
+          className="realm-button rounded-full bg-white text-realm-black hover:bg-realm-lightgray transition-colors w-full sm:w-auto"
         >
           Claim Your Strategy Slot <ArrowRight size={16} className="ml-2" />
         </Button>

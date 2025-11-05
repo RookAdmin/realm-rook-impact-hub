@@ -68,7 +68,7 @@ const RadProcessVisual = () => {
           
           {/* Result Label */}
           <div className="flex justify-center mt-16">
-            <div className="bg-realm-black text-white px-8 py-3 font-display text-lg">
+            <div className="bg-realm-black text-white rounded-full px-8 py-3 font-display text-lg">
               10X Faster Delivery
             </div>
           </div>

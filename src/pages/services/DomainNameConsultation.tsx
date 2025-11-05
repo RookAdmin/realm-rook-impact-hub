@@ -190,7 +190,7 @@ const DomainNameConsultation = () => {
 
                 <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
                   <Link to="/contact">
-                    <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                    <Button className="realm-button bg-white rounded-full text-realm-black hover:bg-realm-lightgray">
                       Book a 1:1 Domain Strategy Call
                       <ArrowRight size={16} className="ml-2" />
                     </Button>
@@ -198,7 +198,7 @@ const DomainNameConsultation = () => {
                   <Link to="/case-studies">
                     <Button
                       variant="outline"
-                      className="realm-button border-white text-black hover:text-white hover:bg-white/10"
+                      className="realm-button border-white rounded-full text-black hover:text-white hover:bg-white/10"
                     >
                       View Past Domain Success Stories
                       <ArrowRight size={16} className="ml-2" />
@@ -365,7 +365,7 @@ const DomainNameConsultation = () => {
 
               <div className="text-center mt-12">
                 <Link to="/contact">
-                  <Button className="realm-button">
+                  <Button className="realm-button rounded-full">
                     Schedule a Discovery Call
                     <ArrowRight size={16} className="ml-2" />
                   </Button>
@@ -718,7 +718,7 @@ const DomainNameConsultation = () => {
                       />
                     </div>
 
-                    <Button type="submit" className="realm-button w-full">
+                    <Button type="submit" className="realm-button w-full rounded-full">
                       Submit to Get Strategy
                       <ArrowRight size={16} className="ml-2" />
                     </Button>

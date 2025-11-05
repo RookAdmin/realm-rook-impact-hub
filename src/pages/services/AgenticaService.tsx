@@ -176,7 +176,7 @@ const AgenticaService = () => {
             >
               <Button 
                 onClick={() => setIsContactOpen(true)}
-                className="bg-white text-black hover:bg-gray-200 flex items-center justify-center px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                className="bg-white text-black hover:bg-gray-200 flex items-center justify-center px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
               >
                 <span>Get Started</span>
                 <ArrowRight size={16} className="ml-2" />
@@ -435,7 +435,7 @@ const AgenticaService = () => {
               Your app, available wherever people chat.
             </p>
             <Link to="/contact">
-              <Button className="realm-button bg-realm-black text-white hover:bg-realm-darkgray px-8 py-6 text-lg">
+              <Button className="realm-button rounded-full bg-realm-black text-white hover:bg-realm-darkgray px-8 py-6 text-lg">
                 Get Started with Agentica
               </Button>
             </Link>

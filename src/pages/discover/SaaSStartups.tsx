@@ -263,7 +263,7 @@ const SaaSStartups = () => {
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
                   <Link to="/contact">
-                    <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                    <Button className="realm-button bg-white rounded-full text-realm-black hover:bg-realm-lightgray">
                       Book Your Growth Strategy Session
                     </Button>
                   </Link>
@@ -341,7 +341,7 @@ const SaaSStartups = () => {
                   Deploy your SaaS as a conversational service. Power booking, onboarding, and payments entirely in chat or voice—no screens, just conversation.
                 </p>
                 <Link to="/services/agentica">
-                  <Button className="bg-black text-white hover:bg-gray-800 px-8 py-6 text-base rounded-lg font-medium inline-flex items-center gap-2">
+                  <Button className="bg-black text-white hover:bg-gray-800 px-8 py-6 text-base rounded-full font-medium inline-flex items-center gap-2">
                     Explore Agentica
                     <ArrowRight size={20} />
                   </Button>
@@ -555,7 +555,7 @@ const SaaSStartups = () => {
 
               <div className="mt-8">
                 <Link to="/contact">
-                  <Button className="realm-button bg-realm-black text-white hover:bg-realm-darkgray">
+                  <Button className="realm-button rounded-full bg-realm-black text-white hover:bg-realm-darkgray">
                     Let's Build Your Case Study
                   </Button>
                 </Link>
@@ -646,7 +646,7 @@ const SaaSStartups = () => {
               </p>
 
               <Link to="/contact">
-                <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                <Button className="realm-button rounded-full bg-white text-realm-black hover:bg-realm-lightgray">
                   Schedule Your Strategy Call
                 </Button>
               </Link>

@@ -62,7 +62,7 @@ const BrandingHero = () => {
 
           <Button
             onClick={() => setIsContactOpen(true)}
-            className="realm-button flex items-center gap-2"
+            className="realm-button rounded-full flex items-center gap-2"
           >
             Get Your Brand Built <ArrowRight size={16} />
           </Button>

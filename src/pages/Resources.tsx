@@ -150,14 +150,14 @@ const Resources = () => {
       </section>
 
       {/* Back to Home */}
-      <section className="realm-section pt-0">
+      {/* <section className="realm-section pt-0">
         <div className="realm-container text-center">
           <Link to="/" className="group flex items-center justify-center font-medium">
             <ArrowRight className="mr-2 h-4 w-4 rotate-180 group-hover:-translate-x-1 transition-transform" />
             Back to Homepage
           </Link>
         </div>
-      </section>
+      </section> */}
 
       {/* Final CTA */}
       <CtaSection />

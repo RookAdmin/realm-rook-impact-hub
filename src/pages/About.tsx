@@ -136,7 +136,7 @@ const About = () => {
 
               <div className="mt-12">
                 <Link to="/contact">
-                  <Button className="realm-button flex items-center space-x-2 bg-white text-realm-black hover:bg-realm-lightgray mx-auto">
+                  <Button className="realm-button flex items-center space-x-2 rounded-full bg-white text-realm-black hover:bg-realm-lightgray mx-auto">
                     <span>Let's Build Your Realm</span>
                     <ArrowRight size={16} />
                   </Button>
@@ -420,7 +420,7 @@ const About = () => {
               </h2>
 
               <Link to="/contact">
-                <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray flex items-center space-x-2 mx-auto">
+                <Button className="realm-button rounded-full bg-white text-realm-black hover:bg-realm-lightgray flex items-center space-x-2 mx-auto">
                   <span>Talk to Realm</span>
                   <ArrowRight size={16} />
                 </Button>

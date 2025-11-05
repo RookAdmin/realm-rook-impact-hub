@@ -16,7 +16,7 @@ const CtaSection = () => {
             growth.
           </p>
           <Link to="/contact">
-            <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+            <Button className="realm-button rounded-full bg-white text-realm-black hover:bg-realm-lightgray">
               Get Started
               <ArrowRight size={16} className="ml-2" />
             </Button>

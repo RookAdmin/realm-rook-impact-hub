@@ -90,7 +90,7 @@ const UIUXDesignService = () => {
                 </p>
                 <Button
                   onClick={() => setIsContactOpen(true)}
-                  className="realm-button flex items-center gap-2"
+                  className="realm-button rounded-full flex items-center gap-2"
                 >
                   Let's Design Together <ArrowRight size={16} />
                 </Button>
@@ -395,7 +395,7 @@ const UIUXDesignService = () => {
               <Button
                 onClick={() => setIsContactOpen(true)}
                 variant="outline"
-                className="text-black border-white"
+                className="text-black border-white rounded-full"
               >
                 Talk to Our Design Team
               </Button>
@@ -403,7 +403,7 @@ const UIUXDesignService = () => {
           </div>
         </section>
 
-        <div className="py-16 pl-12 text-center">
+        {/* <div className="py-16 pl-12 text-center">
           <Link to="/">
             <Button
               variant="outline"
@@ -412,7 +412,7 @@ const UIUXDesignService = () => {
               <ArrowLeft size={16} /> Back to Homepage
             </Button>
           </Link>
-        </div>
+        </div> */}
       </main>
     </>
   );

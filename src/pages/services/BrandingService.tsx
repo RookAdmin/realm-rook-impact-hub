@@ -49,7 +49,7 @@ const BrandingService = () => {
           <FinalCta />
         </div>
 
-        <div className="py-16 pl-12 text-center">
+        {/* <div className="py-16 pl-12 text-center">
           <Link to="/">
             <Button
               variant="outline"
@@ -58,7 +58,7 @@ const BrandingService = () => {
               <ArrowLeft size={16} /> Back to Homepage
             </Button>
           </Link>
-        </div>
+        </div> */}
       </main>
     </>
   );

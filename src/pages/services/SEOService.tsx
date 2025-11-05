@@ -150,7 +150,7 @@ const SEOService = () => {
                 </p>
                 <Button
                   onClick={() => setIsContactOpen(true)}
-                  className="realm-button flex items-center gap-2"
+                  className="realm-button rounded-full flex items-center gap-2"
                 >
                   Boost My Rankings <ArrowRight size={16} />
                 </Button>
@@ -325,7 +325,7 @@ const SEOService = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <Button
                 onClick={() => setIsContactOpen(true)}
-                className="realm-button flex items-center gap-2"
+                className="realm-button flex items-center gap-2 rounded-full"
               >
                 Schedule SEO Audit <ArrowRight size={16} />
               </Button>

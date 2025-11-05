@@ -31,7 +31,6 @@ const fadeIn = {
 const Contact = () => {
   const [openCountryCode, setOpenCountryCode] = useState(false);
   
-  
   const form = useForm({
     defaultValues: {
       first_name: "",

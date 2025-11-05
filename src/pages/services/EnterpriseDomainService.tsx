@@ -168,7 +168,7 @@ const EnterpriseDomainService = () => {
                 </p>
 
                 <Link to="/contact">
-                  <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                  <Button className="realm-button bg-white text-realm-black rounded-full hover:bg-realm-lightgray">
                     Request Enterprise Consultation
                     <ArrowRight size={16} className="ml-2" />
                   </Button>
@@ -293,7 +293,7 @@ const EnterpriseDomainService = () => {
                   streamline operations.
                 </p>
                 <Link to="/case-studies">
-                  <Button className="realm-button">
+                  <Button className="realm-button rounded-full">
                     View Enterprise Case Studies
                     <ArrowRight size={16} className="ml-2" />
                   </Button>
@@ -323,7 +323,7 @@ const EnterpriseDomainService = () => {
               </p>
 
               <Link to="/contact">
-                <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                <Button className="realm-button bg-white text-realm-black rounded-full hover:bg-realm-lightgray">
                   Schedule an Enterprise Consultation
                   <ArrowRight size={16} className="ml-2" />
                 </Button>

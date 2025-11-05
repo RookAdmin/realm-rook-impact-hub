@@ -8,7 +8,7 @@ const GEOSection = () => {
     { name: "ChatGPT", logo: "/ai/openai.png" },
     { name: "Claude", logo: "/ai/claude.png" },
     { name: "Gemini", logo: "/ai/gai.png" },
-    { name: "Perplexity", logo: "/ai/perplexity.png" },
+    { name: "Perplexity", logo: "/services/seo-tools/perplexity.webp" },
   ];
 
   return (
@@ -171,7 +171,7 @@ const GEOSection = () => {
           {/* CTA */}
           <div className="text-center">
             <Link to="/services/geo">
-              <Button className="realm-button flex items-center gap-2 mx-auto" size="lg">
+              <Button className="realm-button rounded-full flex items-center gap-2 mx-auto" size="lg">
                 Learn More About GEO <ArrowRight size={20} />
               </Button>
             </Link>

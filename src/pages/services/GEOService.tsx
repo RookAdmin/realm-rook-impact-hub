@@ -288,7 +288,7 @@ const GEOService = () => {
                 </p>
                 <Button
                   onClick={() => setIsContactOpen(true)}
-                  className="realm-button flex items-center gap-2 mx-auto mb-12"
+                  className="realm-button rounded-full flex items-center gap-2 mx-auto mb-12"
                   size="lg"
                 >
                   Boost My Brand in AI Results <ArrowRight size={20} />
@@ -524,7 +524,7 @@ const GEOService = () => {
               <Button
                 onClick={() => setIsContactOpen(true)}
                 variant="outline"
-                className="bg-transparent border-realm-black text-realm-black hover:bg-realm-black hover:text-white"
+                className="bg-transparent rounded-full border-realm-black text-realm-black hover:bg-realm-black hover:text-white"
               >
                 Get a Custom AI Discovery Audit
               </Button>
@@ -567,7 +567,7 @@ const GEOService = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 onClick={() => setIsContactOpen(true)}
-                className="realm-button flex items-center gap-2"
+                className="realm-button rounded-full flex items-center gap-2"
                 size="lg"
               >
                 Book Your GEO Demo <ArrowRight size={20} />
@@ -575,7 +575,7 @@ const GEOService = () => {
               <Button
                 onClick={() => setIsContactOpen(true)}
                 variant="outline"
-                className="bg-transparent border-realm-black text-realm-black hover:bg-realm-black hover:text-white"
+                className="bg-transparent rounded-full border-realm-black text-realm-black hover:bg-realm-black hover:text-white"
                 size="lg"
               >
                 Contact Our GEO Experts

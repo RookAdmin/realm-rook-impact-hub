@@ -100,7 +100,7 @@ const Partners = () => {
               <p className="text-lg mb-8">
                 Join our affiliate or technology partnership program to grow with us.
               </p>
-              <Button asChild variant="secondary" size="lg" className="font-medium">
+              <Button asChild variant="secondary" size="lg" className="font-medium rounded-full">
                 <Link to="/contact">Become a Partner</Link>
               </Button>
             </div>

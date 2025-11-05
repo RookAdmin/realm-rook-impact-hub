@@ -215,7 +215,7 @@ const D2CStartups = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <Link to="/contact">
-                  <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                  <Button className="realm-button bg-white rounded-full text-realm-black hover:bg-realm-lightgray">
                     Request Your Strategic Consultation
                   </Button>
                 </Link>
@@ -292,7 +292,7 @@ const D2CStartups = () => {
                   Agentica enables direct sales, support, and payments—all through chat. Elevate your customer journey with zero screens.
                 </p>
                 <Link to="/services/agentica">
-                  <Button className="bg-black text-white hover:bg-gray-800 px-8 py-6 text-base rounded-lg font-medium inline-flex items-center gap-2">
+                  <Button className="bg-black text-white hover:bg-gray-800 px-8 py-6 text-base rounded-full font-medium inline-flex items-center gap-2">
                     Explore Agentica
                     <ArrowRight size={20} />
                   </Button>
@@ -509,7 +509,7 @@ const D2CStartups = () => {
 
               <div className="mt-8">
                 <Link to="/contact">
-                  <Button className="realm-button bg-realm-black text-white hover:bg-realm-darkgray">
+                  <Button className="realm-button bg-realm-black rounded-full text-white hover:bg-realm-darkgray">
                     Book a Strategy Call
                   </Button>
                 </Link>
@@ -572,7 +572,7 @@ const D2CStartups = () => {
               </p>
 
               <Link to="/contact">
-                <Button className="realm-button bg-white text-realm-black hover:bg-realm-lightgray">
+                <Button className="realm-button bg-white rounded-full text-realm-black hover:bg-realm-lightgray">
                   Secure Your Strategic Session
                 </Button>
               </Link>

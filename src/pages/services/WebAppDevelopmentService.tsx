@@ -65,7 +65,7 @@ const WebAppDevelopmentService = () => {
               </p>
               <Button
                 onClick={() => setIsContactOpen(true)}
-                className="realm-button bg-realm-black text-white hover:bg-realm-darkgray inline-flex items-center gap-2"
+                className="realm-button rounded-full bg-realm-black text-white hover:bg-realm-darkgray inline-flex items-center gap-2"
               >
                 Build With Realm <ArrowRight size={16} />
               </Button>
@@ -707,7 +707,7 @@ const WebAppDevelopmentService = () => {
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
                   <Button
                     onClick={() => setIsContactOpen(true)}
-                    className="realm-button bg-realm-black text-white hover:bg-realm-darkgray inline-flex items-center gap-2 justify-center"
+                    className="realm-button rounded-full bg-realm-black text-white hover:bg-realm-darkgray inline-flex items-center gap-2 justify-center"
                   >
                     Start a Project <ArrowRight size={16} />
                   </Button>

@@ -59,14 +59,14 @@ const HeroSection = () => {
             >
               <Button
                 onClick={() => setIsContactOpen(true)}
-                className="bg-black text-white hover:bg-gray-800 flex items-center justify-center px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                className="bg-black text-white hover:bg-gray-800 flex items-center justify-center px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
               >
                 <span>Get a Proposal</span>
                 <ArrowRight size={16} className="ml-2" />
               </Button>
 
             
-              <a href="/services/agentica" className="text-black flex items-center space-x-2 hover:text-gray-700 transition-colors px-8 py-4 border border-gray-400 rounded-lg hover:border-gray-600">
+              <a href="/services/agentica" className="text-black flex items-center space-x-2 hover:text-gray-700 transition-colors px-8 py-4 border border-gray-400 rounded-full hover:border-gray-600">
                 <span>Discover Agentica</span>
                 <ArrowRight size={16} />
               </a>

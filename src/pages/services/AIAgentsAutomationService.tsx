@@ -393,7 +393,7 @@ const AIAgentsAutomationService = () => {
                 <div className="flex flex-col sm:flex-row gap-6 justify-center md:justify-start mb-16">
                   <Button
                     onClick={() => setIsContactOpen(true)}
-                    className="bg-white text-realm-black hover:bg-gray-100 px-8 py-4 text-lg font-medium rounded-xl"
+                    className="bg-white text-realm-black hover:bg-gray-100 px-8 py-4 text-lg font-medium rounded-full"
                   >
                     Get Free AI Audit
                     <ArrowRight size={20} className="ml-2" />
@@ -401,7 +401,7 @@ const AIAgentsAutomationService = () => {
                   <Button
                     onClick={() => scrollToSection("case-studies")}
                     variant="outline"
-                    className="border-white text-black hover:bg-white hover:text-realm-black px-8 py-4 text-lg font-medium rounded-xl"
+                    className="border-white text-black hover:bg-white hover:text-realm-black px-8 py-4 text-lg font-medium rounded-full"
                   >
                     See Real Results
                     <ArrowRight size={20} className="ml-2" />
@@ -720,7 +720,7 @@ const AIAgentsAutomationService = () => {
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Button
                   onClick={() => setIsContactOpen(true)}
-                  className="bg-white text-realm-black hover:bg-gray-100 px-8 py-4 text-lg font-medium rounded-xl"
+                  className="bg-white text-realm-black hover:bg-gray-100 px-8 py-4 text-lg font-medium rounded-full"
                 >
                   Book My Free Audit
                   <ArrowRight size={20} className="ml-2" />

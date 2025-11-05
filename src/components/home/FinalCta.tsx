@@ -27,7 +27,7 @@ const FinalCta = () => {
           <p className="text-xl md:text-2xl mb-12 text-realm-lightgray">
             Let's build something that truly sets you apart and drives real business results.
           </p>  
-            <Button onClick={() => setIsContactOpen(true)} className="realm-button bg-white text-realm-black hover:bg-realm-lightgray group px-8 py-6 text-lg">
+            <Button onClick={() => setIsContactOpen(true)} className="realm-button rounded-full bg-white text-realm-black hover:bg-realm-lightgray group px-8 py-6 text-lg">
               <span>Let's Build Something Together</span>
               <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
