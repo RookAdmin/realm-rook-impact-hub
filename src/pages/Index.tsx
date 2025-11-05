@@ -29,6 +29,9 @@ const Index = () => {
         
         {/* Hero Section - Solid Black Background with Bold Typography */}
         <HeroSection />
+
+        {/* GEO Section - AI Citation Optimization */}
+        <GEOSection />
         
         {/* Client Spotlight - Success Stories */}
         <ClientSpotlight />
@@ -39,8 +42,7 @@ const Index = () => {
         {/* Client Testimonials */}
         <ClientQuotes />
 
-        {/* GEO Section - AI Citation Optimization */}
-        <GEOSection />
+        
 
         {/* Impact Metrics Section - Animated Counters */}
         <ImpactMetrics />   

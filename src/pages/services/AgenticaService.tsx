@@ -21,9 +21,10 @@ import {
 const partnerLogos = [
   { name: "PayPal", image: "/partner-logo/razorpay.png" },
   { name: "Gemini AI", image: "/ai/gai.png" },
-  { name: "Zomato", image: "/podcasts/zomato.png" },
+  { name: "Zomato", image: "/ai/zomato.png" },
   { name: "Claude AI", image: "/ai/claude.png" },
   { name: "ChatGPT", image: "/ai/openai.png" },
+  { name: "Paypal", image: "/ai/paypal.png"}
 ];
 
 // Feature cards data
@@ -128,7 +129,7 @@ const AgenticaService = () => {
           }}
         />
 
-        <div className="realm-container relative z-10">
+        <div className="realm-container relative z-10 mb-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Tagline */}
             <motion.div
@@ -189,7 +190,7 @@ const AgenticaService = () => {
               transition={{ duration: 1, delay: 0.8 }}
               className="mt-20"
             >
-              <div className="relative mx-auto max-w-2xl aspect-[9/16] md:aspect-[16/9] rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 p-8 shadow-2xl">
+              <div className="relative mx-auto max-w-2xl rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 p-8 shadow-2xl">
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <div className="w-10 h-10 rounded-full bg-white/10" />
@@ -230,7 +231,7 @@ const AgenticaService = () => {
       <section className="py-16 bg-white border-t border-b border-gray-200">
         <div className="realm-container">
           <p className="text-center text-sm text-realm-darkgray mb-8 uppercase tracking-wider">
-            As seen in partnerships by industry leaders
+            Leading companies are adopting Convestional Commerce.
           </p>
           <div className="flex flex-wrap justify-center items-center gap-12">
             {partnerLogos.map((partner, index) => (

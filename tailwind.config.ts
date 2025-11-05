@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				display: ['"Playfair Display"', 'serif'],
+				sans: ['Delight', 'Delight'],
+				display: ['"Delight"', 'Delight'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

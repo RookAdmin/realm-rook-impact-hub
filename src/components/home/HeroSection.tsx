@@ -48,7 +48,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Bring your SaaS or D2C product to any chat platform. Voice or text—one message, endless possibilities.
+              Bring your SaaS or D2C product to any chat platform. Voice or text one message, endless possibilities.
             </motion.p>
 
             <motion.div

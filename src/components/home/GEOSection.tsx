@@ -64,7 +64,11 @@ const GEOSection = () => {
                   {/* AI Response */}
                   <div className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0">
-                      <Bot className="w-4 h-4 text-white" />
+                      <img
+                        src="/services/seo-tools/perplexity.webp"   // 👈 your image path here
+                        alt="ChatGPT Icon"
+                        className="w-6 h-6 object-contain"
+                      />
                     </div>
                     <div className="bg-gradient-to-br from-realm-black to-realm-darkgray p-4 rounded-lg shadow-sm flex-1 text-white">
                       <p className="text-sm mb-3">
@@ -88,7 +92,11 @@ const GEOSection = () => {
                   <Sparkles className="w-6 h-6 text-purple-500" />
                 </div>
                 <div className="absolute -bottom-4 -left-4 bg-white p-2 rounded-lg shadow-lg">
-                  <Bot className="w-6 h-6 text-blue-500" />
+                  <img
+                    src="/services/seo-tools/chatgpt.png"   // 👈 your image path here
+                    alt="ChatGPT Icon"
+                    className="w-6 h-6 object-contain"
+                  />
                 </div>
               </div>
             </div>
@@ -97,7 +105,7 @@ const GEOSection = () => {
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-realm-black rounded-full flex items-center justify-center flex-shrink-0">
-                  <Sparkles className="w-6 h-6 text-white" />
+                  <p className="text-white text-xl">1</p>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">AI-First Visibility</h3>
@@ -110,7 +118,7 @@ const GEOSection = () => {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-realm-black rounded-full flex items-center justify-center flex-shrink-0">
-                  <Bot className="w-6 h-6 text-white" />
+                   <p className="text-white text-xl">2</p>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Multi-Platform Coverage</h3>
@@ -123,7 +131,7 @@ const GEOSection = () => {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-realm-black rounded-full flex items-center justify-center flex-shrink-0">
-                  <ArrowRight className="w-6 h-6 text-white" />
+                   <p className="text-white text-xl">3</p>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Measurable Results</h3>

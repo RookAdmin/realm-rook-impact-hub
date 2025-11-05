@@ -35,7 +35,7 @@ const GEOService = () => {
     { name: "ChatGPT", logo: "/ai/openai.png" },
     { name: "Claude", logo: "/ai/claude.png" },
     { name: "Gemini AI", logo: "/ai/gai.png" },
-    { name: "Perplexity", logo: "/ai/perplexity.png" },
+    { name: "Perplexity", logo: "/services/seo-tools/perplexity.webp" },
     { name: "Microsoft Copilot", logo: "/ai/copilot.png" },
     { name: "NotebookLM", logo: "/ai/notebooklm.png" },
   ];

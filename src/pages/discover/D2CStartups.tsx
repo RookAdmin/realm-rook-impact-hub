@@ -312,7 +312,15 @@ const D2CStartups = () => {
                   <div className="p-6 space-y-4">
                     {/* Header */}
                     <div className="flex items-center gap-3 pb-4 border-b border-gray-200">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-600" />
+                      <div className="w-10 h-10 rounded-full  p-[2px]">
+                          <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
+                            <img
+                              src="/ai/claude.png" 
+                              alt="Profile"
+                              className="w-8 h-8 object-cover rounded-full"
+                            />
+                          </div>
+                        </div>
                       <div>
                         <p className="font-semibold text-sm">D2C Shopping Assistant</p>
                         <p className="text-xs text-gray-500">Powered by Agentica</p>
