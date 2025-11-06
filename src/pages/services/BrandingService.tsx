@@ -31,10 +31,10 @@ const BrandingService = () => {
       </Helmet>
       <main className="min-h-screen pt-20">
         <div className="realm-container mb-6 pt-20">
-          <ServiceBreadcrumb
+          {/* <ServiceBreadcrumb
             serviceName="Branding"
             serviceUrl="/services/branding"
-          />
+          /> */}
         </div>
 
         <div>

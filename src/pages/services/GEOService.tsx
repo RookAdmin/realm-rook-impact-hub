@@ -270,7 +270,7 @@ const GEOService = () => {
       </Helmet>
       <main className="min-h-screen pt-32 pb-16">
         <div className="realm-container">
-          <ServiceBreadcrumb serviceName="GEO" serviceUrl="/services/geo" />
+          {/* <ServiceBreadcrumb serviceName="GEO" serviceUrl="/services/geo" /> */}
 
           {/* Hero Section */}
           <section className="mb-20">
@@ -283,7 +283,7 @@ const GEOService = () => {
                   </span>
                 </h1>
                 <p className="text-xl md:text-2xl mb-8 text-realm-darkgray max-w-3xl mx-auto">
-                  GEO is next-gen digital optimization, designed for the world's
+                  GEO is next gen digital optimization, designed for the world's
                   leading AI systems.
                 </p>
                 <Button

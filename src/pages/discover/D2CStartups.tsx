@@ -181,10 +181,10 @@ const D2CStartups = () => {
         />
       </Helmet>
       <main className="min-h-screen">
-        <ServiceBreadcrumb
+        {/* <ServiceBreadcrumb
           serviceName="D2C Startups"
           serviceUrl="/discover/d2c-startups"
-        />
+        /> */}
 
         {/* Hero Section - Updated with solid black background */}
         <section className="bg-realm-black text-white min-h-screen flex flex-col justify-center relative">

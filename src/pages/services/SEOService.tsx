@@ -134,7 +134,7 @@ const SEOService = () => {
       </Helmet>
       <main className="min-h-screen pt-32 pb-16">
         <div className="realm-container">
-          <ServiceBreadcrumb serviceName="SEO" serviceUrl="/services/seo" />
+          {/* <ServiceBreadcrumb serviceName="SEO" serviceUrl="/services/seo" /> */}
 
           {/* Hero Section */}
           <section className="">

@@ -228,10 +228,10 @@ const SaaSStartups = () => {
         />
       </Helmet>
       <main className="min-h-screen">
-        <ServiceBreadcrumb
+        {/* <ServiceBreadcrumb
           serviceName="SaaS Startups"
           serviceUrl="/discover/saas-startups"
-        />
+        /> */}
 
         {/* Hero Section - Updated with solid black background */}
         <section className="bg-realm-black text-white py-20">

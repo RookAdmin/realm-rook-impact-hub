@@ -362,47 +362,48 @@ const About = () => {
         </section>
 
         {/* Trusted By */}
-        <section className="py-16 bg-white">
-          <div className="realm-container">
-            <motion.div
-              className="text-center mb-12"
-              initial="hidden"
-              whileInView="visible"
-              variants={fadeIn}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-lg font-large text-realm-darkgray">
-                Trusted By Top 1% Brands
-              </h3>
-            </motion.div>
+       <section className="py-16 bg-white overflow-hidden">
+  <div className="overflow-hidden">
+    <motion.div
+      className="text-center mb-12"
+      initial="hidden"
+      whileInView="visible"
+      variants={fadeIn}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
+      <h3 className="text-lg font-large text-realm-darkgray">
+        Trusted By Top 1% Brands
+      </h3>
+    </motion.div>
 
-            <motion.div
-            className="flex gap-12"
-            animate={{
-              x: ["0%", "-100%"], // continuous scroll
-            }}
-            transition={{
-              ease: "linear",
-              duration: 25,
-              repeat: Infinity,
-            }}
-          >
-            {[...clients, ...clients].map((client, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center flex-shrink-0"
-              >
-                <img
-                  src={client.logo}
-                  alt={`${client.name} logo`}
-                  className="w-32 h-20 object-contain"
-                />
-              </div>
-            ))}
-          </motion.div>
-          </div>
-        </section>
+    <motion.div
+      className="flex gap-12 w-max mx-auto"
+      animate={{
+        x: ["0%", "-100%"],
+      }}
+      transition={{
+        ease: "linear",
+        duration: 80,
+        repeat: Infinity,
+      }}
+    >
+      {[...clients, ...clients].map((client, index) => (
+        <div
+          key={index}
+          className="flex items-center justify-center flex-shrink-0"
+        >
+          <img
+            src={client.logo}
+            alt={`${client.name} logo`}
+            className="w-32 h-20 object-contain"
+          />
+        </div>
+      ))}
+    </motion.div>
+  </div>
+</section>
+
 
         {/* Final CTA */}
         <section className="py-20 bg-realm-black text-white">

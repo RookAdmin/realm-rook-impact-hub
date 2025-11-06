@@ -63,7 +63,7 @@ const GEOSection = () => {
 
                   {/* AI Response */}
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0">
                       <img
                         src="/services/seo-tools/perplexity.webp"   // 👈 your image path here
                         alt="ChatGPT Icon"
@@ -76,7 +76,7 @@ const GEOSection = () => {
                       </p>
                       <div className="bg-white/10 backdrop-blur-sm p-3 rounded border-2 border-yellow-400 animate-pulse">
                         <p className="text-sm font-bold text-yellow-300 mb-1">
-                          ✨ Your Brand Here
+                          Your Brand Here
                         </p>
                         <p className="text-xs text-gray-200">
                           Recommended for their innovative AI-powered solutions

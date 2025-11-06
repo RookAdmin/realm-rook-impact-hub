@@ -11,17 +11,17 @@ const Services = () => {
       services: [
         {
           title: 'GEO',
-          description: 'Get your brand seen, cited, and trusted by AI systems. Next-gen optimization for ChatGPT, Gemini, Claude, and more.',
+          description: 'Get your brand seen, cited, and trusted by AI systems. Next gen optimization for ChatGPT, Gemini, Claude, and more.',
           link: '/services/geo',
           icon: <Sparkles size={32} />,
-          image: '/ai/comp.png'
+          image: '/services/GEO.png'
         },
         {
           title: 'Agentica',
-          description: 'Custom AI agents built to scale your operations and automate complex workflows.',
+          description: 'Transform your store with AI-driven conversational agents that engage customers, automate sales, and boost conversions.',
           link: '/services/agentica',
           icon: <Bot size={32} />,
-          image: '/services/aiagent.png'
+          image: '/services/Agentica.png'
         },
         {
           title: 'AI Agents Automation',
@@ -127,9 +127,9 @@ const Services = () => {
                         className="realm-image realm-image-greyscale hover:scale-105 transition-transform duration-500 w-full h-full object-cover"
                       />
                     </div>
-                    <div className="realm-icon-container">
+                    {/* <div className="realm-icon-container">
                       {service.icon}
-                    </div>
+                    </div> */}
                     <h3 className="text-2xl font-display font-bold mb-3">{service.title}</h3>
                     <p className="text-realm-darkgray mb-6 leading-relaxed">{service.description}</p>
                     <Link to={service.link} className="realm-link flex items-center space-x-2 group-hover:gap-3 transition-all">

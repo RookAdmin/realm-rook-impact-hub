@@ -195,10 +195,10 @@ const AIBusinessAutomationService = () => {
         />
       </Helmet>
       <main className="min-h-screen pt-20">
-        <ServiceBreadcrumb
+        {/* <ServiceBreadcrumb
           serviceName="AI & Business Automation"
           serviceUrl="/services/ai-agents-automation"
-        />
+        /> */}
         {/* Hero Section with dark background */}
         <section className="bg-realm-black text-white py-20 md:py-32">
           <div className="realm-container">

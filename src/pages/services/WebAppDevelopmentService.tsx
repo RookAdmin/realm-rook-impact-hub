@@ -42,12 +42,12 @@ const WebAppDevelopmentService = () => {
       <main className="min-h-screen">
         <div className="pt-32">
           {/* Breadcrumb */}
-          <div className="realm-container">
+          {/* <div className="realm-container">
             <ServiceBreadcrumb
               serviceName="Web/App Development"
               serviceUrl="/services/web-app-development"
             />
-          </div>
+          </div> */}
 
           {/* Hero Section */}
           <section className="py-16 md:py-24 relative overflow-hidden">

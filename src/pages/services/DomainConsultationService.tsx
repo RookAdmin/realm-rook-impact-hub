@@ -86,10 +86,10 @@ const DomainConsultationService = () => {
         />
       </Helmet>
       <main className="min-h-screen pt-20">
-        <ServiceBreadcrumb
+        {/* <ServiceBreadcrumb
           serviceName="Domain Name Consultation"
           serviceUrl="/services/domain-consultation"
-        />
+        /> */}
 
         {/* Hero Section */}
         <section className="bg-realm-black text-white py-20 md:py-32">

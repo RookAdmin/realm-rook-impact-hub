@@ -139,14 +139,14 @@ const EnterpriseDomainService = () => {
         />
       </Helmet>
       <main className="min-h-screen pt-20">
-        <div className="bg-black text-white">
+        {/* <div className="bg-black text-white">
           <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4">
             <ServiceBreadcrumb
               serviceName="Enterprise Domain Management"
               serviceUrl="/services/enterprise-domain-management"
             />
           </div>
-        </div>
+        </div> */}
 
         {/* Hero Section */}
         <section className="bg-realm-black text-white">
