@@ -308,7 +308,7 @@ const Navbar = () => {
           )}
           <Link to="/contact">
             <Button
-              className={`realm-button transition-colors duration-300 ${buttonClass}`}
+              className={`realm-button rounded-full transition-colors duration-300 ${buttonClass}`}
             >
               Let's Talk
             </Button>

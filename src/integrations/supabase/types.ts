@@ -9,42 +9,54 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      contact_submissions: {
+      leads: {
         Row: {
-          company: string | null
+         budget_range: string | null
+          business_name: string | null
           created_at: string
           email: string
           first_name: string | null
           id: string
           last_name: string | null
-          message: string
+          lead_source: string | null
           name: string
-          service: string | null
-          whatsapp_number: string | null
+          notes: string | null
+          phone: string | null
+          services_interested: string[] | null
+          status: string
+          updated_at: string
         }
         Insert: {
-          company?: string | null
-          created_at?: string
+          budget_range: string | null
+          business_name: string | null
+          created_at: string
           email: string
-          first_name?: string | null
-          id?: string
-          last_name?: string | null
-          message: string
+          first_name: string | null
+          id: string
+          last_name: string | null
+          lead_source: string | null
           name: string
-          service?: string | null
-          whatsapp_number?: string | null
+          notes: string | null
+          phone: string | null
+          services_interested: string[] | null
+          status: string
+          updated_at: string
         }
         Update: {
-          company?: string | null
-          created_at?: string
-          email?: string
-          first_name?: string | null
-          id?: string
-          last_name?: string | null
-          message?: string
-          name?: string
-          service?: string | null
-          whatsapp_number?: string | null
+         budget_range: string | null
+          business_name: string | null
+          created_at: string
+          email: string
+          first_name: string | null
+          id: string
+          last_name: string | null
+          lead_source: string | null
+          name: string
+          notes: string | null
+          phone: string | null
+          services_interested: string[] | null
+          status: string
+          updated_at: string
         }
         Relationships: []
       }
