@@ -165,7 +165,7 @@ const FloatingContactBar = () => {
 
       <Dialog open={isContactModalOpen} onOpenChange={setIsContactModalOpen}>
         <DialogContent className="sm:max-w-[500px]">
-          <div className="py-2 pr-2">
+          <div className="py-2">
             <h2 className="text-2xl font-display font-bold mb-6">Contact Us</h2>
             <ContactForm onSuccess={() => setIsContactModalOpen(false)} />
           </div>

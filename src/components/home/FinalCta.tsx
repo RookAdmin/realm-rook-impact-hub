@@ -35,8 +35,8 @@ const FinalCta = () => {
         </motion.div>
       </div>
        <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
-        <DialogContent className="sm:max-w-[500px]">
-          <div className="py-2 pr-2">
+        <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
+          <div className="py-2">
             <h2 className="text-2xl font-display font-bold mb-6">Let's Build Something Together</h2>
             <ContactForm onSuccess={() => setIsContactOpen(false)} />
           </div>

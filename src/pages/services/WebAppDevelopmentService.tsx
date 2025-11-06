@@ -85,7 +85,7 @@ const WebAppDevelopmentService = () => {
           {/* Contact  Form Dialog */}
           <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
             <DialogContent className="sm:max-w-[500px]">
-              <div className="py-2 pr-2">
+              <div className="py-2">
                 <h2 className="text-2xl font-display font-bold mb-6">
                   Build With Realm
                 </h2>
