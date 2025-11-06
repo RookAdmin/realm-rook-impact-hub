@@ -9,7 +9,6 @@ import { toast } from "sonner";
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { countryCodes } from "@/data/countryCodes";
 import { useState } from "react";
@@ -17,6 +16,7 @@ import { Check, ChevronDown } from "lucide-react";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import ServiceChecklist from "@/components/common/ServiceChecklist";
 
 // Animation variants
 const fadeIn = {
@@ -37,7 +37,7 @@ const Contact = () => {
       last_name: "",
       email: "",
       company: "",
-      service: "",
+      services: [],
       message: "",
       whatsapp_country_code: "91",
       whatsapp_number: "",
@@ -57,7 +57,7 @@ const Contact = () => {
             name: `${data.first_name} ${data.last_name}`.trim(),
             email: data.email,
             company: data.company || null,
-            service: data.service || null,
+            service: Array.isArray(data.services) && data.services.length > 0 ? data.services.join(', ') : null,
             message: data.message,
             whatsapp_number: data.whatsapp_country_code && data.whatsapp_number ? `+${data.whatsapp_country_code} ${data.whatsapp_number}` : null,
           }
@@ -268,37 +268,7 @@ const Contact = () => {
                     </div>
                   </div>
                   
-                  <FormField
-                    control={form.control}
-                    name="service"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>What Do You Need?</FormLabel>
-                        <Select 
-                          onValueChange={field.onChange} 
-                          defaultValue={field.value}
-                        >
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a service" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                              <SelectItem value="GEO">GEO</SelectItem>
-                              <SelectItem value="Agentica">Agentica</SelectItem>
-                              <SelectItem value="AI Agents Automation">AI Agents Automation</SelectItem>
-                              <SelectItem value="Web/App Development">Web/App Development</SelectItem>
-                              <SelectItem value="Social Media Marketing">Social Media Marketing</SelectItem>
-                              <SelectItem value="Branding">Branding</SelectItem>
-                              <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
-                              <SelectItem value="SEO">SEO</SelectItem>
-                              <SelectItem value="Domain Name Consultation">Domain Name Consultation</SelectItem>
-                              <SelectItem value="Enterprise Domain Management">Enterprise Domain Management</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </FormItem>
-                    )}
-                  />
+                  <ServiceChecklist control={form.control} name="services" />
                   
                   <FormField
                     control={form.control}
