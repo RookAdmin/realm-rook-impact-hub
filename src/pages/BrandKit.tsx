@@ -11,9 +11,11 @@ const BrandKit = () => {
   return (
     <>
       <Helmet>
-        <title>Brand Kit | Realm by Rook - Brand Guidelines & Assets</title>
-        <meta name="description" content="Official Realm by Rook brand kit with logos, colors, typography, and usage guidelines. Download brand assets and ensure consistent brand representation." />
-        <meta name="keywords" content="brand kit, brand guidelines, logo download, brand assets, brand identity, Realm by Rook branding" />
+        <title>Brand Kit & Guidelines | Download Official Logos, Colors, Typography & Assets</title>
+        <meta name="description" content="Official Realm by Rook brand kit. Download high-resolution logos, color palettes, typography guidelines, and brand assets. Ensure consistent, professional brand representation in all communications." />
+        <meta name="keywords" content="brand kit download, brand guidelines, logo download, brand assets, brand identity guidelines, typography guide, color palette, brand standards, press kit, media kit" />
+        <meta property="og:title" content="Realm by Rook Brand Kit | Official Brand Assets & Guidelines" />
+        <meta property="og:description" content="Download official brand assets, logos, and guidelines. Ensure consistent brand representation with our comprehensive brand kit." />
       </Helmet>
       <main>
         <PageHeader 

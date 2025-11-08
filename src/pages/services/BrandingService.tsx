@@ -17,17 +17,17 @@ const BrandingService = () => {
   return (
     <>
       <Helmet>
-        <title>
-          Branding Services | Realm by Rook - Build Your Brand Identity
-        </title>
+        <title>Strategic Branding Services | Brand Identity Design, Logo & Messaging by Experts</title>
         <meta
           name="description"
-          content="Create a powerful brand identity with strategic branding services. From logo design to brand messaging, we craft impactful brands."
+          content="Build a memorable brand identity that drives business growth. Expert brand strategy, logo design, visual identity, and messaging that resonates with your audience and stands out in the market."
         />
         <meta
           name="keywords"
-          content="branding services, brand identity, logo design, brand messaging, impactful brands"
+          content="branding services, brand identity design, logo design agency, brand strategy, brand messaging, visual identity, brand guidelines, rebranding services, corporate branding, startup branding"
         />
+        <meta property="og:title" content="Strategic Branding & Brand Identity Design Services | Realm by Rook" />
+        <meta property="og:description" content="Create a powerful brand identity with expert strategy, design, and messaging. Stand out from competitors and connect with your audience." />
       </Helmet>
       <main className="min-h-screen pt-20">
         <div className="realm-container mb-6 pt-20">

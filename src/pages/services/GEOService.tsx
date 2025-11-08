@@ -242,15 +242,24 @@ const GEOService = () => {
     <>
       <Helmet>
         <title>
-          GEO by Realm by Rook | Get Your Brand Cited by AI Systems
+          GEO Services | AI Citation Optimization for ChatGPT, Gemini, Claude &
+          Perplexity
         </title>
         <meta
           name="description"
-          content="Boost brand visibility on ChatGPT, Gemini, Claude and more. Next-gen AI citation optimization service for market leaders. Get seen, cited, and trusted in the Age of AI."
+          content="Dominate AI-powered search with Generative Engine Optimization (GEO). Get your brand cited by ChatGPT, Gemini, Claude, and Perplexity. Next-gen visibility strategy for AI-first future."
         />
         <meta
           name="keywords"
-          content="AI citation optimization, Generative Engine Optimization, GEO, AI chat visibility, ChatGPT optimization, brand AI visibility, LLM optimization"
+          content="GEO optimization, generative engine optimization, AI citation, ChatGPT optimization, AI search visibility, LLM optimization, perplexity SEO, AI answer engine optimization, brand visibility AI, voice search optimization"
+        />
+        <meta
+          property="og:title"
+          content="GEO Optimization | Get Your Brand Cited by ChatGPT, Gemini & AI Search"
+        />
+        <meta
+          property="og:description"
+          content="Be where your audience searches next. Dominate AI-powered search engines with strategic GEO optimization. Get cited, trusted, and discovered."
         />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -419,7 +428,9 @@ const GEOService = () => {
                   <p className="text-lg text-realm-darkgray mb-2">
                     {study.result}
                   </p>
-                  <p className="text-sm text-realm-darkgray">{study.industry}</p>
+                  <p className="text-sm text-realm-darkgray">
+                    {study.industry}
+                  </p>
                 </div>
               ))}
             </div>
@@ -601,4 +612,3 @@ const GEOService = () => {
 };
 
 export default GEOService;
-

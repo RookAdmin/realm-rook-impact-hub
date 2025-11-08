@@ -96,9 +96,12 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Services | Realm by Rook - Branding, UI/UX, Development, SEO, GEO & AI Automation</title>
-        <meta name="description" content="Comprehensive digital services including branding, UI/UX design, web/app development, SEO, GEO (AI citation optimization), social media marketing, and AI automation. Premium solutions for scaling businesses." />
-        <meta name="keywords" content="branding services, UI/UX design, web development, app development, SEO services, GEO service, AI citation optimization, social media marketing, AI automation, digital marketing" />
+        <title>Digital Marketing & Development Services | Branding, UI/UX, SEO, GEO & AI Automation</title>
+        <meta name="description" content="Complete digital transformation services: strategic branding, user-centered UI/UX design, scalable web/app development, advanced SEO, GEO optimization for AI search, and intelligent automation solutions." />
+        <meta name="keywords" content="digital marketing services, brand strategy, UI UX design agency, custom web development, mobile app development, SEO agency, GEO optimization, AI citation, social media management, marketing automation, business automation" />
+        <meta property="og:title" content="Full-Service Digital Marketing & Development Agency | Realm by Rook" />
+        <meta property="og:description" content="From branding to AI automation - get comprehensive digital solutions that drive growth. Expert services in design, development, and marketing." />
+        <meta property="og:type" content="website" />
       </Helmet>
       <main className="min-h-screen pt-32 pb-16">
         <div className="realm-container">

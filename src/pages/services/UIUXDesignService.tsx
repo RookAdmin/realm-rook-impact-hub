@@ -56,17 +56,17 @@ const UIUXDesignService = () => {
   return (
     <>
       <Helmet>
-        <title>
-          UI/UX Design | Realm by Rook - Experience-Driven Interfaces
-        </title>
+        <title>UI/UX Design Services | User-Centered Design That Converts & Delights Users</title>
         <meta
           name="description"
-          content="Craft human-first, experience-driven digital interfaces that look good and work flawlessly. Built for conversions and inclusivity."
+          content="Create intuitive, conversion-focused user experiences with expert UI/UX design. Mobile-optimized, research-driven designs for web apps, SaaS platforms, and digital products that users love."
         />
         <meta
           name="keywords"
-          content="UI/UX design, user-first design, responsive design, accessibility, experience-driven interfaces"
+          content="UI UX design services, user interface design, user experience design, UX research, UI design agency, mobile app design, web design, SaaS design, product design, UX audit, wireframing, prototyping"
         />
+        <meta property="og:title" content="Expert UI/UX Design Services | Research-Driven, Conversion-Focused Design" />
+        <meta property="og:description" content="Transform your digital product with world-class UI/UX design. Create experiences that delight users and drive business results." />
       </Helmet>
       <main className="min-h-screen pt-32">
         {/* <div className="realm-container mb-6">
