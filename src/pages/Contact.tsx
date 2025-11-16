@@ -48,6 +48,27 @@ const Contact = () => {
     console.log('Submitting form data:', data);
     
     try {
+    const response = await fetch(
+      "https://n8n-grgfa8enefdpaaaa.eastus-01.azurewebsites.net/webhook/realm-contact",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Webhook error: ${response.status}`);
+    }
+
+    console.log("Data sent to n8n successfully!");
+  } catch (error) {
+    console.error("Error sending data to n8n:", error);
+  }
+
+    try {
       const { error } = await supabase
         .from('leads')
         .insert([
