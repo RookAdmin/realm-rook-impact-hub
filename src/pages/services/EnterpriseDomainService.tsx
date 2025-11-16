@@ -128,15 +128,17 @@ const EnterpriseDomainService = () => {
   return (
     <>
       <Helmet>
-        <title>Enterprise Domain Management | Realm by Rook</title>
+        <title>Enterprise Domain Management Services | Secure Portfolio Management at Scale</title>
         <meta
           name="description"
-          content="Secure, scalable, and strategic management for enterprise domain portfolios. Learn more about our solutions."
+          content="Comprehensive enterprise domain management for large-scale portfolios. Secure DNS infrastructure, domain security, compliance management, and strategic portfolio optimization for global organizations."
         />
         <meta
           name="keywords"
-          content="enterprise domain management, domain security, scalable solutions, compliance assurance"
+          content="enterprise domain management, domain portfolio management, DNS management, domain security, domain compliance, corporate domain management, multi-domain management, domain governance, ICANN compliance"
         />
+        <meta property="og:title" content="Enterprise Domain Management | Secure & Scalable Solutions for Global Brands" />
+        <meta property="og:description" content="Manage thousands of domains with confidence. Enterprise-grade security, compliance, and strategic management for your domain portfolio." />
       </Helmet>
       <main className="min-h-screen pt-20">
         {/* <div className="bg-black text-white">

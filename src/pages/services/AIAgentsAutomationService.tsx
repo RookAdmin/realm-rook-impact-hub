@@ -349,17 +349,17 @@ const AIAgentsAutomationService = () => {
   return (
     <>
       <Helmet>
-        <title>
-          AI Agents Automation | Realm by Rook - Business Automation Solutions
-        </title>
+        <title>AI Agent Automation Services | Intelligent Workflows & Business Process Automation</title>
         <meta
           name="description"
-          content="Transform your business with AI agents that automate workflows, boost lead conversion, and reduce costs. Integrated with OpenAI, Claude, and 20+ top AI tools."
+          content="Scale your business with AI-powered automation. Custom AI agents for lead generation, customer service, workflow automation, and operations. Integrate ChatGPT, Claude, and 20+ AI tools to save time and reduce costs."
         />
         <meta
           name="keywords"
-          content="AI agents, workflow automation, business automation, GPT agents, CRM AI, lead automation, AI onboarding, AI business tools"
+          content="AI automation services, AI agents development, workflow automation, business process automation, GPT agents, AI chatbots, RPA automation, intelligent automation, AI integration, CRM automation, customer service automation"
         />
+        <meta property="og:title" content="AI Agent Automation | Build Intelligent Systems That Scale Your Business" />
+        <meta property="og:description" content="Deploy AI agents that automate workflows, qualify leads, and handle customer interactions. Boost efficiency by 10x with intelligent automation solutions." />
       </Helmet>
       <main className="min-h-screen pt-20">
         {/* <div className="bg-black text-white">

@@ -128,17 +128,17 @@ const ResourcesInsights = () => {
   return (
     <>
       <Helmet>
-        <title>
-          Insights & Resources | Realm by Rook - Industry Thought Leadership
-        </title>
+        <title>Digital Marketing Insights & Resources | Expert Guides on Branding, SEO, Web Development & AI</title>
         <meta
           name="description"
-          content="Strategic insights, creative processes, and thought leadership content. Learn from our experts about design, development, digital strategy, and industry trends."
+          content="Expert insights on digital marketing, branding strategy, UI/UX design, web development, SEO best practices, and AI automation. Learn from industry experts and stay ahead of digital trends with actionable guides."
         />
         <meta
           name="keywords"
-          content="design insights, development resources, digital strategy, creative process, thought leadership, industry trends"
+          content="digital marketing insights, branding guides, SEO tips, web development best practices, UI UX design trends, AI automation guides, marketing resources, design blog, development tutorials, industry insights"
         />
+        <meta property="og:title" content="Expert Digital Marketing Insights & Resources | Realm by Rook" />
+        <meta property="og:description" content="Learn from industry experts. Get actionable insights on branding, design, development, SEO, and AI automation." />
       </Helmet>
       <main>
         <PageHeader

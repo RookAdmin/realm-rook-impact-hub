@@ -105,9 +105,11 @@ services_interested: Array.isArray(data.services) && data.services.length > 0
   return (
     <>
       <Helmet>
-        <title>Contact Realm by Rook | Get Your Free Strategy Call</title>
-        <meta name="description" content="Ready to transform your business? Contact Realm by Rook for a free strategy call. Expert branding, design, development, and AI automation services. Let's build something amazing together." />
-        <meta name="keywords" content="contact realm by rook, free strategy call, digital transformation consultation, creative tech agency contact" />
+        <title>Contact Us | Book Your Free Strategy Call with Digital Marketing Experts</title>
+        <meta name="description" content="Transform your business with expert guidance. Book a free strategy call to discuss branding, web development, SEO, AI automation, and growth marketing. Get actionable insights from industry experts." />
+        <meta name="keywords" content="contact digital agency, free strategy call, marketing consultation, web development consultation, business transformation, book consultation, agency contact, free proposal" />
+        <meta property="og:title" content="Get Your Free Strategy Call | Realm by Rook" />
+        <meta property="og:description" content="Let's discuss how to scale your business. Book a free consultation with our experts. No obligation, just actionable insights." />
       </Helmet>
       <main className="min-h-screen pt-32 pb-16">
         <div className="realm-container">

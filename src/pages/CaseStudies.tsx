@@ -325,17 +325,17 @@ const CaseStudies = () => {
   return (
     <main className="min-h-screen">
       <Helmet>
-        <title>
-          Impact Studies - Real Business Transformations | Realm by Rook
-        </title>
+        <title>Case Studies & Impact Stories | Real Business Results & Client Success Transformations</title>
         <meta
           name="description"
-          content="Discover real transformations and measurable results from our client projects. See how Realm by Rook drives business impact through strategic design and development."
+          content="Explore proven business transformations with measurable results. See how our branding, web development, SEO, and AI automation services delivered 300%+ growth, increased conversions, and revenue impact for real clients."
         />
         <meta
           name="keywords"
-          content="case studies, impact studies, business transformation, client results, success stories, Realm by Rook"
+          content="case studies, success stories, client results, business transformation case studies, digital marketing results, web development portfolio, branding case studies, SEO success stories, real client testimonials"
         />
+        <meta property="og:title" content="Client Success Stories | Proven Results from Real Projects" />
+        <meta property="og:description" content="See how we've helped 40+ brands achieve measurable growth. Real projects, real results, real impact." />
       </Helmet>
 
       <PageHeader

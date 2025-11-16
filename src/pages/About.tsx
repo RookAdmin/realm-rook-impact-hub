@@ -103,15 +103,17 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About Realm by Rook | Creative-Tech Agency Story & Team</title>
+        <title>About Realm by Rook | Award-Winning Digital Agency with 40+ Brands Scaled & 95% Retention</title>
         <meta
           name="description"
-          content="Learn about Realm by Rook's journey, mission, and expert team. Discover how we blend creativity and technology to deliver exceptional digital experiences for businesses worldwide."
+          content="Meet the creative-tech team behind 40+ successful brand transformations. Learn our story, mission, and proven approach to digital excellence. 2M+ organic impressions driven, 95% client retention, zero missed deadlines."
         />
         <meta
           name="keywords"
-          content="about realm by rook, creative tech team, agency story, digital transformation experts, design and development team"
+          content="about realm by rook, digital agency team, creative tech experts, agency success stories, digital transformation company, branding agency team, web development experts, proven track record"
         />
+        <meta property="og:title" content="About Realm by Rook | Meet the Team Scaling Bold Brands" />
+        <meta property="og:description" content="Precision-led design meets performance-focused code. Discover the agency that has scaled 40+ brands with 95% client retention." />
       </Helmet>
       <main className="min-h-screen">
         {/* Hero Section */}

@@ -101,15 +101,17 @@ const AgenticaService = () => {
   return (
     <>
       <Helmet>
-        <title>Agentica - Conversational Commerce Platform | Realm by Rook</title>
+        <title>Agentica | AI-Powered Conversational Commerce Platform for E-commerce & SaaS</title>
         <meta
           name="description"
-          content="Upgrade your apps to conversational commerce. Bring your SaaS or D2C product to any chat platform with Agentica."
+          content="Transform your store into a conversational commerce powerhouse. AI-driven chat agents that engage customers, automate sales, and boost conversions on WhatsApp, Instagram, and messaging platforms."
         />
         <meta
           name="keywords"
-          content="conversational commerce, AI chat, chatbot integration, conversational AI, SaaS chat, D2C chat"
+          content="conversational commerce, AI sales agent, chatbot for ecommerce, WhatsApp commerce, Instagram shopping, conversational AI, SaaS chat automation, D2C messaging, shopping assistant AI, automated sales"
         />
+        <meta property="og:title" content="Agentica | Conversational AI That Sells - Automate Customer Engagement" />
+        <meta property="og:description" content="Deploy intelligent chat agents that engage, qualify, and convert customers 24/7. Conversational commerce platform for modern businesses." />
       </Helmet>
 
       {/* Hero Section */}

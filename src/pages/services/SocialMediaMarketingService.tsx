@@ -759,17 +759,17 @@ const SocialMediaMarketingService = () => {
   return (
     <>
       <Helmet>
-        <title>
-          Social Media Marketing | Realm by Rook - Strategic Brand Growth
-        </title>
+        <title>Social Media Marketing Services | Drive Engagement, Leads & Brand Growth with Strategy</title>
         <meta
           name="description"
-          content="Multiply your brand's impact with strategic social media marketing. Drive engagement, leads, and ROI with tailored strategies."
+          content="Amplify your brand reach with data-driven social media marketing. Expert content strategy, community management, paid ads, and influencer partnerships across Instagram, LinkedIn, Facebook, and TikTok."
         />
         <meta
           name="keywords"
-          content="social media marketing, brand growth, engagement, lead generation, ROI"
+          content="social media marketing, social media management, Instagram marketing, LinkedIn marketing, Facebook ads, TikTok marketing, content strategy, community management, influencer marketing, paid social advertising"
         />
+        <meta property="og:title" content="Strategic Social Media Marketing | Build Engaged Communities & Drive Results" />
+        <meta property="og:description" content="Transform your social presence into a growth engine. Expert strategies for engagement, lead generation, and brand awareness across all platforms." />
       </Helmet>
       <main className="min-h-screen">
         {/* <div className="bg-black text-white">

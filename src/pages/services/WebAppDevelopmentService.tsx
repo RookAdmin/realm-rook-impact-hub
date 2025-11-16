@@ -27,17 +27,17 @@ const WebAppDevelopmentService = () => {
   return (
     <>
       <Helmet>
-        <title>
-          Web App Development | Realm by Rook - Scalable Digital Solutions
-        </title>
+        <title>Custom Web & App Development | Scalable, Secure Solutions with Modern Tech Stack</title>
         <meta
           name="description"
-          content="Build scalable, secure, and user-friendly web applications tailored to your business needs. Powered by cutting-edge technologies."
+          content="Build high-performance web applications and mobile apps with cutting-edge technology. Scalable, secure, and user-friendly digital solutions for startups to enterprises. React, Node.js, cloud-native development."
         />
         <meta
           name="keywords"
-          content="web app development, scalable apps, secure apps, user-friendly apps, digital solutions"
+          content="web development services, app development, custom web applications, mobile app development, React development, full stack development, SaaS development, cloud-native apps, progressive web apps, API development"
         />
+        <meta property="og:title" content="Custom Web & Mobile App Development Services | Realm by Rook" />
+        <meta property="og:description" content="Transform your ideas into powerful digital products. Expert development with React, Node.js, and modern frameworks for scalable, secure solutions." />
       </Helmet>
       <main className="min-h-screen">
         <div className="pt-32">

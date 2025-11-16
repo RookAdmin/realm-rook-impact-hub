@@ -161,15 +161,17 @@ const Podcasts = () => {
   return (
     <>
       <Helmet>
-        <title>Startup Stories Podcast Series | Realm by Rook</title>
+        <title>Startup Stories Podcast | Learn from Tech Founders & Business Leaders Building World-Changing Companies</title>
         <meta
           name="description"
-          content="Explore all Startup Stories episodes—a showcase of pivotal business journeys, founder wisdom, and the wild evolution of world-changing companies."
+          content="Discover inspiring startup journeys and founder wisdom from industry leaders. Listen to pivotal business stories from Perplexity, Zomato, Zoho, Meta, Apple, Microsoft, Google, and Elon Musk's ventures."
         />
         <meta
           name="keywords"
-          content="startup stories, podcast, entrepreneurship, founders, business strategy, Perplexity, Zomato, Zoho, Meta, Apple, Microsoft, Google, Elon Musk"
+          content="startup podcast, entrepreneurship podcast, founder stories, business podcast, startup journey, tech founders, business strategy, startup lessons, entrepreneur interviews, company evolution stories"
         />
+        <meta property="og:title" content="Startup Stories Podcast | Founder Wisdom & Business Journeys" />
+        <meta property="og:description" content="Learn from founders building world-changing companies. Explore pivotal business journeys, strategies, and lessons from tech leaders." />
         <link rel="canonical" href="https://realm.rook.co.in/podcasts" />
       </Helmet>
 

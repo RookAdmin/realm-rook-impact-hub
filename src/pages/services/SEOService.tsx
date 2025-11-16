@@ -122,15 +122,17 @@ const SEOService = () => {
   return (
     <>
       <Helmet>
-        <title>SEO Services | Realm by Rook - Outrank and Outperform</title>
+        <title>Professional SEO Services | Increase Rankings, Traffic & Revenue with Data-Driven Strategy</title>
         <meta
           name="description"
-          content="Boost your search rankings with data-driven SEO strategies. Keyword research, technical fixes, and high-authority link building."
+          content="Dominate search results with expert SEO services. Get keyword research, technical optimization, quality link building, and content strategy that drives +300% organic traffic growth."
         />
         <meta
           name="keywords"
-          content="SEO services, keyword research, technical SEO, link building, search rankings"
+          content="SEO services, search engine optimization, SEO company, keyword research, technical SEO, link building strategy, on-page SEO, off-page SEO, local SEO, SEO audit, organic traffic growth"
         />
+        <meta property="og:title" content="Expert SEO Services | Outrank Competitors & Drive Organic Growth" />
+        <meta property="og:description" content="Data-driven SEO that delivers results. Proven strategies for higher rankings, more traffic, and increased revenue. +300% traffic growth for clients." />
       </Helmet>
       <main className="min-h-screen pt-32 pb-16">
         <div className="realm-container">

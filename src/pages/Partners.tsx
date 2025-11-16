@@ -38,9 +38,11 @@ const Partners = () => {
   return (
     <>
       <Helmet>
-        <title>Partners | Realm by Rook - Technology & Strategic Partnerships</title>
-        <meta name="description" content="Discover our technology partners, strategic collaborators, and affiliate networks. We work with industry leaders to deliver exponential value to our clients." />
-        <meta name="keywords" content="technology partners, strategic partnerships, affiliate networks, business collaborations, industry partnerships" />
+        <title>Our Partners & Technology Collaborations | Strategic Partnerships for Better Client Results</title>
+        <meta name="description" content="Partnering with industry-leading technology providers and strategic collaborators to deliver exceptional value. Explore our partnerships with AWS, Google Cloud, Zoho, and more trusted platforms." />
+        <meta name="keywords" content="technology partners, strategic partnerships, AWS partner, Google Cloud partner, Zoho partner, business collaborations, industry partnerships, affiliate networks, tech ecosystem" />
+        <meta property="og:title" content="Strategic Partners & Technology Collaborations | Realm by Rook" />
+        <meta property="og:description" content="We partner with industry leaders to deliver exponential value. Discover our technology partners and strategic collaborations." />
       </Helmet>
       <div className="min-h-screen">
         {/* Hero Section */}
