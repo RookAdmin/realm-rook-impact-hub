@@ -101,7 +101,7 @@ const ProfitPledge = () => {
             <div className="bg-gray-50 border-l-4 border-[#ffd800] p-8 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 rounded-full bg-[#ffd800] flex items-center justify-center mr-4">
-                  <PawPrint className="text-black" size={24} />
+                  <PawPrint className="text-white" size={24} />
                 </div>
                 <h3 className="text-xl font-bold">Street Animal Welfare</h3>
               </div>
