@@ -48,7 +48,7 @@ const ProfitPledge = () => {
       {/* Partnership Overview */}
       <section className="realm-section bg-white border-b border-gray-200">
         <div className="realm-container max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center" style={{ color: '#0096d4' }}>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center text-realm-black">
             Why We Partner with Aravindh Initiative
           </h2>
           <div className="prose prose-lg mx-auto text-gray-700 leading-relaxed">
@@ -130,7 +130,7 @@ const ProfitPledge = () => {
       <section className="realm-section bg-white border-b border-gray-200">
         <div className="realm-container max-w-3xl mx-auto">
           <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-8 md:p-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-center" style={{ color: '#00d437' }}>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-center text-realm-black">
               10%: More Than a Promise
             </h2>
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -144,8 +144,7 @@ const ProfitPledge = () => {
                 href="https://aravindh.org" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center font-medium hover:underline"
-                style={{ color: '#0096d4' }}
+                className="inline-flex items-center font-medium text-realm-black hover:underline"
               >
                 Learn more at aravindh.org <ArrowRight size={16} className="ml-2" />
               </a>
@@ -198,8 +197,7 @@ const ProfitPledge = () => {
             href="https://aravindh.org" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center text-lg font-medium hover:underline"
-            style={{ color: '#0096d4' }}
+            className="inline-flex items-center text-lg font-medium text-realm-black hover:underline"
           >
             Visit Aravindh Initiative <ArrowRight size={20} className="ml-2" />
           </a>
