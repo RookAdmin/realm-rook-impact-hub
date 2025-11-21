@@ -31,7 +31,7 @@ const ProfitPledge = () => {
               </div>
               <div className="flex flex-col items-center">
                 <div className="w-16 h-16 rounded-full bg-[#ffd800] flex items-center justify-center mb-4 shadow-lg">
-                  <PawPrint className="text-realm-black" size={32} />
+                  <PawPrint className="text-realm-white" size={32} />
                 </div>
                 <div className="h-20 w-1 bg-gradient-to-b from-[#ffd800] to-gray-200"></div>
               </div>
