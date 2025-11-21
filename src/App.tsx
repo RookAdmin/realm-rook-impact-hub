@@ -33,6 +33,7 @@ import AgenticaService from "./pages/services/AgenticaService";
 import GEOService from "./pages/services/GEOService";
 import WhoWePartnerWith from "./pages/WhoWePartnerWith";
 import ProfitPledge from "./pages/ProfitPledge";
+import Careers from "./pages/Careers";
 import DomainNameConsultation from "./pages/services/DomainNameConsultation";
 import EnterpriseDomainManagement from "./pages/services/EnterpriseDomainManagement";
 import D2CStartups from "./pages/discover/D2CStartups";
@@ -103,6 +104,7 @@ const App = () => (
             <Route path="/discover/saas-startups" element={<SaaSStartups />} />
             <Route path="/who-we-partner-with" element={<WhoWePartnerWith />} />
             <Route path="/profit-pledge" element={<ProfitPledge />} />
+            <Route path="/careers" element={<Careers />} />
             <Route path="/podcasts" element={<Podcasts />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

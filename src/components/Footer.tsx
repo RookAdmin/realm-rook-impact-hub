@@ -43,6 +43,7 @@ const Footer = () => {
         { name: "Impact Studies", path: "/case-studies" },
         { name: "Profit Pledge", path: "/profit-pledge" },
         { name: "Who We Partner With?", path: "/who-we-partner-with" },
+        { name: "Careers", path: "/careers" },
         { name: "Brand Kit", path: "/brand-kit" },
       ],
     },
@@ -239,6 +240,7 @@ const Footer = () => {
             <p className="text-sm text-gray-500">
               © {currentYear} Realm by Rook. All rights reserved.
             </p>
+            <p className="text-xs text-gray-600 mt-1">We Grow Together</p>
           </div>
           <div className="text-right text-sm text-gray-500">
             <p>UK • UAE • India</p>

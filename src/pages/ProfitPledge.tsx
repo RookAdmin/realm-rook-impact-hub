@@ -7,15 +7,15 @@ const ProfitPledge = () => {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-24 md:py-32">
+      <section className="bg-white text-realm-black py-24 md:py-32 border-b border-gray-200">
         <div className="realm-container text-center">
-          <div className="inline-flex items-center justify-center px-4 py-2 bg-[#ffd800] text-black text-sm font-bold rounded-full mb-6">
+          <div className="inline-flex items-center justify-center px-4 py-2 bg-realm-black text-white text-sm font-bold rounded-full mb-6">
             10% Profit Pledge
           </div>
           <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 max-w-4xl mx-auto">
             Giving Back, Where It Matters Most.
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12">
+          <p className="text-xl md:text-2xl text-realm-darkgray max-w-3xl mx-auto mb-12">
             At Realm by Rook, 10% of every profit is pledged to the Aravindh Initiative—returning hope, health, and opportunity to the communities that inspire us.
           </p>
           
@@ -23,22 +23,22 @@ const ProfitPledge = () => {
           <div className="max-w-4xl mx-auto my-16 relative">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-[#dc2e3e] flex items-center justify-center mb-4">
+                <div className="w-16 h-16 rounded-full bg-[#dc2e3e] flex items-center justify-center mb-4 shadow-lg">
                   <Droplet className="text-white" size={32} />
                 </div>
-                <div className="h-20 w-1 bg-gradient-to-b from-[#dc2e3e] to-transparent"></div>
+                <div className="h-20 w-1 bg-gradient-to-b from-[#dc2e3e] to-gray-200"></div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-[#ffd800] flex items-center justify-center mb-4">
-                  <PawPrint className="text-black" size={32} />
+                <div className="w-16 h-16 rounded-full bg-[#ffd800] flex items-center justify-center mb-4 shadow-lg">
+                  <PawPrint className="text-realm-black" size={32} />
                 </div>
-                <div className="h-20 w-1 bg-gradient-to-b from-[#ffd800] to-transparent"></div>
+                <div className="h-20 w-1 bg-gradient-to-b from-[#ffd800] to-gray-200"></div>
               </div>
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-[#00d437] flex items-center justify-center mb-4">
+                <div className="w-16 h-16 rounded-full bg-[#00d437] flex items-center justify-center mb-4 shadow-lg">
                   <Globe className="text-white" size={32} />
                 </div>
-                <div className="h-20 w-1 bg-gradient-to-b from-[#00d437] to-transparent"></div>
+                <div className="h-20 w-1 bg-gradient-to-b from-[#00d437] to-gray-200"></div>
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@ const ProfitPledge = () => {
       </section>
 
       {/* Partnership Overview */}
-      <section className="realm-section bg-white">
+      <section className="realm-section bg-white border-b border-gray-200">
         <div className="realm-container max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-8 text-center" style={{ color: '#0096d4' }}>
             Why We Partner with Aravindh Initiative
@@ -78,14 +78,14 @@ const ProfitPledge = () => {
       </section>
 
       {/* Impact Highlights */}
-      <section className="realm-section bg-gray-50">
+      <section className="realm-section bg-white border-b border-gray-200">
         <div className="realm-container">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
             Impact Highlights
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Red Impact */}
-            <div className="bg-white border-l-4 border-[#dc2e3e] p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-gray-50 border-l-4 border-[#dc2e3e] p-8 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 rounded-full bg-[#dc2e3e] flex items-center justify-center mr-4">
                   <Droplet className="text-white" size={24} />
@@ -98,7 +98,7 @@ const ProfitPledge = () => {
             </div>
 
             {/* Orange Impact */}
-            <div className="bg-white border-l-4 border-[#ffd800] p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-gray-50 border-l-4 border-[#ffd800] p-8 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 rounded-full bg-[#ffd800] flex items-center justify-center mr-4">
                   <PawPrint className="text-black" size={24} />
@@ -111,7 +111,7 @@ const ProfitPledge = () => {
             </div>
 
             {/* Blue/Green Impact */}
-            <div className="bg-white border-l-4 border-[#00d437] p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-gray-50 border-l-4 border-[#00d437] p-8 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 rounded-full bg-[#00d437] flex items-center justify-center mr-4">
                   <Globe className="text-white" size={24} />
@@ -127,7 +127,7 @@ const ProfitPledge = () => {
       </section>
 
       {/* The 10% Pledge Explained */}
-      <section className="realm-section bg-white">
+      <section className="realm-section bg-white border-b border-gray-200">
         <div className="realm-container max-w-3xl mx-auto">
           <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-8 md:p-12">
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-center" style={{ color: '#00d437' }}>
@@ -155,27 +155,27 @@ const ProfitPledge = () => {
       </section>
 
       {/* Voices of Impact */}
-      <section className="realm-section bg-gray-50">
+      <section className="realm-section bg-white border-b border-gray-200">
         <div className="realm-container max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
             Voices of Impact
           </h2>
           <div className="space-y-8">
-            <div className="bg-white border-l-4 border-[#dc2e3e] p-8 shadow-sm">
+            <div className="bg-gray-50 border-l-4 border-[#dc2e3e] p-8 shadow-sm">
               <p className="text-xl italic text-gray-700 mb-4">
                 "Together with Realm, our blood drives reach further—saving lives, inspiring hope."
               </p>
               <p className="text-sm text-gray-500 font-medium">— Aravindh Volunteer, India</p>
             </div>
 
-            <div className="bg-white border-l-4 border-[#ffd800] p-8 shadow-sm">
+            <div className="bg-gray-50 border-l-4 border-[#ffd800] p-8 shadow-sm">
               <p className="text-xl italic text-gray-700 mb-4">
                 "Street animals find comfort and care, thanks to this unique pledge."
               </p>
               <p className="text-sm text-gray-500 font-medium">— Community Leader, Global</p>
             </div>
 
-            <div className="bg-white border-l-4 border-[#00d437] p-8 shadow-sm">
+            <div className="bg-gray-50 border-l-4 border-[#00d437] p-8 shadow-sm">
               <p className="text-xl italic text-gray-700 mb-4">
                 "Education and green futures are now a reality, not a dream."
               </p>
@@ -186,7 +186,7 @@ const ProfitPledge = () => {
       </section>
 
       {/* Closing Statement */}
-      <section className="realm-section bg-white border-t-4 border-[#00d437]">
+      <section className="realm-section bg-white">
         <div className="realm-container max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
             Be Part of the Cycle of Good.
