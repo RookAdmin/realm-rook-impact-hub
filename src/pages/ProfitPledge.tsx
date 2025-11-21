@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import PageHeader from '@/components/common/PageHeader';
-import { Droplet, PawPrint, Globe, ArrowRight } from 'lucide-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import PageHeader from "@/components/common/PageHeader";
+import { Droplet, PawPrint, Globe, ArrowRight } from "lucide-react";
 
 const ProfitPledge = () => {
   return (
@@ -16,9 +16,10 @@ const ProfitPledge = () => {
             Giving Back, Where It Matters Most.
           </h1>
           <p className="text-xl md:text-2xl text-realm-darkgray max-w-3xl mx-auto mb-12">
-            At Realm by Rook, 10% of every profit is pledged to the Aravindh Initiative—returning hope, health, and opportunity to the communities that inspire us.
+            At Realm by Rook, 10% of every profit is pledged to the Aravindh Initiative, returning hope, health, and
+            opportunity to the communities that inspire us.
           </p>
-          
+
           {/* Visual Network Illustration */}
           <div className="max-w-4xl mx-auto my-16 relative">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -53,11 +54,12 @@ const ProfitPledge = () => {
           </h2>
           <div className="prose prose-lg mx-auto text-gray-700 leading-relaxed">
             <p className="mb-6">
-              The Aravindh Initiative is a catalyst for real change—from life-saving blood donation drives (Red Impact), to compassion for street animals (Orange Impact), to educational programs and green futures. We dedicate 10% of all Realm by Rook profits to these causes, ensuring every success returns to those who need it most.
+              The Aravindh Initiative is a catalyst for real change, from life-saving blood donation drives (Red
+              Impact), to compassion for street animals (Orange Impact), to educational programs and green futures. We
+              dedicate 10% of all Realm by Rook profits to these causes, ensuring every success returns to those who
+              need it most.
             </p>
-            <p>
-              Together, we build a legacy of innovation that uplifts every origin.
-            </p>
+            <p>Together, we build a legacy of innovation that uplifts every origin.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
@@ -80,9 +82,7 @@ const ProfitPledge = () => {
       {/* Impact Highlights */}
       <section className="realm-section bg-white border-b border-gray-200">
         <div className="realm-container">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
-            Impact Highlights
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">Impact Highlights</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Red Impact */}
             <div className="bg-gray-50 border-l-4 border-[#dc2e3e] p-8 shadow-sm hover:shadow-md transition-shadow">
@@ -134,15 +134,17 @@ const ProfitPledge = () => {
               10%: More Than a Promise
             </h2>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Every quarter, 10% of Realm by Rook profits are entrusted to Aravindh Initiative programs, overseen by our joint committee and transparently reported. This is our bond with every customer: that your trust in us echoes outwards in real, accountable action.
+              Every quarter, 10% of Realm by Rook profits are entrusted to Aravindh Initiative programs, overseen by our
+              joint committee and transparently reported. This is our bond with every customer: that your trust in us
+              echoes outwards in real, accountable action.
             </p>
             <p className="text-gray-700 leading-relaxed mb-6">
               Every project, every life changed, is part of this promise.
             </p>
             <div className="text-center">
-              <a 
-                href="https://aravindh.org" 
-                target="_blank" 
+              <a
+                href="https://aravindh.org"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center font-medium text-realm-black hover:underline"
               >
@@ -156,9 +158,7 @@ const ProfitPledge = () => {
       {/* Voices of Impact */}
       <section className="realm-section bg-white border-b border-gray-200">
         <div className="realm-container max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
-            Voices of Impact
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">Voices of Impact</h2>
           <div className="space-y-8">
             <div className="bg-gray-50 border-l-4 border-[#dc2e3e] p-8 shadow-sm">
               <p className="text-xl italic text-gray-700 mb-4">
@@ -187,15 +187,14 @@ const ProfitPledge = () => {
       {/* Closing Statement */}
       <section className="realm-section bg-white">
         <div className="realm-container max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-            Be Part of the Cycle of Good.
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">Be Part of the Cycle of Good.</h2>
           <p className="text-lg text-gray-700 leading-relaxed mb-8">
-            At Realm by Rook, growth carries a duty. We invest 10% of our progress in championing health, hope, and better tomorrows through the Aravindh Initiative. See the impact, share the journey.
+            At Realm by Rook, growth carries a duty. We invest 10% of our progress in championing health, hope, and
+            better tomorrows through the Aravindh Initiative. See the impact, share the journey.
           </p>
-          <a 
-            href="https://aravindh.org" 
-            target="_blank" 
+          <a
+            href="https://aravindh.org"
+            target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center text-lg font-medium text-realm-black hover:underline"
           >
