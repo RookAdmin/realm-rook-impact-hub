@@ -97,7 +97,7 @@ const Navbar = () => {
         { name: "Profit Pledge", path: "/profit-pledge" },
         { name: "Careers", path: "/careers" },
         { name: "Podcasts", path: "/podcasts" },
-        { name: "Who We Partner With?", path: "/who-we-partner-with" },
+        { name: "Who We Partner With?", path: "/partners" },
         { name: "Brand Kit", path: "/brand-kit" },
       ],
     },
