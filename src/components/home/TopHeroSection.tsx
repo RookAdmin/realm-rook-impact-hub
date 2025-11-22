@@ -227,7 +227,7 @@ const TopHeroSection = () => {
           <div className="flex-shrink-0 px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4 border-b">
             <h2 className="text-xl sm:text-2xl font-display font-bold text-black">Get Your AI Growth Strategy</h2>
           </div>
-          <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 py-4">
+          <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 pt-4 pb-8 sm:pb-4">
             <ContactForm onSuccess={() => setIsContactOpen(false)} />
           </div>
         </DialogContent>

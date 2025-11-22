@@ -124,7 +124,7 @@ const Hero = () => {
               Get My Custom Strategy
             </h2>
           </div>
-          <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 py-4">
+          <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 pt-4 pb-8 sm:pb-4">
             <ContactForm onSuccess={() => setIsContactOpen(false)} />
           </div>
         </DialogContent>
@@ -683,7 +683,7 @@ const FinalCTA = () => {
               Get My Custom Strategy
             </h2>
           </div>
-          <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 py-4">
+          <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 pt-4 pb-8 sm:pb-4">
             <ContactForm onSuccess={() => setIsContactOpen(false)} />
           </div>
         </DialogContent>
@@ -747,7 +747,7 @@ const StickyCTA = () => {
               Get My Custom Strategy
             </h2>
           </div>
-          <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 py-4">
+          <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 pt-4 pb-8 sm:pb-4">
             <ContactForm onSuccess={() => setIsContactOpen(false)} />
           </div>
         </DialogContent>
