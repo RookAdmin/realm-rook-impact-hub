@@ -102,7 +102,7 @@ const App = () => (
             <Route path="/refunds-policy" element={<RefundsPolicy />} />
             <Route path="/discover/d2c-startups" element={<D2CStartups />} />
             <Route path="/discover/saas-startups" element={<SaaSStartups />} />
-            <Route path="/who-we-partner-with" element={<Partners />} />
+            <Route path="/partners" element={<Partners />} />
             <Route path="/profit-pledge" element={<ProfitPledge />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/podcasts" element={<Podcasts />} />
