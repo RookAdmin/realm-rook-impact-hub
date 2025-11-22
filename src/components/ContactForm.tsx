@@ -38,43 +38,22 @@ const ContactForm = ({ onSuccess }: ContactFormProps) => {
     console.log('Submitting form data:', data);
     
     try {
-      const response = await fetch(
-        "https://n8n-grgfa8enefdpaaaa.eastus-01.azurewebsites.net/webhook/realm-contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error(`Webhook error: ${response.status}`);
-      }
-
-      console.log("Data sent to n8n successfully!");
-    } catch (error) {
-      console.error("Error sending data to n8n:", error);
-    }
-  
-    try {
       const { error } = await supabase
-        .from('contact_submissions')
-        .insert([
+        .from('leads')
+         .insert([
           {
             name: `${data.first_name} ${data.last_name}`.trim(),
             first_name: data.first_name,
             last_name: data.last_name,
             email: data.email,
-            whatsapp_number: data.whatsapp_country_code && data.whatsapp_number 
-              ? `+${data.whatsapp_country_code}${data.whatsapp_number}` 
-              : null,
-            company: data.company || null,
-            service: Array.isArray(data.services) && data.services.length > 0
-              ? data.services.join(', ')
-              : null,
-            message: data.message || null
+            phone: data.whatsapp_country_code && data.whatsapp_number ? `+${data.whatsapp_country_code} ${data.whatsapp_number}` : null,
+            business_name: data.company || null,
+            services_interested: Array.isArray(data.services) && data.services.length > 0
+              ? data.services   // keep as array
+              : null,              budget_range: data.budget_range || null,
+            lead_source: data.lead_source,
+            notes: data.message,
+            status: 'New'
           }
         ]);
 
