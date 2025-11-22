@@ -48,7 +48,7 @@ const Partners = () => {
         {/* Hero Section */}
         <section className="realm-section bg-background">
           <div className="realm-container">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-3xl mt-10 mx-auto text-center">
               <h1 className="realm-headline mb-4">Who We Partner With?</h1>
               <p className="realm-subheadline">
                 We partner with industry leaders, innovative platforms, and strategic affiliates to deliver exponential value to our clients.
