@@ -42,7 +42,7 @@ const Footer = () => {
         { name: "About Us", path: "/about" },
         { name: "Impact Studies", path: "/case-studies" },
         { name: "Profit Pledge", path: "/profit-pledge" },
-        { name: "Who We Partner With?", path: "/who-we-partner-with" },
+        { name: "Who We Partner With?", path: "/partners" },
         { name: "Careers", path: "/careers" },
         { name: "Brand Kit", path: "/brand-kit" },
       ],
