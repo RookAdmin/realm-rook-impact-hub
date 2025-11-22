@@ -78,7 +78,7 @@ const ProfitPledge = () => {
                 <h3 className="text-xl font-bold">Blood Donation Drives</h3>
               </div>
               <p className="text-gray-600">
-                Life-saving campaigns outreach, bringing hope to thousands—with your support.
+                Life-saving campaigns outreach, bringing hope to thousands, with your support.
               </p>
             </div>
 
