@@ -61,21 +61,6 @@ const ProfitPledge = () => {
             </p>
             <p>Together, we build a legacy of innovation that uplifts every origin.</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            <div className="flex items-start space-x-3">
-              <Droplet className="text-[#dc2e3e] flex-shrink-0" size={28} />
-              <span className="text-gray-700">Blood donation drives</span>
-            </div>
-            <div className="flex items-start space-x-3">
-              <PawPrint className="text-[#ffd800] flex-shrink-0" size={28} />
-              <span className="text-gray-700">Animal welfare</span>
-            </div>
-            <div className="flex items-start space-x-3">
-              <Globe className="text-[#00d437] flex-shrink-0" size={28} />
-              <span className="text-gray-700">Sustainability & education</span>
-            </div>
-          </div>
         </div>
       </section>
 
