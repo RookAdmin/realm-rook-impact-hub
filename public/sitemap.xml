@@ -109,12 +109,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://realmrook.com/impact-studies</loc>
-    <lastmod>2025-11-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
 
   <!-- Impact Study Detail Pages -->
   <url>
@@ -123,20 +117,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://realmrook.com/impact-studies/finovo-ux-redesign</loc>
-    <lastmod>2025-11-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://realmrook.com/impact-studies/elevate-tech-ecommerce</loc>
-    <lastmod>2025-11-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Case Study Detail Pages -->
   <url>
     <loc>https://realmrook.com/case-studies/animating-a-digital-hub-lightspire-media-s-web-presence-and-creative-outreach</loc>
     <lastmod>2025-11-22</lastmod>
