@@ -203,7 +203,11 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
           <div>
             <p className="text-sm text-gray-500">
-              © 2020 - {currentYear} Rook Ecom Private Limited. All Rights Reserved.
+              © 2020 - {currentYear} Rook Ecom Private Limited |{" "}
+              <a href="https://rookhq.com" target="_blank" rel="noopener">
+                A Part of Rook
+              </a>{" "}
+              | All Rights Reserved.
             </p>
             <p className="text-xs text-gray-600 mt-1">We Grow Together</p>
           </div>
