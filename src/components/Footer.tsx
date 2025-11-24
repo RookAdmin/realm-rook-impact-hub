@@ -1,4 +1,3 @@
-
 "use client";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -83,8 +82,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <img src={LogoImage} alt="Realm by Rook" className="mb-4 w-32" />
             <p className="mb-6 text-gray-300 max-w-sm">
-              We blend creativity and technology to build experiences that
-              inspire action.
+              We blend creativity and technology to build experiences that inspire action.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
@@ -104,20 +102,14 @@ const Footer = () => {
           {/* Artificial Intelligence */}
           <div>
             <h3 className="font-medium mb-4 text-sm text-gray-400">
-              <Link
-                to={footerLinks[0].titleLink}
-                className="hover:text-white transition-colors"
-              >
+              <Link to={footerLinks[0].titleLink} className="hover:text-white transition-colors">
                 {footerLinks[0].title}
               </Link>
             </h3>
             <ul className="space-y-3">
               {footerLinks[0].links.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="hover:text-gray-300 transition-colors"
-                  >
+                  <Link to={link.path} className="hover:text-gray-300 transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -128,20 +120,14 @@ const Footer = () => {
           {/* Digital */}
           <div>
             <h3 className="font-medium mb-4 text-sm text-gray-400">
-              <Link
-                to={footerLinks[1].titleLink}
-                className="hover:text-white transition-colors"
-              >
+              <Link to={footerLinks[1].titleLink} className="hover:text-white transition-colors">
                 {footerLinks[1].title}
               </Link>
             </h3>
             <ul className="space-y-3">
               {footerLinks[1].links.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="hover:text-gray-300 transition-colors"
-                  >
+                  <Link to={link.path} className="hover:text-gray-300 transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -152,20 +138,14 @@ const Footer = () => {
           {/* Growth */}
           <div>
             <h3 className="font-medium mb-4 text-sm text-gray-400">
-              <Link
-                to={footerLinks[2].titleLink}
-                className="hover:text-white transition-colors"
-              >
+              <Link to={footerLinks[2].titleLink} className="hover:text-white transition-colors">
                 {footerLinks[2].title}
               </Link>
             </h3>
             <ul className="space-y-3">
               {footerLinks[2].links.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="hover:text-gray-300 transition-colors"
-                  >
+                  <Link to={link.path} className="hover:text-gray-300 transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -177,16 +157,11 @@ const Footer = () => {
           <div>
             {/* Company section */}
             <div className="mb-8">
-              <h3 className="font-medium mb-4 text-sm text-gray-400">
-                {footerLinks[3].title}
-              </h3>
+              <h3 className="font-medium mb-4 text-sm text-gray-400">{footerLinks[3].title}</h3>
               <ul className="space-y-3">
                 {footerLinks[3].links.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      to={link.path}
-                      className="hover:text-gray-300 transition-colors"
-                    >
+                    <Link to={link.path} className="hover:text-gray-300 transition-colors">
                       {link.name}
                     </Link>
                   </li>
@@ -196,16 +171,11 @@ const Footer = () => {
 
             {/* Resources section */}
             <div className="mb-8">
-              <h3 className="font-medium mb-4 text-sm text-gray-400">
-                {footerLinks[4].title}
-              </h3>
+              <h3 className="font-medium mb-4 text-sm text-gray-400">{footerLinks[4].title}</h3>
               <ul className="space-y-3">
                 {footerLinks[4].links.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      to={link.path}
-                      className="hover:text-gray-300 transition-colors"
-                    >
+                    <Link to={link.path} className="hover:text-gray-300 transition-colors">
                       {link.name}
                     </Link>
                   </li>
@@ -215,16 +185,11 @@ const Footer = () => {
 
             {/* Legal section */}
             <div>
-              <h3 className="font-medium mb-4 text-sm text-gray-400">
-                {footerLinks[5].title}
-              </h3>
+              <h3 className="font-medium mb-4 text-sm text-gray-400">{footerLinks[5].title}</h3>
               <ul className="space-y-3">
                 {footerLinks[5].links.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      to={link.path}
-                      className="hover:text-gray-300 transition-colors"
-                    >
+                    <Link to={link.path} className="hover:text-gray-300 transition-colors">
                       {link.name}
                     </Link>
                   </li>
@@ -238,7 +203,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
           <div>
             <p className="text-sm text-gray-500">
-              © {currentYear} Realm by Rook. All rights reserved.
+              © 2020 - {currentYear} Rook Ecom Private Limited. All Rights Reserved.
             </p>
             <p className="text-xs text-gray-600 mt-1">We Grow Together</p>
           </div>
