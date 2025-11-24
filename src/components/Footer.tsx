@@ -205,7 +205,7 @@ const Footer = () => {
             <p className="text-sm text-gray-500">
               © 2020 - {currentYear} Rook Ecom Private Limited |{" "}
               <a href="https://rookhq.com" target="_blank" rel="noopener">
-                A Part of Rook
+                A Rook Venture
               </a>{" "}
               | All Rights Reserved.
             </p>
