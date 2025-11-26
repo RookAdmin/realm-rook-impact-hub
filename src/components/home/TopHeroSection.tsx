@@ -7,7 +7,12 @@ import ContactForm from "@/components/ContactForm";
 const TopHeroSection = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
-  const services = ["AI Automation", "App/Website Development", "Digital Marketing", "Domain Name Advisory"];
+  const services = [
+    "AI Automation",
+    "App/Website Development",
+    "Digital Marketing",
+    "Domain Name Advisory",
+  ];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
@@ -85,7 +90,7 @@ const TopHeroSection = () => {
             delay: 8,
           }}
         />
-        
+
         {/* Diagonal line for extra dynamism */}
         <motion.div
           className="absolute w-[2px] h-[80%] bg-gradient-to-b from-transparent via-indigo-200 to-transparent origin-center"
@@ -141,15 +146,21 @@ const TopHeroSection = () => {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-5 md:space-y-6"
           >
-            <h1 className="text-[2.75rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] font-light leading-[1.1] text-black tracking-tight lg:whitespace-nowrap">
-              Become a Top <span className="font-bold text-[1.15em] inline-block">1%</span> Brand
+            <h1 className="text-[2.75rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] font-light leading-[1.1] text-realm-black tracking-tight lg:whitespace-nowrap">
+              Become a Top{" "}
+              <span className="font-bold text-[1.15em] inline-block">1%</span>{" "}
+              Brand
             </h1>
 
             <motion.p
               className="text-base md:text-xl lg:text-2xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.15,
+                ease: [0.22, 1, 0.36, 1],
+              }}
             >
               We build your brand, while you focus on your business.
             </motion.p>
@@ -159,14 +170,21 @@ const TopHeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              duration: 0.8,
+              delay: 0.25,
+              ease: [0.22, 1, 0.36, 1],
+            }}
           >
             <button
               onClick={() => setIsContactOpen(true)}
-              className="group relative inline-flex items-center gap-3 bg-black text-white px-10 py-4 md:px-12 md:py-5 rounded-full font-medium text-base md:text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-black/10"
+              className="group relative inline-flex items-center gap-3 bg-realm-black text-white px-10 py-4 md:px-12 md:py-5 rounded-full font-medium text-base md:text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-realm-black/10"
             >
               <span>Get Started</span>
-              <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight
+                size={20}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
             </button>
           </motion.div>
 
@@ -191,7 +209,9 @@ const TopHeroSection = () => {
                 >
                   {service}
                 </motion.span>
-                {index < services.length - 1 && <span className="w-1 h-1 rounded-full bg-gray-300" />}
+                {index < services.length - 1 && (
+                  <span className="w-1 h-1 rounded-full bg-gray-300" />
+                )}
               </React.Fragment>
             ))}
           </motion.div>
@@ -225,7 +245,9 @@ const TopHeroSection = () => {
       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
         <DialogContent className="w-[95vw] sm:w-full max-w-[500px] max-h-[90vh] flex flex-col p-0">
           <div className="flex-shrink-0 px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4 border-b">
-            <h2 className="text-xl sm:text-2xl font-display font-bold text-black">Get Your AI Growth Strategy</h2>
+            <h2 className="text-xl sm:text-2xl font-display font-bold text-realm-black">
+              Get Your AI Growth Strategy
+            </h2>
           </div>
           <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 pt-4 pb-8 sm:pb-4">
             <ContactForm onSuccess={() => setIsContactOpen(false)} />

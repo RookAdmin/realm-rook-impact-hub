@@ -178,7 +178,7 @@ const AgenticaService = () => {
             >
               <Button 
                 onClick={() => setIsContactOpen(true)}
-                className="bg-white text-black hover:bg-gray-200 flex items-center justify-center px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+                className="bg-white text-realm-black hover:bg-gray-200 flex items-center justify-center px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
               >
                 <span>Get Started</span>
                 <ArrowRight size={16} className="ml-2" />

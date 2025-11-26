@@ -778,7 +778,7 @@ const SocialMediaMarketingService = () => {
         <meta property="og:description" content="Transform your social presence into a growth engine. Expert strategies for engagement, lead generation, and brand awareness across all platforms." />
       </Helmet>
       <main className="min-h-screen">
-        {/* <div className="bg-black text-white">
+        {/* <div className="bg-realm-black text-white">
           <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4 pt-20">
             <ServiceBreadcrumb
               serviceName="Social Media Marketing"

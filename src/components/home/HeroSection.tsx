@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { Dialog, DialogContent } from "@/components/ui/dialog"; 
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
-import ContactForm from '@/components/ContactForm';
+import ContactForm from "@/components/ContactForm";
 
 // Mock components for demonstration
 const Button = ({ children, onClick, className }) => (
@@ -11,9 +11,6 @@ const Button = ({ children, onClick, className }) => (
     {children}
   </button>
 );
-
-
-
 
 const HeroSection = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -26,7 +23,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="pt-16 pb-32 md:pb-40 bg-white text-black relative overflow-hidden min-h-screen">
+    <section className="pt-16 pb-32 md:pb-40 bg-white text-realm-black relative overflow-hidden min-h-screen">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 xl:px-12 relative z-20">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 min-h-[600px]">
           {/* Left side: Main hero content */}
@@ -48,7 +45,8 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Bring your SaaS or D2C product to any chat platform. Voice or text one message, endless possibilities.
+              Bring your SaaS or D2C product to any chat platform. Voice or text
+              one message, endless possibilities.
             </motion.p>
 
             <motion.div
@@ -59,14 +57,16 @@ const HeroSection = () => {
             >
               <Button
                 onClick={() => setIsContactOpen(true)}
-                className="bg-black text-white hover:bg-gray-800 flex items-center justify-center px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+                className="bg-realm-black text-white hover:bg-gray-800 flex items-center justify-center px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
               >
                 <span>Get a Proposal</span>
                 <ArrowRight size={16} className="ml-2" />
               </Button>
 
-            
-              <a href="/services/agentica" className="text-black flex items-center space-x-2 hover:text-gray-700 transition-colors px-8 py-4 border border-gray-400 rounded-full hover:border-gray-600">
+              <a
+                href="/services/agentica"
+                className="text-realm-black flex items-center space-x-2 hover:text-gray-700 transition-colors px-8 py-4 border border-gray-400 rounded-full hover:border-gray-600"
+              >
                 <span>Discover Agentica</span>
                 <ArrowRight size={16} />
               </a>
@@ -114,20 +114,22 @@ const HeroSection = () => {
       {/* Contact Form Dialog */}
       {/* <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
         <div className="py-2">
-          <h2 className="text-2xl font-bold mb-6 text-black">Get a Proposal</h2>
+          <h2 className="text-2xl font-bold mb-6 text-realm-black">Get a Proposal</h2>
           <ContactForm onSuccess={() => setIsContactOpen(false)} />
         </div>
       </Dialog> */}
-       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
-              <DialogContent className="w-[95vw] sm:w-full max-w-[500px] max-h-[90vh] flex flex-col p-0">
-                <div className="flex-shrink-0 px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4 border-b">
-                  <h2 className="text-xl sm:text-2xl font-display font-bold">Let's Build Something Together</h2>
-                </div>
-                <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 pt-4 pb-8 sm:pb-4">
-                  <ContactForm onSuccess={() => setIsContactOpen(false)} />
-                </div>
-              </DialogContent>
-            </Dialog>
+      <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
+        <DialogContent className="w-[95vw] sm:w-full max-w-[500px] max-h-[90vh] flex flex-col p-0">
+          <div className="flex-shrink-0 px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4 border-b">
+            <h2 className="text-xl sm:text-2xl font-display font-bold">
+              Let's Build Something Together
+            </h2>
+          </div>
+          <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 pt-4 pb-8 sm:pb-4">
+            <ContactForm onSuccess={() => setIsContactOpen(false)} />
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

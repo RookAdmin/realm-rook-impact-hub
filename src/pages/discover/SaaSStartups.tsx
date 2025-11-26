@@ -331,7 +331,7 @@ const SaaSStartups = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="inline-block px-3 py-1 bg-black text-white text-xs font-medium rounded-full mb-6">
+                <div className="inline-block px-3 py-1 bg-realm-black text-white text-xs font-medium rounded-full mb-6">
                   NEXT-GEN SAAS
                 </div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-6">
@@ -341,7 +341,7 @@ const SaaSStartups = () => {
                   Deploy your SaaS as a conversational service. Power booking, onboarding, and payments entirely in chat or voice—no screens, just conversation.
                 </p>
                 <Link to="/services/agentica">
-                  <Button className="bg-black text-white hover:bg-gray-800 px-8 py-6 text-base rounded-full font-medium inline-flex items-center gap-2">
+                  <Button className="bg-realm-black text-white hover:bg-gray-800 px-8 py-6 text-base rounded-full font-medium inline-flex items-center gap-2">
                     Explore Agentica
                     <ArrowRight size={20} />
                   </Button>
@@ -362,7 +362,7 @@ const SaaSStartups = () => {
                     {/* Header */}
                     <div className="flex items-center gap-3 pb-4 border-b border-gray-200">
                       <div className="w-10 h-10 rounded-full  p-[2px]">
-                          <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
+                          <div className="w-full h-full rounded-full bg-realm-black flex items-center justify-center overflow-hidden">
                             <img
                               src="/ai/gemini.webp" 
                               alt="Profile"
@@ -384,7 +384,7 @@ const SaaSStartups = () => {
                         </div>
                       </div>
                       <div className="flex gap-2 justify-end">
-                        <div className="flex-1 bg-black text-white rounded-2xl rounded-tr-sm p-4">
+                        <div className="flex-1 bg-realm-black text-white rounded-2xl rounded-tr-sm p-4">
                           <p className="text-sm">Perfect! I've scheduled your demo for tomorrow at 3 PM. You'll receive a calendar invite shortly.</p>
                         </div>
                       </div>
@@ -394,7 +394,7 @@ const SaaSStartups = () => {
                         </div>
                       </div>
                       <div className="flex gap-2 justify-end">
-                        <div className="flex-1 bg-black text-white rounded-2xl rounded-tr-sm p-4">
+                        <div className="flex-1 bg-realm-black text-white rounded-2xl rounded-tr-sm p-4">
                           <p className="text-sm">Absolutely! Upgrading you to Pro now. Payment processed. ✓</p>
                         </div>
                       </div>
@@ -405,7 +405,7 @@ const SaaSStartups = () => {
                       <div className="flex-1 bg-gray-100 rounded-full px-4 py-2">
                         <p className="text-sm text-gray-400">Type a message...</p>
                       </div>
-                      <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                      <div className="w-10 h-10 bg-realm-black rounded-full flex items-center justify-center">
                         <ArrowRight size={18} className="text-white" />
                       </div>
                     </div>

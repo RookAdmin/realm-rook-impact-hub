@@ -159,7 +159,7 @@ const DomainNameConsultation = () => {
       <main className="min-h-screen pt-20">
         {/* Hero Section */}
         {/* 
-        <div className="bg-black text-white">
+        <div className="bg-realm-black text-white">
           <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4">
             <ServiceBreadcrumb
               serviceName="Domain Name Consultation"
@@ -197,7 +197,7 @@ const DomainNameConsultation = () => {
                   <Link to="/case-studies">
                     <Button
                       variant="outline"
-                      className="realm-button border-white rounded-full text-black hover:text-white hover:bg-white/10"
+                      className="realm-button border-white rounded-full text-realm-black hover:text-white hover:bg-white/10"
                     >
                       View Past Domain Success Stories
                       <ArrowRight size={16} className="ml-2" />

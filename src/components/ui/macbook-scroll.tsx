@@ -175,7 +175,7 @@ export const Trackpad = () => {
     <div
       className="mx-auto my-1 h-32 w-[40%] rounded-xl"
       style={{
-        boxShadow: "0px 0px 1px 1px #00000020 inset",
+        boxShadow: "0px 0px 1px 1px #13131320 inset",
       }}
     ></div>
   );
@@ -242,7 +242,7 @@ export const Keypad = () => {
         </KBtn>
         <KBtn>
           <div className="h-4 w-4 rounded-full bg-gradient-to-b from-neutral-900 from-20% via-black via-50% to-neutral-900 to-95% p-px">
-            <div className="h-full w-full rounded-full bg-black" />
+            <div className="h-full w-full rounded-full bg-realm-black" />
           </div>
         </KBtn>
       </div>

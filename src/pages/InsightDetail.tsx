@@ -154,7 +154,7 @@ const InsightDetail = () => {
             {insight.title}
           </h1>
 
-          <p className="text-lg text-black mb-6">{insight.description}</p>
+          <p className="text-lg text-realm-black mb-6">{insight.description}</p>
 
           <div className="flex items-center justify-between flex-wrap gap-4 pb-6">
             <div className="flex items-center gap-4 text-sm text-realm-gray">

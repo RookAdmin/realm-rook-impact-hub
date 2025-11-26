@@ -397,7 +397,7 @@ const UIUXDesignService = () => {
               <Button
                 onClick={() => setIsContactOpen(true)}
                 variant="outline"
-                className="text-black border-white rounded-full"
+                className="text-realm-black border-white rounded-full"
               >
                 Talk to Our Design Team
               </Button>

@@ -141,7 +141,7 @@ const EnterpriseDomainService = () => {
         <meta property="og:description" content="Manage thousands of domains with confidence. Enterprise-grade security, compliance, and strategic management for your domain portfolio." />
       </Helmet>
       <main className="min-h-screen pt-20">
-        {/* <div className="bg-black text-white">
+        {/* <div className="bg-realm-black text-white">
           <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4">
             <ServiceBreadcrumb
               serviceName="Enterprise Domain Management"

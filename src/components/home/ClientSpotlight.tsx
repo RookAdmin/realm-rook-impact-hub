@@ -64,11 +64,11 @@ const ClientSpotlight = () => {
   ];
 
   return (
-    <section className="realm-section text-black">
+    <section className="realm-section text-realm-black">
       <div className="realm-container">
         <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-black mb-4">Client Impact</h2>
-          <div className="w-16 h-1 bg-black"></div>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-realm-black mb-4">Client Impact</h2>
+          <div className="w-16 h-1 bg-realm-black"></div>
         </div>
         
         <Carousel
@@ -82,7 +82,7 @@ const ClientSpotlight = () => {
             {caseStudies.map((study) => (
               <CarouselItem key={study.id} className="md:basis-1/2 lg:basis-1/3">
                 <Link to={`/case-studies/${study.slug}`} className="block group">
-                  <div className="border border-black/20 hover:border-white transition-all duration-300 p-0 overflow-hidden">
+                  <div className="border border-realm-black/20 hover:border-white transition-all duration-300 p-0 overflow-hidden">
                     <div className="relative aspect-video overflow-hidden">
                       <img 
                         src={study.image} 
@@ -104,7 +104,7 @@ const ClientSpotlight = () => {
                         {study.transformation}
                       </p>
                       
-                      <div className="inline-flex items-center font-medium text-sm text-black/80 group-hover:text-black transition-colors">
+                      <div className="inline-flex items-center font-medium text-sm text-realm-black/80 group-hover:text-realm-black transition-colors">
                         <span>View Case Study</span>
                         <ArrowRight size={14} className="ml-2 transition-transform group-hover:translate-x-1" />
                       </div>
@@ -121,7 +121,7 @@ const ClientSpotlight = () => {
         <div className="mt-12 text-center">
           <Link 
             to="/case-studies" 
-            className="inline-flex items-center text-black border-b border-black/40 hover:border-white pb-1 transition-colors"
+            className="inline-flex items-center text-realm-black border-b border-realm-black/40 hover:border-white pb-1 transition-colors"
           >
             <span>See All Impact Studies</span>
             <ArrowRight size={16} className="ml-2" />

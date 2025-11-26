@@ -362,7 +362,7 @@ const AIAgentsAutomationService = () => {
         <meta property="og:description" content="Deploy AI agents that automate workflows, qualify leads, and handle customer interactions. Boost efficiency by 10x with intelligent automation solutions." />
       </Helmet>
       <main className="min-h-screen pt-20">
-        {/* <div className="bg-black text-white">
+        {/* <div className="bg-realm-black text-white">
           <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4">
             <ServiceBreadcrumb
               serviceName="AI Agents Automation"
@@ -401,7 +401,7 @@ const AIAgentsAutomationService = () => {
                   <Button
                     onClick={() => scrollToSection("case-studies")}
                     variant="outline"
-                    className="border-white text-black hover:bg-white hover:text-realm-black px-8 py-4 text-lg font-medium rounded-full"
+                    className="border-white text-realm-black hover:bg-white hover:text-realm-black px-8 py-4 text-lg font-medium rounded-full"
                   >
                     See Real Results
                     <ArrowRight size={20} className="ml-2" />

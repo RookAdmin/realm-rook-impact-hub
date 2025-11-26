@@ -325,12 +325,12 @@ const Navbar = () => {
           {isMobileMenuOpen ? (
             <X
               size={24}
-              className={isLightNavbar ? "text-black" : "text-white"}
+              className={isLightNavbar ? "text-realm-black" : "text-white"}
             />
           ) : (
             <Menu
               size={24}
-              className={isLightNavbar ? "text-black" : "text-white"}
+              className={isLightNavbar ? "text-realm-black" : "text-white"}
             />
           )}
         </button>
