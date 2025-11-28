@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import PageHeader from '@/components/common/PageHeader';
 import { pressReleases, pressCategories, pressYears } from '@/data/pressReleasesData';
-import { Download, Link as LinkIcon, Eye, ArrowRight } from 'lucide-react';
+import { Download, ArrowRight } from 'lucide-react';
 import DownloadButton from '@/components/common/DownloadButton';
 import { Button } from '@/components/ui/button';
-import ExternalLink from '@/components/common/ExternalLink';
 import CtaSection from '@/components/CtaSection';
 
 
@@ -101,28 +100,22 @@ const PressReleases = () => {
                     </div>
 
                     <div className="mt-auto">
-                      {release.isExternalLink ? (
-                        <ExternalLink href={release.url} className="inline-flex items-center realm-button">
-                          View Article <LinkIcon size={16} className="ml-2" />
-                        </ExternalLink>
-                      ) : (
-                        <div className="flex gap-3 flex-wrap">
-                          <DownloadButton
-                            label="Download PDF"
-                            url={release.url}
-                            className="realm-button w-[200px]"
-                          />
-                          <Button asChild className="realm-button w-[200px] flex items-center gap-2">
-                            <a
-                              href={release.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              Read Full Release <ArrowRight size={16} />
-                            </a>
-                          </Button>
-                        </div>
-                      )}
+                      <div className="flex gap-3 flex-wrap">
+                        <DownloadButton
+                          label="Download PDF"
+                          url={release.url}
+                          className="realm-button w-[200px]"
+                        />
+                        <Button asChild className="realm-button w-[200px] flex items-center gap-2">
+                          <a
+                            href={release.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Read Full Release <ArrowRight size={16} />
+                          </a>
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 ))
@@ -155,8 +148,7 @@ const PressReleases = () => {
             </p>
             <a
               href="/BrandKit"
-              target="_blank"
-              rel="noopener noreferrer"
+              download
               className="realm-button inline-flex items-center bg-black text-white rounded-md hover:bg-opacity-90"
             >
               <span>Download Press Kit</span>

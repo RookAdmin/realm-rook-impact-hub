@@ -12,23 +12,16 @@ interface DownloadButtonProps {
 }
 
 const DownloadButton = ({ label, url, variant = 'default', className }: DownloadButtonProps) => {
-  const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = url.split('/').pop() || 'download';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
-    <Button 
-      variant={variant} 
-      onClick={handleDownload} 
+    <Button
+      variant={variant}
+      asChild
       className={cn('flex items-center gap-2', className)}
     >
-      <span>{label}</span>
-      <Download size={16} />
+      <a href={url} download target="_blank" rel="noopener noreferrer">
+        <span>{label}</span>
+        <Download size={16} />
+      </a>
     </Button>
   );
 };

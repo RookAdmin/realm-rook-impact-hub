@@ -33,7 +33,7 @@ export const pressReleases: PressRelease[] = [
     id: '4',
     title: 'Realm by Rook Launches Sustainable Design Initiative',
     date: '2023-08-03',
-    url: 'https://example.com/article-about-sustainable-design',
+    url: '/assets/press/realm-sustainable-design.pdf',
     isExternalLink: true,
     category: 'Launches',
     year: '2023',
@@ -60,7 +60,7 @@ export const pressReleases: PressRelease[] = [
     id: '7',
     title: 'Realm by Rook and GreenPath Transform Sustainability Sector with Award-winning Design',
     date: '2022-09-09',
-    url: 'https://example.com/greenpath-case-study',
+    url: '/assets/press/realm-greenpath-case-study.pdf',
     isExternalLink: true,
     category: 'Case Studies',
     year: '2022',
@@ -76,5 +76,5 @@ export const pressReleases: PressRelease[] = [
   },
 ];
 
-export const pressCategories = ['All', 'Awards', 'Partnerships', 'Launches', 'Expansion','Milestones'];
-export const pressYears = ['All','2026','2025', '2024','2023', '2022', '2021', '2020', '2019'];
+export const pressCategories = ['All', 'Awards', 'Partnerships', 'Launches', 'Expansion', 'Milestones'];
+export const pressYears = ['All', '2026', '2025', '2024', '2023', '2022', '2021', '2020', '2019'];
