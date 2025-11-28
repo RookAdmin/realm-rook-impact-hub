@@ -76,5 +76,5 @@ export const pressReleases: PressRelease[] = [
   },
 ];
 
-export const pressCategories = ['All', 'Awards', 'Partnerships', 'Launches', 'Expansion', 'Case Studies', 'Milestones'];
-export const pressYears = ['All', '2023', '2022', '2021', '2020', '2019'];
+export const pressCategories = ['All', 'Awards', 'Partnerships', 'Launches', 'Expansion','Milestones'];
+export const pressYears = ['All','2026','2025', '2024','2023', '2022', '2021', '2020', '2019'];

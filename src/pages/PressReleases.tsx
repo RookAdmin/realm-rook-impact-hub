@@ -2,19 +2,21 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import PageHeader from '@/components/common/PageHeader';
 import { pressReleases, pressCategories, pressYears } from '@/data/pressReleasesData';
-import { Download, Link as LinkIcon } from 'lucide-react';
+import { Download, Link as LinkIcon, Eye, ArrowRight } from 'lucide-react';
 import DownloadButton from '@/components/common/DownloadButton';
+import { Button } from '@/components/ui/button';
 import ExternalLink from '@/components/common/ExternalLink';
 import CtaSection from '@/components/CtaSection';
+
 
 const PressReleases = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [activeYear, setActiveYear] = useState('All');
-  
+
   const filteredReleases = pressReleases
     .filter(release => activeCategory === 'All' || release.category === activeCategory)
     .filter(release => activeYear === 'All' || release.year === activeYear);
-  
+
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -31,12 +33,12 @@ const PressReleases = () => {
         <meta name="keywords" content="press releases, news, media coverage, company announcements, Realm by Rook news" />
       </Helmet>
       <main>
-        <PageHeader 
+        <PageHeader
           title="Press Room — Realm by Rook in the Spotlight"
           subtitle="Discover our latest news, press releases, and media coverage."
           isLarge={true}
         />
-        
+
         <section className="realm-section">
           <div className="realm-container">
             <div className="flex flex-col md:flex-row gap-6 mb-12">
@@ -57,7 +59,7 @@ const PressReleases = () => {
                   ))}
                 </select>
               </div>
-              
+
               <div className="flex-1">
                 <label htmlFor="yearFilter" className="block text-sm font-medium mb-2">
                   Filter by Year
@@ -76,48 +78,58 @@ const PressReleases = () => {
                 </select>
               </div>
             </div>
-            
-            <div className="border-t border-realm-lightgray">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {filteredReleases.length > 0 ? (
                 filteredReleases.map((release) => (
-                  <div 
-                    key={release.id} 
-                    className="py-6 border-b border-realm-lightgray flex flex-col md:flex-row md:items-center gap-4 md:gap-6"
+                  <div
+                    key={release.id}
+                    className="p-6 border border-realm-lightgray flex flex-col h-full bg-white"
                   >
-                    <div className="md:w-1/6">
-                      <span className="text-sm text-realm-gray">
-                        {formatDate(release.date)}
-                      </span>
-                    </div>
-                    
-                    <div className="md:w-3/6">
+                    <div className="mb-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="inline-block px-3 py-1 text-xs border border-realm-black rounded-full">
+                          {release.category}
+                        </span>
+                        <span className="text-sm text-realm-gray">
+                          {formatDate(release.date)}
+                        </span>
+                      </div>
                       <h3 className="text-xl font-medium">
                         {release.title}
                       </h3>
-                      <span className="inline-block mt-1 px-3 py-1 text-xs border border-realm-black rounded-full">
-                        {release.category}
-                      </span>
                     </div>
-                    
-                    <div className="md:w-2/6 flex justify-end">
+
+                    <div className="mt-auto">
                       {release.isExternalLink ? (
                         <ExternalLink href={release.url} className="inline-flex items-center realm-button">
                           View Article <LinkIcon size={16} className="ml-2" />
                         </ExternalLink>
                       ) : (
-                        <DownloadButton 
-                          label="Download PDF" 
-                          url={release.url} 
-                          className="realm-button"
-                        />
+                        <div className="flex gap-3 flex-wrap">
+                          <DownloadButton
+                            label="Download PDF"
+                            url={release.url}
+                            className="realm-button w-[200px]"
+                          />
+                          <Button asChild className="realm-button w-[200px] flex items-center gap-2">
+                            <a
+                              href={release.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Read Full Release <ArrowRight size={16} />
+                            </a>
+                          </Button>
+                        </div>
                       )}
                     </div>
                   </div>
                 ))
               ) : (
-                <div className="py-12 text-center">
+                <div className="col-span-1 md:col-span-2 py-12 text-center">
                   <p className="text-lg">No press releases found matching your filters.</p>
-                  <button 
+                  <button
                     className="mt-4 realm-button"
                     onClick={() => {
                       setActiveCategory('All');
@@ -131,7 +143,7 @@ const PressReleases = () => {
             </div>
           </div>
         </section>
-        
+
         <section className="realm-section bg-realm-lightgray">
           <div className="realm-container text-center">
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">
@@ -141,14 +153,18 @@ const PressReleases = () => {
               Need comprehensive information about Realm by Rook for media coverage?
               Download our complete press kit with company information, executive bios, and high-resolution assets.
             </p>
-            <DownloadButton 
-              label="Download Press Kit" 
-              url="/assets/realm-press-kit.zip" 
-              className="realm-button"
-            />
+            <a
+              href="/BrandKit"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="realm-button inline-flex items-center bg-black text-white rounded-md hover:bg-opacity-90"
+            >
+              <span>Download Press Kit</span>
+            </a>
+
           </div>
         </section>
-        
+
         <section className="realm-section">
           <div className="realm-container text-center">
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">
@@ -158,15 +174,15 @@ const PressReleases = () => {
               For press inquiries, interview requests, or additional information,
               please contact our media relations team.
             </p>
-            <a 
-              href="mailto:hlo@realmrook.com" 
+            <a
+              href="mailto:hlo@realmrook.com"
               className="realm-button inline-block"
             >
               Contact Media Relations
             </a>
           </div>
         </section>
-        
+
         <CtaSection />
       </main>
     </>

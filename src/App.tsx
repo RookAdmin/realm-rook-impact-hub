@@ -106,6 +106,8 @@ const App = () => (
             <Route path="/profit-pledge" element={<ProfitPledge />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/podcasts" element={<Podcasts />} />
+
+             <Route path="/brandkit" element={<BrandKit />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
