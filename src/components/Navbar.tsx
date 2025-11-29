@@ -142,7 +142,11 @@ const Navbar = () => {
     window.scrollTo(0, 0);
 
     const currentPath = location.pathname;
-    setIsInvertedPage(invertedRoutes.includes(currentPath));
+    // Check if current path matches exactly or starts with any inverted route
+    const isInverted = invertedRoutes.some(route => 
+      currentPath === route || currentPath.startsWith(route + '/')
+    );
+    setIsInvertedPage(isInverted);
 
     const heroSection = document.querySelector(".bg-realm-black, .bg-white");
 
