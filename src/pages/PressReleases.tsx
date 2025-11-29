@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import PageHeader from '@/components/common/PageHeader';
 import { pressReleases, pressCategories, pressYears } from '@/data/pressReleasesData';
@@ -107,13 +108,9 @@ const PressReleases = () => {
                           className="realm-button w-[200px]"
                         />
                         <Button asChild className="realm-button w-[200px] flex items-center gap-2">
-                          <a
-                            href={release.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
+                          <Link to={`/resources/press-releases/${release.slug}`}>
                             Read Full Release <ArrowRight size={16} />
-                          </a>
+                          </Link>
                         </Button>
                       </div>
                     </div>

@@ -21,6 +21,7 @@ import ImpactStudyDetail from "./pages/ImpactStudyDetail";
 import ResourcesInsights from "./pages/ResourcesInsights";
 import InsightDetail from "./pages/InsightDetail";
 import PressReleases from "./pages/PressReleases";
+import PressReleaseDetails from "./pages/PressReleaseDetails";
 import BrandingService from "./pages/services/BrandingService";
 import UIUXDesignService from "./pages/services/UIUXDesignService";
 import WebAppDevelopmentService from "./pages/services/WebAppDevelopmentService";
@@ -97,6 +98,10 @@ const App = () => (
               path="/resources/press-releases"
               element={<PressReleases />}
             />
+            <Route
+              path="/resources/press-releases/:slug"
+              element={<PressReleaseDetails />}
+            />
             <Route path="/terms-and-conditions" element={<TermsConditions />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/refunds-policy" element={<RefundsPolicy />} />
@@ -107,7 +112,7 @@ const App = () => (
             <Route path="/careers" element={<Careers />} />
             <Route path="/podcasts" element={<Podcasts />} />
 
-             <Route path="/brandkit" element={<BrandKit />} />
+            <Route path="/brandkit" element={<BrandKit />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

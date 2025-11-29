@@ -16,10 +16,18 @@ export const client2 = createClient({
   useCdn: true,
 });
 
+export const client3 = createClient({
+  projectId: import.meta.env.VITE_SANITY_PROJECT_ID_3?.trim(),
+  dataset: import.meta.env.VITE_SANITY_DATASET_3?.trim(),
+  apiVersion: "2024-03-20",
+  useCdn: true,
+});
+
 
 // Create the image URL builder with the client
 const builder1 = imageUrlBuilder(client1);
 const builder2 = imageUrlBuilder(client2);
+const builder3 = imageUrlBuilder(client3);
 
 export function urlForClient1(source: any) {
   return builder1.image(source);
@@ -27,5 +35,9 @@ export function urlForClient1(source: any) {
 
 export function urlForClient2(source: any) {
   return builder2.image(source);
+}
+
+export function urlForClient3(source: any) {
+  return builder3.image(source);
 }
 

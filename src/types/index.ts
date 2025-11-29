@@ -37,6 +37,7 @@ export interface Insight {
 
 export interface PressRelease {
   id: string;
+  slug: string;
   title: string;
   date: string;
   url: string;
@@ -44,6 +45,9 @@ export interface PressRelease {
   pdfUrl?: string;
   category: string;
   year: string;
+  content?: string;
+  subtitle?: string;
+  image?: string;
 }
 
 export interface BrandAsset {
