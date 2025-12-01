@@ -9,6 +9,27 @@ import CtaSection from "@/components/CtaSection";
 import { client3, urlForClient3 } from "../../lib/sanity";
 import { PressRelease } from "@/types";
 
+// Default categories and years for filtering
+const DEFAULT_CATEGORIES = [
+  "All",
+  "Awards",
+  "Partnerships",
+  "Launches",
+  "Expansion",
+  "Milestones",
+];
+const DEFAULT_YEARS = [
+  "All",
+  "2026",
+  "2025",
+  "2024",
+  "2023",
+  "2022",
+  "2021",
+  "2020",
+  "2019",
+];
+
 interface SanityPressRelease {
   _id: string;
   title: string;
@@ -90,24 +111,40 @@ const PressReleases = () => {
           setPressReleases(transformedReleases);
           setUsingFallback(false);
 
-          // Extract unique categories and years
-          const uniqueCategories = [
-            "All",
-            ...new Set(transformedReleases.map((r) => r.category)),
-          ];
-          const uniqueYears = [
-            "All",
-            ...new Set(transformedReleases.map((r) => r.year)),
-          ].sort((a, b) => {
-            if (a === "All") return -1;
-            if (b === "All") return -1;
-            return b.localeCompare(a);
-          });
+          // Extract unique categories and years from CMS data
+          const cmsCategories = new Set(
+            transformedReleases.map((r) => r.category)
+          );
+          const cmsYears = new Set(transformedReleases.map((r) => r.year));
 
-          setPressCategories(uniqueCategories);
-          setPressYears(uniqueYears);
+          // Merge default categories with CMS categories, ensuring defaults are always present
+          const additionalCategories = Array.from(cmsCategories).filter(
+            (cat) => !DEFAULT_CATEGORIES.includes(cat)
+          );
+          const mergedCategories = [
+            ...DEFAULT_CATEGORIES,
+            ...additionalCategories,
+          ];
+
+          // Merge default years with CMS years, ensuring defaults are always present
+          const additionalYears = Array.from(cmsYears)
+            .filter((year) => !DEFAULT_YEARS.includes(year))
+            .sort((a, b) => b.localeCompare(a)); // Sort additional years in descending order
+
+          // Combine: "All" first, then default years in their order, then additional years
+          const mergedYears = [
+            "All",
+            ...DEFAULT_YEARS.filter((y) => y !== "All"), // Default years excluding "All"
+            ...additionalYears,
+          ];
+
+          setPressCategories(mergedCategories);
+          setPressYears(mergedYears);
         } else {
           setUsingFallback(true);
+          // Set default categories and years even when no CMS data
+          setPressCategories(DEFAULT_CATEGORIES);
+          setPressYears(DEFAULT_YEARS);
         }
         setLoading(false);
       } catch (error) {
@@ -297,19 +334,20 @@ const PressReleases = () => {
         <section className="realm-section bg-realm-lightgray">
           <div className="realm-container text-center">
             <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">
-              Press Kit
+              Brand Kit
             </h2>
             <p className="text-lg max-w-2xl mx-auto mb-8">
-              Need comprehensive information about Realm by Rook for media
-              coverage? Download our complete press kit with company
-              information, executive bios, and high-resolution assets.
+              Need comprehensive brand assets and guidelines for Realm by Rook?
+              Download our complete brand kit with logos, color palettes,
+              typography, and brand guidelines to maintain consistency across
+              all communications.
             </p>
             <a
               href="/BrandKit"
               download
               className="realm-button inline-flex items-center bg-black text-white rounded-md hover:bg-opacity-90"
             >
-              <span>Download Press Kit</span>
+              <span>Go to Brand Kit</span>
             </a>
           </div>
         </section>
@@ -325,7 +363,7 @@ const PressReleases = () => {
             </p>
             <a
               href="mailto:hlo@realmrook.com"
-              className="realm-button inline-block"
+              className="realm-button inline-block border-[1px] border-realm-black text-realm-black rounded-sm"
             >
               Contact Media Relations
             </a>
