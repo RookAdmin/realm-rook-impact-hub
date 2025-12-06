@@ -36,7 +36,7 @@ const ResourcesInsights = () => {
       try {
         console.log("Attempting to fetch insights from Sanity...");
 
-        const query = `*[_type == "post"] {
+        const query = `*[_type == "post"] | order(publishedAt desc) {
           _id,
           title,
           slug,
@@ -53,7 +53,13 @@ const ResourcesInsights = () => {
 
         if (data && data.length > 0) {
           console.log("Successfully fetched insights:", data);
-          setInsights(data);
+          // Sort by publishedAt descending (most recent first)
+          const sortedData = data.sort(
+            (a, b) =>
+              new Date(b.publishedAt).getTime() -
+              new Date(a.publishedAt).getTime()
+          );
+          setInsights(sortedData);
           setUsingFallback(false);
         } else {
           console.log("No data found, using fallback insights");
@@ -76,9 +82,15 @@ const ResourcesInsights = () => {
   const filteredInsights =
     activeTag === "All"
       ? insights
-      : insights.filter((insight) =>
-          insight.categories.some((category) => category.title === activeTag)
-        );
+      : insights
+          .filter((insight) =>
+            insight.categories.some((category) => category.title === activeTag)
+          )
+          .sort(
+            (a, b) =>
+              new Date(b.publishedAt).getTime() -
+              new Date(a.publishedAt).getTime()
+          );
 
   const InsightCard = ({ insight }: { insight: Insight }) => {
     const formattedDate = new Date(insight.publishedAt).toLocaleDateString(
@@ -95,11 +107,17 @@ const ResourcesInsights = () => {
         <CardContent className="pt-6 flex-grow">
           <Link to={`/resources/insights/${insight.slug.current}`}>
             <div className="aspect-video rounded overflow-hidden mb-4">
-              <img
-                src={urlForClient2(insight.mainImage).width(800).url()}
-                alt={insight.title}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
+              {insight.mainImage ? (
+                <img
+                  src={urlForClient2(insight.mainImage).width(800).url()}
+                  alt={insight.title}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              ) : (
+                <div className="w-full h-full bg-realm-lightgray flex items-center justify-center">
+                  <span className="text-realm-gray">No image</span>
+                </div>
+              )}
             </div>
 
             <div className="flex items-center gap-4 text-sm mb-2 text-realm-gray">
@@ -128,7 +146,10 @@ const ResourcesInsights = () => {
   return (
     <>
       <Helmet>
-        <title>Digital Marketing Insights & Resources | Expert Guides on Branding, SEO, Web Development & AI</title>
+        <title>
+          Digital Marketing Insights & Resources | Expert Guides on Branding,
+          SEO, Web Development & AI
+        </title>
         <meta
           name="description"
           content="Expert insights on digital marketing, branding strategy, UI/UX design, web development, SEO best practices, and AI automation. Learn from industry experts and stay ahead of digital trends with actionable guides."
@@ -137,8 +158,14 @@ const ResourcesInsights = () => {
           name="keywords"
           content="digital marketing insights, branding guides, SEO tips, web development best practices, UI UX design trends, AI automation guides, marketing resources, design blog, development tutorials, industry insights"
         />
-        <meta property="og:title" content="Expert Digital Marketing Insights & Resources | Realm by Rook" />
-        <meta property="og:description" content="Learn from industry experts. Get actionable insights on branding, design, development, SEO, and AI automation." />
+        <meta
+          property="og:title"
+          content="Expert Digital Marketing Insights & Resources | Realm by Rook"
+        />
+        <meta
+          property="og:description"
+          content="Learn from industry experts. Get actionable insights on branding, design, development, SEO, and AI automation."
+        />
       </Helmet>
       <main>
         <PageHeader
