@@ -178,19 +178,13 @@ const DomainNameConsultation = () => {
                 variants={fadeIn}
                 className="flex-1 max-w-xl text-center pt-16 md:text-left"
               >
-                {/* AI Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
-                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                  <span className="text-sm font-medium text-white/90">AI-Powered Domain Intelligence</span>
-                </div>
                 <h1 className="realm-headline mb-6">
-                  Find Your Perfect Domain 10x Faster with AI.
+                  The Right Domain is Not Taken. It's Strategically Chosen.
                 </h1>
-                <p className="realm-subheadline text-white/90 mb-4">
-                  AI scans millions of possibilities to find brandable, available domains that match your vision.
-                </p>
-                <p className="text-lg text-white/70 mb-10">
-                  Smart suggestions. Instant availability checks. Strategic TLD recommendations.
+                <p className="realm-subheadline text-white/90 mb-10">
+                  We help you secure the perfect .com, .org, .ai, .app, or your
+                  custom TLD designed to grow with your brand. Start smart, not
+                  scattered.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">

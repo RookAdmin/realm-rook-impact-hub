@@ -37,20 +37,13 @@ const Hero = () => {
             transition={{ duration: 0.7 }}
             className="max-w-2xl flex-1"
           >
-            {/* AI Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6 mt-12">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-              <span className="text-sm font-medium text-white/90">AI-Driven Social Strategy</span>
-            </div>
-            <h1 className="realm-headline text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              5x Your Engagement with AI-Powered Content.
+            <h1 className="realm-headline text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 mt-12">
+              We Multiply Your Brand's Impact.
             </h1>
 
-            <p className="text-xl md:text-2xl mb-4 text-realm-lightgray">
-              AI creates. AI schedules. AI responds. You scale — while we handle the grind.
-            </p>
-            <p className="text-lg mb-12 text-realm-lightgray/70">
-              Custom AI agents manage your community 24/7 while our team crafts high-impact content.
+            <p className="text-xl md:text-2xl mb-12 text-realm-lightgray">
+              Social media isn't about being everywhere. It's about showing up
+              where it matters with strategy, storytelling, and systems.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
