@@ -143,12 +143,19 @@ const SEOService = () => {
             <div className="flex flex-col md:flex-row items-center gap-8">
               {/* Left: Text Content */}
               <div className="flex-1 min-w-0 max-w-xl">
+                {/* AI Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-realm-black/5 border border-realm-black/10 rounded-full mb-6">
+                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                  <span className="text-sm font-medium text-realm-darkgray">AI-Accelerated SEO</span>
+                </div>
                 <h1 className="realm-headline mb-6">
-                  Outrank. Outperform. Own Search.
+                  Rank 3x Faster with AI-Powered SEO.
                 </h1>
-                <p className="text-xl md:text-2xl mb-8 text-realm-darkgray">
-                  We don't guess SEO. We engineer it with data, content, and
-                  strategy.
+                <p className="text-xl md:text-2xl mb-4 text-realm-darkgray">
+                  AI analyzes 10,000+ ranking factors. We execute the strategy that wins.
+                </p>
+                <p className="text-lg mb-8 text-realm-darkgray/80">
+                  From content optimization to technical audits — AI does in hours what takes teams weeks.
                 </p>
                 <Button
                   onClick={() => setIsContactOpen(true)}

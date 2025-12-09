@@ -49,21 +49,21 @@ const Contact = () => {
     
     try {
       const { error } = await supabase
-        .from('leads')
+        .from('contact_submissions')
         .insert([
           {
             name: `${data.first_name} ${data.last_name}`.trim(),
             first_name: data.first_name,
             last_name: data.last_name,
             email: data.email,
-            phone: data.whatsapp_country_code && data.whatsapp_number ? `+${data.whatsapp_country_code} ${data.whatsapp_number}` : null,
-            business_name: data.company || null,
-services_interested: Array.isArray(data.services) && data.services.length > 0
-  ? data.services   // keep as array
-  : null,            budget_range: data.budget_range || null,
-            lead_source: data.lead_source,
-            notes: data.message,
-            status: 'New'
+            whatsapp_number: data.whatsapp_country_code && data.whatsapp_number 
+              ? `+${data.whatsapp_country_code} ${data.whatsapp_number}` 
+              : null,
+            company: data.company || null,
+            service: Array.isArray(data.services) && data.services.length > 0
+              ? data.services.join(', ')
+              : null,
+            message: data.message || null,
           }
         ]);
 
