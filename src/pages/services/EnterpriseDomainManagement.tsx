@@ -97,12 +97,24 @@ const EnterpriseDomainManagement = () => {
           serviceUrl="/services/enterprise-domain-management"
         /> */}
 
-        {/* Hero Section starts after breadcrumb */}
-        <PageHeader
-          title="Manage Domains at Scale—Without the Chaos."
-          subtitle="We secure, monitor, and renew your critical digital assets—so your tech team can focus on scaling, not chasing expiring domains."
-          isLarge={true}
-        />
+        {/* AI Badge Section */}
+        <section className="pt-32 pb-8 bg-white">
+          <div className="realm-container text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-realm-black/5 border border-realm-black/10 rounded-full mb-6">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              <span className="text-sm font-medium text-realm-darkgray">AI-Automated Domain Management</span>
+            </div>
+            <h1 className="realm-headline mb-6">
+              Zero Downtime. 100% AI-Monitored.
+            </h1>
+            <p className="text-xl md:text-2xl text-realm-darkgray max-w-3xl mx-auto mb-4">
+              AI monitors your entire domain portfolio 24/7 — catching issues before they become outages.
+            </p>
+            <p className="text-lg text-realm-darkgray/80 max-w-2xl mx-auto">
+              Automated renewals. Instant threat detection. Enterprise-grade security without the enterprise overhead.
+            </p>
+          </div>
+        </section>
 
         {/* Hero CTA Buttons */}
         <section className="py-8 bg-white">

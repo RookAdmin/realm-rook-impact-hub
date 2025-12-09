@@ -53,11 +53,19 @@ const BrandingHero = () => {
     <section className="pt-16 md:pt-24 pb-16 relative">
       <div className="realm-container">
         <div className="max-w-4xl">
+          {/* AI Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-realm-black/5 border border-realm-black/10 rounded-full mb-6">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+            <span className="text-sm font-medium text-realm-darkgray">AI-Powered Brand Strategy</span>
+          </div>
           <h1 className="realm-headline mb-6">
-            Your Brand Isn't Just a Logo. It's a Legacy.
+            Build Your Brand Identity 50% Faster with AI.
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-realm-darkgray">
-            Let us build a unique identity that speaks to hearts and minds.
+          <p className="text-xl md:text-2xl mb-4 text-realm-darkgray">
+            AI-driven market research meets human creativity to craft brands that stand out and scale.
+          </p>
+          <p className="text-lg mb-8 text-realm-darkgray/80">
+            From competitor analysis to brand guidelines — delivered in weeks, not months.
           </p>
 
           <Button

@@ -56,12 +56,19 @@ const WebAppDevelopmentService = () => {
               <RetroGrid />
             </div>
             <div className="realm-container text-center relative z-10">
+              {/* AI Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-realm-black/5 border border-realm-black/10 rounded-full mb-6">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span className="text-sm font-medium text-realm-darkgray">AI-Accelerated Development</span>
+              </div>
               <h1 className="realm-headline mb-6">
-                Websites That Scale. Apps That Convert.
+                We Build 3x Faster with AI.
               </h1>
-              <p className="text-xl md:text-2xl text-realm-darkgray max-w-3xl mx-auto mb-12">
-                We build experiences that perform fast, scalable, and ready for
-                growth.
+              <p className="text-xl md:text-2xl text-realm-darkgray max-w-3xl mx-auto mb-8">
+                Ship production-ready apps in weeks, not months. Our AI-powered workflow accelerates every stage from design to deployment.
+              </p>
+              <p className="text-lg text-realm-darkgray/80 max-w-2xl mx-auto mb-12">
+                Faster time-to-market. Lower development costs. Higher quality code.
               </p>
               <Button
                 onClick={() => setIsContactOpen(true)}
