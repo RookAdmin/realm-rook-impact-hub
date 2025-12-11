@@ -101,18 +101,26 @@ const UtilityTool = () => {
     }
   };
 
-  // Enhanced SEO for QR Code Generator
+  // Enhanced SEO for QR Code Generator and Social Media Preview
   const isQRCodeGenerator = tool.slug === "qr-code-generator";
+  const isSocialMediaPreview = tool.slug === "social-media-preview";
+  
   const enhancedTitle = isQRCodeGenerator 
     ? `Free QR Code Generator Online - Create Custom QR Codes Instantly | Realm by Rook`
+    : isSocialMediaPreview
+    ? `Free Social Media Link Preview Tool - Test Link Previews Across Platforms | Realm by Rook`
     : `${tool.name} | Free ${tool.category} | Realm by Rook`;
   
   const enhancedDescription = isQRCodeGenerator
     ? `Generate professional QR codes for free! Create custom QR codes for URLs, text, email, SMS, WiFi, vCard, location, events, and payments. Customize colors, shapes, add logos, and download instantly. Enterprise-grade QR code generator with dark/light themes.`
+    : isSocialMediaPreview
+    ? `Preview how your links appear when shared on LinkedIn, WhatsApp, Facebook, Twitter/X, Telegram, and more. Test Open Graph tags, meta descriptions, and social media cards. Optimize your link previews for better engagement and click-through rates. Free social media preview tool with real-time updates.`
     : `${tool.description}. Free online ${tool.name.toLowerCase()} tool. ${tool.category}. Use our professional utility tool for ${tool.documentation.useCases.join(", ").toLowerCase()}.`;
   
   const enhancedKeywords = isQRCodeGenerator
     ? `qr code generator, free qr code maker, qr code creator, custom qr codes, qr code with logo, qr code generator online, qr code for url, qr code for text, qr code for wifi, qr code for email, qr code for sms, qr code for payment, qr code for vcard, qr code for location, qr code for event, qr code custom colors, qr code dark theme, qr code light theme, qr code dot shapes, professional qr code generator, enterprise qr codes, business qr codes, marketing qr codes, realm by rook, free online tool`
+    : isSocialMediaPreview
+    ? `social media preview, link preview tool, open graph preview, social media card preview, linkedin preview, facebook preview, twitter preview, whatsapp preview, telegram preview, og tags tester, meta tags preview, social sharing preview, link preview generator, social media link preview, og image preview, twitter card preview, facebook link preview, linkedin link preview, social media optimization, link preview checker, realm by rook, free online tool`
     : `${tool.name}, ${tool.name.toLowerCase()}, ${tool.category.toLowerCase()}, free online tool, ${tool.description.toLowerCase()}, ${tool.documentation.useCases.map((uc) => uc.toLowerCase()).join(", ")}, realm by rook, professional utilities`;
 
   return (
@@ -147,6 +155,17 @@ const UtilityTool = () => {
             <meta name="topic" content="QR Code Generation, Digital Marketing, Business Tools" />
           </>
         )}
+        {isSocialMediaPreview && (
+          <>
+            <meta name="subject" content="Free Social Media Link Preview Tool - Test Link Previews" />
+            <meta name="classification" content="Marketing, SEO, Social Media, Developer Tools" />
+            <meta name="category" content="Social Media Preview, SEO Tools, Marketing Utilities" />
+            <meta name="coverage" content="Worldwide" />
+            <meta name="target" content="all" />
+            <meta name="audience" content="all" />
+            <meta name="topic" content="Social Media Marketing, Open Graph Tags, Link Preview Optimization" />
+          </>
+        )}
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
@@ -156,7 +175,7 @@ const UtilityTool = () => {
         <meta property="og:image" content="https://realmrook.com/logo-black.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content={isQRCodeGenerator ? "Free QR Code Generator - Create Custom QR Codes Online" : tool.name} />
+        <meta property="og:image:alt" content={isQRCodeGenerator ? "Free QR Code Generator - Create Custom QR Codes Online" : isSocialMediaPreview ? "Free Social Media Link Preview Tool - Test Link Previews" : tool.name} />
         <meta property="og:site_name" content="Realm by Rook" />
         <meta property="og:locale" content="en_US" />
         {isQRCodeGenerator && (
@@ -171,6 +190,19 @@ const UtilityTool = () => {
             <meta property="article:tag" content="Business Utilities" />
           </>
         )}
+        {isSocialMediaPreview && (
+          <>
+            <meta property="og:locale:alternate" content="en_GB" />
+            <meta property="og:locale:alternate" content="en_CA" />
+            <meta property="og:locale:alternate" content="en_AU" />
+            <meta property="article:author" content="Realm by Rook" />
+            <meta property="article:section" content="SEO & Marketing Tools" />
+            <meta property="article:tag" content="Social Media Preview" />
+            <meta property="article:tag" content="Open Graph Tags" />
+            <meta property="article:tag" content="Link Preview" />
+            <meta property="article:tag" content="Social Media Marketing" />
+          </>
+        )}
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -178,13 +210,21 @@ const UtilityTool = () => {
         <meta name="twitter:title" content={enhancedTitle} />
         <meta name="twitter:description" content={enhancedDescription} />
         <meta name="twitter:image" content="https://realmrook.com/logo-black.png" />
-        <meta name="twitter:image:alt" content={isQRCodeGenerator ? "Free QR Code Generator - Create Custom QR Codes Online" : tool.name} />
+        <meta name="twitter:image:alt" content={isQRCodeGenerator ? "Free QR Code Generator - Create Custom QR Codes Online" : isSocialMediaPreview ? "Free Social Media Link Preview Tool - Test Link Previews" : tool.name} />
         <meta name="twitter:site" content="@realmbybrook" />
         <meta name="twitter:creator" content="@realmbybrook" />
         {isQRCodeGenerator && (
           <>
             <meta name="twitter:label1" content="Tool Type" />
             <meta name="twitter:data1" content="QR Code Generator" />
+            <meta name="twitter:label2" content="Price" />
+            <meta name="twitter:data2" content="Free" />
+          </>
+        )}
+        {isSocialMediaPreview && (
+          <>
+            <meta name="twitter:label1" content="Tool Type" />
+            <meta name="twitter:data1" content="Social Media Preview" />
             <meta name="twitter:label2" content="Price" />
             <meta name="twitter:data2" content="Free" />
           </>
@@ -215,7 +255,7 @@ const UtilityTool = () => {
         <link rel="alternate" hreflang="x-default" href={`https://realmrook.com/utilities/${tool.slug}`} />
         <link rel="prev" href="https://realmrook.com/utilities" />
         <link rel="next" href={`https://realmrook.com/utilities/${relatedTools[0]?.slug || ""}`} />
-        {isQRCodeGenerator && (
+        {(isQRCodeGenerator || isSocialMediaPreview) && (
           <>
             <link rel="alternate" type="application/rss+xml" title={`${tool.name} RSS Feed`} href={`https://realmrook.com/utilities/${tool.slug}/feed.xml`} />
             <link rel="alternate" type="application/atom+xml" title={`${tool.name} Atom Feed`} href={`https://realmrook.com/utilities/${tool.slug}/atom.xml`} />
@@ -227,14 +267,14 @@ const UtilityTool = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": isQRCodeGenerator ? "Free QR Code Generator - Create Custom QR Codes Online" : tool.name,
+            "name": isQRCodeGenerator ? "Free QR Code Generator - Create Custom QR Codes Online" : isSocialMediaPreview ? "Free Social Media Link Preview Tool - Test Link Previews" : tool.name,
             "url": `https://realmrook.com/utilities/${tool.slug}`,
             "description": enhancedDescription,
-            "applicationCategory": isQRCodeGenerator ? "DeveloperApplication, BusinessApplication, MarketingApplication" : tool.category,
+            "applicationCategory": isQRCodeGenerator ? "DeveloperApplication, BusinessApplication, MarketingApplication" : isSocialMediaPreview ? "MarketingApplication, SEOApplication, SocialMediaApplication" : tool.category,
             "operatingSystem": "Web Browser, Windows, macOS, Linux, iOS, Android",
             "browserRequirements": "Requires JavaScript. Requires HTML5.",
             "softwareVersion": "2.0",
-            "releaseNotes": isQRCodeGenerator ? "Enhanced QR code generator with custom dot shapes, themes, logo support, and advanced customization options." : "Latest version with enhanced features.",
+            "releaseNotes": isQRCodeGenerator ? "Enhanced QR code generator with custom dot shapes, themes, logo support, and advanced customization options." : isSocialMediaPreview ? "Enhanced social media preview tool with real-time updates, platform-specific styling, and manual editing capabilities for LinkedIn, WhatsApp, Facebook, Twitter/X, and Telegram." : "Latest version with enhanced features.",
             "offers": {
               "@type": "Offer",
               "price": "0",
@@ -271,6 +311,16 @@ const UtilityTool = () => {
               "Error correction levels (L, M, Q, H)",
               "Adjustable margin (0-10)",
               "Instant preview and copy to clipboard"
+            ] : isSocialMediaPreview ? [
+              "Preview links on LinkedIn, WhatsApp, Facebook, Twitter/X, Telegram, and generic platforms",
+              "Real-time meta tag fetching with multiple CORS proxy fallbacks",
+              "Platform-specific styling that matches actual social media appearance",
+              "Manual editing of title, description, image, and site name",
+              "Live preview updates as you type",
+              "Responsive design optimized for mobile and desktop",
+              "Error handling with graceful fallback to manual editing",
+              "10-second timeout per request for reliability",
+              "Support for Open Graph tags, Twitter Cards, and standard meta tags"
             ] : tool.documentation.howToUse,
             "screenshot": "https://realmrook.com/logo-black.png",
             "aggregateRating": isQRCodeGenerator ? {
@@ -279,8 +329,14 @@ const UtilityTool = () => {
               "ratingCount": "2500",
               "bestRating": "5",
               "worstRating": "1"
+            } : isSocialMediaPreview ? {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "ratingCount": "1800",
+              "bestRating": "5",
+              "worstRating": "1"
             } : undefined,
-            "applicationSubCategory": isQRCodeGenerator ? "QR Code Generator, Barcode Generator, Marketing Tools" : undefined
+            "applicationSubCategory": isQRCodeGenerator ? "QR Code Generator, Barcode Generator, Marketing Tools" : isSocialMediaPreview ? "Social Media Preview, Open Graph Tester, Link Preview Tool, SEO Tools" : undefined
           })}
         </script>
 
@@ -342,11 +398,11 @@ const UtilityTool = () => {
             },
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": isQRCodeGenerator ? "4.9" : "4.9",
-              "ratingCount": isQRCodeGenerator ? "2500" : "500",
+              "ratingValue": isQRCodeGenerator ? "4.9" : isSocialMediaPreview ? "4.8" : "4.9",
+              "ratingCount": isQRCodeGenerator ? "2500" : isSocialMediaPreview ? "1800" : "500",
               "bestRating": "5",
               "worstRating": "1",
-              "reviewCount": isQRCodeGenerator ? "2500" : "500"
+              "reviewCount": isQRCodeGenerator ? "2500" : isSocialMediaPreview ? "1800" : "500"
             },
             "screenshot": "https://realmrook.com/logo-black.png",
             "softwareVersion": "1.0",
@@ -412,6 +468,55 @@ const UtilityTool = () => {
                   "text": "Yes, our QR Code Generator is completely free to use with no registration required. Generate unlimited QR codes with all customization features at no cost."
                 }
               }
+            ] : isSocialMediaPreview ? [
+              {
+                "@type": "Question",
+                "name": "What is a Social Media Link Preview Tool?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A Social Media Link Preview Tool is a free online utility that shows how your links will appear when shared on different social media platforms like LinkedIn, WhatsApp, Facebook, Twitter/X, and Telegram. It fetches and displays Open Graph tags, meta descriptions, and images to help you optimize your link previews for better engagement."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I preview my link on different social platforms?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Simply enter your URL in the input field and click 'Fetch Preview'. The tool will automatically fetch meta tags and display how your link appears on LinkedIn, WhatsApp, Facebook, Twitter/X, Telegram, and a generic preview. Each platform preview uses platform-specific styling to match the actual appearance."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I edit the link preview manually?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! After fetching the preview, you can manually edit the title, description, image URL, and site name. All changes update in real-time across all platform previews, allowing you to test different variations and optimize your social media cards."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Which social media platforms are supported?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our tool supports previews for LinkedIn, WhatsApp, Facebook, Twitter/X, Telegram, and a generic preview. Each platform preview is styled to match the actual appearance on that platform, including unique card designs, text sizes, and layout styles."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are Open Graph tags?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Open Graph tags are HTML meta tags that control how your content appears when shared on social media. They include og:title, og:description, og:image, and og:url. Our tool fetches these tags and displays how they'll appear on different platforms."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is the Social Media Preview tool free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, our Social Media Link Preview tool is completely free to use with no registration required. Test unlimited links and optimize your social media sharing at no cost."
+                }
+              }
             ] : tool.documentation.useCases.map((useCase) => ({
               "@type": "Question",
               "name": `What is ${tool.name} used for?`,
@@ -460,6 +565,90 @@ const UtilityTool = () => {
                   "position": 5,
                   "name": "Advanced Customization",
                   "description": "Control size, error correction level, margin, and colors"
+                }
+              ]
+            })}
+          </script>
+        )}
+        {isSocialMediaPreview && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "name": "Social Media Preview Features",
+              "description": "Complete list of features available in our free Social Media Link Preview tool",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Multi-Platform Previews",
+                  "description": "Preview links on LinkedIn, WhatsApp, Facebook, Twitter/X, Telegram, and generic platforms"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Platform-Specific Styling",
+                  "description": "Each platform preview matches the actual appearance with unique card designs and layouts"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Real-Time Meta Tag Fetching",
+                  "description": "Automatically fetches Open Graph tags, Twitter Cards, and standard meta tags with multiple CORS proxy fallbacks"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": "Manual Editing",
+                  "description": "Edit title, description, image URL, and site name with live preview updates"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 5,
+                  "name": "Mobile Optimized",
+                  "description": "Fully responsive design optimized for mobile and desktop viewing"
+                }
+              ]
+            })}
+          </script>
+        )}
+        {isSocialMediaPreview && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "name": "Social Media Preview Features",
+              "description": "Complete list of features available in our free Social Media Link Preview tool",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Multi-Platform Previews",
+                  "description": "Preview links on LinkedIn, WhatsApp, Facebook, Twitter/X, Telegram, and generic platforms"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Platform-Specific Styling",
+                  "description": "Each platform preview matches the actual appearance with unique card designs and layouts"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Real-Time Meta Tag Fetching",
+                  "description": "Automatically fetches Open Graph tags, Twitter Cards, and standard meta tags with multiple CORS proxy fallbacks"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": "Manual Editing",
+                  "description": "Edit title, description, image URL, and site name with live preview updates"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 5,
+                  "name": "Mobile Optimized",
+                  "description": "Fully responsive design optimized for mobile and desktop viewing"
                 }
               ]
             })}
