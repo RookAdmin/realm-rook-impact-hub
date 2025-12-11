@@ -118,13 +118,11 @@ const Hero = () => {
       </div>
       {/* Contact  Form Dialog */}
       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
-        <DialogContent className="w-[95vw] sm:w-full max-w-[500px] max-h-[90vh] flex flex-col p-0">
-          <div className="flex-shrink-0 px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4 border-b">
-            <h2 className="text-xl sm:text-2xl font-display font-bold">
+        <DialogContent className="sm:max-w-[500px]">
+          <div className="py-2 pr-2">
+            <h2 className="text-2xl font-display font-bold mb-6">
               Get My Custom Strategy
             </h2>
-          </div>
-          <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 pt-4 pb-8 sm:pb-4">
             <ContactForm onSuccess={() => setIsContactOpen(false)} />
           </div>
         </DialogContent>
@@ -677,13 +675,11 @@ const FinalCTA = () => {
         </motion.div>
       </div>
       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
-        <DialogContent className="w-[95vw] sm:w-full max-w-[500px] max-h-[90vh] flex flex-col p-0">
-          <div className="flex-shrink-0 px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4 border-b">
-            <h2 className="text-xl sm:text-2xl font-display font-bold">
+        <DialogContent className="sm:max-w-[500px]">
+          <div className="py-2 pr-2">
+            <h2 className="text-2xl font-display font-bold mb-6">
               Get My Custom Strategy
             </h2>
-          </div>
-          <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 pt-4 pb-8 sm:pb-4">
             <ContactForm onSuccess={() => setIsContactOpen(false)} />
           </div>
         </DialogContent>
@@ -741,13 +737,11 @@ const StickyCTA = () => {
       </div>
       {/* Contact  Form Dialog */}
       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
-        <DialogContent className="w-[95vw] sm:w-full max-w-[500px] max-h-[90vh] flex flex-col p-0">
-          <div className="flex-shrink-0 px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4 border-b">
-            <h2 className="text-xl sm:text-2xl font-display font-bold">
+        <DialogContent className="sm:max-w-[500px]">
+          <div className="py-2 pr-2">
+            <h2 className="text-2xl font-display font-bold mb-6">
               Get My Custom Strategy
             </h2>
-          </div>
-          <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 pt-4 pb-8 sm:pb-4">
             <ContactForm onSuccess={() => setIsContactOpen(false)} />
           </div>
         </DialogContent>
@@ -765,20 +759,20 @@ const SocialMediaMarketingService = () => {
   return (
     <>
       <Helmet>
-        <title>Social Media Marketing Services | Drive Engagement, Leads & Brand Growth with Strategy</title>
+        <title>
+          Social Media Marketing | Realm by Rook - Strategic Brand Growth
+        </title>
         <meta
           name="description"
-          content="Amplify your brand reach with data-driven social media marketing. Expert content strategy, community management, paid ads, and influencer partnerships across Instagram, LinkedIn, Facebook, and TikTok."
+          content="Multiply your brand's impact with strategic social media marketing. Drive engagement, leads, and ROI with tailored strategies."
         />
         <meta
           name="keywords"
-          content="social media marketing, social media management, Instagram marketing, LinkedIn marketing, Facebook ads, TikTok marketing, content strategy, community management, influencer marketing, paid social advertising"
+          content="social media marketing, brand growth, engagement, lead generation, ROI"
         />
-        <meta property="og:title" content="Strategic Social Media Marketing | Build Engaged Communities & Drive Results" />
-        <meta property="og:description" content="Transform your social presence into a growth engine. Expert strategies for engagement, lead generation, and brand awareness across all platforms." />
       </Helmet>
       <main className="min-h-screen">
-        {/* <div className="bg-realm-black text-white">
+        {/* <div className="bg-black text-white">
           <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4 pt-20">
             <ServiceBreadcrumb
               serviceName="Social Media Marketing"

@@ -122,21 +122,19 @@ const SEOService = () => {
   return (
     <>
       <Helmet>
-        <title>Professional SEO Services | Increase Rankings, Traffic & Revenue with Data-Driven Strategy</title>
+        <title>SEO Services | Realm by Rook - Outrank and Outperform</title>
         <meta
           name="description"
-          content="Dominate search results with expert SEO services. Get keyword research, technical optimization, quality link building, and content strategy that drives +300% organic traffic growth."
+          content="Boost your search rankings with data-driven SEO strategies. Keyword research, technical fixes, and high-authority link building."
         />
         <meta
           name="keywords"
-          content="SEO services, search engine optimization, SEO company, keyword research, technical SEO, link building strategy, on-page SEO, off-page SEO, local SEO, SEO audit, organic traffic growth"
+          content="SEO services, keyword research, technical SEO, link building, search rankings"
         />
-        <meta property="og:title" content="Expert SEO Services | Outrank Competitors & Drive Organic Growth" />
-        <meta property="og:description" content="Data-driven SEO that delivers results. Proven strategies for higher rankings, more traffic, and increased revenue. +300% traffic growth for clients." />
       </Helmet>
       <main className="min-h-screen pt-32 pb-16">
         <div className="realm-container">
-          {/* <ServiceBreadcrumb serviceName="SEO" serviceUrl="/services/seo" /> */}
+          <ServiceBreadcrumb serviceName="SEO" serviceUrl="/services/seo" />
 
           {/* Hero Section */}
           <section className="">
@@ -339,13 +337,11 @@ const SEOService = () => {
         </div>
         {/* Contact  Form Dialog */}
         <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
-          <DialogContent className="w-[95vw] sm:w-full max-w-[500px] max-h-[90vh] flex flex-col p-0">
-            <div className="flex-shrink-0 px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4 border-b">
-              <h2 className="text-xl sm:text-2xl font-display font-bold">
+          <DialogContent className="sm:max-w-[500px]">
+            <div className="py-2 pr-2">
+              <h2 className="text-2xl font-display font-bold mb-6">
                 Get a Proposal
               </h2>
-            </div>
-            <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 pt-4 pb-8 sm:pb-4">
               <ContactForm onSuccess={() => setIsContactOpen(false)} />
             </div>
           </DialogContent>

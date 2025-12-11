@@ -1,10 +1,31 @@
 User-agent: *
 Allow: /
+Allow: /utilities
+Allow: /utilities/
 
 # Sitemap location
 Sitemap: https://realmrook.com/sitemap.xml
 
 # Crawl-delay for all bots
+Crawl-delay: 1
+
+# Specific bot rules for better indexing
+User-agent: Googlebot
+Allow: /
+Allow: /utilities
+Allow: /utilities/
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Allow: /utilities
+Allow: /utilities/
+Crawl-delay: 0
+
+User-agent: Slurp
+Allow: /
+Allow: /utilities
+Allow: /utilities/
 Crawl-delay: 1
 
 # Disallow admin or private paths if any

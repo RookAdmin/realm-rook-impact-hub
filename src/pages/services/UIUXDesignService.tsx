@@ -56,17 +56,17 @@ const UIUXDesignService = () => {
   return (
     <>
       <Helmet>
-        <title>UI/UX Design Services | User-Centered Design That Converts & Delights Users</title>
+        <title>
+          UI/UX Design | Realm by Rook - Experience-Driven Interfaces
+        </title>
         <meta
           name="description"
-          content="Create intuitive, conversion-focused user experiences with expert UI/UX design. Mobile-optimized, research-driven designs for web apps, SaaS platforms, and digital products that users love."
+          content="Craft human-first, experience-driven digital interfaces that look good and work flawlessly. Built for conversions and inclusivity."
         />
         <meta
           name="keywords"
-          content="UI UX design services, user interface design, user experience design, UX research, UI design agency, mobile app design, web design, SaaS design, product design, UX audit, wireframing, prototyping"
+          content="UI/UX design, user-first design, responsive design, accessibility, experience-driven interfaces"
         />
-        <meta property="og:title" content="Expert UI/UX Design Services | Research-Driven, Conversion-Focused Design" />
-        <meta property="og:description" content="Transform your digital product with world-class UI/UX design. Create experiences that delight users and drive business results." />
       </Helmet>
       <main className="min-h-screen pt-32">
         {/* <div className="realm-container mb-6">
@@ -111,13 +111,11 @@ const UIUXDesignService = () => {
 
             {/* Contact Form Dialog */}
             <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
-              <DialogContent className="w-[95vw] sm:w-full max-w-[500px] max-h-[90vh] flex flex-col p-0">
-                <div className="flex-shrink-0 px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4 border-b">
-                  <h2 className="text-xl sm:text-2xl font-display font-bold">
+              <DialogContent className="sm:max-w-[500px]">
+                <div className="py-2 pr-2">
+                  <h2 className="text-2xl font-display font-bold mb-6">
                     Let's Design Together
                   </h2>
-                </div>
-                <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 pt-4 pb-8 sm:pb-4">
                   <ContactForm onSuccess={() => setIsContactOpen(false)} />
                 </div>
               </DialogContent>
@@ -397,7 +395,7 @@ const UIUXDesignService = () => {
               <Button
                 onClick={() => setIsContactOpen(true)}
                 variant="outline"
-                className="text-realm-black border-white rounded-full"
+                className="text-black border-white rounded-full"
               >
                 Talk to Our Design Team
               </Button>

@@ -92,10 +92,10 @@ const EnterpriseDomainManagement = () => {
         />
       </Helmet>
       <main className="min-h-screen">
-        {/* <ServiceBreadcrumb
+        <ServiceBreadcrumb
           serviceName="Enterprise Domain Management"
           serviceUrl="/services/enterprise-domain-management"
-        /> */}
+        />
 
         {/* Hero Section starts after breadcrumb */}
         <PageHeader

@@ -27,27 +27,27 @@ const WebAppDevelopmentService = () => {
   return (
     <>
       <Helmet>
-        <title>Custom Web & App Development | Scalable, Secure Solutions with Modern Tech Stack</title>
+        <title>
+          Web App Development | Realm by Rook - Scalable Digital Solutions
+        </title>
         <meta
           name="description"
-          content="Build high-performance web applications and mobile apps with cutting-edge technology. Scalable, secure, and user-friendly digital solutions for startups to enterprises. React, Node.js, cloud-native development."
+          content="Build scalable, secure, and user-friendly web applications tailored to your business needs. Powered by cutting-edge technologies."
         />
         <meta
           name="keywords"
-          content="web development services, app development, custom web applications, mobile app development, React development, full stack development, SaaS development, cloud-native apps, progressive web apps, API development"
+          content="web app development, scalable apps, secure apps, user-friendly apps, digital solutions"
         />
-        <meta property="og:title" content="Custom Web & Mobile App Development Services | Realm by Rook" />
-        <meta property="og:description" content="Transform your ideas into powerful digital products. Expert development with React, Node.js, and modern frameworks for scalable, secure solutions." />
       </Helmet>
       <main className="min-h-screen">
         <div className="pt-32">
           {/* Breadcrumb */}
-          {/* <div className="realm-container">
+          <div className="realm-container">
             <ServiceBreadcrumb
               serviceName="Web/App Development"
               serviceUrl="/services/web-app-development"
             />
-          </div> */}
+          </div>
 
           {/* Hero Section */}
           <section className="py-16 md:py-24 relative overflow-hidden">
@@ -84,13 +84,11 @@ const WebAppDevelopmentService = () => {
 
           {/* Contact  Form Dialog */}
           <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
-            <DialogContent className="w-[95vw] sm:w-full max-w-[500px] max-h-[90vh] flex flex-col p-0">
-              <div className="flex-shrink-0 px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4 border-b">
-                <h2 className="text-xl sm:text-2xl font-display font-bold">
+            <DialogContent className="sm:max-w-[500px]">
+              <div className="py-2 pr-2">
+                <h2 className="text-2xl font-display font-bold mb-6">
                   Build With Realm
                 </h2>
-              </div>
-              <div className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 pt-4 pb-8 sm:pb-4">
                 <ContactForm onSuccess={() => setIsContactOpen(false)} />
               </div>
             </DialogContent>
@@ -176,7 +174,7 @@ const WebAppDevelopmentService = () => {
           {/* RAD Method */}
           <section className="bg-white py-24">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-realm-black text-center mb-8">
+              <h2 className="text-3xl font-bold text-black text-center mb-8">
                 Why Wait Months? Build in Days.
               </h2>
               <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-16">
@@ -198,7 +196,7 @@ const WebAppDevelopmentService = () => {
                         <span className="text-sm font-medium text-gray-400">
                           01
                         </span>
-                        <h3 className="text-xl font-semibold text-realm-black mt-2 mb-3">
+                        <h3 className="text-xl font-semibold text-black mt-2 mb-3">
                           Discovery Call
                         </h3>
                         <p className="text-gray-600 mb-3">
@@ -210,21 +208,21 @@ const WebAppDevelopmentService = () => {
                       </div>
                     </div>
                     <div className="hidden md:block md:w-1/2 order-2 relative">
-                      <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-realm-black border-2 border-white"></div>
+                      <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-black border-2 border-white"></div>
                     </div>
                   </div>
 
                   {/* Item 02 - Left side */}
                   <div className="flex flex-col md:flex-row items-center">
                     <div className="hidden md:block md:w-1/2 order-1 relative">
-                      <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-realm-black border-2 border-white"></div>
+                      <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-black border-2 border-white"></div>
                     </div>
                     <div className="md:w-1/2 md:pl-12 order-2 md:order-2">
                       <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                         <span className="text-sm font-medium text-gray-400">
                           02
                         </span>
-                        <h3 className="text-xl font-semibold text-realm-black mt-2 mb-3">
+                        <h3 className="text-xl font-semibold text-black mt-2 mb-3">
                           UI/UX in Parallel
                         </h3>
                         <p className="text-gray-600 mb-3">
@@ -245,7 +243,7 @@ const WebAppDevelopmentService = () => {
                         <span className="text-sm font-medium text-gray-400">
                           03
                         </span>
-                        <h3 className="text-xl font-semibold text-realm-black mt-2 mb-3">
+                        <h3 className="text-xl font-semibold text-black mt-2 mb-3">
                           Reusable Tech Blocks
                         </h3>
                         <p className="text-gray-600 mb-3">
@@ -258,21 +256,21 @@ const WebAppDevelopmentService = () => {
                       </div>
                     </div>
                     <div className="hidden md:block md:w-1/2 order-2 relative">
-                      <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-realm-black border-2 border-white"></div>
+                      <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-black border-2 border-white"></div>
                     </div>
                   </div>
 
                   {/* Item 04 - Left side */}
                   <div className="flex flex-col md:flex-row items-center">
                     <div className="hidden md:block md:w-1/2 order-1 relative">
-                      <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-realm-black border-2 border-white"></div>
+                      <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-black border-2 border-white"></div>
                     </div>
                     <div className="md:w-1/2 md:pl-12 order-2 md:order-2">
                       <div className="bg-white p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                         <span className="text-sm font-medium text-gray-400">
                           04
                         </span>
-                        <h3 className="text-xl font-semibold text-realm-black mt-2 mb-3">
+                        <h3 className="text-xl font-semibold text-black mt-2 mb-3">
                           AI-Powered Dev
                         </h3>
                         <p className="text-gray-600 mb-3">
@@ -293,7 +291,7 @@ const WebAppDevelopmentService = () => {
                         <span className="text-sm font-medium text-gray-400">
                           05
                         </span>
-                        <h3 className="text-xl font-semibold text-realm-black mt-2 mb-3">
+                        <h3 className="text-xl font-semibold text-black mt-2 mb-3">
                           Launch + Support
                         </h3>
                         <p className="text-gray-600 mb-3">
@@ -305,7 +303,7 @@ const WebAppDevelopmentService = () => {
                       </div>
                     </div>
                     <div className="hidden md:block md:w-1/2 order-2 relative">
-                      <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-realm-black border-2 border-white"></div>
+                      <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-black border-2 border-white"></div>
                     </div>
                   </div>
                 </div>
@@ -316,7 +314,7 @@ const WebAppDevelopmentService = () => {
                   You save time, budget, and mindspace — and start scaling weeks
                   ahead of your competitors.
                 </p>
-                <p className="text-xl font-semibold text-realm-black">
+                <p className="text-xl font-semibold text-black">
                   Custom doesn't have to be slow.
                 </p>
               </div>

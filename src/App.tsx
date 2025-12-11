@@ -2,9 +2,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Navbar from "./components/Navbar";
+import ConditionalNavbar from "./components/ConditionalNavbar";
 import Footer from "./components/Footer";
 import FloatingContactBar from "./components/FloatingContactBar";
 import Index from "./pages/Index";
@@ -41,8 +42,24 @@ import D2CStartups from "./pages/discover/D2CStartups";
 import SaaSStartups from "./pages/discover/SaaSStartups";
 import Partners from "./pages/Partners";
 import Podcasts from "./pages/Podcasts";
+import Utilities from "./pages/Utilities";
+import UtilityTool from "./pages/UtilityTool";
+import MacOSDock from "./components/utilities/MacOSDock";
 
 const queryClient = new QueryClient();
+
+// Component to conditionally render MacOSDock only on utility tool subpages
+const ConditionalMacOSDock = () => {
+  const location = useLocation();
+  // Only show dock on /utilities/:slug pages (not on /utilities main page)
+  const isUtilityToolPage = location.pathname.startsWith("/utilities/") && location.pathname !== "/utilities";
+  
+  if (!isUtilityToolPage) {
+    return null;
+  }
+  
+  return <MacOSDock />;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -51,7 +68,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Navbar />
+          <ConditionalNavbar />
           <FloatingContactBar />
           <Routes>
             <Route path="/" element={<Index />} />
@@ -111,12 +128,15 @@ const App = () => (
             <Route path="/profit-pledge" element={<ProfitPledge />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/podcasts" element={<Podcasts />} />
+            <Route path="/utilities" element={<Utilities />} />
+            <Route path="/utilities/:slug" element={<UtilityTool />} />
 
             <Route path="/brandkit" element={<BrandKit />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
+          <ConditionalMacOSDock />
         </BrowserRouter>
       </TooltipProvider>
     </HelmetProvider>

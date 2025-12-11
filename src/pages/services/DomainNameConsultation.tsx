@@ -144,22 +144,23 @@ const DomainNameConsultation = () => {
   return (
     <>
       <Helmet>
-        <title>Domain Name Consultation Services | Premium Domain Strategy & Acquisition Experts</title>
+        <title>
+          Domain Name Consultation | Realm by Rook - Strategic Domain
+          Acquisition
+        </title>
         <meta
           name="description"
-          content="Secure the perfect domain for your brand with expert consultation. Strategic domain acquisition, valuation, negotiation, and portfolio management for .com, premium, and custom TLD domains."
+          content="Secure the perfect domain for your brand with expert consultation. From .com to custom TLDs, we help you choose strategically."
         />
         <meta
           name="keywords"
-          content="domain name consultation, domain acquisition services, premium domain names, domain strategy, domain portfolio management, domain valuation, .com domains, brandable domains, domain negotiation"
+          content="domain name consultation, domain acquisition, strategic domains, TLDs, brand domains"
         />
-        <meta property="og:title" content="Expert Domain Consultation | Acquire Premium Domains for Your Brand" />
-        <meta property="og:description" content="Build a strong digital foundation with the right domain. Expert guidance on domain strategy, acquisition, and portfolio management." />
       </Helmet>
       <main className="min-h-screen pt-20">
         {/* Hero Section */}
         {/* 
-        <div className="bg-realm-black text-white">
+        <div className="bg-black text-white">
           <div className="container max-w-12xl mx-auto px-1 sm:px-4 lg:px-4">
             <ServiceBreadcrumb
               serviceName="Domain Name Consultation"
@@ -197,7 +198,7 @@ const DomainNameConsultation = () => {
                   <Link to="/case-studies">
                     <Button
                       variant="outline"
-                      className="realm-button border-white rounded-full text-realm-black hover:text-white hover:bg-white/10"
+                      className="realm-button border-white rounded-full text-black hover:text-white hover:bg-white/10"
                     >
                       View Past Domain Success Stories
                       <ArrowRight size={16} className="ml-2" />

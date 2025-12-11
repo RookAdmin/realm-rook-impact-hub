@@ -36,6 +36,13 @@ const Footer = () => {
       ],
     },
     {
+      title: "Discover",
+      links: [
+        { name: "D2C Startups", path: "/discover/d2c-startups" },
+        { name: "SaaS Startups", path: "/discover/saas-startups" },
+      ],
+    },
+    {
       title: "Company",
       links: [
         { name: "About Us", path: "/about" },
@@ -52,6 +59,7 @@ const Footer = () => {
         { name: "Insights", path: "/resources/insights" },
         { name: "Press Releases", path: "/resources/press-releases" },
         { name: "Podcasts", path: "/podcasts" },
+        { name: "Utilities", path: "/utilities" },
       ],
     },
     {
@@ -77,21 +85,21 @@ const Footer = () => {
   return (
     <footer className="bg-realm-black text-white pt-16 pb-8">
       <div className="realm-container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 pb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 lg:gap-6 pb-12">
           {/* Realm by Rook column */}
           <div className="lg:col-span-2">
             <img src={LogoImage} alt="Realm by Rook" className="mb-4 w-32" />
-            <p className="mb-6 text-gray-300 max-w-sm">
+            <p className="mb-6 text-gray-300 max-w-sm text-sm leading-relaxed">
               We blend creativity and technology to build experiences that inspire action.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-gray-300 transition-colors"
+                  className="text-white hover:text-gray-300 transition-colors text-sm"
                 >
                   {social.name}
                 </a>
@@ -101,15 +109,18 @@ const Footer = () => {
 
           {/* Artificial Intelligence */}
           <div>
-            <h3 className="font-medium mb-4 text-sm text-gray-400">
+            <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
               <Link to={footerLinks[0].titleLink} className="hover:text-white transition-colors">
                 {footerLinks[0].title}
               </Link>
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {footerLinks[0].links.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.path} className="hover:text-gray-300 transition-colors">
+                  <Link 
+                    to={link.path} 
+                    className="text-sm text-gray-300 hover:text-white transition-colors"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -119,15 +130,18 @@ const Footer = () => {
 
           {/* Digital */}
           <div>
-            <h3 className="font-medium mb-4 text-sm text-gray-400">
+            <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
               <Link to={footerLinks[1].titleLink} className="hover:text-white transition-colors">
                 {footerLinks[1].title}
               </Link>
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {footerLinks[1].links.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.path} className="hover:text-gray-300 transition-colors">
+                  <Link 
+                    to={link.path} 
+                    className="text-sm text-gray-300 hover:text-white transition-colors"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -137,15 +151,18 @@ const Footer = () => {
 
           {/* Growth */}
           <div>
-            <h3 className="font-medium mb-4 text-sm text-gray-400">
+            <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
               <Link to={footerLinks[2].titleLink} className="hover:text-white transition-colors">
                 {footerLinks[2].title}
               </Link>
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {footerLinks[2].links.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.path} className="hover:text-gray-300 transition-colors">
+                  <Link 
+                    to={link.path} 
+                    className="text-sm text-gray-300 hover:text-white transition-colors"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -153,43 +170,54 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Company, Resources and Legal columns */}
+          {/* Company */}
           <div>
-            {/* Company section */}
-            <div className="mb-8">
-              <h3 className="font-medium mb-4 text-sm text-gray-400">{footerLinks[3].title}</h3>
-              <ul className="space-y-3">
+            <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
+              {footerLinks[4].title}
+            </h3>
+            <ul className="space-y-2.5">
+              {footerLinks[4].links.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.path} 
+                    className="text-sm text-gray-300 hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
+              {footerLinks[5].title}
+            </h3>
+            <ul className="space-y-2.5">
+              {footerLinks[5].links.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.path} 
+                    className="text-sm text-gray-300 hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            {/* Discover moved below Resources */}
+            <div className="mt-6">
+              <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
+                {footerLinks[3].title}
+              </h3>
+              <ul className="space-y-2.5">
                 {footerLinks[3].links.map((link) => (
                   <li key={link.name}>
-                    <Link to={link.path} className="hover:text-gray-300 transition-colors">
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Resources section */}
-            <div className="mb-8">
-              <h3 className="font-medium mb-4 text-sm text-gray-400">{footerLinks[4].title}</h3>
-              <ul className="space-y-3">
-                {footerLinks[4].links.map((link) => (
-                  <li key={link.name}>
-                    <Link to={link.path} className="hover:text-gray-300 transition-colors">
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Legal section */}
-            <div>
-              <h3 className="font-medium mb-4 text-sm text-gray-400">{footerLinks[5].title}</h3>
-              <ul className="space-y-3">
-                {footerLinks[5].links.map((link) => (
-                  <li key={link.name}>
-                    <Link to={link.path} className="hover:text-gray-300 transition-colors">
+                    <Link 
+                      to={link.path} 
+                      className="text-sm text-gray-300 hover:text-white transition-colors"
+                    >
                       {link.name}
                     </Link>
                   </li>
@@ -197,21 +225,45 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
+              {footerLinks[6].title}
+            </h3>
+            <ul className="space-y-2.5">
+              {footerLinks[6].links.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.path} 
+                    className="text-sm text-gray-300 hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Copyright and address */}
-        <div className="border-t border-gray-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
+        <div className="border-t border-gray-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <p className="text-sm text-gray-500">
               © 2020 - {currentYear} Rook Ecom Private Limited |{" "}
-              <a href="https://rookhq.com" target="_blank" rel="noopener">
+              <a 
+                href="https://rookhq.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-gray-400 transition-colors"
+              >
                 A Rook Venture
               </a>{" "}
               | All Rights Reserved.
             </p>
             <p className="text-xs text-gray-600 mt-1">We Grow Together</p>
           </div>
-          <div className="text-right text-sm text-gray-500">
+          <div className="text-sm text-gray-500">
             <p>UK • UAE • India</p>
           </div>
         </div>
