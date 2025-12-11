@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { invoiceTemplates } from "@/lib/invoiceTemplates";
+import html2pdf from "html2pdf.js";
 
 interface InvoiceGeneratorProps {
   onCopy?: (text: string) => void;
@@ -212,12 +213,77 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
 
   const handleDownload = async () => {
     saveInvoiceToHistory();
-    const html = generateHTML();
     
-    // Create a new window to render the HTML for better print/download
-    const printWindow = window.open("", "_blank");
-    if (!printWindow) {
-      // Fallback to blob download if popup blocked
+    try {
+      // Generate HTML from template
+      const html = generateHTML();
+      
+      // Create a temporary iframe to render the HTML
+      const iframe = document.createElement("iframe");
+      iframe.style.position = "absolute";
+      iframe.style.left = "-9999px";
+      iframe.style.width = "210mm";
+      iframe.style.height = "297mm";
+      document.body.appendChild(iframe);
+      
+      // Write HTML to iframe
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+      if (!iframeDoc) {
+        throw new Error("Could not access iframe document");
+      }
+      
+      iframeDoc.open();
+      iframeDoc.write(html);
+      iframeDoc.close();
+      
+      // Wait for content to load
+      await new Promise((resolve) => {
+        if (iframe.contentWindow) {
+          iframe.contentWindow.onload = resolve;
+          setTimeout(resolve, 500); // Fallback timeout
+        } else {
+          resolve(null);
+        }
+      });
+      
+      // Get the body element from iframe
+      const bodyElement = iframeDoc.body;
+      if (!bodyElement) {
+        throw new Error("Could not access iframe body");
+      }
+      
+      // Configure html2pdf options
+      const backgroundColor = selectedTemplate === 4 ? "#1a1a1a" : selectedTemplate === 9 ? "#0a0a0a" : "#ffffff";
+      
+      // Generate and download PDF
+      await html2pdf()
+        .set({
+          margin: 10,
+          filename: `invoice-${invoiceData.invoiceNumber}.pdf`,
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { 
+            scale: 2,
+            useCORS: true,
+            logging: false,
+            letterRendering: true,
+            backgroundColor: backgroundColor,
+            windowWidth: 800
+          },
+          jsPDF: { 
+            unit: "mm", 
+            format: "a4", 
+            orientation: "portrait"
+          }
+        } as any)
+        .from(bodyElement)
+        .save();
+      
+      // Clean up
+      document.body.removeChild(iframe);
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+      // Fallback to HTML download if PDF generation fails
+      const html = generateHTML();
       const blob = new Blob([html], { type: "text/html" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -225,16 +291,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
       a.download = `invoice-${invoiceData.invoiceNumber}.html`;
       a.click();
       URL.revokeObjectURL(url);
-      return;
     }
-    
-    printWindow.document.write(html);
-    printWindow.document.close();
-    
-    // Wait for content to load, then trigger print dialog
-    setTimeout(() => {
-      printWindow.print();
-    }, 250);
   };
 
   return (
@@ -375,8 +432,17 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
 
       {/* Live Editable Invoice Template */}
       <div className="bg-white rounded-lg border border-realm-lightgray shadow-lg overflow-hidden">
+        {(selectedTemplate === 4 || selectedTemplate === 9) && (
+          <style>{`
+            .invoice-dark-template input::placeholder,
+            .invoice-dark-template textarea::placeholder {
+              color: #d1d5db !important;
+              opacity: 0.9 !important;
+            }
+          `}</style>
+        )}
         <div 
-          className="p-8 md:p-12"
+          className={`p-8 md:p-12 ${selectedTemplate === 4 || selectedTemplate === 9 ? "invoice-dark-template" : ""}`}
           style={{ 
             fontFamily: selectedTemplate === 1 ? "'Times New Roman', serif" : 
                        selectedTemplate === 9 ? "'Courier New', monospace" : 
@@ -476,16 +542,19 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                   value={invoiceData.from.name}
                   onChange={(e) => updateField("from.name", e.target.value)}
                   className={`border-0 border-b rounded-none p-1 ${
-                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                     "border-realm-gray focus:border-realm-black"
                   }`}
+                  style={selectedTemplate === 4 || selectedTemplate === 9 ? { 
+                    '--tw-placeholder-opacity': '1',
+                  } as React.CSSProperties & { '--tw-placeholder-opacity'?: string } : undefined}
                 />
                 <Textarea
                   placeholder="Address"
                   value={invoiceData.from.address}
                   onChange={(e) => updateField("from.address", e.target.value)}
                   className={`border-0 border-b rounded-none p-1 min-h-[50px] resize-none ${
-                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                     "border-realm-gray focus:border-realm-black"
                   }`}
                 />
@@ -495,7 +564,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                     value={invoiceData.from.city}
                     onChange={(e) => updateField("from.city", e.target.value)}
                     className={`border-0 border-b rounded-none p-1 ${
-                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                       "border-realm-gray focus:border-realm-black"
                     }`}
                   />
@@ -504,7 +573,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                     value={invoiceData.from.zip}
                     onChange={(e) => updateField("from.zip", e.target.value)}
                     className={`border-0 border-b rounded-none p-1 ${
-                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                       "border-realm-gray focus:border-realm-black"
                     }`}
                   />
@@ -514,7 +583,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                   value={invoiceData.from.country}
                   onChange={(e) => updateField("from.country", e.target.value)}
                   className={`border-0 border-b rounded-none p-1 ${
-                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                     "border-realm-gray focus:border-realm-black"
                   }`}
                 />
@@ -524,7 +593,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                   value={invoiceData.from.email}
                   onChange={(e) => updateField("from.email", e.target.value)}
                   className={`border-0 border-b rounded-none p-1 ${
-                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                     "border-realm-gray focus:border-realm-black"
                   }`}
                 />
@@ -533,7 +602,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                   value={invoiceData.from.phone}
                   onChange={(e) => updateField("from.phone", e.target.value)}
                   className={`border-0 border-b rounded-none p-1 ${
-                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                     "border-realm-gray focus:border-realm-black"
                   }`}
                 />
@@ -551,7 +620,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                   value={invoiceData.to.name}
                   onChange={(e) => updateField("to.name", e.target.value)}
                   className={`border-0 border-b rounded-none p-1 ${
-                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                     "border-realm-gray focus:border-realm-black"
                   }`}
                 />
@@ -560,7 +629,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                   value={invoiceData.to.address}
                   onChange={(e) => updateField("to.address", e.target.value)}
                   className={`border-0 border-b rounded-none p-1 min-h-[50px] resize-none ${
-                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                     "border-realm-gray focus:border-realm-black"
                   }`}
                 />
@@ -570,7 +639,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                     value={invoiceData.to.city}
                     onChange={(e) => updateField("to.city", e.target.value)}
                     className={`border-0 border-b rounded-none p-1 ${
-                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                       "border-realm-gray focus:border-realm-black"
                     }`}
                   />
@@ -579,7 +648,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                     value={invoiceData.to.zip}
                     onChange={(e) => updateField("to.zip", e.target.value)}
                     className={`border-0 border-b rounded-none p-1 ${
-                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                       "border-realm-gray focus:border-realm-black"
                     }`}
                   />
@@ -589,7 +658,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                   value={invoiceData.to.country}
                   onChange={(e) => updateField("to.country", e.target.value)}
                   className={`border-0 border-b rounded-none p-1 ${
-                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                     "border-realm-gray focus:border-realm-black"
                   }`}
                 />
@@ -599,7 +668,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                   value={invoiceData.to.email}
                   onChange={(e) => updateField("to.email", e.target.value)}
                   className={`border-0 border-b rounded-none p-1 ${
-                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                    selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                     "border-realm-gray focus:border-realm-black"
                   }`}
                 />
@@ -643,7 +712,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                         value={item.description}
                         onChange={(e) => updateItem(index, "description", e.target.value)}
                         className={`border-0 border-b border-transparent focus:border-realm-gray rounded-none p-1 w-full ${
-                          selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "text-white placeholder-gray-500 focus:border-white" :
+                          selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "text-white !placeholder:text-gray-300 focus:border-white" :
                           ""
                         }`}
                       />
@@ -654,7 +723,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                         value={item.quantity}
                         onChange={(e) => updateItem(index, "quantity", Number(e.target.value))}
                         className={`border-0 border-b border-transparent focus:border-realm-gray rounded-none p-1 w-16 text-center ${
-                          selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "text-white placeholder-gray-500 focus:border-white" :
+                          selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "text-white !placeholder:text-gray-300 focus:border-white" :
                           ""
                         }`}
                       />
@@ -665,7 +734,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                         value={item.unitPrice}
                         onChange={(e) => updateItem(index, "unitPrice", Number(e.target.value))}
                         className={`border-0 border-b border-transparent focus:border-realm-gray rounded-none p-1 w-24 text-right ${
-                          selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "text-white placeholder-gray-500 focus:border-white" :
+                          selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "text-white !placeholder:text-gray-300 focus:border-white" :
                           ""
                         }`}
                       />
@@ -697,7 +766,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
               size="sm" 
               className={`mt-3 rounded-full ${
                 selectedTemplate === 4 || selectedTemplate === 9 
-                  ? "bg-[#2d2d2d] hover:bg-[#3d3d3d] text-white border-gray-600" 
+                  ? "bg-[#1a1a1a] hover:bg-[#2d2d2d] text-white border-gray-600 font-medium" 
                   : ""
               }`}
             >
@@ -768,7 +837,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                     onChange={(e) => updateField("paymentMethod", e.target.value)}
                     placeholder="Bank Transfer, PayPal, etc."
                     className={`border-0 border-b rounded-none p-1 ${
-                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                       "border-realm-gray focus:border-realm-black"
                     }`}
                   />
@@ -782,7 +851,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                     onChange={(e) => updateField("bankDetails", e.target.value)}
                     placeholder="Account number, IBAN, etc."
                     className={`border-0 border-b rounded-none p-1 min-h-[40px] resize-none ${
-                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                       "border-realm-gray focus:border-realm-black"
                     }`}
                   />
@@ -796,7 +865,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                     onChange={(e) => updateField("notes", e.target.value)}
                     placeholder="Additional notes..."
                     className={`border-0 border-b rounded-none p-1 min-h-[60px] resize-none ${
-                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                       "border-realm-gray focus:border-realm-black"
                     }`}
                   />
@@ -810,7 +879,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                     onChange={(e) => updateField("terms", e.target.value)}
                     placeholder="Payment terms..."
                     className={`border-0 border-b rounded-none p-1 min-h-[60px] resize-none ${
-                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent placeholder-gray-500" :
+                      selectedTemplate === 2 || selectedTemplate === 4 || selectedTemplate === 9 ? "border-gray-600 focus:border-white text-white bg-transparent !placeholder:text-gray-300" :
                       "border-realm-gray focus:border-realm-black"
                     }`}
                   />
