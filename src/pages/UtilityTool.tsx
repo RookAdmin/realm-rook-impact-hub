@@ -23,6 +23,7 @@ import ColorConverter from "@/components/utilities/tools/ColorConverter";
 import GradientGenerator from "@/components/utilities/tools/GradientGenerator";
 import PasswordGenerator from "@/components/utilities/tools/PasswordGenerator";
 import InvoiceGenerator from "@/components/utilities/tools/InvoiceGenerator";
+import SocialMediaPreview from "@/components/utilities/tools/SocialMediaPreview";
 
 const toolComponents: Record<string, React.ComponentType<any>> = {
   "word-counter": WordCounter,
@@ -32,6 +33,7 @@ const toolComponents: Record<string, React.ComponentType<any>> = {
   "sitemap-generator": SitemapGenerator,
   "robots-txt-generator": RobotsTxtGenerator,
   "keyword-density-checker": KeywordDensityChecker,
+  "social-media-preview": SocialMediaPreview,
   "json-formatter": JSONFormatter,
   "hash-generator": HashGenerator,
   "uuid-generator": UUIDGenerator,

@@ -24,6 +24,7 @@ import {
   Network,
   Settings,
   TrendingUp,
+  Share2,
 } from "lucide-react";
 
 export interface Tool {
@@ -206,6 +207,31 @@ export const tools: Tool[] = [
         "Keyword optimization",
         "Content analysis",
         "Marketing research",
+      ],
+    },
+  },
+  {
+    id: "social-media-preview",
+    name: "Social Media Link Preview",
+    description: "Preview how your links appear when shared on different social platforms",
+    category: "SEO & Marketing Tools",
+    icon: Share2,
+    color: "#131313",
+    slug: "social-media-preview",
+    component: null as any,
+    documentation: {
+      howToUse: [
+        "Enter a URL to fetch its meta tags",
+        "View previews for LinkedIn, WhatsApp, Facebook, Twitter, and more",
+        "Edit title, description, and image manually if needed",
+        "See how your link will appear on each platform",
+      ],
+      useCases: [
+        "Social media marketing",
+        "Link preview optimization",
+        "Content sharing strategy",
+        "SEO and Open Graph testing",
+        "Marketing campaign planning",
       ],
     },
   },

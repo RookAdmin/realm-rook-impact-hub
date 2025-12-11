@@ -9,6 +9,17 @@ interface MetaTagGeneratorProps {
   onCopy?: (text: string) => void;
 }
 
+// Escape HTML function - pure string-based implementation to avoid DOM issues
+const escapeHtml = (text: string): string => {
+  if (!text) return "";
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+};
+
 const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ onCopy }) => {
   const [formData, setFormData] = useState({
     title: "",
@@ -19,14 +30,26 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ onCopy }) => {
     ogDescription: "",
     ogImage: "",
     ogUrl: "",
+    ogType: "website",
+    ogSiteName: "",
+    ogLocale: "en_US",
     twitterCard: "summary_large_image",
     twitterSite: "",
+    twitterCreator: "",
     canonicalUrl: "",
     robots: "index, follow",
+    viewport: "width=device-width, initial-scale=1.0",
+    themeColor: "#0F7C4F",
+    language: "en",
+    charset: "UTF-8",
   });
 
   const metaTags = useMemo(() => {
     const tags: string[] = [];
+
+    // Charset and Viewport
+    tags.push(`<meta charset="${escapeHtml(formData.charset)}" />`);
+    tags.push(`<meta name="viewport" content="${escapeHtml(formData.viewport)}" />`);
 
     // Basic Meta Tags
     if (formData.title) tags.push(`<title>${escapeHtml(formData.title)}</title>`);
@@ -34,6 +57,8 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ onCopy }) => {
     if (formData.keywords) tags.push(`<meta name="keywords" content="${escapeHtml(formData.keywords)}" />`);
     if (formData.author) tags.push(`<meta name="author" content="${escapeHtml(formData.author)}" />`);
     tags.push(`<meta name="robots" content="${escapeHtml(formData.robots)}" />`);
+    tags.push(`<meta name="language" content="${escapeHtml(formData.language)}" />`);
+    tags.push(`<meta name="theme-color" content="${escapeHtml(formData.themeColor)}" />`);
 
     // Open Graph Tags
     if (formData.ogTitle || formData.title) {
@@ -44,11 +69,14 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ onCopy }) => {
     }
     if (formData.ogImage) tags.push(`<meta property="og:image" content="${escapeHtml(formData.ogImage)}" />`);
     if (formData.ogUrl) tags.push(`<meta property="og:url" content="${escapeHtml(formData.ogUrl)}" />`);
-    tags.push(`<meta property="og:type" content="website" />`);
+    tags.push(`<meta property="og:type" content="${escapeHtml(formData.ogType)}" />`);
+    if (formData.ogSiteName) tags.push(`<meta property="og:site_name" content="${escapeHtml(formData.ogSiteName)}" />`);
+    tags.push(`<meta property="og:locale" content="${escapeHtml(formData.ogLocale)}" />`);
 
     // Twitter Card Tags
     tags.push(`<meta name="twitter:card" content="${escapeHtml(formData.twitterCard)}" />`);
     if (formData.twitterSite) tags.push(`<meta name="twitter:site" content="${escapeHtml(formData.twitterSite)}" />`);
+    if (formData.twitterCreator) tags.push(`<meta name="twitter:creator" content="${escapeHtml(formData.twitterCreator)}" />`);
     if (formData.ogTitle || formData.title) {
       tags.push(`<meta name="twitter:title" content="${escapeHtml(formData.ogTitle || formData.title)}" />`);
     }
@@ -65,11 +93,20 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ onCopy }) => {
     return tags.join("\n");
   }, [formData]);
 
-  const escapeHtml = (text: string) => {
-    const div = document.createElement("div");
-    div.textContent = text;
-    return div.innerHTML;
-  };
+  // SEO Score Calculation
+  const seoScore = useMemo(() => {
+    let score = 0;
+    if (formData.title && formData.title.length >= 30 && formData.title.length <= 60) score += 20;
+    if (formData.description && formData.description.length >= 120 && formData.description.length <= 160) score += 20;
+    if (formData.ogTitle || formData.title) score += 15;
+    if (formData.ogDescription || formData.description) score += 15;
+    if (formData.ogImage) score += 10;
+    if (formData.ogUrl) score += 5;
+    if (formData.canonicalUrl) score += 5;
+    if (formData.keywords) score += 5;
+    if (formData.author) score += 5;
+    return score;
+  }, [formData]);
 
   const handleCopy = () => {
     if (onCopy && metaTags) {
@@ -92,11 +129,30 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ onCopy }) => {
   };
 
   return (
-    <div className="space-y-8">
-      <div className="grid md:grid-cols-2 gap-6">
+    <div className="space-y-4 sm:space-y-6 md:space-y-8">
+      {/* SEO Score */}
+      <div className="p-4 sm:p-6 bg-gradient-to-r from-[#0F7C4F]/10 to-[#0F7C4F]/5 rounded-lg border border-[#0F7C4F]/20">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <h3 className="text-sm sm:text-base font-semibold text-realm-black mb-1">SEO Score</h3>
+            <p className="text-xs text-realm-gray">Optimize your meta tags for better search visibility</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="text-2xl sm:text-3xl font-bold text-[#0F7C4F]">{seoScore}%</div>
+            <div className="w-24 sm:w-32 h-2 bg-realm-lightgray rounded-full overflow-hidden">
+              <div
+                className="h-full bg-[#0F7C4F] transition-all duration-300"
+                style={{ width: `${seoScore}%` }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Basic Meta Tags */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-realm-black border-b border-realm-lightgray pb-2">
+        <div className="space-y-3 sm:space-y-4">
+          <h3 className="text-base sm:text-lg font-semibold text-realm-black border-b border-realm-lightgray pb-2">
             Basic Meta Tags
           </h3>
           <div>
@@ -110,7 +166,17 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ onCopy }) => {
               placeholder="My Awesome Page"
               className="mt-1"
             />
-            <p className="text-xs text-realm-gray mt-1">{formData.title.length}/60 characters</p>
+            <div className="flex items-center justify-between mt-1">
+              <p className={`text-xs ${formData.title.length >= 30 && formData.title.length <= 60 ? 'text-[#0F7C4F]' : formData.title.length > 60 ? 'text-red-600' : 'text-realm-gray'}`}>
+                {formData.title.length}/60 characters
+              </p>
+              {formData.title.length < 30 && (
+                <p className="text-xs text-amber-600">Too short (min 30)</p>
+              )}
+              {formData.title.length > 60 && (
+                <p className="text-xs text-red-600">Too long (max 60)</p>
+              )}
+            </div>
           </div>
           <div>
             <Label htmlFor="description" className="text-sm font-medium text-realm-black">
@@ -123,7 +189,17 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ onCopy }) => {
               placeholder="A brief description of your page"
               className="mt-1 min-h-[80px]"
             />
-            <p className="text-xs text-realm-gray mt-1">{formData.description.length}/160 characters</p>
+            <div className="flex items-center justify-between mt-1">
+              <p className={`text-xs ${formData.description.length >= 120 && formData.description.length <= 160 ? 'text-[#0F7C4F]' : formData.description.length > 160 ? 'text-red-600' : 'text-realm-gray'}`}>
+                {formData.description.length}/160 characters
+              </p>
+              {formData.description.length < 120 && formData.description.length > 0 && (
+                <p className="text-xs text-amber-600">Recommended: 120-160</p>
+              )}
+              {formData.description.length > 160 && (
+                <p className="text-xs text-red-600">Too long (max 160)</p>
+              )}
+            </div>
           </div>
           <div>
             <Label htmlFor="keywords" className="text-sm font-medium text-realm-black">
@@ -168,8 +244,8 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ onCopy }) => {
         </div>
 
         {/* Open Graph & Twitter */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-realm-black border-b border-realm-lightgray pb-2">
+        <div className="space-y-3 sm:space-y-4">
+          <h3 className="text-base sm:text-lg font-semibold text-realm-black border-b border-realm-lightgray pb-2">
             Social Media Tags
           </h3>
           <div>
@@ -221,6 +297,48 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ onCopy }) => {
             />
           </div>
           <div>
+            <Label htmlFor="og-type" className="text-sm font-medium text-realm-black">
+              OG Type
+            </Label>
+            <select
+              id="og-type"
+              value={formData.ogType}
+              onChange={(e) => updateField("ogType", e.target.value)}
+              className="mt-1 w-full px-3 py-2 border border-realm-lightgray rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0F7C4F] text-sm"
+            >
+              <option value="website">Website</option>
+              <option value="article">Article</option>
+              <option value="blog">Blog</option>
+              <option value="product">Product</option>
+              <option value="video">Video</option>
+              <option value="music">Music</option>
+            </select>
+          </div>
+          <div>
+            <Label htmlFor="og-site-name" className="text-sm font-medium text-realm-black">
+              OG Site Name
+            </Label>
+            <Input
+              id="og-site-name"
+              value={formData.ogSiteName}
+              onChange={(e) => updateField("ogSiteName", e.target.value)}
+              placeholder="Your Site Name"
+              className="mt-1"
+            />
+          </div>
+          <div>
+            <Label htmlFor="og-locale" className="text-sm font-medium text-realm-black">
+              OG Locale
+            </Label>
+            <Input
+              id="og-locale"
+              value={formData.ogLocale}
+              onChange={(e) => updateField("ogLocale", e.target.value)}
+              placeholder="en_US"
+              className="mt-1"
+            />
+          </div>
+          <div>
             <Label htmlFor="twitter-card" className="text-sm font-medium text-realm-black">
               Twitter Card Type
             </Label>
@@ -247,6 +365,18 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ onCopy }) => {
             />
           </div>
           <div>
+            <Label htmlFor="twitter-creator" className="text-sm font-medium text-realm-black">
+              Twitter Creator (@username)
+            </Label>
+            <Input
+              id="twitter-creator"
+              value={formData.twitterCreator}
+              onChange={(e) => updateField("twitterCreator", e.target.value)}
+              placeholder="@creator"
+              className="mt-1"
+            />
+          </div>
+          <div>
             <Label htmlFor="canonical-url" className="text-sm font-medium text-realm-black">
               Canonical URL
             </Label>
@@ -261,33 +391,87 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ onCopy }) => {
         </div>
       </div>
 
+      {/* Advanced Options */}
+      <div className="p-4 sm:p-6 bg-white rounded-lg border border-realm-lightgray">
+        <h3 className="text-base sm:text-lg font-semibold text-realm-black border-b border-realm-lightgray pb-2 mb-4">
+          Advanced Options
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div>
+            <Label htmlFor="viewport" className="text-sm font-medium text-realm-black">
+              Viewport
+            </Label>
+            <Input
+              id="viewport"
+              value={formData.viewport}
+              onChange={(e) => updateField("viewport", e.target.value)}
+              className="mt-1 text-sm"
+            />
+          </div>
+          <div>
+            <Label htmlFor="theme-color" className="text-sm font-medium text-realm-black">
+              Theme Color
+            </Label>
+            <div className="flex gap-2 mt-1">
+              <Input
+                type="color"
+                id="theme-color"
+                value={formData.themeColor}
+                onChange={(e) => updateField("themeColor", e.target.value)}
+                className="w-12 h-10 p-1 border border-realm-lightgray rounded-lg cursor-pointer flex-shrink-0"
+              />
+              <Input
+                value={formData.themeColor}
+                onChange={(e) => updateField("themeColor", e.target.value)}
+                placeholder="#0F7C4F"
+                className="flex-1 text-sm"
+              />
+            </div>
+          </div>
+          <div>
+            <Label htmlFor="language" className="text-sm font-medium text-realm-black">
+              Language
+            </Label>
+            <Input
+              id="language"
+              value={formData.language}
+              onChange={(e) => updateField("language", e.target.value)}
+              placeholder="en"
+              className="mt-1 text-sm"
+            />
+          </div>
+        </div>
+      </div>
+
       {/* Generated Output */}
       <div>
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-2">
           <Label className="text-sm font-medium text-realm-black">Generated Meta Tags</Label>
           <div className="flex gap-2">
             <Button
               onClick={handleCopy}
               variant="outline"
-              className="rounded-full px-6 py-2 flex items-center gap-2"
+              className="rounded-full px-4 sm:px-6 py-2 flex items-center gap-2 flex-1 sm:flex-initial"
             >
               <Copy className="w-4 h-4" />
-              Copy
+              <span className="hidden sm:inline">Copy</span>
+              <span className="sm:hidden">Copy</span>
             </Button>
             <Button
               onClick={handleDownload}
               variant="outline"
-              className="rounded-full px-6 py-2 flex items-center gap-2"
+              className="rounded-full px-4 sm:px-6 py-2 flex items-center gap-2 flex-1 sm:flex-initial"
             >
               <Download className="w-4 h-4" />
-              Download
+              <span className="hidden sm:inline">Download</span>
+              <span className="sm:hidden">Download</span>
             </Button>
           </div>
         </div>
         <Textarea
           value={metaTags}
           readOnly
-          className="min-h-[300px] font-mono text-sm bg-realm-lightgray border-realm-lightgray"
+          className="min-h-[300px] font-mono text-xs sm:text-sm bg-realm-lightgray border-realm-lightgray overflow-x-auto"
         />
       </div>
     </div>

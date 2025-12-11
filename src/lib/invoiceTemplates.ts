@@ -68,10 +68,10 @@ export const invoiceTemplates: InvoiceTemplate[] = [
     <tbody>
       ${data.items.map((item: any) => `
         <tr>
-          <td>${item.description}</td>
-          <td style="text-align: center;">${item.quantity}</td>
-          <td style="text-align: right;">${format(item.unitPrice)}</td>
-          <td style="text-align: right;">${format(item.quantity * item.unitPrice)}</td>
+          <td style="color: #ffffff !important;">${item.description}</td>
+          <td style="text-align: center; color: #ffffff !important;">${item.quantity}</td>
+          <td style="text-align: right; color: #ffffff !important;">${format(item.unitPrice)}</td>
+          <td style="text-align: right; color: #ffffff !important;">${format(item.quantity * item.unitPrice)}</td>
         </tr>
       `).join("")}
     </tbody>
@@ -230,10 +230,10 @@ export const invoiceTemplates: InvoiceTemplate[] = [
     <tbody>
       ${data.items.map((item: any) => `
         <tr>
-          <td>${item.description}</td>
-          <td style="text-align: center;">${item.quantity}</td>
-          <td style="text-align: right;">${format(item.unitPrice)}</td>
-          <td style="text-align: right;">${format(item.quantity * item.unitPrice)}</td>
+          <td style="color: #ffffff !important;">${item.description}</td>
+          <td style="text-align: center; color: #ffffff !important;">${item.quantity}</td>
+          <td style="text-align: right; color: #ffffff !important;">${format(item.unitPrice)}</td>
+          <td style="text-align: right; color: #ffffff !important;">${format(item.quantity * item.unitPrice)}</td>
         </tr>
       `).join("")}
     </tbody>
@@ -262,20 +262,23 @@ export const invoiceTemplates: InvoiceTemplate[] = [
   <meta charset="UTF-8">
   <title>Invoice ${data.invoiceNumber}</title>
   <style>
-    body { font-family: 'Arial Black', Arial, sans-serif; margin: 30px; background: #1a1a1a; color: #fff; }
-    .container { background: #2d2d2d; padding: 40px; border: 4px solid #0F7C4F; }
-    .header { border-bottom: 4px solid #0F7C4F; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+    body { font-family: 'Arial Black', Arial, sans-serif; margin: 30px; background: #1a1a1a; color: #ffffff !important; }
+    .container { background: #2d2d2d; padding: 40px; border: 4px solid #0F7C4F; color: #ffffff !important; }
+    .header { border-bottom: 4px solid #0F7C4F; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; color: #ffffff !important; }
     .logo-container { display: flex; align-items: center; }
     .logo { max-height: 60px; max-width: 200px; object-fit: contain; }
     .invoice-title { font-size: 42px; color: #0F7C4F; margin-bottom: 10px; }
-    .section { margin: 25px 0; color: #fff; }
-    table { width: 100%; border-collapse: collapse; margin: 25px 0; }
-    th { background-color: #0F7C4F; color: #fff; padding: 15px; text-align: left; font-size: 16px; }
-    td { padding: 12px 15px; border-bottom: 2px solid #444; color: #fff; }
-    .total-row { background-color: #0F7C4F; font-size: 20px; color: #fff; }
-    .text-right { text-align: right; }
-    h3 { color: #fff; }
-    p { color: #fff; }
+    .section { margin: 25px 0; color: #ffffff !important; }
+    table { width: 100%; border-collapse: collapse; margin: 25px 0; color: #ffffff !important; }
+    th { background-color: #0F7C4F; color: #ffffff !important; padding: 15px; text-align: left; font-size: 16px; }
+    td { padding: 12px 15px; border-bottom: 2px solid #444; color: #ffffff !important; }
+    .total-row { background-color: #0F7C4F; font-size: 20px; color: #ffffff !important; }
+    .text-right { text-align: right; color: #ffffff !important; }
+    h3 { color: #ffffff !important; }
+    p { color: #ffffff !important; }
+    strong { color: #ffffff !important; }
+    div { color: #ffffff !important; }
+    span { color: #ffffff !important; }
   </style>
 </head>
 <body>
@@ -284,20 +287,20 @@ export const invoiceTemplates: InvoiceTemplate[] = [
       <div class="logo-container">
         ${logoUrl ? `<img src="${logoUrl}" alt="Logo" class="logo" />` : '<div class="invoice-title">INVOICE</div>'}
       </div>
-      <div style="text-align: right;">
-        <p><strong>#${data.invoiceNumber}</strong></p>
-        <p>Date: ${data.date}</p>
-        ${data.dueDate ? `<p>Due: ${data.dueDate}</p>` : ""}
+      <div style="text-align: right; color: #ffffff !important;">
+        <p style="color: #ffffff !important;"><strong style="color: #ffffff !important;">#${data.invoiceNumber}</strong></p>
+        <p style="color: #ffffff !important;">Date: ${data.date}</p>
+        ${data.dueDate ? `<p style="color: #ffffff !important;">Due: ${data.dueDate}</p>` : ""}
       </div>
     </div>
     <div class="section" style="display: flex; justify-content: space-between;">
       <div>
         <h3 style="color: #0F7C4F;">FROM</h3>
-        <p>${data.from.name}<br>${data.from.address}<br>${data.from.city}, ${data.from.zip}<br>${data.from.country}<br>${data.from.email}<br>${data.from.phone}</p>
+        <p style="color: #ffffff !important;">${data.from.name}<br>${data.from.address}<br>${data.from.city}, ${data.from.zip}<br>${data.from.country}<br>${data.from.email}<br>${data.from.phone}</p>
       </div>
       <div>
         <h3 style="color: #0F7C4F;">TO</h3>
-        <p>${data.to.name}<br>${data.to.address}<br>${data.to.city}, ${data.to.zip}<br>${data.to.country}<br>${data.to.email}</p>
+        <p style="color: #ffffff !important;">${data.to.name}<br>${data.to.address}<br>${data.to.city}, ${data.to.zip}<br>${data.to.country}<br>${data.to.email}</p>
       </div>
     </div>
     <table>
@@ -312,24 +315,24 @@ export const invoiceTemplates: InvoiceTemplate[] = [
       <tbody>
         ${data.items.map((item: any) => `
           <tr>
-            <td>${item.description}</td>
-            <td style="text-align: center;">${item.quantity}</td>
-            <td style="text-align: right;">${format(item.unitPrice)}</td>
-            <td style="text-align: right;">${format(item.quantity * item.unitPrice)}</td>
+            <td style="color: #ffffff !important;">${item.description}</td>
+            <td style="text-align: center; color: #ffffff !important;">${item.quantity}</td>
+            <td style="text-align: right; color: #ffffff !important;">${format(item.unitPrice)}</td>
+            <td style="text-align: right; color: #ffffff !important;">${format(item.quantity * item.unitPrice)}</td>
           </tr>
         `).join("")}
       </tbody>
       <tfoot>
-        <tr><td colspan="3" class="text-right">SUBTOTAL</td><td class="text-right">${format(totals.subtotal)}</td></tr>
-        ${totals.discountAmount > 0 ? `<tr><td colspan="3" class="text-right">DISCOUNT</td><td class="text-right">-${format(totals.discountAmount)}</td></tr>` : ""}
-        <tr><td colspan="3" class="text-right">TAX (${data.taxRate}%)</td><td class="text-right">${format(totals.tax)}</td></tr>
-        <tr class="total-row"><td colspan="3" class="text-right">TOTAL</td><td class="text-right">${format(totals.total)}</td></tr>
+        <tr><td colspan="3" class="text-right" style="color: #ffffff !important;">SUBTOTAL</td><td class="text-right" style="color: #ffffff !important;">${format(totals.subtotal)}</td></tr>
+        ${totals.discountAmount > 0 ? `<tr><td colspan="3" class="text-right" style="color: #ffffff !important;">DISCOUNT</td><td class="text-right" style="color: #ffffff !important;">-${format(totals.discountAmount)}</td></tr>` : ""}
+        <tr><td colspan="3" class="text-right" style="color: #ffffff !important;">TAX (${data.taxRate}%)</td><td class="text-right" style="color: #ffffff !important;">${format(totals.tax)}</td></tr>
+        <tr class="total-row"><td colspan="3" class="text-right" style="color: #ffffff !important;">TOTAL</td><td class="text-right" style="color: #ffffff !important;">${format(totals.total)}</td></tr>
       </tfoot>
     </table>
-    ${data.paymentMethod ? `<div class="section"><strong>PAYMENT:</strong> ${data.paymentMethod}</div>` : ""}
-    ${data.bankDetails ? `<div class="section"><strong>BANK:</strong> ${data.bankDetails}</div>` : ""}
-    ${data.notes ? `<div class="section"><strong>NOTES:</strong> ${data.notes}</div>` : ""}
-    ${data.terms ? `<div class="section"><strong>TERMS:</strong> ${data.terms}</div>` : ""}
+    ${data.paymentMethod ? `<div class="section" style="color: #ffffff !important;"><strong style="color: #ffffff !important;">PAYMENT:</strong> ${data.paymentMethod}</div>` : ""}
+    ${data.bankDetails ? `<div class="section" style="color: #ffffff !important;"><strong style="color: #ffffff !important;">BANK:</strong> ${data.bankDetails}</div>` : ""}
+    ${data.notes ? `<div class="section" style="color: #ffffff !important;"><strong style="color: #ffffff !important;">NOTES:</strong> ${data.notes}</div>` : ""}
+    ${data.terms ? `<div class="section" style="color: #ffffff !important;"><strong style="color: #ffffff !important;">TERMS:</strong> ${data.terms}</div>` : ""}
   </div>
 </body>
 </html>`
@@ -545,10 +548,10 @@ export const invoiceTemplates: InvoiceTemplate[] = [
     <tbody>
       ${data.items.map((item: any) => `
         <tr>
-          <td>${item.description}</td>
-          <td style="text-align: center;">${item.quantity}</td>
-          <td style="text-align: right;">${format(item.unitPrice)}</td>
-          <td style="text-align: right;">${format(item.quantity * item.unitPrice)}</td>
+          <td style="color: #ffffff !important;">${item.description}</td>
+          <td style="text-align: center; color: #ffffff !important;">${item.quantity}</td>
+          <td style="text-align: right; color: #ffffff !important;">${format(item.unitPrice)}</td>
+          <td style="text-align: right; color: #ffffff !important;">${format(item.quantity * item.unitPrice)}</td>
         </tr>
       `).join("")}
     </tbody>
@@ -652,20 +655,23 @@ export const invoiceTemplates: InvoiceTemplate[] = [
   <meta charset="UTF-8">
   <title>Invoice ${data.invoiceNumber}</title>
   <style>
-    body { font-family: 'Courier New', monospace; margin: 40px; background: #0a0a0a; color: #00ff00; }
-    .container { background: #1a1a1a; padding: 40px; border: 2px solid #00ff00; }
-    .header { border-bottom: 2px solid #00ff00; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+    body { font-family: 'Courier New', monospace; margin: 40px; background: #0a0a0a; color: #ffffff !important; }
+    .container { background: #1a1a1a; padding: 40px; border: 2px solid #00ff00; color: #ffffff !important; }
+    .header { border-bottom: 2px solid #00ff00; padding-bottom: 20px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; color: #ffffff !important; }
     .logo-container { display: flex; align-items: center; }
     .logo { max-height: 60px; max-width: 200px; object-fit: contain; }
-    .invoice-title { font-size: 32px; color: #00ff00; font-weight: bold; }
-    .section { margin: 25px 0; color: #00ff00; }
-    table { width: 100%; border-collapse: collapse; margin: 25px 0; border: 1px solid #00ff00; }
-    th { background-color: #003300; color: #00ff00; padding: 12px; text-align: left; border: 1px solid #00ff00; }
-    td { padding: 10px 12px; border: 1px solid #00ff00; color: #00ff00; }
-    .total-row { background-color: #002200; font-weight: bold; color: #00ff00; }
-    .text-right { text-align: right; }
-    h3 { color: #00ff00; }
-    p { color: #00ff00; }
+    .invoice-title { font-size: 32px; color: #ffffff !important; font-weight: bold; }
+    .section { margin: 25px 0; color: #ffffff !important; }
+    table { width: 100%; border-collapse: collapse; margin: 25px 0; border: 1px solid #00ff00; color: #ffffff !important; }
+    th { background-color: #003300; color: #ffffff !important; padding: 12px; text-align: left; border: 1px solid #00ff00; }
+    td { padding: 10px 12px; border: 1px solid #00ff00; color: #ffffff !important; }
+    .total-row { background-color: #002200; font-weight: bold; color: #ffffff !important; }
+    .text-right { text-align: right; color: #ffffff !important; }
+    h3 { color: #ffffff !important; }
+    p { color: #ffffff !important; }
+    strong { color: #ffffff !important; }
+    div { color: #ffffff !important; }
+    span { color: #ffffff !important; }
   </style>
 </head>
 <body>
@@ -674,20 +680,20 @@ export const invoiceTemplates: InvoiceTemplate[] = [
       <div class="logo-container">
         ${logoUrl ? `<img src="${logoUrl}" alt="Logo" class="logo" />` : '<div class="invoice-title">> INVOICE.exe</div>'}
       </div>
-      <div style="text-align: right;">
-        <p>#${data.invoiceNumber}</p>
-        <p>DATE: ${data.date}</p>
-        ${data.dueDate ? `<p>DUE: ${data.dueDate}</p>` : ""}
+      <div style="text-align: right; color: #ffffff !important;">
+        <p style="color: #ffffff !important;">#${data.invoiceNumber}</p>
+        <p style="color: #ffffff !important;">DATE: ${data.date}</p>
+        ${data.dueDate ? `<p style="color: #ffffff !important;">DUE: ${data.dueDate}</p>` : ""}
       </div>
     </div>
     <div class="section" style="display: flex; justify-content: space-between;">
       <div>
-        <h3 style="color: #00ff00;">> FROM</h3>
-        <p>${data.from.name}<br>${data.from.address}<br>${data.from.city}, ${data.from.zip}<br>${data.from.country}<br>${data.from.email}<br>${data.from.phone}</p>
+        <h3 style="color: #ffffff !important;">> FROM</h3>
+        <p style="color: #ffffff !important;">${data.from.name}<br>${data.from.address}<br>${data.from.city}, ${data.from.zip}<br>${data.from.country}<br>${data.from.email}<br>${data.from.phone}</p>
       </div>
       <div>
-        <h3 style="color: #00ff00;">> TO</h3>
-        <p>${data.to.name}<br>${data.to.address}<br>${data.to.city}, ${data.to.zip}<br>${data.to.country}<br>${data.to.email}</p>
+        <h3 style="color: #ffffff !important;">> TO</h3>
+        <p style="color: #ffffff !important;">${data.to.name}<br>${data.to.address}<br>${data.to.city}, ${data.to.zip}<br>${data.to.country}<br>${data.to.email}</p>
       </div>
     </div>
     <table>
@@ -702,24 +708,24 @@ export const invoiceTemplates: InvoiceTemplate[] = [
       <tbody>
         ${data.items.map((item: any) => `
           <tr>
-            <td>${item.description}</td>
-            <td style="text-align: center;">${item.quantity}</td>
-            <td style="text-align: right;">${format(item.unitPrice)}</td>
-            <td style="text-align: right;">${format(item.quantity * item.unitPrice)}</td>
+            <td style="color: #ffffff !important;">${item.description}</td>
+            <td style="text-align: center; color: #ffffff !important;">${item.quantity}</td>
+            <td style="text-align: right; color: #ffffff !important;">${format(item.unitPrice)}</td>
+            <td style="text-align: right; color: #ffffff !important;">${format(item.quantity * item.unitPrice)}</td>
           </tr>
         `).join("")}
       </tbody>
       <tfoot>
-        <tr><td colspan="3" class="text-right">SUBTOTAL</td><td class="text-right">${format(totals.subtotal)}</td></tr>
-        ${totals.discountAmount > 0 ? `<tr><td colspan="3" class="text-right">DISCOUNT</td><td class="text-right">-${format(totals.discountAmount)}</td></tr>` : ""}
-        <tr><td colspan="3" class="text-right">TAX (${data.taxRate}%)</td><td class="text-right">${format(totals.tax)}</td></tr>
-        <tr class="total-row"><td colspan="3" class="text-right">TOTAL</td><td class="text-right">${format(totals.total)}</td></tr>
+        <tr><td colspan="3" class="text-right" style="color: #ffffff !important;">SUBTOTAL</td><td class="text-right" style="color: #ffffff !important;">${format(totals.subtotal)}</td></tr>
+        ${totals.discountAmount > 0 ? `<tr><td colspan="3" class="text-right" style="color: #ffffff !important;">DISCOUNT</td><td class="text-right" style="color: #ffffff !important;">-${format(totals.discountAmount)}</td></tr>` : ""}
+        <tr><td colspan="3" class="text-right" style="color: #ffffff !important;">TAX (${data.taxRate}%)</td><td class="text-right" style="color: #ffffff !important;">${format(totals.tax)}</td></tr>
+        <tr class="total-row"><td colspan="3" class="text-right" style="color: #ffffff !important;">TOTAL</td><td class="text-right" style="color: #ffffff !important;">${format(totals.total)}</td></tr>
       </tfoot>
     </table>
-    ${data.paymentMethod ? `<div class="section">> PAYMENT: ${data.paymentMethod}</div>` : ""}
-    ${data.bankDetails ? `<div class="section">> BANK: ${data.bankDetails}</div>` : ""}
-    ${data.notes ? `<div class="section">> NOTES: ${data.notes}</div>` : ""}
-    ${data.terms ? `<div class="section" style="font-size: 12px;">> TERMS: ${data.terms}</div>` : ""}
+    ${data.paymentMethod ? `<div class="section" style="color: #ffffff !important;">> PAYMENT: ${data.paymentMethod}</div>` : ""}
+    ${data.bankDetails ? `<div class="section" style="color: #ffffff !important;">> BANK: ${data.bankDetails}</div>` : ""}
+    ${data.notes ? `<div class="section" style="color: #ffffff !important;">> NOTES: ${data.notes}</div>` : ""}
+    ${data.terms ? `<div class="section" style="font-size: 12px; color: #ffffff !important;">> TERMS: ${data.terms}</div>` : ""}
   </div>
 </body>
 </html>`

@@ -412,7 +412,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                   selectedTemplate === 6 ? "text-4xl" :
                   selectedTemplate === 7 ? "text-3xl font-bold text-[#2c3e50]" :
                   selectedTemplate === 8 ? "text-4xl text-[#ff6b6b]" :
-                  selectedTemplate === 9 ? "text-3xl font-bold text-[#00ff00]" :
+                  selectedTemplate === 9 ? "text-3xl font-bold text-white" :
                   selectedTemplate === 10 ? "text-5xl font-normal tracking-widest text-[#d4af37]" :
                   "text-4xl font-bold"
                 } mb-2`}>
@@ -466,7 +466,9 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div>
               <h3 className={`font-semibold mb-3 ${
-                selectedTemplate === 2 || selectedTemplate === 4 ? "text-[#0F7C4F]" : ""
+                selectedTemplate === 2 || selectedTemplate === 4 ? "text-[#0F7C4F]" :
+                selectedTemplate === 9 ? "text-white" :
+                ""
               }`}>From:</h3>
               <div className="space-y-2">
                 <Input
@@ -539,7 +541,9 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
             </div>
             <div>
               <h3 className={`font-semibold mb-3 ${
-                selectedTemplate === 2 || selectedTemplate === 4 ? "text-[#0F7C4F]" : ""
+                selectedTemplate === 2 || selectedTemplate === 4 ? "text-[#0F7C4F]" :
+                selectedTemplate === 9 ? "text-white" :
+                ""
               }`}>To:</h3>
               <div className="space-y-2">
                 <Input
@@ -687,7 +691,16 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                 ))}
               </tbody>
             </table>
-            <Button onClick={addItem} variant="outline" size="sm" className="mt-3 rounded-full">
+            <Button 
+              onClick={addItem} 
+              variant="outline" 
+              size="sm" 
+              className={`mt-3 rounded-full ${
+                selectedTemplate === 4 || selectedTemplate === 9 
+                  ? "bg-[#2d2d2d] hover:bg-[#3d3d3d] text-white border-gray-600" 
+                  : ""
+              }`}
+            >
               <Plus className="w-4 h-4 mr-2" />
               Add Item
             </Button>
@@ -695,19 +708,19 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
 
           {/* Totals */}
           <div className="flex justify-end mb-8">
-            <div className="w-64 space-y-3">
+            <div className={`w-64 space-y-3 ${selectedTemplate === 4 || selectedTemplate === 9 ? "text-white" : ""}`}>
               <div className="flex justify-between">
-                <span>Subtotal:</span>
-                <span className="font-semibold">{formatCurrency(totals.subtotal)}</span>
+                <span className={selectedTemplate === 4 || selectedTemplate === 9 ? "text-white" : ""}>Subtotal:</span>
+                <span className={`font-semibold ${selectedTemplate === 4 || selectedTemplate === 9 ? "text-white" : ""}`}>{formatCurrency(totals.subtotal)}</span>
               </div>
               {totals.discountAmount > 0 && (
-                <div className="flex justify-between text-red-600">
+                <div className={`flex justify-between ${selectedTemplate === 4 || selectedTemplate === 9 ? "text-red-300" : "text-red-600"}`}>
                   <span>Discount:</span>
                   <span className="font-semibold">-{formatCurrency(totals.discountAmount)}</span>
                 </div>
               )}
               <div className="flex justify-between items-center">
-                <span>Tax:</span>
+                <span className={selectedTemplate === 4 || selectedTemplate === 9 ? "text-white" : ""}>Tax:</span>
                 <div className="flex items-center gap-2">
                   <Input
                     type="number"
@@ -718,15 +731,15 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                       "border-realm-gray focus:border-realm-black"
                     }`}
                   />
-                  <span>%</span>
-                  <span className="font-semibold ml-2">{formatCurrency(totals.tax)}</span>
+                  <span className={selectedTemplate === 4 || selectedTemplate === 9 ? "text-white" : ""}>%</span>
+                  <span className={`font-semibold ml-2 ${selectedTemplate === 4 || selectedTemplate === 9 ? "text-white" : ""}`}>{formatCurrency(totals.tax)}</span>
                 </div>
               </div>
               <div className={`flex justify-between text-xl font-bold pt-3 border-t-2 ${
                 selectedTemplate === 1 ? "bg-realm-lightgray px-3 py-2" :
                 selectedTemplate === 2 ? "bg-realm-lightgray px-3 py-2" :
                 selectedTemplate === 4 ? "bg-[#0F7C4F] text-white px-3 py-2" :
-                selectedTemplate === 9 ? "bg-[#002200] text-[#00ff00] border-[#00ff00] px-3 py-2" :
+                selectedTemplate === 9 ? "bg-[#002200] text-white border-[#00ff00] px-3 py-2" :
                 ""
               }`}
               style={{
@@ -737,7 +750,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
                             "#000"
               }}>
                 <span>Total:</span>
-                <span style={{ color: selectedTemplate === 2 ? "#0F7C4F" : selectedTemplate === 10 ? "#d4af37" : "inherit" }}>
+                <span style={{ color: selectedTemplate === 2 ? "#0F7C4F" : selectedTemplate === 4 || selectedTemplate === 9 ? "#ffffff" : selectedTemplate === 10 ? "#d4af37" : "inherit" }}>
                   {formatCurrency(totals.total)}
                 </span>
               </div>
@@ -749,7 +762,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               {invoiceData.paymentMethod && (
                 <div>
-                  <Label className="text-sm font-semibold mb-1 block">Payment Method</Label>
+                  <Label className={`text-sm font-semibold mb-1 block ${selectedTemplate === 4 || selectedTemplate === 9 ? "text-white" : ""}`}>Payment Method</Label>
                   <Input
                     value={invoiceData.paymentMethod}
                     onChange={(e) => updateField("paymentMethod", e.target.value)}
@@ -763,7 +776,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
               )}
               {invoiceData.bankDetails && (
                 <div>
-                  <Label className="text-sm font-semibold mb-1 block">Bank Details</Label>
+                  <Label className={`text-sm font-semibold mb-1 block ${selectedTemplate === 4 || selectedTemplate === 9 ? "text-white" : ""}`}>Bank Details</Label>
                   <Textarea
                     value={invoiceData.bankDetails}
                     onChange={(e) => updateField("bankDetails", e.target.value)}
@@ -777,7 +790,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
               )}
               {invoiceData.notes && (
                 <div>
-                  <Label className="text-sm font-semibold mb-1 block">Notes</Label>
+                  <Label className={`text-sm font-semibold mb-1 block ${selectedTemplate === 4 || selectedTemplate === 9 ? "text-white" : ""}`}>Notes</Label>
                   <Textarea
                     value={invoiceData.notes}
                     onChange={(e) => updateField("notes", e.target.value)}
@@ -791,7 +804,7 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
               )}
               {invoiceData.terms && (
                 <div>
-                  <Label className="text-sm font-semibold mb-1 block">Terms & Conditions</Label>
+                  <Label className={`text-sm font-semibold mb-1 block ${selectedTemplate === 4 || selectedTemplate === 9 ? "text-white" : ""}`}>Terms & Conditions</Label>
                   <Textarea
                     value={invoiceData.terms}
                     onChange={(e) => updateField("terms", e.target.value)}

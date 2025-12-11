@@ -54,11 +54,19 @@ const MacOSDock: React.FC<MacOSDockProps> = ({ currentToolSlug: propCurrentToolS
 
   // Get dock tools: current active tool + 4 others
   const dockTools = useMemo(() => {
-    const currentTool = tools.find((t) => t.slug === currentToolSlug);
-    if (!currentTool) return tools.slice(0, DOCK_SIZE);
+    // Ensure we have all tools including social-media-preview
+    const allTools = [...tools];
+    const socialPreviewTool = allTools.find((t) => t.slug === "social-media-preview");
+    
+    if (!socialPreviewTool) {
+      console.error("Social Media Preview tool not found in tools array!");
+    }
+
+    const currentTool = allTools.find((t) => t.slug === currentToolSlug);
+    if (!currentTool) return allTools.slice(0, DOCK_SIZE);
 
     const recentSlugs = getRecentTools();
-    const otherTools = tools
+    const otherTools = allTools
       .filter((t) => t.slug !== currentToolSlug)
       .sort((a, b) => {
         const aIndex = recentSlugs.indexOf(a.slug);
@@ -76,7 +84,17 @@ const MacOSDock: React.FC<MacOSDockProps> = ({ currentToolSlug: propCurrentToolS
   // Get tools not in dock
   const toolsNotInDock = useMemo(() => {
     const dockSlugs = new Set(dockTools.map((t) => t.slug));
-    return tools.filter((t) => !dockSlugs.has(t.slug));
+    const allTools = [...tools];
+    const notInDock = allTools.filter((t) => !dockSlugs.has(t.slug));
+    
+    // Ensure social-media-preview is included if it exists
+    const socialPreviewTool = allTools.find((t) => t.slug === "social-media-preview");
+    if (socialPreviewTool && !dockSlugs.has("social-media-preview") && !notInDock.some((t) => t.slug === "social-media-preview")) {
+      console.warn("Adding Social Media Preview to not-in-dock list");
+      notInDock.push(socialPreviewTool);
+    }
+    
+    return notInDock;
   }, [dockTools]);
 
   const springConfig = {
@@ -170,7 +188,9 @@ const MacOSDock: React.FC<MacOSDockProps> = ({ currentToolSlug: propCurrentToolS
               style={{ width: "min(calc(100vw - 2rem), 800px)" }}
             >
               <div className="grid grid-cols-5 md:grid-cols-10 gap-3">
-                {toolsNotInDock.map((tool) => {
+                {toolsNotInDock
+                  .sort((a, b) => a.name.localeCompare(b.name)) // Sort alphabetically for easier finding
+                  .map((tool) => {
                   const Icon = tool.icon;
                   const isActive = tool.slug === currentToolSlug;
 
