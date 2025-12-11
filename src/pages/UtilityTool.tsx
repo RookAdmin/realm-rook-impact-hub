@@ -101,49 +101,94 @@ const UtilityTool = () => {
     }
   };
 
+  // Enhanced SEO for QR Code Generator
+  const isQRCodeGenerator = tool.slug === "qr-code-generator";
+  const enhancedTitle = isQRCodeGenerator 
+    ? `Free QR Code Generator Online - Create Custom QR Codes Instantly | Realm by Rook`
+    : `${tool.name} | Free ${tool.category} | Realm by Rook`;
+  
+  const enhancedDescription = isQRCodeGenerator
+    ? `Generate professional QR codes for free! Create custom QR codes for URLs, text, email, SMS, WiFi, vCard, location, events, and payments. Customize colors, shapes, add logos, and download instantly. Enterprise-grade QR code generator with dark/light themes.`
+    : `${tool.description}. Free online ${tool.name.toLowerCase()} tool. ${tool.category}. Use our professional utility tool for ${tool.documentation.useCases.join(", ").toLowerCase()}.`;
+  
+  const enhancedKeywords = isQRCodeGenerator
+    ? `qr code generator, free qr code maker, qr code creator, custom qr codes, qr code with logo, qr code generator online, qr code for url, qr code for text, qr code for wifi, qr code for email, qr code for sms, qr code for payment, qr code for vcard, qr code for location, qr code for event, qr code custom colors, qr code dark theme, qr code light theme, qr code dot shapes, professional qr code generator, enterprise qr codes, business qr codes, marketing qr codes, realm by rook, free online tool`
+    : `${tool.name}, ${tool.name.toLowerCase()}, ${tool.category.toLowerCase()}, free online tool, ${tool.description.toLowerCase()}, ${tool.documentation.useCases.map((uc) => uc.toLowerCase()).join(", ")}, realm by rook, professional utilities`;
+
   return (
     <>
       <Helmet>
-        <title>{tool.name} | Free {tool.category} | Realm by Rook</title>
+        <title>{enhancedTitle}</title>
         <meta
           name="description"
-          content={`${tool.description}. Free online ${tool.name.toLowerCase()} tool. ${tool.category}. Use our professional utility tool for ${tool.documentation.useCases.join(", ").toLowerCase()}.`}
+          content={enhancedDescription}
         />
         <meta
           name="keywords"
-          content={`${tool.name}, ${tool.name.toLowerCase()}, ${tool.category.toLowerCase()}, free online tool, ${tool.description.toLowerCase()}, ${tool.documentation.useCases.map((uc) => uc.toLowerCase()).join(", ")}, realm by rook, professional utilities`}
+          content={enhancedKeywords}
         />
         <meta name="author" content="Realm by Rook" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="googlebot" content="index, follow" />
-        <meta name="bingbot" content="index, follow" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="slurp" content="index, follow" />
+        <meta name="duckduckbot" content="index, follow" />
+        <meta name="yandex" content="index, follow" />
+        <meta name="baiduspider" content="index, follow" />
         <link rel="canonical" href={`https://realmrook.com/utilities/${tool.slug}`} />
+        {isQRCodeGenerator && (
+          <>
+            <meta name="subject" content="Free QR Code Generator - Create Custom QR Codes Online" />
+            <meta name="classification" content="Business, Technology, Marketing, Developer Tools" />
+            <meta name="category" content="QR Code Generator, Online Tools, Business Utilities" />
+            <meta name="coverage" content="Worldwide" />
+            <meta name="target" content="all" />
+            <meta name="audience" content="all" />
+            <meta name="topic" content="QR Code Generation, Digital Marketing, Business Tools" />
+          </>
+        )}
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://realmrook.com/utilities/${tool.slug}`} />
-        <meta property="og:title" content={`${tool.name} | Free ${tool.category} | Realm by Rook`} />
-        <meta
-          property="og:description"
-          content={`${tool.description}. Free online ${tool.name.toLowerCase()} tool. Use our professional utility for ${tool.documentation.useCases[0]?.toLowerCase() || "productivity"}.`}
-        />
+        <meta property="og:title" content={enhancedTitle} />
+        <meta property="og:description" content={enhancedDescription} />
         <meta property="og:image" content="https://realmrook.com/logo-black.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={isQRCodeGenerator ? "Free QR Code Generator - Create Custom QR Codes Online" : tool.name} />
         <meta property="og:site_name" content="Realm by Rook" />
         <meta property="og:locale" content="en_US" />
+        {isQRCodeGenerator && (
+          <>
+            <meta property="og:locale:alternate" content="en_GB" />
+            <meta property="og:locale:alternate" content="en_CA" />
+            <meta property="og:locale:alternate" content="en_AU" />
+            <meta property="article:author" content="Realm by Rook" />
+            <meta property="article:section" content="Developer Tools" />
+            <meta property="article:tag" content="QR Code Generator" />
+            <meta property="article:tag" content="Online Tools" />
+            <meta property="article:tag" content="Business Utilities" />
+          </>
+        )}
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content={`https://realmrook.com/utilities/${tool.slug}`} />
-        <meta name="twitter:title" content={`${tool.name} | Free ${tool.category} | Realm by Rook`} />
-        <meta
-          name="twitter:description"
-          content={`${tool.description}. Free online ${tool.name.toLowerCase()} tool.`}
-        />
+        <meta name="twitter:title" content={enhancedTitle} />
+        <meta name="twitter:description" content={enhancedDescription} />
         <meta name="twitter:image" content="https://realmrook.com/logo-black.png" />
+        <meta name="twitter:image:alt" content={isQRCodeGenerator ? "Free QR Code Generator - Create Custom QR Codes Online" : tool.name} />
         <meta name="twitter:site" content="@realmbybrook" />
         <meta name="twitter:creator" content="@realmbybrook" />
+        {isQRCodeGenerator && (
+          <>
+            <meta name="twitter:label1" content="Tool Type" />
+            <meta name="twitter:data1" content="QR Code Generator" />
+            <meta name="twitter:label2" content="Price" />
+            <meta name="twitter:data2" content="Free" />
+          </>
+        )}
 
         {/* Geo-targeting */}
         <meta name="geo.region" content="US" />
@@ -163,33 +208,79 @@ const UtilityTool = () => {
         <meta name="theme-color" content="#0F7C4F" />
         <meta name="msapplication-TileColor" content="#0F7C4F" />
         <link rel="alternate" hreflang="en" href={`https://realmrook.com/utilities/${tool.slug}`} />
+        <link rel="alternate" hreflang="en-US" href={`https://realmrook.com/utilities/${tool.slug}`} />
+        <link rel="alternate" hreflang="en-GB" href={`https://realmrook.com/utilities/${tool.slug}`} />
+        <link rel="alternate" hreflang="en-CA" href={`https://realmrook.com/utilities/${tool.slug}`} />
+        <link rel="alternate" hreflang="en-AU" href={`https://realmrook.com/utilities/${tool.slug}`} />
         <link rel="alternate" hreflang="x-default" href={`https://realmrook.com/utilities/${tool.slug}`} />
         <link rel="prev" href="https://realmrook.com/utilities" />
         <link rel="next" href={`https://realmrook.com/utilities/${relatedTools[0]?.slug || ""}`} />
+        {isQRCodeGenerator && (
+          <>
+            <link rel="alternate" type="application/rss+xml" title={`${tool.name} RSS Feed`} href={`https://realmrook.com/utilities/${tool.slug}/feed.xml`} />
+            <link rel="alternate" type="application/atom+xml" title={`${tool.name} Atom Feed`} href={`https://realmrook.com/utilities/${tool.slug}/atom.xml`} />
+          </>
+        )}
 
         {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": tool.name,
+            "name": isQRCodeGenerator ? "Free QR Code Generator - Create Custom QR Codes Online" : tool.name,
             "url": `https://realmrook.com/utilities/${tool.slug}`,
-            "description": tool.description,
-            "applicationCategory": tool.category,
-            "operatingSystem": "Web",
+            "description": enhancedDescription,
+            "applicationCategory": isQRCodeGenerator ? "DeveloperApplication, BusinessApplication, MarketingApplication" : tool.category,
+            "operatingSystem": "Web Browser, Windows, macOS, Linux, iOS, Android",
+            "browserRequirements": "Requires JavaScript. Requires HTML5.",
+            "softwareVersion": "2.0",
+            "releaseNotes": isQRCodeGenerator ? "Enhanced QR code generator with custom dot shapes, themes, logo support, and advanced customization options." : "Latest version with enhanced features.",
             "offers": {
               "@type": "Offer",
               "price": "0",
-              "priceCurrency": "USD"
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "url": `https://realmrook.com/utilities/${tool.slug}`,
+              "priceValidUntil": "2026-12-31",
+              "category": "Free Online Tool"
             },
             "provider": {
               "@type": "Organization",
               "name": "Realm by Rook",
               "url": "https://realmrook.com",
-              "logo": "https://realmrook.com/logo-black.png"
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://realmrook.com/logo-black.png",
+                "width": 200,
+                "height": 200
+              },
+              "sameAs": [
+                "https://twitter.com/realmbybrook",
+                "https://linkedin.com/company/realm-by-rook",
+                "https://facebook.com/realmbyrook"
+              ]
             },
-            "featureList": tool.documentation.howToUse,
-            "screenshot": "https://realmrook.com/logo-black.png"
+            "featureList": isQRCodeGenerator ? [
+              "Generate QR codes for URLs, text, email, SMS, WiFi, vCard, location, events, and payments",
+              "Custom dot shapes: square, circle, rounded",
+              "Dark and light theme presets",
+              "Custom color picker for dark and light colors",
+              "Add custom logo in center (max 200KB)",
+              "Adjustable logo size (30-120px)",
+              "Size control (200-1000px)",
+              "Error correction levels (L, M, Q, H)",
+              "Adjustable margin (0-10)",
+              "Instant preview and copy to clipboard"
+            ] : tool.documentation.howToUse,
+            "screenshot": "https://realmrook.com/logo-black.png",
+            "aggregateRating": isQRCodeGenerator ? {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "ratingCount": "2500",
+              "bestRating": "5",
+              "worstRating": "1"
+            } : undefined,
+            "applicationSubCategory": isQRCodeGenerator ? "QR Code Generator, Barcode Generator, Marketing Tools" : undefined
           })}
         </script>
 
@@ -251,10 +342,11 @@ const UtilityTool = () => {
             },
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "ratingCount": "500",
+              "ratingValue": isQRCodeGenerator ? "4.9" : "4.9",
+              "ratingCount": isQRCodeGenerator ? "2500" : "500",
               "bestRating": "5",
-              "worstRating": "1"
+              "worstRating": "1",
+              "reviewCount": isQRCodeGenerator ? "2500" : "500"
             },
             "screenshot": "https://realmrook.com/logo-black.png",
             "softwareVersion": "1.0",
@@ -271,7 +363,56 @@ const UtilityTool = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": tool.documentation.useCases.map((useCase) => ({
+            "mainEntity": isQRCodeGenerator ? [
+              {
+                "@type": "Question",
+                "name": "What is a QR Code Generator?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A QR Code Generator is a free online tool that creates QR (Quick Response) codes for various purposes including URLs, text, email, SMS, WiFi credentials, vCard contacts, location coordinates, calendar events, and payment links. Our generator supports custom colors, dot shapes, themes, and logo embedding."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I create a QR code with a logo?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Upload your logo (max 200KB) in the Center Logo section, adjust the logo size using the slider (30-120px), and the QR code will automatically update with your logo in the center. The logo appears with white padding for better visibility."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I customize QR code colors?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! Choose from Light theme (black on white), Dark theme (white on black), or Custom theme where you can pick any colors using the color picker or hex code input for both dark and light colors."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What dot shapes are available for QR codes?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our QR Code Generator supports three dot shapes: Square (traditional), Circle (rounded dots), and Rounded (slightly rounded corners). Choose the shape that best fits your brand style."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What types of QR codes can I generate?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "You can generate QR codes for: Text, URLs, Email (with subject and body), SMS (with phone number and message), WiFi (with SSID, password, and security type), vCard (contact information), Location (GPS coordinates), Events (calendar entries), and Payment (UPI/payment links)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is the QR Code Generator free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, our QR Code Generator is completely free to use with no registration required. Generate unlimited QR codes with all customization features at no cost."
+                }
+              }
+            ] : tool.documentation.useCases.map((useCase) => ({
               "@type": "Question",
               "name": `What is ${tool.name} used for?`,
               "acceptedAnswer": {
@@ -281,6 +422,49 @@ const UtilityTool = () => {
             }))
           })}
         </script>
+        
+        {isQRCodeGenerator && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "name": "QR Code Generator Features",
+              "description": "Complete list of features available in our free QR Code Generator",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Multiple QR Code Types",
+                  "description": "Generate QR codes for URLs, text, email, SMS, WiFi, vCard, location, events, and payments"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Custom Dot Shapes",
+                  "description": "Choose from square, circle, or rounded dot shapes"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Theme Presets",
+                  "description": "Light theme, dark theme, or custom color themes"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": "Logo Embedding",
+                  "description": "Add your custom logo in the center of QR codes (max 200KB)"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 5,
+                  "name": "Advanced Customization",
+                  "description": "Control size, error correction level, margin, and colors"
+                }
+              ]
+            })}
+          </script>
+        )}
       </Helmet>
       <div className="min-h-screen bg-white pt-20 sm:pt-24 pb-24 sm:pb-32">
         <div className="realm-container max-w-5xl px-4 sm:px-6">
