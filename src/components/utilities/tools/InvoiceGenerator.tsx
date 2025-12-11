@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { invoiceTemplates } from "@/lib/invoiceTemplates";
-import html2pdf from "html2pdf.js";
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 
 interface InvoiceGeneratorProps {
   onCopy?: (text: string) => void;
@@ -218,12 +219,20 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
       // Generate HTML from template
       const html = generateHTML();
       
-      // Create a temporary iframe to render the HTML
+      // Determine background colors
+      const backgroundColor = selectedTemplate === 4 ? "#1a1a1a" : selectedTemplate === 9 ? "#0a0a0a" : "#ffffff";
+      const containerBg = selectedTemplate === 4 ? "#2d2d2d" : selectedTemplate === 9 ? "#1a1a1a" : "#ffffff";
+      const textColor = selectedTemplate === 4 || selectedTemplate === 9 ? "#ffffff" : "#333333";
+      
+      // Create a temporary iframe to render the HTML properly
       const iframe = document.createElement("iframe");
-      iframe.style.position = "absolute";
+      iframe.style.position = "fixed";
+      iframe.style.top = "-9999px";
       iframe.style.left = "-9999px";
       iframe.style.width = "210mm";
       iframe.style.height = "297mm";
+      iframe.style.border = "none";
+      iframe.style.backgroundColor = backgroundColor;
       document.body.appendChild(iframe);
       
       // Write HTML to iframe
@@ -236,47 +245,165 @@ const InvoiceGenerator: React.FC<InvoiceGeneratorProps> = ({ onCopy }) => {
       iframeDoc.write(html);
       iframeDoc.close();
       
-      // Wait for content to load
+      // Force styles immediately after writing
+      if (iframeDoc.body) {
+        iframeDoc.body.style.setProperty("background-color", backgroundColor, "important");
+        iframeDoc.body.style.setProperty("color", textColor, "important");
+        iframeDoc.body.style.setProperty("margin", "0", "important");
+        iframeDoc.body.style.setProperty("padding", "0", "important");
+      }
+      
+      // Wait for content to load, including images
       await new Promise((resolve) => {
         if (iframe.contentWindow) {
-          iframe.contentWindow.onload = resolve;
-          setTimeout(resolve, 500); // Fallback timeout
+          const checkReady = () => {
+            const images = iframeDoc.querySelectorAll("img");
+            let loadedImages = 0;
+            const totalImages = images.length;
+            
+            if (totalImages === 0) {
+              setTimeout(resolve, 1000);
+              return;
+            }
+            
+            images.forEach((img) => {
+              if (img.complete) {
+                loadedImages++;
+              } else {
+                img.onload = () => {
+                  loadedImages++;
+                  if (loadedImages === totalImages) {
+                    setTimeout(resolve, 500);
+                  }
+                };
+                img.onerror = () => {
+                  loadedImages++;
+                  if (loadedImages === totalImages) {
+                    setTimeout(resolve, 500);
+                  }
+                };
+              }
+            });
+            
+            if (loadedImages === totalImages) {
+              setTimeout(resolve, 1000);
+            }
+          };
+          
+          iframe.contentWindow.onload = () => {
+            setTimeout(checkReady, 200);
+          };
+          
+          setTimeout(resolve, 3000);
         } else {
           resolve(null);
         }
       });
       
-      // Get the body element from iframe
-      const bodyElement = iframeDoc.body;
-      if (!bodyElement) {
-        throw new Error("Could not access iframe body");
+      // Force styles again after load
+      if (iframeDoc.body) {
+        iframeDoc.body.style.setProperty("background-color", backgroundColor, "important");
+        iframeDoc.body.style.setProperty("color", textColor, "important");
       }
       
-      // Configure html2pdf options
-      const backgroundColor = selectedTemplate === 4 ? "#1a1a1a" : selectedTemplate === 9 ? "#0a0a0a" : "#ffffff";
+      const containerElement = iframeDoc.querySelector(".container");
+      if (containerElement) {
+        (containerElement as HTMLElement).style.setProperty("background-color", containerBg, "important");
+        (containerElement as HTMLElement).style.setProperty("color", textColor, "important");
+      }
       
-      // Generate and download PDF
-      await html2pdf()
-        .set({
-          margin: 10,
-          filename: `invoice-${invoiceData.invoiceNumber}.pdf`,
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: { 
-            scale: 2,
-            useCORS: true,
-            logging: false,
-            letterRendering: true,
-            backgroundColor: backgroundColor,
-            windowWidth: 800
-          },
-          jsPDF: { 
-            unit: "mm", 
-            format: "a4", 
-            orientation: "portrait"
+      // Get the element to convert - use body to capture everything including background
+      const elementToConvert = iframeDoc.body;
+      if (!elementToConvert) {
+        throw new Error("Could not access invoice element");
+      }
+      
+      // Additional wait to ensure everything is rendered
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // Use html2canvas directly for better control
+      const canvas = await html2canvas(elementToConvert, {
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        backgroundColor: backgroundColor, // CRITICAL: Set background color
+        width: iframeDoc.documentElement.scrollWidth || 800,
+        height: iframeDoc.documentElement.scrollHeight || 1123,
+        allowTaint: true,
+        onclone: (clonedDoc: Document) => {
+          // CRITICAL: Force background colors in cloned document
+          const clonedBody = clonedDoc.body;
+          if (clonedBody) {
+            clonedBody.style.backgroundColor = backgroundColor;
+            clonedBody.style.color = textColor;
+            clonedBody.style.margin = "0";
+            clonedBody.style.padding = "0";
+            // Force with inline style
+            clonedBody.setAttribute("style", 
+              `background-color: ${backgroundColor} !important; color: ${textColor} !important; margin: 0 !important; padding: 0 !important;`
+            );
           }
-        } as any)
-        .from(bodyElement)
-        .save();
+          
+          // Force container background
+          const clonedContainer = clonedDoc.querySelector(".container");
+          if (clonedContainer) {
+            const containerEl = clonedContainer as HTMLElement;
+            containerEl.style.backgroundColor = containerBg;
+            containerEl.style.color = textColor;
+            containerEl.setAttribute("style", 
+              containerEl.getAttribute("style") + 
+              ` background-color: ${containerBg} !important; color: ${textColor} !important;`
+            );
+          }
+          
+          // Force all elements to maintain their colors for dark templates
+          if (selectedTemplate === 4 || selectedTemplate === 9) {
+            const allElements = clonedDoc.querySelectorAll("*");
+            allElements.forEach((el) => {
+              const htmlEl = el as HTMLElement;
+              // Preserve existing inline styles but ensure text is white
+              if (htmlEl.tagName === "P" || htmlEl.tagName === "SPAN" || htmlEl.tagName === "DIV" || 
+                  htmlEl.tagName === "TD" || htmlEl.tagName === "TH" || htmlEl.tagName.startsWith("H")) {
+                const currentStyle = htmlEl.getAttribute("style") || "";
+                if (!currentStyle.includes("color:") || currentStyle.includes("color: rgb(0, 0, 0)") || 
+                    currentStyle.includes("color: black") || currentStyle.includes("color: #000")) {
+                  htmlEl.setAttribute("style", currentStyle + ` color: #ffffff !important;`);
+                }
+              }
+            });
+          }
+        }
+      });
+      
+      // Convert canvas to PDF using jsPDF
+      const imgData = canvas.toDataURL("image/jpeg", 1.0);
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+        compress: false
+      });
+      
+      const imgWidth = 210; // A4 width in mm
+      const pageHeight = 297; // A4 height in mm
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
+      
+      // Add first page
+      pdf.addImage(imgData, "JPEG", 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+      
+      // Add additional pages if needed
+      while (heightLeft > 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, "JPEG", 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+      
+      // Save PDF
+      pdf.save(`invoice-${invoiceData.invoiceNumber}.pdf`);
       
       // Clean up
       document.body.removeChild(iframe);
