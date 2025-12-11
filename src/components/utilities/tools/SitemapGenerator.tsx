@@ -127,14 +127,14 @@ const SitemapGenerator: React.FC<SitemapGeneratorProps> = ({ onCopy }) => {
   return (
     <div className="space-y-6">
       {/* Real-time Scraping Section */}
-      <div className="p-4 bg-realm-lightgray rounded-lg border border-realm-lightgray">
+      <div className="p-4 sm:p-6 bg-realm-lightgray rounded-lg border border-realm-lightgray">
         <Label className="text-sm font-medium text-realm-black mb-2 block">
           Real-time Website Scraping
         </Label>
         <p className="text-xs text-realm-gray mb-3">
           Enter a website URL to automatically discover and fetch all pages for your sitemap
         </p>
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           <Input
             value={scrapeUrl}
             onChange={(e) => {
@@ -142,7 +142,7 @@ const SitemapGenerator: React.FC<SitemapGeneratorProps> = ({ onCopy }) => {
               setScrapeError(null);
             }}
             placeholder="https://example.com"
-            className="flex-1"
+            className="flex-1 w-full"
             onKeyPress={(e) => {
               if (e.key === "Enter" && !isScraping) {
                 handleScrape();
@@ -152,17 +152,19 @@ const SitemapGenerator: React.FC<SitemapGeneratorProps> = ({ onCopy }) => {
           <Button
             onClick={handleScrape}
             disabled={isScraping || !scrapeUrl.trim()}
-            className="bg-[#0F7C4F] hover:bg-[#0d6b42] text-white rounded-full px-6"
+            className="bg-[#0F7C4F] hover:bg-[#0d6b42] text-white rounded-full px-4 sm:px-6 w-full sm:w-auto whitespace-nowrap"
           >
             {isScraping ? (
               <>
                 <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                Scraping...
+                <span className="hidden sm:inline">Scraping...</span>
+                <span className="sm:hidden">Scraping</span>
               </>
             ) : (
               <>
                 <Globe className="w-4 h-4 mr-2" />
-                Scrape & Fetch
+                <span className="hidden sm:inline">Scrape & Fetch</span>
+                <span className="sm:hidden">Scrape</span>
               </>
             )}
           </Button>
@@ -179,14 +181,14 @@ const SitemapGenerator: React.FC<SitemapGeneratorProps> = ({ onCopy }) => {
 
       <div className="space-y-4">
         {urls.map((url, index) => (
-          <div key={index} className="p-4 border border-realm-lightgray rounded-lg space-y-4">
+          <div key={index} className="p-4 sm:p-6 border border-realm-lightgray rounded-lg space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-realm-black">URL {index + 1}</h3>
+              <h3 className="font-semibold text-realm-black text-sm sm:text-base">URL {index + 1}</h3>
               <Button
                 onClick={() => removeURL(index)}
                 variant="ghost"
                 size="sm"
-                className="text-red-600"
+                className="text-red-600 flex-shrink-0"
               >
                 <Trash2 className="w-4 h-4" />
               </Button>
@@ -198,11 +200,11 @@ const SitemapGenerator: React.FC<SitemapGeneratorProps> = ({ onCopy }) => {
                 value={url.loc}
                 onChange={(e) => updateURL(index, "loc", e.target.value)}
                 placeholder="https://example.com/page"
-                className="mt-1"
+                className="mt-1 w-full"
               />
             </div>
 
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               <div>
                 <Label className="text-sm font-medium text-realm-black">Last Modified</Label>
                 <Input
@@ -253,14 +255,14 @@ const SitemapGenerator: React.FC<SitemapGeneratorProps> = ({ onCopy }) => {
       </div>
 
       <div>
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-2">
           <Label className="text-sm font-medium text-realm-black">Generated Sitemap XML</Label>
           <div className="flex gap-2">
-            <Button onClick={handleCopy} variant="outline" className="rounded-full">
+            <Button onClick={handleCopy} variant="outline" className="rounded-full flex-1 sm:flex-initial">
               <Copy className="w-4 h-4 mr-2" />
               Copy
             </Button>
-            <Button onClick={handleDownload} variant="outline" className="rounded-full">
+            <Button onClick={handleDownload} variant="outline" className="rounded-full flex-1 sm:flex-initial">
               <Download className="w-4 h-4 mr-2" />
               Download
             </Button>
@@ -269,7 +271,7 @@ const SitemapGenerator: React.FC<SitemapGeneratorProps> = ({ onCopy }) => {
         <Textarea
           value={sitemapXML}
           readOnly
-          className="min-h-[300px] font-mono text-sm bg-realm-lightgray"
+          className="min-h-[300px] font-mono text-xs sm:text-sm bg-realm-lightgray overflow-x-auto"
         />
       </div>
     </div>

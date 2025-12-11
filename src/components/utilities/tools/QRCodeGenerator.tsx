@@ -435,7 +435,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
       case "location":
         return (
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <Label className="text-sm font-medium text-realm-black mb-2 block">Latitude</Label>
                 <Input
@@ -568,21 +568,21 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
       {/* QR Type Selector */}
       <div>
         <Label className="text-sm font-medium text-realm-black mb-3 block">QR Code Type</Label>
-        <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2">
           {qrTypeOptions.map((option) => {
             const Icon = option.icon;
             return (
               <button
                 key={option.value}
                 onClick={() => setQrType(option.value as QRType)}
-                className={`flex flex-col items-center gap-2 p-3 rounded-lg border-2 transition-all ${
+                className={`flex flex-col items-center gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-lg border-2 transition-all ${
                   qrType === option.value
                     ? "border-[#0F7C4F] bg-[#0F7C4F]/10"
                     : "border-realm-lightgray hover:border-realm-gray"
                 }`}
               >
-                <Icon className={`w-5 h-5 ${qrType === option.value ? "text-[#0F7C4F]" : "text-realm-gray"}`} />
-                <span className={`text-xs font-medium ${qrType === option.value ? "text-[#0F7C4F]" : "text-realm-gray"}`}>
+                <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${qrType === option.value ? "text-[#0F7C4F]" : "text-realm-gray"}`} />
+                <span className={`text-[10px] sm:text-xs font-medium ${qrType === option.value ? "text-[#0F7C4F]" : "text-realm-gray"}`}>
                   {option.label}
                 </span>
               </button>
@@ -592,17 +592,17 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
       </div>
 
       {/* Input Fields */}
-      <div className="bg-white rounded-lg border border-realm-lightgray p-6">
+      <div className="bg-white rounded-lg border border-realm-lightgray p-4 sm:p-6">
         {renderInputFields()}
       </div>
 
       {/* QR Code Display */}
       {hasRequiredData() && (
-        <div className="bg-white rounded-lg border border-realm-lightgray p-8">
-          <div className="flex flex-col md:flex-row gap-8">
+        <div className="bg-white rounded-lg border border-realm-lightgray p-4 sm:p-6 md:p-8">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8">
             {/* QR Code Preview */}
             <div className="flex-1 flex flex-col items-center justify-center">
-              <div className="bg-realm-lightgray p-6 rounded-lg">
+              <div className="bg-realm-lightgray p-4 sm:p-6 rounded-lg w-full max-w-sm">
                 <canvas ref={canvasRef} className="hidden" />
                 {qrDataUrl && (
                   <img src={qrDataUrl} alt="QR Code" className="max-w-full h-auto" />
@@ -611,7 +611,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
             </div>
 
             {/* Customization Options */}
-            <div className="flex-1 space-y-6">
+            <div className="flex-1 space-y-4 sm:space-y-6">
               <div>
                 <Label className="text-sm font-medium text-realm-black mb-2 block">
                   Size: {size}px
@@ -659,7 +659,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <Label className="text-sm font-medium text-realm-black mb-2 block">Dark Color</Label>
                   <div className="flex gap-2">
@@ -667,13 +667,13 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
                       type="color"
                       value={darkColor}
                       onChange={(e) => setDarkColor(e.target.value)}
-                      className="w-12 h-10 rounded border border-realm-lightgray cursor-pointer"
+                      className="w-10 sm:w-12 h-9 sm:h-10 rounded border border-realm-lightgray cursor-pointer flex-shrink-0"
                     />
                     <Input
                       value={darkColor}
                       onChange={(e) => setDarkColor(e.target.value)}
                       placeholder="#000000"
-                      className="flex-1"
+                      className="flex-1 text-sm"
                     />
                   </div>
                 </div>
@@ -684,13 +684,13 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
                       type="color"
                       value={lightColor}
                       onChange={(e) => setLightColor(e.target.value)}
-                      className="w-12 h-10 rounded border border-realm-lightgray cursor-pointer"
+                      className="w-10 sm:w-12 h-9 sm:h-10 rounded border border-realm-lightgray cursor-pointer flex-shrink-0"
                     />
                     <Input
                       value={lightColor}
                       onChange={(e) => setLightColor(e.target.value)}
                       placeholder="#FFFFFF"
-                      className="flex-1"
+                      className="flex-1 text-sm"
                     />
                   </div>
                 </div>
@@ -699,14 +699,14 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex justify-end gap-2 mt-6 pt-6 border-t border-realm-lightgray">
-            <Button onClick={handleCopy} variant="outline" className="rounded-full">
+          <div className="flex flex-col sm:flex-row justify-end gap-2 mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-realm-lightgray">
+            <Button onClick={handleCopy} variant="outline" className="rounded-full w-full sm:w-auto">
               <Copy className="w-4 h-4 mr-2" />
               Copy Image
             </Button>
             <Button
               onClick={handleDownload}
-              className="bg-[#0F7C4F] hover:bg-[#0d6b42] text-white rounded-full px-6 py-2 flex items-center gap-2"
+              className="bg-[#0F7C4F] hover:bg-[#0d6b42] text-white rounded-full px-4 sm:px-6 py-2 flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <Download className="w-4 h-4" />
               Download PNG

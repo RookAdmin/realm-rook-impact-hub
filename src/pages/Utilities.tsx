@@ -265,34 +265,34 @@ const Utilities = () => {
           })}
         </script>
       </Helmet>
-      <div className="min-h-screen bg-white pt-24 pb-16">
+      <div className="min-h-screen bg-white pt-20 sm:pt-24 pb-16">
         {/* Hero Section */}
-        <section className="realm-container mb-16">
+        <section className="realm-container mb-12 sm:mb-16 px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center max-w-3xl mx-auto mb-12"
+            className="text-center max-w-3xl mx-auto mb-8 sm:mb-12"
           >
-            <h1 className="text-5xl md:text-6xl font-display font-bold text-realm-black mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-realm-black mb-4">
               Professional Utilities
             </h1>
-            <p className="text-xl text-realm-gray mb-8">
+            <p className="text-lg sm:text-xl text-realm-gray mb-6 sm:mb-8">
               Enterprise-grade tools for creators and businesses
             </p>
 
             {/* Search Bar */}
             <div className="relative max-w-2xl mx-auto">
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-realm-gray">
-                <Search className="w-5 h-5" />
+              <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-realm-gray">
+                <Search className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <input
                 ref={searchInputRef}
                 type="text"
-                placeholder="Search tools... (Press / to focus)"
+                placeholder="Search tools..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 rounded-full border border-realm-lightgray bg-white shadow-lg focus:outline-none focus:ring-2 focus:ring-realm-black focus:border-transparent transition-all"
+                className="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-4 text-sm sm:text-base rounded-full border border-realm-lightgray bg-white shadow-lg focus:outline-none focus:ring-2 focus:ring-realm-black focus:border-transparent transition-all"
               />
               {searchQuery && (
                 <button
@@ -319,10 +319,10 @@ const Utilities = () => {
                 animate="visible"
                 className="mb-16"
               >
-                <h2 className="text-2xl font-display font-semibold text-realm-black mb-6">
+                <h2 className="text-xl sm:text-2xl font-display font-semibold text-realm-black mb-4 sm:mb-6">
                   {category}
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {categoryTools.map((tool) => {
                     const Icon = tool.icon;
                     return (
@@ -338,28 +338,28 @@ const Utilities = () => {
                             window.scrollTo({ top: 0, behavior: "smooth" });
                           }}
                           className={cn(
-                            "block p-6 bg-white border border-realm-lightgray rounded-lg",
+                            "block p-4 sm:p-6 bg-white border border-realm-lightgray rounded-lg",
                             "hover:border-[#0F7C4F] hover:shadow-xl transition-all duration-300",
                             "group cursor-pointer"
                           )}
                           aria-label={`Open ${tool.name}`}
                         >
-                          <div className="flex items-start gap-4">
+                          <div className="flex items-start gap-3 sm:gap-4">
                             <div
-                              className="p-3 rounded-lg flex-shrink-0"
+                              className="p-2 sm:p-3 rounded-lg flex-shrink-0"
                               style={{ backgroundColor: `${tool.color}15` }}
                             >
                               <Icon
-                                className="w-6 h-6"
+                                className="w-5 h-5 sm:w-6 sm:h-6"
                                 style={{ color: tool.color }}
                                 aria-hidden="true"
                               />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <h3 className="font-semibold text-realm-black mb-2 group-hover:text-[#0F7C4F] transition-colors">
+                              <h3 className="text-sm sm:text-base font-semibold text-realm-black mb-1 sm:mb-2 group-hover:text-[#0F7C4F] transition-colors">
                                 {tool.name}
                               </h3>
-                              <p className="text-sm text-realm-gray leading-relaxed">
+                              <p className="text-xs sm:text-sm text-realm-gray leading-relaxed">
                                 {tool.description}
                               </p>
                             </div>

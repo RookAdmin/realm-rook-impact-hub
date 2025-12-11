@@ -280,8 +280,8 @@ const UtilityTool = () => {
           })}
         </script>
       </Helmet>
-      <div className="min-h-screen bg-white pt-24 pb-32">
-        <div className="realm-container max-w-5xl">
+      <div className="min-h-screen bg-white pt-20 sm:pt-24 pb-24 sm:pb-32">
+        <div className="realm-container max-w-5xl px-4 sm:px-6">
           {/* Active Tool Badge */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -299,26 +299,26 @@ const UtilityTool = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="mb-12"
+            className="mb-8 sm:mb-12"
           >
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
               <div
-                className="p-3 rounded-lg"
+                className="p-3 rounded-lg w-fit"
                 style={{ backgroundColor: `${tool.color}15` }}
               >
-                <Icon className="w-8 h-8" style={{ color: tool.color }} />
+                <Icon className="w-6 h-6 sm:w-8 sm:h-8" style={{ color: tool.color }} />
               </div>
               <div>
-                <h1 className="text-4xl font-display font-bold text-realm-black">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-realm-black">
                   {tool.name}
                 </h1>
-                <p className="text-lg text-realm-gray mt-2">{tool.description}</p>
+                <p className="text-base sm:text-lg text-realm-gray mt-2">{tool.description}</p>
               </div>
             </div>
           </motion.div>
 
           {/* Tool Interface */}
-          <div className="bg-white border border-realm-lightgray rounded-xl shadow-xl p-8 mb-8">
+          <div className="bg-white border border-realm-lightgray rounded-xl shadow-xl p-4 sm:p-6 md:p-8 mb-8">
             {error ? (
               <div className="text-center py-12">
                 <p className="text-red-600 mb-2 font-semibold">Error: {error}</p>
@@ -364,13 +364,13 @@ const UtilityTool = () => {
           >
             <button
               onClick={() => setIsDocsOpen(!isDocsOpen)}
-              className="w-full flex items-center justify-between p-4 bg-realm-lightgray rounded-lg hover:bg-opacity-80 transition-colors"
+              className="w-full flex items-center justify-between p-3 sm:p-4 bg-realm-lightgray rounded-lg hover:bg-opacity-80 transition-colors"
               aria-expanded={isDocsOpen}
             >
-              <span className="font-semibold text-realm-black">How to Use</span>
+              <span className="text-sm sm:text-base font-semibold text-realm-black">How to Use</span>
               <ChevronDown
                 className={cn(
-                  "w-5 h-5 text-realm-black transition-transform",
+                  "w-4 h-4 sm:w-5 sm:h-5 text-realm-black transition-transform flex-shrink-0",
                   isDocsOpen && "rotate-180"
                 )}
               />
@@ -384,18 +384,18 @@ const UtilityTool = () => {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <div className="p-6 bg-white border border-realm-lightgray rounded-lg mt-2">
-                    <div className="mb-6">
-                      <h3 className="font-semibold text-realm-black mb-3">Steps:</h3>
-                      <ol className="list-decimal list-inside space-y-2 text-realm-gray leading-relaxed">
+                  <div className="p-4 sm:p-6 bg-white border border-realm-lightgray rounded-lg mt-2">
+                    <div className="mb-4 sm:mb-6">
+                      <h3 className="text-sm sm:text-base font-semibold text-realm-black mb-2 sm:mb-3">Steps:</h3>
+                      <ol className="list-decimal list-inside space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-realm-gray leading-relaxed">
                         {tool.documentation.howToUse.map((step, index) => (
                           <li key={index}>{step}</li>
                         ))}
                       </ol>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-realm-black mb-3">Use Cases:</h3>
-                      <ul className="list-disc list-inside space-y-2 text-realm-gray leading-relaxed">
+                      <h3 className="text-sm sm:text-base font-semibold text-realm-black mb-2 sm:mb-3">Use Cases:</h3>
+                      <ul className="list-disc list-inside space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-realm-gray leading-relaxed">
                         {tool.documentation.useCases.map((useCase, index) => (
                           <li key={index}>{useCase}</li>
                         ))}
@@ -415,10 +415,10 @@ const UtilityTool = () => {
               transition={{ delay: 0.3, duration: 0.3 }}
               className="mb-8"
             >
-              <h2 className="text-2xl font-display font-semibold text-realm-black mb-6">
+              <h2 className="text-xl sm:text-2xl font-display font-semibold text-realm-black mb-4 sm:mb-6">
                 You might also like
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                 {relatedTools.map((relatedTool) => {
                   const RelatedIcon = relatedTool.icon;
                   return (
@@ -428,23 +428,23 @@ const UtilityTool = () => {
                       onClick={() => {
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
-                      className="p-4 bg-white border border-realm-lightgray rounded-lg hover:border-[#0F7C4F] hover:shadow-lg transition-all"
+                      className="p-3 sm:p-4 bg-white border border-realm-lightgray rounded-lg hover:border-[#0F7C4F] hover:shadow-lg transition-all"
                     >
-                      <div className="flex items-center gap-3 mb-2">
+                      <div className="flex items-center gap-2 sm:gap-3 mb-2">
                         <div
-                          className="p-2 rounded-lg"
+                          className="p-1.5 sm:p-2 rounded-lg flex-shrink-0"
                           style={{ backgroundColor: `${relatedTool.color}15` }}
                         >
                           <RelatedIcon
-                            className="w-5 h-5"
+                            className="w-4 h-4 sm:w-5 sm:h-5"
                             style={{ color: relatedTool.color }}
                           />
                         </div>
-                        <h3 className="font-semibold text-realm-black text-sm">
+                        <h3 className="text-xs sm:text-sm font-semibold text-realm-black">
                           {relatedTool.name}
                         </h3>
                       </div>
-                      <p className="text-xs text-realm-gray">{relatedTool.description}</p>
+                      <p className="text-xs text-realm-gray leading-relaxed">{relatedTool.description}</p>
                     </Link>
                   );
                 })}

@@ -77,137 +77,102 @@ const Footer = () => {
       name: "Instagram",
       url: "https://www.instagram.com/realmrook?igsh=NzFkM2g3NmZzcHp0",
     },
-    // { name: 'Twitter', url: 'https://twitter.com' },
     { name: "LinkedIn", url: "https://www.linkedin.com/company/realmco/" },
-    // { name: 'Behance', url: 'https://behance.net' },
   ];
 
   return (
     <footer className="bg-realm-black text-white pt-16 pb-8">
       <div className="realm-container">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 lg:gap-6 pb-12">
-          {/* Realm by Rook column */}
-          <div className="lg:col-span-2">
-            <img src={LogoImage} alt="Realm by Rook" className="mb-4 w-32" />
-            <p className="mb-6 text-gray-300 max-w-sm text-sm leading-relaxed">
-              We blend creativity and technology to build experiences that inspire action.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-gray-300 transition-colors text-sm"
-                >
-                  {social.name}
-                </a>
-              ))}
+        {/* Main Footer Content - Optimized Layout */}
+        <div className="pb-12">
+          {/* Single Row: Logo + All Link Sections */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-6 lg:gap-4">
+            {/* Logo Column - Spans 2 columns */}
+            <div className="lg:col-span-2">
+              <img src={LogoImage} alt="Realm by Rook" className="mb-4 w-32" />
+              <p className="mb-6 text-gray-300 max-w-sm text-sm leading-relaxed">
+                We blend creativity and technology to build experiences that inspire action.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-gray-300 transition-colors text-sm"
+                  >
+                    {social.name}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Artificial Intelligence */}
-          <div>
-            <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
-              <Link to={footerLinks[0].titleLink} className="hover:text-white transition-colors">
-                {footerLinks[0].title}
-              </Link>
-            </h3>
-            <ul className="space-y-2.5">
-              {footerLinks[0].links.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.path} 
-                    className="text-sm text-gray-300 hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Artificial Intelligence */}
+            <div>
+              <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
+                <Link to={footerLinks[0].titleLink} className="hover:text-white transition-colors">
+                  {footerLinks[0].title}
+                </Link>
+              </h3>
+              <ul className="space-y-2.5">
+                {footerLinks[0].links.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      to={link.path} 
+                      className="text-sm text-gray-300 hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Digital */}
-          <div>
-            <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
-              <Link to={footerLinks[1].titleLink} className="hover:text-white transition-colors">
-                {footerLinks[1].title}
-              </Link>
-            </h3>
-            <ul className="space-y-2.5">
-              {footerLinks[1].links.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.path} 
-                    className="text-sm text-gray-300 hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Digital */}
+            <div>
+              <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
+                <Link to={footerLinks[1].titleLink} className="hover:text-white transition-colors">
+                  {footerLinks[1].title}
+                </Link>
+              </h3>
+              <ul className="space-y-2.5">
+                {footerLinks[1].links.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      to={link.path} 
+                      className="text-sm text-gray-300 hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Growth */}
-          <div>
-            <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
-              <Link to={footerLinks[2].titleLink} className="hover:text-white transition-colors">
-                {footerLinks[2].title}
-              </Link>
-            </h3>
-            <ul className="space-y-2.5">
-              {footerLinks[2].links.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.path} 
-                    className="text-sm text-gray-300 hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Growth */}
+            <div>
+              <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
+                <Link to={footerLinks[2].titleLink} className="hover:text-white transition-colors">
+                  {footerLinks[2].title}
+                </Link>
+              </h3>
+              <ul className="space-y-2.5">
+                {footerLinks[2].links.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      to={link.path} 
+                      className="text-sm text-gray-300 hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Company */}
-          <div>
-            <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
-              {footerLinks[4].title}
-            </h3>
-            <ul className="space-y-2.5">
-              {footerLinks[4].links.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.path} 
-                    className="text-sm text-gray-300 hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
-              {footerLinks[5].title}
-            </h3>
-            <ul className="space-y-2.5">
-              {footerLinks[5].links.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.path} 
-                    className="text-sm text-gray-300 hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            {/* Discover moved below Resources */}
-            <div className="mt-6">
+            {/* Discover */}
+            <div>
               <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
                 {footerLinks[3].title}
               </h3>
@@ -224,25 +189,63 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-          </div>
 
-          {/* Legal */}
-          <div>
-            <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
-              {footerLinks[6].title}
-            </h3>
-            <ul className="space-y-2.5">
-              {footerLinks[6].links.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    to={link.path} 
-                    className="text-sm text-gray-300 hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* Company */}
+            <div>
+              <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
+                {footerLinks[4].title}
+              </h3>
+              <ul className="space-y-2.5">
+                {footerLinks[4].links.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      to={link.path} 
+                      className="text-sm text-gray-300 hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
+                {footerLinks[5].title}
+              </h3>
+              <ul className="space-y-2.5">
+                {footerLinks[5].links.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      to={link.path} 
+                      className="text-sm text-gray-300 hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Legal */}
+            <div>
+              <h3 className="font-medium mb-4 text-sm text-gray-400 uppercase tracking-wide">
+                {footerLinks[6].title}
+              </h3>
+              <ul className="space-y-2.5">
+                {footerLinks[6].links.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      to={link.path} 
+                      className="text-sm text-gray-300 hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
