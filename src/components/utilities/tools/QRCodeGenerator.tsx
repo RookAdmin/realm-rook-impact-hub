@@ -122,8 +122,9 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
   const generateQRData = (): string => {
     switch (qrType) {
       case "text":
-        return text;
+        return text || " "; // Allow empty text for dynamic preview
       case "url":
+        if (!url) return " ";
         return url.startsWith("http") ? url : `https://${url}`;
       case "email":
         const emailParams = new URLSearchParams();
@@ -267,15 +268,27 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
 
   useEffect(() => {
     const generateQR = async () => {
-      if (!hasRequiredData() || !canvasRef.current || !outputCanvasRef.current) return;
+      if (!canvasRef.current || !outputCanvasRef.current) return;
+
+      // For text and URL types, generate even with empty/partial data for dynamic preview
+      // For other types, still require minimum data
+      const shouldGenerate = qrType === "text" || qrType === "url" || hasRequiredData();
+      if (!shouldGenerate) {
+        setQrDataUrl("");
+        return;
+      }
 
       const qrData = generateQRData();
-      if (!qrData) return;
+      // For text/url, allow empty data to show placeholder
+      if (!qrData && qrType !== "text" && qrType !== "url") return;
 
       try {
+        // For empty text/url, use placeholder
+        const dataToEncode = qrData || (qrType === "text" || qrType === "url" ? " " : qrData);
+        
         // Generate base QR code
         const tempCanvas = document.createElement("canvas");
-        await QRCode.toCanvas(tempCanvas, qrData, {
+        await QRCode.toCanvas(tempCanvas, dataToEncode, {
           width: size,
           margin: margin,
           color: {
@@ -395,108 +408,114 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
       case "text":
         return (
           <div>
-            <Label className="text-sm font-medium text-realm-black mb-2 block">Text Content</Label>
+            <Label className="text-xs font-medium text-realm-black mb-1.5 block">Text Content</Label>
             <Textarea
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Enter any text to encode..."
-              className="min-h-[120px]"
+              className="min-h-[100px] text-sm"
             />
           </div>
         );
       case "url":
         return (
           <div>
-            <Label className="text-sm font-medium text-realm-black mb-2 block">Website URL</Label>
+            <Label className="text-xs font-medium text-realm-black mb-1.5 block">Website URL</Label>
             <Input
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               placeholder="https://example.com"
               type="url"
+              className="text-sm"
             />
           </div>
         );
       case "email":
         return (
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Email Address</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Email Address</Label>
               <Input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="recipient@example.com"
                 type="email"
+                className="text-sm"
               />
             </div>
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Subject (Optional)</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Subject (Optional)</Label>
               <Input
                 value={emailSubject}
                 onChange={(e) => setEmailSubject(e.target.value)}
                 placeholder="Email subject"
+                className="text-sm"
               />
             </div>
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Message (Optional)</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Message (Optional)</Label>
               <Textarea
                 value={emailBody}
                 onChange={(e) => setEmailBody(e.target.value)}
                 placeholder="Email body text"
-                className="min-h-[80px]"
+                className="min-h-[70px] text-sm"
               />
             </div>
           </div>
         );
       case "sms":
         return (
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Phone Number</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Phone Number</Label>
               <Input
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="+1234567890"
                 type="tel"
+                className="text-sm"
               />
             </div>
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Message (Optional)</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Message (Optional)</Label>
               <Textarea
                 value={smsMessage}
                 onChange={(e) => setSmsMessage(e.target.value)}
                 placeholder="SMS message text"
-                className="min-h-[80px]"
+                className="min-h-[70px] text-sm"
               />
             </div>
           </div>
         );
       case "wifi":
         return (
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Network Name (SSID)</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Network Name (SSID)</Label>
               <Input
                 value={wifiSSID}
                 onChange={(e) => setWifiSSID(e.target.value)}
                 placeholder="MyWiFiNetwork"
+                className="text-sm"
               />
             </div>
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Password</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Password</Label>
               <Input
                 value={wifiPassword}
                 onChange={(e) => setWifiPassword(e.target.value)}
                 placeholder="WiFi password"
                 type="password"
+                className="text-sm"
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-2">
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">Security Type</Label>
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">Security Type</Label>
                 <select
                   value={wifiSecurity}
                   onChange={(e) => setWifiSecurity(e.target.value as "WPA" | "WEP" | "nopass")}
-                  className="w-full px-3 py-2 border border-realm-lightgray rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0F7C4F]"
+                  className="w-full px-2.5 py-1.5 border border-realm-lightgray rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0F7C4F] text-xs"
                 >
                   <option value="WPA">WPA/WPA2</option>
                   <option value="WEP">WEP</option>
@@ -504,14 +523,14 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
                 </select>
               </div>
               <div className="flex items-end">
-                <label className="flex items-center gap-2 cursor-pointer">
+                <label className="flex items-center gap-1.5 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={wifiHidden}
                     onChange={(e) => setWifiHidden(e.target.checked)}
-                    className="w-4 h-4"
+                    className="w-3.5 h-3.5"
                   />
-                  <span className="text-sm text-realm-black">Hidden Network</span>
+                  <span className="text-xs text-realm-black">Hidden Network</span>
                 </label>
               </div>
             </div>
@@ -519,101 +538,110 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
         );
       case "vcard":
         return (
-          <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-3">
+            <div className="grid grid-cols-2 gap-2">
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">First Name</Label>
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">First Name</Label>
                 <Input
                   value={vcardFirstName}
                   onChange={(e) => setVcardFirstName(e.target.value)}
                   placeholder="John"
+                  className="text-sm"
                 />
               </div>
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">Last Name</Label>
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">Last Name</Label>
                 <Input
                   value={vcardLastName}
                   onChange={(e) => setVcardLastName(e.target.value)}
                   placeholder="Doe"
+                  className="text-sm"
                 />
               </div>
             </div>
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Organization (Optional)</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Organization (Optional)</Label>
               <Input
                 value={vcardOrg}
                 onChange={(e) => setVcardOrg(e.target.value)}
                 placeholder="Company Name"
+                className="text-sm"
               />
             </div>
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Title (Optional)</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Title (Optional)</Label>
               <Input
                 value={vcardTitle}
                 onChange={(e) => setVcardTitle(e.target.value)}
                 placeholder="Job Title"
+                className="text-sm"
               />
             </div>
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Phone (Optional)</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Phone (Optional)</Label>
               <Input
                 value={vcardPhone}
                 onChange={(e) => setVcardPhone(e.target.value)}
                 placeholder="+1234567890"
                 type="tel"
+                className="text-sm"
               />
             </div>
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Email (Optional)</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Email (Optional)</Label>
               <Input
                 value={vcardEmail}
                 onChange={(e) => setVcardEmail(e.target.value)}
                 placeholder="email@example.com"
                 type="email"
+                className="text-sm"
               />
             </div>
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Website (Optional)</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Website (Optional)</Label>
               <Input
                 value={vcardWebsite}
                 onChange={(e) => setVcardWebsite(e.target.value)}
                 placeholder="https://example.com"
                 type="url"
+                className="text-sm"
               />
             </div>
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Address (Optional)</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Address (Optional)</Label>
               <Textarea
                 value={vcardAddress}
                 onChange={(e) => setVcardAddress(e.target.value)}
                 placeholder="Street address"
-                className="min-h-[60px]"
+                className="min-h-[50px] text-sm"
               />
             </div>
           </div>
         );
       case "location":
         return (
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="space-y-3">
+            <div className="grid grid-cols-2 gap-2">
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">Latitude</Label>
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">Latitude</Label>
                 <Input
                   value={latitude}
                   onChange={(e) => setLatitude(e.target.value)}
                   placeholder="40.7128"
                   type="number"
                   step="any"
+                  className="text-sm"
                 />
               </div>
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">Longitude</Label>
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">Longitude</Label>
                 <Input
                   value={longitude}
                   onChange={(e) => setLongitude(e.target.value)}
                   placeholder="-74.0060"
                   type="number"
                   step="any"
+                  className="text-sm"
                 />
               </div>
             </div>
@@ -621,80 +649,86 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
         );
       case "event":
         return (
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Event Title</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Event Title</Label>
               <Input
                 value={eventTitle}
                 onChange={(e) => setEventTitle(e.target.value)}
                 placeholder="Meeting Title"
+                className="text-sm"
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-2">
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">Start Date & Time</Label>
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">Start Date & Time</Label>
                 <Input
                   value={eventStart}
                   onChange={(e) => setEventStart(e.target.value)}
                   type="datetime-local"
+                  className="text-sm"
                 />
               </div>
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">End Date & Time</Label>
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">End Date & Time</Label>
                 <Input
                   value={eventEnd}
                   onChange={(e) => setEventEnd(e.target.value)}
                   type="datetime-local"
+                  className="text-sm"
                 />
               </div>
             </div>
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Location (Optional)</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Location (Optional)</Label>
               <Input
                 value={eventLocation}
                 onChange={(e) => setEventLocation(e.target.value)}
                 placeholder="Event location"
+                className="text-sm"
               />
             </div>
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Description (Optional)</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Description (Optional)</Label>
               <Textarea
                 value={eventDescription}
                 onChange={(e) => setEventDescription(e.target.value)}
                 placeholder="Event description"
-                className="min-h-[80px]"
+                className="min-h-[70px] text-sm"
               />
             </div>
           </div>
         );
       case "pay":
         return (
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div>
-              <Label className="text-sm font-medium text-realm-black mb-2 block">Merchant/Payment ID</Label>
+              <Label className="text-xs font-medium text-realm-black mb-1.5 block">Merchant/Payment ID</Label>
               <Input
                 value={payMerchant}
                 onChange={(e) => setPayMerchant(e.target.value)}
                 placeholder="merchant@upi or payment ID"
+                className="text-sm"
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-2">
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">Amount</Label>
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">Amount</Label>
                 <Input
                   value={payAmount}
                   onChange={(e) => setPayAmount(e.target.value)}
                   placeholder="100.00"
                   type="number"
                   step="0.01"
+                  className="text-sm"
                 />
               </div>
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">Currency</Label>
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">Currency</Label>
                 <select
                   value={payCurrency}
                   onChange={(e) => setPayCurrency(e.target.value)}
-                  className="w-full px-3 py-2 border border-realm-lightgray rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0F7C4F]"
+                  className="w-full px-2.5 py-1.5 border border-realm-lightgray rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0F7C4F] text-xs"
                 >
                   <option value="USD">USD</option>
                   <option value="EUR">EUR</option>
@@ -724,99 +758,103 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
   ];
 
   return (
-    <div className="space-y-4 sm:space-y-6 px-2 sm:px-0">
-      {/* QR Type Selector */}
-      <div>
-        <Label className="text-sm sm:text-base font-medium text-realm-black mb-2 sm:mb-3 block">QR Code Type</Label>
-        <div className="relative">
-          <select
-            value={qrType}
-            onChange={(e) => setQrType(e.target.value as QRType)}
-            className="w-full appearance-none bg-white border-2 border-realm-lightgray rounded-full px-4 sm:px-6 py-3 sm:py-3.5 text-sm sm:text-base text-realm-black font-medium focus:outline-none focus:border-[#0F7C4F] focus:ring-2 focus:ring-[#0F7C4F]/20 transition-all cursor-pointer hover:border-realm-gray"
-          >
-            {qrTypeOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-          <div className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 pointer-events-none">
-            <ChevronDown className="w-5 h-5 text-realm-gray" />
-          </div>
-        </div>
-      </div>
-
-      {/* Input Fields */}
-      <div className="bg-white rounded-lg border border-realm-lightgray p-3 sm:p-4 md:p-6">
-        {renderInputFields()}
-      </div>
-
-      {/* QR Code Display */}
-      {hasRequiredData() && (
-        <div className="bg-white rounded-lg border border-realm-lightgray p-3 sm:p-4 md:p-6 lg:p-8">
-          <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8">
-            {/* QR Code Preview */}
-            <div className="flex-1 flex flex-col items-center justify-center w-full">
-              <div className="bg-realm-lightgray p-3 sm:p-4 md:p-6 rounded-lg w-full max-w-full flex items-center justify-center">
-                <canvas ref={canvasRef} className="hidden" />
-                <canvas 
-                  ref={outputCanvasRef} 
-                  className="max-w-full h-auto w-full" 
-                  style={{ display: qrDataUrl ? "block" : "none", maxWidth: "100%", height: "auto" }} 
-                />
-                {!qrDataUrl && (
-                  <div className="text-center text-realm-gray py-6 sm:py-8">
-                    <QrCode className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-2 opacity-50" />
-                    <p className="text-xs sm:text-sm">Enter data to generate QR code</p>
-                  </div>
-                )}
+    <div className="px-2 sm:px-0">
+      {/* Main Content: Left (Type + Content) and Right (QR + Customization) */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+        {/* Left Side: QR Type Selector + Input Fields */}
+        <div className="bg-white rounded-lg border border-realm-lightgray p-3 sm:p-4 md:p-5 space-y-4">
+          {/* QR Type Selector */}
+          <div>
+            <Label className="text-xs sm:text-sm font-medium text-realm-black mb-2 block">QR Code Type</Label>
+            <div className="relative">
+              <select
+                value={qrType}
+                onChange={(e) => setQrType(e.target.value as QRType)}
+                className="w-full appearance-none bg-white border-2 border-realm-lightgray rounded-full px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm text-realm-black font-medium focus:outline-none focus:border-[#0F7C4F] focus:ring-2 focus:ring-[#0F7C4F]/20 transition-all cursor-pointer hover:border-realm-gray"
+              >
+                {qrTypeOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+              <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                <ChevronDown className="w-4 h-4 text-realm-gray" />
               </div>
             </div>
+          </div>
 
-            {/* Customization Options */}
-            <div className="flex-1 space-y-4 sm:space-y-6">
+          {/* Input Fields */}
+          <div className="space-y-3">
+            {renderInputFields()}
+          </div>
+        </div>
+
+        {/* Right Side: QR Code Preview + Customization */}
+        <div className="bg-white rounded-lg border border-realm-lightgray p-3 sm:p-4 md:p-5 space-y-3 sm:space-4">
+          {/* QR Code Preview */}
+          <div className="flex flex-col items-center justify-center">
+            <Label className="text-xs sm:text-sm font-medium text-realm-black mb-2 block">QR Code Preview</Label>
+            <div className="bg-realm-lightgray p-3 sm:p-4 rounded-lg w-full max-w-full flex items-center justify-center min-h-[180px] sm:min-h-[200px]">
+              <canvas ref={canvasRef} className="hidden" />
+              <canvas 
+                ref={outputCanvasRef} 
+                className="max-w-full h-auto w-full" 
+                style={{ display: qrDataUrl ? "block" : "none", maxWidth: "100%", height: "auto" }} 
+              />
+              {!qrDataUrl && (
+                <div className="text-center text-realm-gray py-4 sm:py-6">
+                  <QrCode className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 opacity-50" />
+                  <p className="text-xs">Enter data to generate QR code</p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Customization Options */}
+          <div className="space-y-3">
               {/* Theme Selector */}
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block flex items-center gap-2">
-                  <Palette className="w-4 h-4" />
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block flex items-center gap-1.5">
+                  <Palette className="w-3.5 h-3.5" />
                   Theme
                 </Label>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-3 gap-1.5">
                   <button
                     onClick={() => setTheme("light")}
-                    className={`flex items-center justify-center gap-2 p-2 sm:p-3 rounded-lg border-2 transition-all ${
+                    className={`flex items-center justify-center gap-1 p-1.5 sm:p-2 rounded-lg border-2 transition-all ${
                       theme === "light"
                         ? "border-[#0F7C4F] bg-[#0F7C4F]/10"
                         : "border-realm-lightgray hover:border-realm-gray"
                     }`}
                   >
-                    <Sun className={`w-4 h-4 ${theme === "light" ? "text-[#0F7C4F]" : "text-realm-gray"}`} />
+                    <Sun className={`w-3.5 h-3.5 ${theme === "light" ? "text-[#0F7C4F]" : "text-realm-gray"}`} />
                     <span className={`text-xs font-medium ${theme === "light" ? "text-[#0F7C4F]" : "text-realm-gray"}`}>
                       Light
                     </span>
                   </button>
                   <button
                     onClick={() => setTheme("dark")}
-                    className={`flex items-center justify-center gap-2 p-2 sm:p-3 rounded-lg border-2 transition-all ${
+                    className={`flex items-center justify-center gap-1 p-1.5 sm:p-2 rounded-lg border-2 transition-all ${
                       theme === "dark"
                         ? "border-[#0F7C4F] bg-[#0F7C4F]/10"
                         : "border-realm-lightgray hover:border-realm-gray"
                     }`}
                   >
-                    <Moon className={`w-4 h-4 ${theme === "dark" ? "text-[#0F7C4F]" : "text-realm-gray"}`} />
+                    <Moon className={`w-3.5 h-3.5 ${theme === "dark" ? "text-[#0F7C4F]" : "text-realm-gray"}`} />
                     <span className={`text-xs font-medium ${theme === "dark" ? "text-[#0F7C4F]" : "text-realm-gray"}`}>
                       Dark
                     </span>
                   </button>
                   <button
                     onClick={() => setTheme("custom")}
-                    className={`flex items-center justify-center gap-2 p-2 sm:p-3 rounded-lg border-2 transition-all ${
+                    className={`flex items-center justify-center gap-1 p-1.5 sm:p-2 rounded-lg border-2 transition-all ${
                       theme === "custom"
                         ? "border-[#0F7C4F] bg-[#0F7C4F]/10"
                         : "border-realm-lightgray hover:border-realm-gray"
                     }`}
                   >
-                    <Palette className={`w-4 h-4 ${theme === "custom" ? "text-[#0F7C4F]" : "text-realm-gray"}`} />
+                    <Palette className={`w-3.5 h-3.5 ${theme === "custom" ? "text-[#0F7C4F]" : "text-realm-gray"}`} />
                     <span className={`text-xs font-medium ${theme === "custom" ? "text-[#0F7C4F]" : "text-realm-gray"}`}>
                       Custom
                     </span>
@@ -826,13 +864,13 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
 
               {/* Dot Shape Selector */}
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">Dot Shape</Label>
-                <div className="grid grid-cols-3 gap-2">
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">Dot Shape</Label>
+                <div className="grid grid-cols-3 gap-1.5">
                   {(["square", "circle", "rounded"] as DotShape[]).map((shape) => (
                     <button
                       key={shape}
                       onClick={() => setDotShape(shape)}
-                      className={`p-2 sm:p-3 rounded-lg border-2 transition-all capitalize ${
+                      className={`p-1.5 sm:p-2 rounded-lg border-2 transition-all capitalize text-xs ${
                         dotShape === shape
                           ? "border-[#0F7C4F] bg-[#0F7C4F]/10 text-[#0F7C4F]"
                           : "border-realm-lightgray hover:border-realm-gray text-realm-gray"
@@ -846,7 +884,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
 
               {/* Size */}
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">
                   Size: {size}px
                 </Label>
                 <input
@@ -858,20 +896,20 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
                   onChange={(e) => setSize(Number(e.target.value))}
                   className="w-full"
                 />
-                <div className="flex justify-between text-xs text-realm-gray mt-1">
-                  <span>200px</span>
-                  <span>600px</span>
-                  <span>1000px</span>
+                <div className="flex justify-between text-xs text-realm-gray mt-0.5">
+                  <span>200</span>
+                  <span>600</span>
+                  <span>1000</span>
                 </div>
               </div>
 
               {/* Error Correction Level */}
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">Error Correction Level</Label>
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">Error Correction</Label>
                 <select
                   value={errorCorrectionLevel}
                   onChange={(e) => setErrorCorrectionLevel(e.target.value as "L" | "M" | "Q" | "H")}
-                  className="w-full px-3 py-2 border border-realm-lightgray rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0F7C4F] text-sm"
+                  className="w-full px-2.5 py-1.5 border border-realm-lightgray rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0F7C4F] text-xs"
                 >
                   <option value="L">L - Low (~7%)</option>
                   <option value="M">M - Medium (~15%)</option>
@@ -882,7 +920,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
 
               {/* Margin */}
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">Margin: {margin}</Label>
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">Margin: {margin}</Label>
                 <input
                   type="range"
                   min="0"
@@ -896,10 +934,10 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
 
               {/* Custom Colors (only show if custom theme) */}
               {theme === "custom" && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <Label className="text-sm font-medium text-realm-black mb-2 block">Dark Color</Label>
-                    <div className="flex gap-2">
+                    <Label className="text-xs font-medium text-realm-black mb-1.5 block">Dark Color</Label>
+                    <div className="flex gap-1.5">
                       <input
                         type="color"
                         value={darkColor}
@@ -907,7 +945,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
                           setDarkColor(e.target.value);
                           setTheme("custom");
                         }}
-                        className="w-10 sm:w-12 h-9 sm:h-10 rounded border border-realm-lightgray cursor-pointer flex-shrink-0"
+                        className="w-8 h-8 rounded border border-realm-lightgray cursor-pointer flex-shrink-0"
                       />
                       <Input
                         value={darkColor}
@@ -916,13 +954,13 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
                           setTheme("custom");
                         }}
                         placeholder="#000000"
-                        className="flex-1 text-sm"
+                        className="flex-1 text-xs"
                       />
                     </div>
                   </div>
                   <div>
-                    <Label className="text-sm font-medium text-realm-black mb-2 block">Light Color</Label>
-                    <div className="flex gap-2">
+                    <Label className="text-xs font-medium text-realm-black mb-1.5 block">Light Color</Label>
+                    <div className="flex gap-1.5">
                       <input
                         type="color"
                         value={lightColor}
@@ -930,7 +968,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
                           setLightColor(e.target.value);
                           setTheme("custom");
                         }}
-                        className="w-10 sm:w-12 h-9 sm:h-10 rounded border border-realm-lightgray cursor-pointer flex-shrink-0"
+                        className="w-8 h-8 rounded border border-realm-lightgray cursor-pointer flex-shrink-0"
                       />
                       <Input
                         value={lightColor}
@@ -939,7 +977,7 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
                           setTheme("custom");
                         }}
                         placeholder="#FFFFFF"
-                        className="flex-1 text-sm"
+                        className="flex-1 text-xs"
                       />
                     </div>
                   </div>
@@ -948,15 +986,15 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
 
               {/* Logo Upload */}
               <div>
-                <Label className="text-sm font-medium text-realm-black mb-2 block">Center Logo (Optional)</Label>
+                <Label className="text-xs font-medium text-realm-black mb-1.5 block">Center Logo (Optional)</Label>
                 {!logoUrl ? (
-                  <label className="flex flex-col items-center justify-center w-full h-24 sm:h-32 border-2 border-dashed border-realm-lightgray rounded-lg cursor-pointer hover:border-[#0F7C4F] transition-colors">
-                    <div className="flex flex-col items-center justify-center pt-2">
-                      <Upload className="w-6 h-6 text-realm-gray mb-2" />
-                      <p className="text-xs sm:text-sm text-realm-gray text-center px-2">
-                        Click to upload logo
+                  <label className="flex flex-col items-center justify-center w-full h-20 sm:h-24 border-2 border-dashed border-realm-lightgray rounded-lg cursor-pointer hover:border-[#0F7C4F] transition-colors">
+                    <div className="flex flex-col items-center justify-center pt-1.5">
+                      <Upload className="w-4 h-4 text-realm-gray mb-1" />
+                      <p className="text-xs text-realm-gray text-center px-2">
+                        Click to upload
                       </p>
-                      <p className="text-xs text-realm-gray mt-1">Max 200KB</p>
+                      <p className="text-xs text-realm-gray mt-0.5">Max 200KB</p>
                     </div>
                     <input
                       type="file"
@@ -967,14 +1005,14 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
                   </label>
                 ) : (
                   <div className="relative">
-                    <img src={logoUrl} alt="Logo" className="w-full h-24 sm:h-32 object-contain rounded-lg border border-realm-lightgray" />
+                    <img src={logoUrl} alt="Logo" className="w-full h-20 sm:h-24 object-contain rounded-lg border border-realm-lightgray" />
                     <button
                       onClick={removeLogo}
-                      className="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
+                      className="absolute top-1.5 right-1.5 p-0.5 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
                     >
-                      <X className="w-4 h-4" />
+                      <X className="w-3 h-3" />
                     </button>
-                    <div className="mt-2">
+                    <div className="mt-1.5">
                       <Label className="text-xs text-realm-gray mb-1 block">Logo Size: {logoSize}px</Label>
                       <input
                         type="range"
@@ -989,23 +1027,23 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ onCopy }) => {
                   </div>
                 )}
               </div>
-            </div>
-          </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row justify-end gap-2 mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-realm-lightgray">
-            <Button 
-              onClick={handleCopy} 
-              variant="outline" 
-              className="rounded-full w-full sm:w-auto"
-              disabled={!qrDataUrl}
-            >
-              <Copy className="w-4 h-4 mr-2" />
-              Copy Image
-            </Button>
-          </div>
+              {/* Action Buttons */}
+              <div className="flex justify-end gap-2 pt-2 border-t border-realm-lightgray">
+                <Button 
+                  onClick={handleCopy} 
+                  variant="outline" 
+                  size="sm"
+                  className="rounded-full text-xs"
+                  disabled={!qrDataUrl}
+                >
+                  <Copy className="w-3.5 h-3.5 mr-1.5" />
+                  Copy
+                </Button>
+              </div>
+            </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };
